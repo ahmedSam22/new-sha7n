@@ -1,0 +1,115 @@
+<div class="container customContainer">
+    <section>
+        <div class="topShip text-center">
+            <div class="topShipContent">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <h1>Shipping Rates</h1>
+                        <p> We Help You Calculate The Approximate Shipping Cost To Your Country !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner">
+        Fill in the required data and then <b>15%</b> of the total amount of seriousness will be paid upon receipt <br> Payment of your shipment will be completed before receiving your shipment
+    </section>
+    <section class="shippingfee">
+
+        <div class="row my-3 ">
+            <div class="col-md-12 col-sm-12">
+                <h5> Shipment Address </h5>
+            </div>
+        </div>
+        <div class="shippingform">
+            <form>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 my-3">
+                        <div class="form-group input-group-lg col-md-12">
+                            <label for="exampleFormControlSelect1">Parcel From : </label>
+                            <select class="form-control" id="exampleFormControlSelect1" (change)="GetCity($event,'from')">
+                    <option>-</option>
+                    <option>China</option>
+                    <option>Saudi</option>
+                    </select>
+                        </div>
+                        <div class="form-group input-group-lg col-md-12">
+                            <select class="form-control" id="exampleFormControlSelect3">
+                              <option>-</option>
+                              <option *ngFor="let city of fromCities">{{city.name}}</option>
+
+                      </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-sm-12 my-3">
+
+                        <div class="form-group input-group-lg col-md-12">
+                            <label for="exampleFormControlSelect2">To : </label>
+                            <select class="form-control" id="exampleFormControlSelect2" (change)="GetCity($event,'to')">
+                    <option>-</option>
+                    <option>China</option>
+                    <option>Saudi</option>
+                    </select>
+                        </div>
+                        <div class="form-group input-group-lg col-md-12">
+                            <select class="form-control" id="exampleFormControlSelect4">
+                    <option>-</option>
+                    <option *ngFor="let city of toCities">{{city.name}}</option>
+
+                    </select>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="mb-4"> Shipment Information </h5>
+                <div class="form-row">
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label for="inputState">Type Of Shipping : </label>
+                        <select id="inputState" class="form-control">
+                      <option selected>Type Of Shipping </option>
+                      <option>...</option>
+                    </select>
+                    </div>
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label for="inputState">Type Of Shippment : </label>
+                        <select id="inputState" class="form-control">
+                    <option selected>Type Of Shippment</option>
+                    <option>...</option>
+                  </select>
+                    </div>
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label for="inputState">Weight : </label>
+                        <select id="inputState" class="form-control">
+                      <option selected>Weight</option>
+                      <option>...</option>
+                    </select>
+                    </div>
+                </div>
+
+                <h5 class="my-4"> Shipment Dimensions (Optional) </h5>
+                <div class="form-row">
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label> Length :</label>
+                        <input type="number" class="form-control" placeholder="Length  ">
+                    </div>
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label> Width : </label>
+                        <input type="number" class="form-control" placeholder=" Width ">
+                    </div>
+                    <div class="form-group input-group-lg  col-md-4">
+                        <label> Height : </label>
+                        <input type="number" class="form-control" placeholder="Height ">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-primary"> Calculate </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </section>
+</div>

@@ -1,0 +1,63 @@
+.importation { 
+    margin:340px auto 20px auto;
+    min-height: 200px;
+}
+ 
+.topimportation {
+    background-image: url('../../../../assets/images/service2.png') ;
+    background-size: contain;
+    width: 100%;
+    height: 300px;
+    resize: both;
+    position: absolute;
+    top:87px; 
+    left: 0;
+    height: 300px;
+    min-width: 100%;
+      
+  }
+  .topimportation .topimportationContent{
+      width:50%;
+      margin:90px auto;
+  }
+  
+  .topimportation h1{ 
+    font-weight: 500; 
+     color :white;
+     margin: 30px 0px;
+  }
+  
+  .topimportation p{ 
+    color : white;
+  }
+
+
+ /**************************************************************** */
+
+  .importation p {
+   line-height: 35px;
+  }
+  .importation h5 {
+   font-weight: 700;
+   font-size: 25px;
+  }
+ 
+  .importation ul li {
+    line-height: 40px;
+  }
+
+  .importation .emails , .importation .address li:last-child { 
+   color: blue;
+  }
+  .importation .address li:last-child {  
+      text-decoration: underline ;
+  }
+   
+ /**************************************************************** */
+
+ @media only screen and (max-width:996px) { 
+  .importation { 
+      margin:200px auto;
+    
+  }
+}

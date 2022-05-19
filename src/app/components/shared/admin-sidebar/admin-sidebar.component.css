@@ -1,0 +1,101 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500";
+
+/* Toggle Styles */
+
+
+/* Sidebar Styles */
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+#viewport {
+    padding-left: 250px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    direction: ltr;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#content {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+}
+
+.active-link {
+    background-color: #fff !important;
+    padding: 0.3em 1em;
+    color: black;
+}
+
+#sidebar {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: #0F4F56;
+}
+
+#sidebar header {
+    background-color: #263238;
+    font-size: 20px;
+    line-height: 52px;
+    text-align: center;
+}
+
+#sidebar header a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+#sidebar header a:hover {
+    color: #fff;
+}
+
+#sidebar .nav a {
+    background: none;
+    display: flex;
+    color: #000;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    white-space: nowrap;
+}
+
+#sidebar .nav a img {
+    margin-left: 0.5em;
+}
+
+#sidebar .nav li {
+    margin-bottom: 1.5em;
+}
+
+.logoImage {
+    text-align: center;
+    padding: 2.4em;
+}
+
+span {
+    color: #fff;
+}
+
+.active-link span {
+    color: black;
+}

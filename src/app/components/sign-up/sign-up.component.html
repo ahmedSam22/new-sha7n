@@ -1,0 +1,111 @@
+<!-- <section class="container-fluid">
+    <div class="row" style="min-height:900px">
+        <div class="col-md-6 col-sm-12">
+            <div class="leftSide">
+                <a (click)="back()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                  </svg> Back To Home
+                </a>
+                <div class="text-center" style="position: absolute; left:35%">
+                    <h3 class="text-center"> Create An Account </h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12"> </div>
+                </div>
+                <form (ngSubmit)="goToVerification()">
+                    <div class="form-group col-8 ">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputName1" placeholder="Name" ngModel>
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputName1">Phone</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputPhone1" placeholder="Phone" ngModel>
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputEmail1">Email </label>
+                        <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" ngModel>
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" ngModel>
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputPassword2">Confirm Password</label>
+                        <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Confirm Password" ngModel>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" ngModel>
+                        <label class="form-check-label" for="exampleCheck1">I Agree To <span> Term Of Use And Privacy  </span>  </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary col-8">Sign Up </button>
+                    <p> You Have an Account ? <a href="#"> Sign In </a> </p>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="  col-md-6 col-sm-12 ">
+            <div class=" rightSide ">
+                <div class="fullImage "> </div>
+            </div>
+        </div>
+
+    </div>
+</section> -->
+<section class="container-fluid ">
+    <div class="row" style="min-height:670px">
+        <div class="col-md-6 col-sm-12">
+            <div class="leftSide">
+                <a (click)="back()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                  </svg> Back To Home
+                </a>
+                <div class="text-center" style="position: absolute; left:45%">
+                    <h3 class="text-center"> Create An Account </h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12"> </div>
+                </div>
+                <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
+                    <div class="form-group col-8">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputName1"  placeholder="Name" [formControlName]="'name'">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputPhone1">Phone</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputPhone1"  placeholder="Phone" [formControlName]="'phone'">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputEmail1">Email </label>
+                        <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" [formControlName]="'email'">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" [formControlName]="'password'">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleInputPassword2">Confirm Password</label>
+                        <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Confirm Password" [formControlName]="'confirm_password'">
+                    </div>
+                    <div class="form-check check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">I Agree To <span > Terms Of Use and Privacy  </span>  </label>
+                    </div>
+                    <!-- [routerLink]="['/root/verify-code']" -->
+                    <button type="submit" class="btn btn-primary col-8">Sign In </button>
+                    <p>You have an account ?  <a  [routerLink]="['/root/login']"> Sign In </a> </p>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="  col-md-6 col-sm-12 ">
+            <div class=" rightSide ">
+                <div class="fullImage "> </div>
+            </div>
+        </div>
+
+    </div>
+</section>

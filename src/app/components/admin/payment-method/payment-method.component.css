@@ -1,0 +1,26 @@
+.CustomCLass {
+    display: flex;
+    justify-content: end;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #fff;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: green;
+}
+
+table {
+    text-align: center;
+}
+
+::ng-deep .swal2-styled.swal2-confirm {
+    background-color: green;
+}
+
+::ng-deep .swal2-cancel.swal2-styled {
+    background-color: #fff;
+    color: red;
+    border: 1px solid red;
+}

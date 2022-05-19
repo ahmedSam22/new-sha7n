@@ -1,0 +1,9 @@
+.wrapBalance {
+    background: aliceblue;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

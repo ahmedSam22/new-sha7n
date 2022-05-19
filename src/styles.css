@@ -1,0 +1,28 @@
+@import '~ngx-toastr/toastr';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button.swal2-styled.swal2-confirm {
+    background-color: #32B457;
+}
+
+h2.swal2-title {
+    font-weight: 500;
+}

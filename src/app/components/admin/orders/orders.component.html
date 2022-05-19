@@ -1,0 +1,180 @@
+  
+    <section class="orders">
+     <div class="container">  
+      <div class="row"> 
+          <div class="col-md-12 col-sm-12">
+              <div class=" text-center orderlinks my-3"> 
+                <a href="" (click)="onOpenOrder()"> Open Orders </a> 
+                <a href=""(click)="onCloseOrder()"> Close Orders </a> 
+              </div>
+              
+          </div>  
+        </div>
+        <!-- <div class="openorders" *ngIf="openOrder&&!closeOrder">  
+         <div class="ordercard"> 
+          <div class="row justify-content-around "> 
+                <div class="col-md-3 col-sm-6" > 
+                    <p>Order Number </p> 
+                    <span> 33434545345432 </span>
+                  </div>
+                  <div class="col-md-3 col-sm-6" > 
+                      <p>Order Date </p> 
+                      <span> 25 Nov.2022 </span>
+                  </div>
+                  <div class="col-md-3 col-sm-6" > 
+                      <p>Shipping Charges </p> 
+                      <span> 4,800 SR </span>
+                  </div>
+                  <div class="col-md-3 col-sm-6" > 
+                    <button class="float-right btn btn-primary my-4"> More Details 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                          </svg>
+                    </button> 
+                </div>
+                
+            </div>  
+           
+            <div class="col-md-12 col-sm-12">
+                  <mat-stepper
+                    class="example-stepper"
+                    [orientation]="(stepperOrientation | async)!">
+                    <mat-step [stepControl]="firstFormGroup" label="Placed Order"> </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" label="Receiving From China Store"> </mat-step>
+                    <mat-step [stepControl]="thirdFormGroup" label="Shipping At China Airport"> </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" label="Receiving From Saudi Store "> </mat-step>
+                    <mat-step [stepControl]="thirdFormGroup" label="Shipping At Saudi Airport"> </mat-step>
+                    <mat-step> <ng-template matStepLabel>  Receive Shipment </ng-template> </mat-step>
+                   
+                </mat-stepper>
+            </div> 
+            
+         </div> 
+         <div class="ordercard"> 
+            <div class="row justify-content-around "> 
+                  <div class="col-md-3 col-sm-6" > 
+                      <p>Order Number </p> 
+                      <span> 33434545345432 </span>
+                    </div>
+                    <div class="col-md-3 col-sm-6" > 
+                        <p>Order Date </p> 
+                        <span> 25 Nov.2022 </span>
+                    </div>
+                    <div class="col-md-3 col-sm-6" > 
+                        <p>Shipping Charges </p> 
+                        <span> 4,800 SR </span>
+                    </div>
+                    <div class="col-md-3 col-sm-6" > 
+                      <button class="float-right btn btn-primary my-4"> More Details 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                              <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                      </button> 
+                  </div>
+                  
+              </div>  
+             
+              <div class="col-md-12 col-sm-12">
+                    <mat-stepper
+                      class="example-stepper"
+                      [orientation]="(stepperOrientation | async)!">
+                      <mat-step [stepControl]="firstFormGroup" label="Placed Order"> </mat-step>
+                      <mat-step [stepControl]="secondFormGroup" label="Receiving From China Store"> </mat-step>
+                      <mat-step [stepControl]="thirdFormGroup" label="Shipping At China Airport"> </mat-step>
+                      <mat-step [stepControl]="secondFormGroup" label="Receiving From Saudi Store "> </mat-step>
+                      <mat-step [stepControl]="thirdFormGroup" label="Shipping At Saudi Airport"> </mat-step>
+                      <mat-step> <ng-template matStepLabel>  Receive Shipment </ng-template> </mat-step>
+                     
+                  </mat-stepper>
+              </div> 
+              
+         </div> 
+        </div> -->
+        <div class="closeorders">
+        <!-- <div class="closeorders" *ngIf="closeOrder&&!openOrder"> -->
+            <div class="ordercard"> 
+                <div class="row justify-content-around "> 
+                      <div class="col-md-3 col-sm-6" > 
+                          <p>Order Number </p> 
+                          <span> 33434545345432 </span>
+                        </div>
+                        <div class="col-md-3 col-sm-6" > 
+                            <p>Order Date </p> 
+                            <span> 25 Nov.2022 </span>
+                        </div>
+                        <div class="col-md-3 col-sm-6" > 
+                            <p>Shipping Charges </p> 
+                            <span> 4,800 SR </span>
+                        </div>
+                        <div class="col-md-3 col-sm-6" > 
+                          <button (click)=" details()" class="float-right btn btn-primary my-4"> More Details 
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                  <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                          </button> 
+                      </div>
+                      
+                  </div>  
+                 
+                  <div class="col-md-12 col-sm-12">
+                        <mat-stepper
+                          class="example-stepper"
+                          [orientation]="(stepperOrientation | async)!">
+                          <mat-step [stepControl]="firstFormGroup" label="Placed Order"> </mat-step>
+                          <mat-step [stepControl]="secondFormGroup" label="Receiving From China Store"> </mat-step>
+                          <mat-step [stepControl]="thirdFormGroup" label="Shipping At China Airport"> </mat-step>
+                          <mat-step [stepControl]="secondFormGroup" label="Receiving From Saudi Store "> </mat-step>
+                          <mat-step [stepControl]="thirdFormGroup" label="Shipping At Saudi Airport"> </mat-step>
+                          <mat-step> <ng-template matStepLabel>  Receive Shipment </ng-template> </mat-step>
+                         
+                      </mat-stepper>
+                  </div> 
+                 <div  *ngIf="moreDetails" > 
+                  <div class="row"> 
+                      <div class="col-md-3 col-sm-12"> 
+                        <h5 class="my-5">Shipping Rate </h5> 
+                       
+                        <dl> 
+                            <dt>Shipment Address </dt>
+
+                            <dd>Parcel From : China </dd>
+                            <dd>To : Saudi Arabia </dd>
+                        </dl>
+                        <dl> 
+                            <dt>Shipment Information </dt>
+
+                            <dd> Type of Shipping : Aerial </dd>
+                            <dd> Type of Shipment : Battery  </dd>
+                            <dd >Weight : 300 KG </dd>
+                        </dl>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <h5 class="my-5">Shipping Details </h5> 
+                        <ul>
+                            <li>Aerial Charging Type </li>
+                            <li>Actial Weight 300KG </li>
+                            <li>5-12 Days Approximate Shipping Time </li>
+                            <li>Extra Charge of Total Shipping 5% (fuel fee) </li>
+                            <li>In Case The Goods Are Not Standardized Made In China . The Amount Of Sar 500 Will  </li>
+                        </ul>
+                     </div>
+                      <div class="col-md-4 col-sm-12"> 
+                        <h5 class="my-5">Shipping Charges </h5> 
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed urna neque, rutrum quis dolor ut, imperdiet eleifend justo.
+                            Vestibulum orci mauris, luctus ut nisi interdum, faucibus fermentum arcu.
+                            Donec ut justo dictum, rutrum risus laoreet, consequat metus. 
+                            Sed iaculis nisl et mauris mollis placerat. Etiam dictum,
+                            metus volutpat egestas pellentesque, ligula lectus malesuada justo,
+                            quis maximus quam dui ut magna. Fusce eleifend eros hendrerit elit dictum,
+                            id elementum urna pulvinar.
+                         </p>
+                      </div>
+                  </div>
+                </div>
+
+             </div> 
+        </div>
+    </div>
+   </section> 
+ 

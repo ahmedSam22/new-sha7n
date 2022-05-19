@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Credit Card</h2>
+        </div>
+        <div class="col-md-6 CustomCLass">
+            <button class="btn btn-success" (click)="addCard()">
+                <i class="fa fa-plus"></i>
+                Add Card
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col"> # </th>
+                    <th scope="col"> Full Name </th>
+                    <th scope="col"> Card Brand </th>
+
+                    <th scope="col"> Card Number </th>
+                    <th scope="col"> Expirt Date </th>
+                    <th scope="col"> Date of Creation </th>
+                    <th scope="col"> Status </th>
+                    <th scope="col"> Delete Card </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let card of cards; let i = index">
+                    <td>{{i}}</td>
+                    <td>{{card.full_name}}</td>
+                    <td><img style="width:50px" src="{{card.brand.imagePath}}" onerror="this.src='assets/images/3.png'" alt="" srcset=""></td>
+                    <td>{{card.card_number}}</td>
+                    <td>{{card.expiry_date}}</td>
+                    <td>{{card.created_at |date:"shortDate"}}</td>
+                    <td>
+                        <mat-slide-toggle class="example-margin" [checked]="card.activation==1?true:false" [disabled]="disabled">
+                        </mat-slide-toggle>
+                    </td>
+                    <td><i (click)="onDelete(card.id)" class="fa fa-trash"></i></td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

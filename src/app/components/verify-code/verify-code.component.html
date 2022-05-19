@@ -1,0 +1,59 @@
+<section class="container-fluid ">
+    <div class="row" style="min-height:670px">
+        <div class="col-md-6 col-sm-12">
+            <div class="leftSide">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <a [routerLink]="['/root/sign-up']">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                  </svg> Back
+                        </a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-8">
+                        <div class="container-fluid verify d-flex justify-content-center align-items-center">
+                            
+                                 <div class="position-relative">
+                                    
+
+                                <div class="card p2 text-center">
+                                    <form [formGroup]="verify" (ngSubmit)="onSubmit()" class="p2 text-center">  
+                                    <h6>Verification Code <br> </h6>
+                                    <div> <span> Please Enter The Verification Code You Recieved From</span> <br> <small>Internationalparcel2020@gmail.com</small> </div>
+                                    <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> <input class="m-2 text-center form-control rounded" type="text" id="input1" v-on:keyup="inputenter(1)" maxlength="1" [formControlName]="'verify_input1'"/> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text" id="input2" [formControlName]="'verify_input2'"
+                                            maxlength="1" /> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text" id="input3" maxlength="1" [formControlName]="'verify_input3'"/> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(4)" [formControlName]="'verify_input4'"
+                                            type="text" id="input4" maxlength="1" /> 
+                                    </div>
+                                    <!-- routerLink="/admin" -->
+                                    <button type="submit" class="btn btn-primary" style="padding:5px 30px;">Send </button>
+                                    <div class="mt-3 content d-flex justify-content-center align-items-center">
+                                        <span> verification code will be sent within 1:30</span>
+                                        <a href="#" class="text-decoration-none " style="color:#32b457"> &nbsp; Resend Verification Code</a>
+                                    </div>
+                                </form> 
+                                </div>  
+                           
+                            </div>
+                       
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="  col-md-6 col-sm-12 ">
+            <div class=" rightSide ">
+                <div class="fullImage "> </div>
+            </div>
+        </div>
+
+    </div>
+</section>

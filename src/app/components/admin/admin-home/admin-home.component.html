@@ -1,0 +1,153 @@
+<div class="container">
+
+
+    <div class="carousel  my-4" style="direction: initial;">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/slide1.jpg" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/slide2.jpg" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/slide3.jpg" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/slide4.jpg" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+    <section class="homecontent my-3">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6">
+                <div class="text-center balance">
+                    <ul class="list-unstyled balancelist">
+                        <li> Balance </li>
+                        <li> <strong>123.00 </strong> </li>
+                        <li>SAR</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="text-center order">
+                    <ul class="list-unstyled orderlist">
+                        <li> Shopper Orders </li>
+                        <li> <strong> 23 </strong> </li>
+                        <li>Orders </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="text-center shipment">
+                    <ul class="list-unstyled shipmentlist">
+                        <li> Number Of Shipments </li>
+                        <li> <strong> 50 </strong> </li>
+                        <li>Shipment</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="text-center parcel">
+                    <ul class="list-unstyled parcellist">
+                        <li> Number Of Parcels</li>
+                        <li> <strong> 300 </strong> </li>
+                        <li>Parcels</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="startcontent my-3">
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="start  ">
+                    <p class="float-left"> Start with us and ship your shipment now </p>
+                    <button class="btn btn-primary float-right"> Start Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showcontent py-4 ">
+        <div class="row justify-content-between">
+            <div class="col-md-5 col-sm-12 left">
+                <div class="head">
+                    <p class="float-left pt-1">My Last Shipments </p>
+                    <button class="btn btn-primary float-right mb-1" (click)="LeftTable()"> Show More </button>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12 right">
+                <div class="head">
+                    <p class="float-left pt-1">My Last Shipments </p>
+                    <button class="btn btn-primary float-right mb-1" (click)="RightTable()"> Show More </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showtable">
+        <div class="row justify-content-between">
+            <div class="col-md-5 col-sm-12">
+                <table class="table" *ngIf="!toggleLeftTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <table class="table" *ngIf="!toggleRightTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,88 @@
+.shippingfee {
+    margin: 340px auto 20px auto;
+    min-height: 200px;
+}
+
+.banner {
+    position: relative;
+    top: 20em;
+    width: 100%;
+    text-align: center;
+    background: #c9f4c9;
+    color: #24bb24;
+    padding: 1em;
+}
+
+.customContainer {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.topShip {
+    background-image: url('../../../../assets/images/service2.png');
+    background-size: contain;
+    width: 100%;
+    height: 300px;
+    resize: both;
+    position: absolute;
+    top: 87px;
+    left: 0;
+    height: 300px;
+    min-width: 100%;
+}
+
+.topShip .topShipContent {
+    width: 50%;
+    margin: 90px auto;
+}
+
+.topShip h1 {
+    font-weight: 500;
+    color: white;
+    margin: 30px 0px;
+}
+
+.topShip p {
+    color: white;
+}
+
+
+/**************************************************************** */
+
+.shippingfee h5 {
+    color: #28a745;
+}
+
+.shippingfee .shippingform {
+    margin-top: 10px;
+    min-height: 347px;
+}
+
+.shippingfee .shippingform label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.shippingfee .shippingform select {
+    font-size: 15px;
+    color: grey;
+}
+
+.shippingfee .shippingform button {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+    color: white;
+}
+
+.shippingfee .shippingform input::placeholder {
+    color: grey;
+    font-size: 14px;
+}
+
+@media only screen and (max-width:996px) {
+    .shippingfee {
+        margin: 200px auto;
+    }
+}

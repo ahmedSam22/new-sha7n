@@ -1,0 +1,49 @@
+<div class="row justify-content-center ">
+    <h2>
+        Add New Card
+    </h2>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-body">
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Card Holder </mat-label>
+                        <input matInput type="text" formControlName="card_holder">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Card Number </mat-label>
+                        <input matInput type="text" formControlName="card_number">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>CVV </mat-label>
+                        <input matInput type="text" formControlName="cvv">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Expiry date</mat-label>
+                        <input formControlName="expiry_date" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <label for=""> Card Brand </label>
+                    <select class="form-control" formControlName="card_brand_id">
+                      <option *ngFor="let card of cards" [value]="card.id">{{card.name}}</option>
+
+                  </select>
+                </div>
+                <div class="form-group text-center mt-5">
+                    <button class="btn btn-success" type="button" (click)="submit()"> Add Card </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

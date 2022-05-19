@@ -1,0 +1,20 @@
+<div class="row mt-2" dir="ltr">
+    <div class="col-md-9">
+        Your Balance is : <b>5620 SAR</b>
+    </div>
+    <div class="col-md-2" style="text-align: end;">
+        <ngx-flag-picker [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+        </ngx-flag-picker>
+    </div>
+    <div class="d-flex justify-content-between align-items-center breaking-news bg-white w-100">
+
+        <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <span *ngFor="let ad of ads">
+            <a href="#">
+   <img class="bannerImg" src="{{ad.imagePath}}"> {{ad.name_en}} :   {{ad.description_en}} , Insaurance : {{ad.insaurance}} , Price : {{ad.price}}       </a> <span class="dot"></span>
+            </span>
+
+        </marquee>
+    </div>
+
+</div>

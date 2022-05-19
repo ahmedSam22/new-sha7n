@@ -1,0 +1,56 @@
+<div class="container"> 
+    <section class="personalinfo" >  
+        <form [formGroup]="personalInfo" (ngSubmit)="onSubmit()">
+       <div class="row my-3 "> 
+            <div class="col-md-6 col-sm-6" > 
+                Upload Profile Picture 
+            </div>
+            <div class="col-md-6 col-sm-6" > 
+                <div class="float-right profilebtn"> 
+                    <button class="btn btn-primary my-2 mx-2" (click)="editPersonalInfo()">  
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                    Edit Profile
+                    </button>
+                    <button class="btn btn-primary my-2 mx-2" (click)="editPassword()"> Change Password </button>
+                </div>
+                 
+            </div>
+        </div>
+        <div class="personalform" >
+          <!-- <form [formGroup]="personalInfo" (ngSubmit)="onSubmit()"> -->
+            <div class="form-row my-3">
+                <div class="form-group input-group-lg col-md-6">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Name" [attr.disabled]='edit?"true":null' formControlName="name">
+                </div>
+
+                <div class="form-group input-group-lg col-md-6">
+                <label for="inputPhone">Phone</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="Phone" [attr.disabled]='edit?"true":null' formControlName="phone">
+                </div>
+            </div>
+            <div class="form-row my-3">
+                <div class="form-group input-group-lg col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email" [attr.disabled]='edit?"true":null' formControlName="email">
+                </div>
+
+                <div class="form-group input-group-lg col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password" [attr.disabled]='editpassword?"true":null' formControlName="password">
+                </div>
+            </div>
+           <!-- </form> -->
+             <div class="float-left profilebtn"> 
+        <button type="submit" class="btn btn-primary my-2 mx-2"> Update</button>
+        </div>
+        </div>
+      
+    </form>
+        
+    </section>
+     
+</div>

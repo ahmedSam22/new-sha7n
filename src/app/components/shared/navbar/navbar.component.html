@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg " style="background-color: #0F4F56; color: #fff;">
+    <div class="wrappingParent">
+        <div>
+            <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="" srcset=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+
+        <div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/home']">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/orders']">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/our-services']">Our services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/about-us']">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">Contact us</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div>
+            <button class="btn btn-default white" [routerLink]="['/root/sign-up']">Sign up</button>
+            <button class="btn btn-success x" [routerLink]="['/root/login']">Log in</button>
+            <ngx-flag-picker [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+            </ngx-flag-picker>
+        </div>
+    </div>
+</nav>

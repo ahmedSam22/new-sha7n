@@ -1,0 +1,63 @@
+.orders  {
+    min-height:750px;   
+    width: 100%;
+    background-color: #e3e3e338;
+}
+.orders .ordercard {
+  background-color: white;
+  border-radius: 5px;
+  margin: 30px 0px;
+  padding: 20px;
+}
+.orders .orderlinks   {
+   padding: 10px;
+}
+.orders .orderlinks  a  { 
+  margin-left: 40px;
+  color:black; 
+  font-size: 22px; 
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #32B457;
+}
+.orders .openorders .ordercard div ,.orders .closeorders .ordercard div {
+ padding : 10px;
+}
+.orders .openorders .ordercard p , .orders .closeorders .ordercard p{
+  color: grey ;
+  line-height: 25px;
+ }
+ .orders .openorders .ordercard span ,  .orders .closeorders .ordercard span{ 
+  font-weight: 500;
+
+ }
+
+.orders .openorders .ordercard button , .orders .closeorders .ordercard button{
+  background-color: #28a745;
+  font-size: 14px;
+  border:1px solid #28a745;
+  padding: 8px 10px;
+}
+.orders .closeorders .ordercard dt{
+  color : #28a745;
+  margin-bottom: 10px;
+}
+
+.orders .closeorders .ordercard ul li {
+ line-height: 40px;
+}
+
+.example-stepper {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  
+  .mat-step-label {
+    min-width: 100px; 
+  }
+
+   

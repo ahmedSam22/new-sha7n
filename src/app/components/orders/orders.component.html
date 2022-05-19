@@ -1,0 +1,181 @@
+<div class="orders col-md-12"> 
+    <div class="row justify-content-around"> 
+        <div class="leftCard col-md-5  my-5 py-5"> 
+            <h3 class="text-center"> Shipping Rates </h3>
+               <p class="text-center">We help Calculate The Approximate Shipping Cost To Your Country </p> 
+               <form class="shipping" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <h6>Shipment Address </h6>
+                 <div class="row justify-content-around shipForm"> 
+                    <div class="form-group col-md-6">
+                        <label>Parcel From : </label>
+                        <!-- formControlName="china_harbor_id" -->
+                        <select class="form-control" (change)="onChangeChina($event)">
+                            <option [selected]="true">Choose ...</option>
+                            <option value="1">China</option>
+                        </select>
+                    </div>
+                    <div class="form-group  col-md-6">
+                        <label>To :</label>
+                        <select class="form-control" formControlName="saudi_harbor_id">
+                            <option disabled  [selected]="true">Choose ...</option>
+                            <option *ngFor="let harbor of saudiharbors" [value]="harbor.id"> {{harbor.name_ar}}  </option>
+                        </select>
+                    </div>
+                </div> 
+
+                <h6>Shipment Information </h6>
+                <!-- formControlName="type" -->
+                <div class="row justify-content-around shipForm"> 
+                   <div class="form-group col-md-4">
+                       <label>Type of Shipping : </label>
+                       <select class="form-control " (change)="onTypeOfShipping($event)">
+                        <option [selected]="true">Choose ...</option>
+                           <option value="0">Aerial</option>
+                           <option value="1">Nautical</option>
+                       </select>
+                   </div>
+                   <div class="form-group col-md-4">
+                    <label>Type of Shipment : </label>
+                    <!-- formControlName="shipment_type" -->
+                    <select class="form-control" (change)="onTypeOfShipment($event)">
+                        <option [selected]="true">Choose ...</option>
+                        <option value="1" >Battery</option>
+                    </select>
+                </div>
+                <div class=" form-group col-md-4">
+                    <label>Type of Shipment : </label>
+                    <div class="input-group"> 
+                        <input type="text" class="form-control"  formControlName="weight">
+                        <div class="input-group-append">
+                        <span class="input-group-text " style="height: 38px;">Kg</span>
+                        </div>
+                   </div>
+                  </div>
+                   
+               </div> 
+
+               <h6>Shipment Dimensions (optional) </h6>
+               <div class="row justify-content-around shipForm"> 
+                <div class=" form-group col-md-4">
+                    <label>Length: </label>
+                    <div class="input-group"> 
+                        <input type="text" class="form-control" value="234" >
+                        <div class="input-group-append">
+                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        </div>
+                   </div>
+                  </div>
+                  <div class=" form-group col-md-4">
+                    <label>Width : </label>
+                    <div class="input-group"> 
+                        <input type="text" class="form-control" value="543" >
+                        <div class="input-group-append">
+                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        </div>
+                   </div>
+                  </div>
+                  <div class=" form-group col-md-4">
+                    <label>Height : </label>
+                    <div class="input-group"> 
+                        <input type="text" class="form-control" value="764">
+                        <div class="input-group-append">
+                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        </div>
+                   </div>
+                  </div>
+              </div> 
+              <br>
+              <div class="row justify-content-center"> 
+              
+                <button type="submit" class="btn col-md-8 btnBooking"  style="background-color:#32B457 ; color:white ; padding: 10px 0px ;"> Booking </button> 
+            
+               </div>
+              </form>
+        </div>
+        <div class="rightCard col-md-5" *ngIf="successStatus"> 
+            <div class="container"> 
+             <div class="row ">
+                <div class="leftSideCard col-md-8 col-sm-6">
+                  <span> Aerial</span>
+                  <span> Charging Type </span>
+                  <ul> 
+                      <li> Actual Weight </li>
+                      <li> 5-12 Days Approximate Shipping Time</li>
+                      <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li> 
+                      <li>In case the goods are not standardized made in China . the amount for Sar 500 will be added  </li>
+                  </ul>
+                </div>
+                <div class="rightSideCard col-md-4 col-sm-6">
+                    <div class="row">  
+                        <div class="col-md-12 col-sm-12 top">
+                            <img src="../../../assets/images/ipe.jpg"  class=" img-fluid float-left" alt="right">
+                            <p class="float-left "> International Parcel </p>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-md-12 col-sm-12 middle">  
+                          <p class="tect-center"> Shipping Charges </p>    
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 bottom"> 
+                        <p class="tect-center"> 3,800<sub>SR</sub> </p>
+                        </div>
+                   </div>
+                   
+                </div>
+                 
+            </div>
+              <div class="row"> 
+                    <div class="rightSideBtn col-md-12 col-sm-12">  
+                    <button class="btn col-md-10 btnBooking" > Booking </button> 
+                   </div>
+            </div> 
+            
+            </div> <!-- container-->
+            <!-- <div class="container"> 
+                <div class="row">
+                    <div class="leftSideCard col-md-8 col-sm-6">
+                      <span> Aerial</span>
+                      <span> Charging Type </span>
+                      <ul> 
+                          <li> Actual Weight </li>
+                          <li> 5-12 Days Approximate Shipping Time</li>
+                          <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li> 
+                          <li>In case the goods are not standardized made in China . the amount for Sar 500 will be added  </li>
+                      </ul>
+                    </div>
+                    <div class="rightSideCard col-md-4 col-sm-6">
+                        <div class="row">  
+                            <div class="col-md-12 col-sm-12 top">
+                                <img src="../../../assets/images/ipe.jpg"  class=" img-fluid float-left" alt="right">
+                                <p class="float-left "> International Parcel </p>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-md-12 col-sm-12 middle">  
+                              <p class="tect-center"> Shipping Charges </p>    
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 bottom"> 
+                            <p class="tect-center"> 3,800<sub>SR</sub> </p>
+                            </div>
+                       </div>
+                       
+                    </div>
+                     
+                </div>
+                  <div class="row"> 
+                        <div class="rightSideBtn col-md-12 col-sm-12">  
+                        <button class="btn col-md-10 btnBooking"> Booking </button> 
+                       </div>
+                 </div> 
+                </div>  container -->
+      </div>
+
+      
+      
+</div>
+</div>
+  

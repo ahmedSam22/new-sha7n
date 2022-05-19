@@ -1,0 +1,28 @@
+.personalinfo { 
+    min-height: 200px;
+}
+
+.personalinfo .profilebtn button:nth-child(1) {
+    background-color: #32B457;
+    color:white;
+    border : 1px solid #32B457;
+}
+.personalinfo .profilebtn button:nth-child(2) {
+   background-color: white;
+  color :#32B457 ; 
+  border : 1px solid #32B457;
+}
+
+.personalform {
+    margin-top: 10px;
+    min-height: 347px ;
+}
+.personalform label {
+    font-weight: 500 ;  
+    font-size: 14px;
+}
+
+.personalform input::placeholder { 
+  color:grey; 
+  font-size:14px;
+}

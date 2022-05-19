@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="topService text-center">
+        <div class="topServiceContent">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <h2>Our Services </h2>
+                    <p> With Our Service , We Open New Horizons To Shopping And Integrated E-Commerce </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middleService">
+
+        <div class="middleServiceP1" *ngFor="let service of services ; let i=index">
+            <div class="row">
+                <div class="col-md-8 col-xs-6 left">
+                    <div class="middleLeft">
+                        <h4> {{service.title_en}} </h4>
+                        <p>
+                            {{service.description_en}}
+                        </p>
+                        <button class="btn serviceBtn"> Calculate Your Shipment </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-6 right">
+                    <div class="middleRight ">
+                        <img class="img-fluid" src={{service.imagePath}} style="height:300px ; width:300px">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

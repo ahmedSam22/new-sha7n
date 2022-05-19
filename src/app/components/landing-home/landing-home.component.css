@@ -1,0 +1,174 @@
+.main-home {
+    background-image: url('../../../assets/images/1.png');
+    background-repeat: no-repeat;
+    height: 90vh;
+}
+
+img {
+    width: 100%;
+}
+
+.x {
+    background-image: url('../../../assets/images/illustration.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    margin: 0;
+    padding: 0;
+}
+
+.y {
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-wrapper h1 {
+    letter-spacing: 6px;
+}
+
+.headingTitle {
+    display: flex;
+}
+
+.headingTitle img {
+    width: 3em;
+    margin-right: 1em;
+}
+
+.gallery .custom img {
+    width: 50%;
+    height: 100%;
+}
+
+.gallery .custom {
+    text-align: center;
+}
+
+.column {
+    width: 12em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    background: #E3EEF9;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s;
+    padding: 1em;
+}
+
+.d-custom {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery .custom .column:hover {
+    background: #0F4F56;
+}
+
+.gallery .custom .column:active {
+    background: #0F4F56;
+}
+
+.imageText {
+    transition: all .3s;
+}
+
+.customContainer {
+    padding: 2em;
+}
+
+.greenBack {
+    background: #0F4F56;
+    padding: 2em;
+    color: #ffff;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.row-border {
+    margin: 0;
+}
+
+::ng-deep .owl-carousel .owl-item img {
+    width: 5%;
+    margin: 0 auto;
+}
+
+::ng-deep .owl-prev,
+::ng-deep .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+::ng-deep .owl-prev {
+    left: 0;
+}
+
+::ng-deep .owl-next {
+    right: 0;
+}
+
+.customPadding {
+    padding: 0 4em;
+}
+
+.banner {
+    background: url(../../../assets/images/service2.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    text-align: center;
+}
+
+.banner span {
+    font-size: 2.5em;
+}
+
+.contact-us {
+    background-color: rgb(233, 233, 233);
+    padding: .5em;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.natural {
+    margin: 0 !important;
+    padding: 1em !important;
+}
+
+.backGroundImage {
+    background: url(../../../assets/images/service2.png) no-repeat center center fixed;
+    border-radius: 10px;
+}
+
+.customize {
+    margin: 0;
+    padding: 0 1.5em 0 0;
+}
+.contact-message {
+    padding: 0px 0px 10px 0px;
+}
+/* .contact-message span:first-child {
+color:green;
+}
+.contact-message span:last-child {
+    color:red;
+    } */

@@ -1,0 +1,71 @@
+.allContent {
+    height: 100%;
+}
+
+.allContent app-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.page-body {
+    direction: ltr;
+    text-align: justify;
+}
+
+footer {
+    flex: 1;
+    bottom: 0;
+    width: 100%;
+}
+
+.toggler {
+    display: none;
+}
+
+.bodyCo {
+    direction: ltr;
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 480px) {
+    .toggler {
+        display: block;
+        font-size: 2.5em;
+        cursor: pointer;
+        transition: all 0.5s linear;
+    }
+    .sidebarToggler {
+        transition: all 0.5s linear;
+        display: none;
+    }
+    .wr {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .appear {
+        transition: all 0.5s linear;
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    .toggler {
+        display: block;
+        font-size: 2.5em;
+        cursor: pointer;
+        transition: all 0.5s linear;
+    }
+    .sidebarToggler {
+        transition: all 0.5s linear;
+        display: none;
+    }
+    .appear {
+        transition: all 0.5s linear;
+        display: block !important;
+    }
+}

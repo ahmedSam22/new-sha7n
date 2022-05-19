@@ -1,0 +1,110 @@
+.homecontent .balance,
+.homecontent .order,
+.homecontent .shipment,
+.homecontent .parcel {
+    min-height: 125px;
+    padding: 10px;
+    border-radius: 3%;
+    margin: 10px 0px;
+}
+
+.homecontent .balance {
+    background-color: antiquewhite;
+}
+
+.homecontent .order {
+    background-color: rgb(216, 250, 215);
+}
+
+.homecontent .shipment {
+    background-color: rgb(242, 215, 250);
+}
+
+.homecontent .parcel {
+    background-color: rgb(250, 215, 215);
+}
+
+.homecontent .balance .balancelist li,
+.homecontent .order .orderlist li,
+.homecontent .shipment .shipmentlist li,
+.homecontent .parcel .parcellist li {
+    line-height: 35px;
+    padding: 2px;
+    margin: 1px;
+}
+
+.homecontent .balance .balancelist li:nth-child(2),
+.homecontent .order .orderlist li:nth-child(2),
+.homecontent .shipment .shipmentlist li:nth-child(2),
+.homecontent .parcel .parcellist li:nth-child(2) {
+    font-size: 30px;
+}
+
+.startcontent {
+    background-color: #32B457;
+    height: 100px;
+    color: white;
+}
+
+.startcontent {
+    border-radius: 10px;
+}
+
+.startcontent .start {
+    padding: 36px 20px;
+    border-radius: 10px;
+}
+
+.startcontent .start p {
+    color: white;
+    padding: 5px;
+    text-indent: 10px;
+}
+
+.startcontent .start button {
+    color: #32B457;
+    background-color: white;
+    border: 1px solid #32B457;
+    display: block;
+}
+
+.showcontent {
+    min-height: 60px;
+}
+
+.showcontent .head {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.showcontent .head button {
+    background-color: #32B457;
+    color: white;
+    border: 1px solid #32B457;
+}
+
+.showtable {
+    background-color: white;
+}
+
+.right,
+.left {
+    padding: 10px;
+    margin: 5px;
+    background-color: #dcffce;
+}
+
+ ::ng-deep .owl-prev,
+::ng-deep .owl-next {
+    position: absolute;
+    top: 33%;
+    transform: translateY(-50%);
+}
+
+::ng-deep .owl-prev {
+    left: -3em;
+}
+
+::ng-deep .owl-next {
+    right: -3em;
+}
