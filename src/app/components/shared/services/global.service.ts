@@ -8,6 +8,15 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GlobalService {
+  fromChinaHarbor:any ;
+  toSaudiHarbor:any ; 
+  typeOfShipping :any;
+  typeOfShipment:any ;
+  shipmentWeight :any ;
+  height:any ; 
+  width:any ;
+  length:any;
+  order_company_id!:any ;
 
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -115,4 +124,9 @@ homeOrders(china_harbor_id:any ,saudi_harbor_id:any , type:any , shipment_type:a
   return this.http.get(`${environment.endpoint}/get-companies?china_harbor_id=${china_harbor_id}&saudi_harbor_id=${saudi_harbor_id}&type=${type}&shipment_type=${shipment_type}&weight=${weight}`) ;
   
 }
+
+bookingOrder(form:any){
+  return this.http.post(`${environment.endpoint}/companies/add-booking`,form) ;
+ }
+ 
 }

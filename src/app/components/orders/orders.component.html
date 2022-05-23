@@ -9,14 +9,14 @@
                     <div class="form-group col-md-6">
                         <label>Parcel From : </label>
                         <!-- formControlName="china_harbor_id" -->
-                        <select class="form-control" (change)="onChangeChina($event)">
+                        <select class="form-control" (change)="onChangeChina($event)" >
                             <option [selected]="true">Choose ...</option>
                             <option value="1">China</option>
                         </select>
                     </div>
                     <div class="form-group  col-md-6">
                         <label>To :</label>
-                        <select class="form-control" formControlName="saudi_harbor_id">
+                        <select class="form-control" formControlName="saudi_harbor_id" (change)="onChangeSaudi($event)">
                             <option disabled  [selected]="true">Choose ...</option>
                             <option *ngFor="let harbor of saudiharbors" [value]="harbor.id"> {{harbor.name_ar}}  </option>
                         </select>
@@ -43,11 +43,12 @@
                     </select>
                 </div>
                 <div class=" form-group col-md-4">
-                    <label>Type of Shipment : </label>
+                    <label>weight: </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control"  formControlName="weight">
+                        <input type="text" class="form-control" #shippingWeight (blur)="getWeight()"  formControlName="weight">
                         <div class="input-group-append">
-                        <span class="input-group-text " style="height: 38px;">Kg</span>
+                           <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>
+                            <span class="input-group-text " style="height:38px;" *ngIf="showKg">Kg</span>
                         </div>
                    </div>
                   </div>
@@ -59,7 +60,7 @@
                 <div class=" form-group col-md-4">
                     <label>Length: </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" value="234" >
+                        <input type="text" class="form-control" (blur)="getLenght()" #shippingLength>
                         <div class="input-group-append">
                         <span class="input-group-text " style="height: 38px;">cm</span>
                         </div>
@@ -68,7 +69,7 @@
                   <div class=" form-group col-md-4">
                     <label>Width : </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" value="543" >
+                        <input type="text" class="form-control" (blur)="getWidth()" #shippingWidth>
                         <div class="input-group-append">
                         <span class="input-group-text " style="height: 38px;">cm</span>
                         </div>
@@ -77,7 +78,7 @@
                   <div class=" form-group col-md-4">
                     <label>Height : </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" value="764">
+                        <input type="text" class="form-control" (blur)="getHeight()" #shippingHeight>
                         <div class="input-group-append">
                         <span class="input-group-text " style="height: 38px;">cm</span>
                         </div>
@@ -87,7 +88,7 @@
               <br>
               <div class="row justify-content-center"> 
               
-                <button type="submit" class="btn col-md-8 btnBooking"  style="background-color:#32B457 ; color:white ; padding: 10px 0px ;"> Booking </button> 
+                <button type="submit" class="btn col-md-8 btnBooking"  style="background-color:#32B457 ; color:white ; padding: 10px 0px ;"> Calculate </button> 
             
                </div>
               </form>
@@ -119,7 +120,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-sm-12 bottom"> 
-                        <p class="tect-center"> 3,800<sub>SR</sub> </p>
+                        <p class="tect-center" *ngFor="let cost of costs"> {{cost.price}}<sub>SR</sub> </p>
                         </div>
                    </div>
                    
@@ -128,7 +129,7 @@
             </div>
               <div class="row"> 
                     <div class="rightSideBtn col-md-12 col-sm-12">  
-                    <button class="btn col-md-10 btnBooking" > Booking </button> 
+                    <button class="btn col-md-10 btnBooking" (click)="goadmindashboard()"> Booking </button> 
                    </div>
             </div> 
             
