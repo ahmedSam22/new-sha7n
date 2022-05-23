@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../shared/services/global.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Input } from '@angular/core';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-shipping-fee-calculator',
   templateUrl: './shipping-fee-calculator.component.html',
@@ -46,12 +47,12 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     console.log("fromChinaHarbor",this.fromChinaHarbor)
 
     if(this.typeOfShipping==0){
-      this.showCBM=true ;
-      this.showKg=false ;
-    }
-    else{
       this.showCBM=false ;
       this.showKg=true ;
+    }
+    else{
+      this.showCBM=true ;
+      this.showKg=false ;
     }
     this.service.getSaudiWarehouses().subscribe((res:any)=>{
       this.saudiharbors = res['data'];
@@ -101,11 +102,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 }
 
 commercialInvoiceChange(event:any) {
-  this.commercialInvoice.push(event.target.files);
-  //this.commercialInvoice=event.target.files;
- // this.commercialInvoiceArr.push(this.commercialInvoice)
-  console.log("files" , this.commercialInvoice);
-  if(this.commercialInvoiceArr.length!=0){
+  this.commercialInvoice=event.target.files;
+  console.log("files" , this.commercialInvoice[0]);
+  if(this.commercialInvoice.length!=0){
     this.showComercialInvoice=false
   }
    else {
@@ -115,8 +114,7 @@ commercialInvoiceChange(event:any) {
 
 packingListChange(event:any){
   this.packingList=event.target.files
-  this.packingListArr.push(this.packingList)
-  console.log("files" ,typeof(this.packingListArr));
+  console.log("files" , this.packingList[0] );
   if(this.packingList.length!=0){
     this.showPackingList=false
   }
@@ -124,9 +122,36 @@ packingListChange(event:any){
     this.showPackingList=true
  }
 }
+resetForm() {
+  Object.keys(this.form.controls).forEach((key) => {
+    this.form.controls[key].clearValidators();
+  });
+
+  this.form.reset();
+  
+  Object.keys(this.form.controls).forEach((key) => {
+    this.form.controls[key].setValidators([
+      Validators.required,
+    ]);
+  });
+
+}
 onSubmit(){
-  this.service.bookingOrder(this.form.value).subscribe((res:any)=>{
-   console.log(res)
+  
+  let subForm = {
+    ...this.form.value,
+    company_id: this.service.order_company_id,
+    invoice: this.commercialInvoice[0],
+    list:this.packingList[0],
+    code:''
+  }
+  console.log("hello " , subForm)
+  this.service.bookingOrder(subForm).subscribe((res:any)=>{
+    Swal.fire(
+         "Success"
+        )
+   console.log("fee reeeeees",res)
+   this.resetForm()
   })
 }
 }

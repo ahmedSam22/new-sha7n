@@ -21,7 +21,7 @@
 }
 
 .topShip {
-    background-image: url('../../../../assets/images/service2.png');
+    /* background-image: url('../../../../assets/images/service2.png');
     background-size: contain;
     width: 100%;
     height: 300px;
@@ -30,11 +30,22 @@
     top: 87px;
     left: 0;
     height: 300px;
-    min-width: 100%;
+    min-width: 100%; */
+     background-image: url('../../../../assets/images/service2.png') ;
+  background-size: cover;
+  background-position:20% 80%  ;
+  width: 100%;
+  height: 300px;
+  resize: both;
+  position: absolute;
+  top:72px; 
+  left: 0;
+  height: 300px;
+  min-width: 100%;  
 }
 
 .topShip .topShipContent {
-    width: 50%;
+    width: 90%;
     margin: 90px auto;
 }
 
@@ -79,6 +90,10 @@
 .shippingfee .shippingform input::placeholder {
     color: grey;
     font-size: 14px;
+}
+
+.requiredFiles{
+color:grey
 }
 
 @media only screen and (max-width:996px) {

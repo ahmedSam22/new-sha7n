@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from '../shared/services/global.service';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

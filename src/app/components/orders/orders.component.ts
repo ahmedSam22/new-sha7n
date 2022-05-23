@@ -118,8 +118,12 @@ getLenght(){
           this.info=res['data'];
           console.log("infoooooooooooooo",this.info)
           this.costs=this.info;
-          
-          //this.service.order_company_id=company_id
+          for(let i=0; i<this.info.length ; i++){
+            this.service.order_company_id= this.info[0].id
+          }
+          console.log("company idddddddd" , this.service.order_company_id)
+
+ 
         }
         else{
           this.successStatus=false
@@ -133,4 +137,7 @@ getLenght(){
        },1500);
        console.log("navigated")
   }
+
+
+  
 }

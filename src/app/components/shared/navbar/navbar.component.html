@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg " style="background-color: #0F4F56; color: #fff;">
+<!-- <nav class="navbar navbar-expand-lg " style="background-color: #0F4F56; color: #fff;">
     <div class="wrappingParent">
         <div>
             <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="" srcset=""></a>
@@ -36,4 +36,49 @@
             </ngx-flag-picker>
         </div>
     </div>
+</nav> -->
+<!-- navbar-dark bg-dark -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg   fixed-top">
+ 
+    <a class="navbar-brand" href="#"><img src="assets/images/logo.png" height="auto" width="75%" class="img-fluid" alt="" srcset=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+       aria-expanded="false" aria-label="Toggle navigation"
+       (click)="toggleCollapsed()" style="color:white">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-toggle-off" viewBox="0 0 16 16">
+        <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
+      </svg>
+    </button>
+  
+    <div id="navbarSupportedContent" class="text-center" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+        <ul class="navbar-nav mx-auto mt-2 mt-lg-0 " >
+           
+            <li class="nav-item active">
+                <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/home']">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/orders']">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a  #service (click)="select(service.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/our-services']">Our services</a>
+            </li>
+            <li class="nav-item">
+                <a  #about (click)="select(about.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/about-us']">About us</a>
+            </li>
+            <li class="nav-item">
+                <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">Contact us</a>
+            </li>
+       
+        </ul>
+        <!-- form-inline  -->
+        <form class="my-2 my-lg-0">
+            <button #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/root/sign-up']">Sign up</button>  
+            <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/root/login']">Log in</button>  
+            <ngx-flag-picker [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+            </ngx-flag-picker>
+        
+        </form>
+    </div>
+    
 </nav>

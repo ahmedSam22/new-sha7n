@@ -8,43 +8,45 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  styleUrls: ['./contact-us.component.css'],
 })
 export class ContactUsComponent implements OnInit {
-  contactUs!:FormGroup;
-  constructor(private service:GlobalService , private toastr :ToastrService) { }
+  contactUs!: FormGroup;
+  constructor(private service: GlobalService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
-    this.contactUs=new FormGroup({
-     'name':new FormControl(null , Validators.required) ,
-     'email':new FormControl(null , Validators.required) ,
-     'phone':new FormControl(null , Validators.required) ,
-     'title':new FormControl(null , Validators.required) ,
-     'message':new FormControl(null , Validators.required) ,
+    this.contactUs = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      phone: new FormControl(null, Validators.required),
+      title: new FormControl(null, Validators.required),
+      message: new FormControl(null, Validators.required),
     });
   }
 
-  onSubmit(){
-   console.log({...this.contactUs.value});
-    this.service.contactUsHome({...this.contactUs.value}).subscribe((res:any)=>{
-      console.log(res) ;
-      if(res.status===true){
-      Swal.fire(
-        'تم إرسال الرسالة بنجاح',
-      ) }
-      else {
-        for (let i = 0; i < res.errors.length; i++) {
-          this.toastr.error(res.errors[i]);
-
-
+  onSubmit() {
+    console.log({ ...this.contactUs.value });
+    this.service.contactUsHome({ ...this.contactUs.value }).subscribe(
+      (res: any) => {
+        console.log(res);
+        if (res.status === true) {
+          Swal.fire('تم إرسال الرسالة بنجاح').then(
+            ()=>this.reload()
+          );
+         
+        } else {
+          for (let i = 0; i < res.errors.length; i++) {
+            this.toastr.error(res.errors[i]);
+          }
         }
-
+      },
+      (error: any) => {
+        console.log(error);
       }
-    },
-    (error:any)=>{
-      console.log(error);
+    );
+  }
 
-    }
-    )
+  reload() {
+    location.reload();
   }
 }

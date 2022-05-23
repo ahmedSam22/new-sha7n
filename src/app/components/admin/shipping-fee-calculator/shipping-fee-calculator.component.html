@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="shippingform">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="form">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 my-3">
                         <div class="form-group input-group-lg col-md-12">
@@ -122,7 +122,7 @@
                          
                       </button>
                      <input type='file' id="commercial-invoice" style="display:none" class="form-control" formControlName="invoice" (change)="commercialInvoiceChange($event)">  
-                     <p class="text-danger" *ngIf="showComercialInvoice">This must be filled in to complete the booking</p> 
+                     <p class="requiredFiles" *ngIf="showComercialInvoice">This must be filled in to complete the booking</p> 
                     </div>    
                     
 
@@ -136,12 +136,13 @@
                       </button>
                     
                      <input type='file' id="packing-list" style="display:none" class="form-control" formControlName="list" (change)="packingListChange($event)">  
-                    <p class="text-danger" *ngIf="showPackingList">This must be filled in to complete the booking</p> 
+                    <p class="requiredFiles" *ngIf="showPackingList">This must be filled in to complete the booking</p> 
                     </div>  
                 </div> 
+                <br>
                     <div class="row  ">
-                    <div class="form-group col-md-6 justify-content-center">
-                        <button type="submit" class="btn btn-primary" style="padding: 10px;"> Book Shipment </button>
+                    <div class="form-group col-md-6 ">
+                        <button type="submit" class="btn btn-primary" style="padding:12px;" (click)="onSubmit()"> Book Shipment </button>
                     </div>
                 </div>
             </form>

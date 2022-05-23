@@ -1,44 +1,74 @@
-<section class="container-fluid ">
-    <div class="row" style="min-height:670px">
-        <div class="col-md-6 col-sm-12">
-            <div class="leftSide">
-                <a (click)="back()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
-                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-                  </svg> Back To Home
-                </a>
-                <div class="text-center" style="position: absolute; left:45%">
-                    <h3 class="text-center"> Sign In </h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12"> </div>
-                </div>
-                <form [formGroup]="logIn" (ngSubmit)="onSubmit()">
-                    <div class="form-group col-8">
-                        <label for="exampleInputEmail1">Email </label>
-                        <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" [formControlName]="'email'">
-                    </div>
-                    <div class="form-group col-8">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" [formControlName]="'password'">
-                    </div>
-                    <div class="form-check check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Remember me <span >Forget Password ? </span>  </label>
-                    </div>
-                    <!-- [routerLink]="['/root/verify-code']" -->
-                    <button type="sumbit"   class="btn btn-primary col-8">Sign In </button>
-                    <p> You Don't Have an Account ? <a [routerLink]="['/root/sign-up']"> Create Account  </a> </p>
-                </form>
-            </div>
+<section class="container-fluid">
+  <div class="row" style="min-height: 670px">
+    <div class="col-md-6 col-sm-12 col-12 align-self-center">
+      <div class="leftSide">
+        <a (click)="back()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-caret-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+            />
+          </svg>
+          Back To Home
+        </a>
+        <div class="text-center" style="position: absolute; left: 45%">
+          <h3 class="text-center">Sign In</h3>
         </div>
-
-
-        <div class="  col-md-6 col-sm-12 ">
-            <div class=" rightSide ">
-                <div class="fullImage "> </div>
-            </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12"></div>
         </div>
-
+        <form [formGroup]="logIn" (ngSubmit)="onSubmit()">
+          <div class="form-group col-md-8 col-sm-12 col-12">
+            <label for="exampleInputEmail1">Email </label>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+              [formControlName]="'email'"
+            />
+          </div>
+          <div class="form-group col-md-8">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              [formControlName]="'password'"
+            />
+          </div>
+          <div class="form-check check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label" for="exampleCheck1"
+              >Remember me <span>Forget Password ? </span>
+            </label>
+          </div>
+          <!-- [routerLink]="['/root/verify-code']" -->
+          <button type="sumbit" class="btn btn-primary col-md-8">Sign In</button>
+          <p>
+            You Don't Have an Account ?
+            <a [routerLink]="['/root/sign-up']"> Create Account </a>
+          </p>
+        </form>
+      </div>
     </div>
+
+    <div class="col-md-6 col-sm-12 right-col">
+      <div class="rightSide">
+        <div class="fullImage"></div>
+      </div>
+    </div>
+  </div>
 </section>
