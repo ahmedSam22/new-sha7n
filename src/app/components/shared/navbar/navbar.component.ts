@@ -7,7 +7,9 @@ import { ConfigurationOptions, CustomCountryModel, TooltipOptionsEnum } from 'in
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  collapsed=true;
+  selected :any;
+  element:any;
   constructor() {
 
    
@@ -20,5 +22,19 @@ export class NavbarComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+  select(item:any) {
+    this.selected = item;
+      this.hideNavBar();
+  };
+  hideNavBar(){
+    this.element = document.getElementById('navbarSupportedContent');
+    this.element.style.transition='transform ease-out 3s'; 
+    this.element.classList.add("collapse");
+    
+    // this.element.style.height='1px'; 
+    // this.element.style.cursor='pointer';
+  }
 }

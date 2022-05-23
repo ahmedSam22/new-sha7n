@@ -1,18 +1,24 @@
-/* .navbar {
-    position: fixed;
-    top:0px ;
-} */
-
-.wrappingParent {
+.navbar {
+    background-color: #0F4F56;
+    
+}
+  .navbar-nav .nav-item{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    }
+/* .wrappingParent {
     display: flex;
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 0 4em;
     align-items: center;
-    color: #fff;
+    color: #fff;  
+} */
+.navbar-toggler-icon{
+    color:black
 }
-
 .navbar-nav .nav-item a {
     color: #fff;
 }
@@ -40,3 +46,10 @@ nav {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+/* .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+} */
+
+ 

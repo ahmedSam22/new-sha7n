@@ -89,7 +89,22 @@
     .container-fluid .leftSide h3 {
         margin-top: 10px;
     }
+    .right-col{
+        display: none;
+    }
+
+   ::ng-deep .form-group{
+        width: 100% !important;
+    }
+
+    .form-check-label{
+        min-width: 100% !important;
+    }
     /* .container-fluid .leftSide form{ 
          margin-top: 50px;
           } */
+
+          .container-fluid{
+              margin-top: 100px;
+          }
 }

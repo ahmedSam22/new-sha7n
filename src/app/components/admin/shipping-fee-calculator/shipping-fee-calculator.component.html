@@ -4,7 +4,7 @@
             <div class="topShipContent">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <h1>Shipping Rates</h1>
+                        <h1>Book Your Shipment Now</h1>
                         <p> We Help You Calculate The Approximate Shipping Cost To Your Country !</p>
                     </div>
                 </div>
@@ -22,89 +22,126 @@
             </div>
         </div>
         <div class="shippingform">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 my-3">
                         <div class="form-group input-group-lg col-md-12">
                             <label for="exampleFormControlSelect1">Parcel From : </label>
-                            <select class="form-control" id="exampleFormControlSelect1" (change)="GetCity($event,'from')">
-                    <option>-</option>
-                    <option>China</option>
-                    <option>Saudi</option>
-                    </select>
+                             <!--  (change)="onChangeChina($event)" -->
+                            <select class="form-control"  formControlName="china_harbor_id">
+                               <option value="1" disabled>China</option>
+                            </select>
                         </div>
-                        <div class="form-group input-group-lg col-md-12">
-                            <select class="form-control" id="exampleFormControlSelect3">
-                              <option>-</option>
-                              <option *ngFor="let city of fromCities">{{city.name}}</option>
-
-                      </select>
-                        </div>
+                       
 
                     </div>
                     <div class="col-md-6 col-sm-12 my-3">
 
                         <div class="form-group input-group-lg col-md-12">
                             <label for="exampleFormControlSelect2">To : </label>
-                            <select class="form-control" id="exampleFormControlSelect2" (change)="GetCity($event,'to')">
-                    <option>-</option>
-                    <option>China</option>
-                    <option>Saudi</option>
-                    </select>
+                            <select class="form-control" formControlName="saudi_harbor_id" >
+                                 <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" disabled> {{harbor.name_ar}}  </option>
+                            </select>
                         </div>
-                        <div class="form-group input-group-lg col-md-12">
-                            <select class="form-control" id="exampleFormControlSelect4">
-                    <option>-</option>
-                    <option *ngFor="let city of toCities">{{city.name}}</option>
-
-                    </select>
-                        </div>
+                        
                     </div>
                 </div>
                 <h5 class="mb-4"> Shipment Information </h5>
                 <div class="form-row">
                     <div class="form-group input-group-lg  col-md-4">
                         <label for="inputState">Type Of Shipping : </label>
-                        <select id="inputState" class="form-control">
-                      <option selected>Type Of Shipping </option>
-                      <option>...</option>
-                    </select>
+                        <select class="form-control" formControlName="type" >
+                               <option value="0" disabled>Aerial</option>
+                               <option value="1" disabled>Nautical</option>
+                           </select>
                     </div>
                     <div class="form-group input-group-lg  col-md-4">
                         <label for="inputState">Type Of Shippment : </label>
-                        <select id="inputState" class="form-control">
-                    <option selected>Type Of Shippment</option>
-                    <option>...</option>
-                  </select>
+                        <select class="form-control" formControlName="shipment_type" >
+                           <option value="1" disabled>Battery</option>
+                        </select>
                     </div>
-                    <div class="form-group input-group-lg  col-md-4">
-                        <label for="inputState">Weight : </label>
-                        <select id="inputState" class="form-control">
-                      <option selected>Weight</option>
-                      <option>...</option>
-                    </select>
-                    </div>
+
+                    <div class=" form-group col-md-4">
+                        <label>Weight: </label>
+                        <div class="input-group"> 
+                            <input type="text" class="form-control"  placeholder="Weight"  formControlName="weight" [disabled]="true" >
+                            <div class="input-group-append">
+                            <span class="input-group-text " style="height:38px;" *ngIf="showKg">Kg</span>
+                            <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>
+                            </div>
+                       </div>
+                      </div>
+
                 </div>
 
                 <h5 class="my-4"> Shipment Dimensions (Optional) </h5>
                 <div class="form-row">
-                    <div class="form-group input-group-lg  col-md-4">
-                        <label> Length :</label>
-                        <input type="number" class="form-control" placeholder="Length  ">
+                    <div class=" form-group col-md-4">
+                        <label>Length: </label>
+                        <div class="input-group"> 
+                            <input type="text" class="form-control" placeholder="Length" formControlName="length" >
+                            <div class="input-group-append">
+                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            </div>
+                       </div>
                     </div>
-                    <div class="form-group input-group-lg  col-md-4">
-                        <label> Width : </label>
-                        <input type="number" class="form-control" placeholder=" Width ">
+                    <div class=" form-group col-md-4">
+                        <label>Width: </label>
+                        <div class="input-group"> 
+                            <input type="text" class="form-control" placeholder="Width" formControlName="width" >
+                            <div class="input-group-append">
+                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            </div>
+                       </div>
                     </div>
-                    <div class="form-group input-group-lg  col-md-4">
-                        <label> Height : </label>
-                        <input type="number" class="form-control" placeholder="Height ">
+                    <div class=" form-group col-md-4">
+                        <label>Height: </label>
+                        <div class="input-group"> 
+                            <input type="text" class="form-control" placeholder="Height" formControlName="height" >
+                            <div class="input-group-append">
+                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            </div>
+                       </div>
                     </div>
+ 
                 </div>
-
-                <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="form-group col-md-6">
-                        <button type="button" class="btn btn-primary"> Calculate </button>
+                        <button type="submit" class="btn btn-primary"> Book Shipment </button>
+                    </div>
+                </div> -->
+                <h5 class="my-4"> More Information </h5>
+                <div class="form-row">
+                 <div class="form-group col-md-6">
+                    <button class="btn btn-primary btn-lg" style="display:inline-block; " onclick="document.getElementById('commercial-invoice').click()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg>  
+                        Commercial Invoice 
+                         
+                      </button>
+                     <input type='file' id="commercial-invoice" style="display:none" class="form-control" formControlName="invoice" (change)="commercialInvoiceChange($event)">  
+                     <p class="text-danger" *ngIf="showComercialInvoice">This must be filled in to complete the booking</p> 
+                    </div>    
+                    
+
+                  <div class="form-group col-md-6">
+                    <button class="btn btn-primary btn-lg" style="display:inline-block; " onclick="document.getElementById('packing-list').click()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg>  
+                        Packing List 
+                         
+                      </button>
+                    
+                     <input type='file' id="packing-list" style="display:none" class="form-control" formControlName="list" (change)="packingListChange($event)">  
+                    <p class="text-danger" *ngIf="showPackingList">This must be filled in to complete the booking</p> 
+                    </div>  
+                </div> 
+                    <div class="row  ">
+                    <div class="form-group col-md-6 justify-content-center">
+                        <button type="submit" class="btn btn-primary" style="padding: 10px;"> Book Shipment </button>
                     </div>
                 </div>
             </form>
