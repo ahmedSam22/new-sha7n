@@ -74,6 +74,7 @@
 
 .rightCard .leftSideCard ul {
     margin-top: 60px;
+    padding: 10px;
 }
 
 .rightCard .leftSideCard ul li {
@@ -128,32 +129,39 @@
         font-size: 15px;
     }
     .rightCard .rightSideCard .bottom p {
-        font-size: 40px;
+        font-size: 25px;
     }
     .rightCard .rightSideCard .top p {
-        padding: 0px;
+        padding:8px;
         font-size: 12px;
         width: 50px;
     }
     .rightCard .leftSideCard ul li {
-        line-height: 20px;
+        line-height: 30px;
         font-size: 13px;
     }
     .rightCard .leftSideCard span {
         font-size: 13px;
     }
     .rightCard .rightSideCard .top img {
-        width: 40px;
-        height: 40px;
+        width:50px;
+        height:50px;
     }
 }
 
 @media only screen and (max-width:968px) {
     .rightCard .rightSideCard .middle p {
         font-size: 12px;
+        margin-top:30px
     }
     .rightCard .rightSideCard .bottom p {
-        font-size: 30px;
+        font-size: 15px;
+    }
+    .rightCard .leftSideCard ul li {
+        line-height: 25px;
+    }
+    .img1{
+        display: none;
     }
 }
 
@@ -162,9 +170,34 @@
     height: 70px;
 }
 
-.rightCard .rightSideBtn .btnBooking {
+ .btnCalculating ,.btnBooking {
     background-color: #32B457;
     color: white;
-    padding: 10px;
-    margin: 0% 8%
+    padding: 10px 0px ;
+    margin: 10px;
+    
 }
+ 
+.input-group-text{
+    height: 38px;
+    color: #32B457;
+    /* background-color :white ; */
+    font-weight: 500 ;
+  
+}
+.imgg {
+    height: 100%;
+}
+ .imgg .fullImage {
+   background-image: url('../../../assets/images/illustration.png');  
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   width: 100%;
+   height: 100%;
+   resize: both;
+   position: relative;
+   right: 0px;
+   bottom: 0px;
+}
+ 

@@ -112,7 +112,7 @@
               placeholder="Email"
               [formControlName]="'email'"
             />
-            <span>show</span>
+            <!-- <span>show</span> -->
           </div>
           <div class="form-group col-md-8">
             <label for="exampleInputPassword1">Password</label>
@@ -152,8 +152,7 @@
               <span class="showPassword" (click)="this.showConfirm = !this.showConfirm"
                 ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
                 <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
-                <!-- <i class="fas fa-eye" *ngIf="!showConfirm"></i> -->
-              </span>
+               </span>
             </div>
           </div>
           <div class="form-check check">
@@ -161,7 +160,7 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
-              [checked]="accept"
+              [checked]="true"
               (click)="switchaccept()"
             />
             <label class="form-check-label" for="exampleCheck1"
@@ -178,7 +177,7 @@
           </button>
           <p>
             You have an account ?
-            <a [routerLink]="['/root/login']"> Sign In </a>
+            <a [routerLink]="['/root/login',id_code]"> Sign In </a>
           </p>
         </form>
       </div>

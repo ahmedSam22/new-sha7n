@@ -28,7 +28,7 @@
                         <div class="form-group input-group-lg col-md-12">
                             <label for="exampleFormControlSelect1">Parcel From : </label>
                              <!--  (change)="onChangeChina($event)" -->
-                            <select class="form-control"  formControlName="china_harbor_id">
+                            <select class="form-control"  formControlName="china_harbor_id" >
                                <option value="1" disabled>China</option>
                             </select>
                         </div>
@@ -51,8 +51,8 @@
                     <div class="form-group input-group-lg  col-md-4">
                         <label for="inputState">Type Of Shipping : </label>
                         <select class="form-control" formControlName="type" >
-                               <option value="0" disabled>Aerial</option>
-                               <option value="1" disabled>Nautical</option>
+                               <option value="1" disabled>Aerial</option>
+                               <option value="0" disabled>Nautical</option>
                            </select>
                     </div>
                     <div class="form-group input-group-lg  col-md-4">
@@ -65,7 +65,7 @@
                     <div class=" form-group col-md-4">
                         <label>Weight: </label>
                         <div class="input-group"> 
-                            <input type="text" class="form-control"  placeholder="Weight"  formControlName="weight" [disabled]="true" >
+                            <input type="text" class="form-control"  placeholder="Estimated Weight"  formControlName="weight" [disabled]="true" >
                             <div class="input-group-append">
                             <span class="input-group-text " style="height:38px;" *ngIf="showKg">Kg</span>
                             <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>

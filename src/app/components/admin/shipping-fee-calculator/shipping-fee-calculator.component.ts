@@ -47,12 +47,12 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     console.log("fromChinaHarbor",this.fromChinaHarbor)
 
     if(this.typeOfShipping==0){
-      this.showCBM=false ;
-      this.showKg=true ;
-    }
-    else{
       this.showCBM=true ;
       this.showKg=false ;
+    }
+    else{
+      this.showCBM=false ;
+      this.showKg=true ;
     }
     this.service.getSaudiWarehouses().subscribe((res:any)=>{
       this.saudiharbors = res['data'];

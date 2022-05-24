@@ -101,3 +101,10 @@ color:grey
         margin: 350px auto 100px auto;
     }
 }
+
+.input-group-text{
+    height: 38px;
+    color: #32B457;
+    font-weight: 500 ;
+  
+}

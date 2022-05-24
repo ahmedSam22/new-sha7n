@@ -191,11 +191,12 @@
             margin-top: 100px;
         }
 }
-
 .showPassword{
-    padding: 10px;
-    border: 1px solid gray;
+    padding: 11px;
+    border: 1px solid #d1cece;
     border-left: none;
-    
-
-}
+  }
+  #exampleInputPassword1 ,#exampleInputPassword2{
+    border-bottom-right-radius: 0px;
+    border-top-right-radius:0px;
+  }

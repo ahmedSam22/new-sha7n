@@ -14,6 +14,8 @@ import { of } from 'rxjs';
 })
 export class SignUpComponent implements OnInit {
   signUp!: FormGroup;
+  // val=0;
+  id_code:any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -38,6 +40,11 @@ export class SignUpComponent implements OnInit {
         Validators.minLength(6),
       ]),
     });
+    this.route.paramMap.subscribe(params => {
+      this.id_code = params.get('id');
+    console.log("ccccccccccccccccccccc",this.id_code)
+   
+  });
   }
 
   back() {
@@ -68,7 +75,7 @@ export class SignUpComponent implements OnInit {
               return ;
             }
               Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
-            this.router.navigate(['/root/verify-code']);
+              this.router.navigate(['/root/verify-code',this.id_code]);
           },
           error: (error) => {
 

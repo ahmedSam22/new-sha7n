@@ -35,31 +35,44 @@
               [formControlName]="'email'"
             />
           </div>
+         
           <div class="form-group col-md-8">
             <label for="exampleInputPassword1">Password</label>
+            <div class="d-flex align-items-center">  
             <input
-              type="password"
-              class="form-control form-control-lg"
               id="exampleInputPassword1"
+              [type]="showConfirm ? 'text' : 'password'"
+              class="form-control form-control-lg"
+              required="true"
+              minlength="6"
               placeholder="Password"
               [formControlName]="'password'"
             />
-          </div>
+            <span class="showPassword" (click)="this.showConfirm = !this.showConfirm"
+            ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
+            <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i> </span>
+           </div>
+          
+          
+        
+        </div>
           <div class="form-check check">
             <input
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
             />
+            
             <label class="form-check-label" for="exampleCheck1"
               >Remember me <span>Forget Password ? </span>
             </label>
           </div>
+        
           <!-- [routerLink]="['/root/verify-code']" -->
           <button type="sumbit" class="btn btn-primary col-md-8">Sign In</button>
           <p>
             You Don't Have an Account ?
-            <a [routerLink]="['/root/sign-up']"> Create Account </a>
+            <a [routerLink]="['/root/sign-up',id_code]"> Create Account </a>
           </p>
         </form>
       </div>

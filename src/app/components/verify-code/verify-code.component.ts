@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { GlobalserviceService } from '../globalservice/globalservice.service';
 import { GlobalService } from '../shared/services/global.service';
@@ -12,7 +13,8 @@ export class VerifyCodeComponent implements OnInit {
   verify!:FormGroup ;
   concat='' ;
   verification_code = {};
-  constructor( private service:GlobalService) { }
+  id_code!:any;
+  constructor( private service:GlobalService, private activatedRoute:ActivatedRoute ,private router:Router ) { }
 
   ngOnInit(): void {
     this.verify=new FormGroup({
@@ -21,6 +23,11 @@ export class VerifyCodeComponent implements OnInit {
       'verify_input3':new FormControl(null , Validators.required) ,
       'verify_input4':new FormControl(null , Validators.required) ,
     });
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.id_code = params.get('id');
+    console.log("ccccccccccccccccccccc",this.id_code)
+   
+  });
   }
 
    onSubmit(){
@@ -35,6 +42,18 @@ export class VerifyCodeComponent implements OnInit {
            'success'
        )
        console.log("success") ;
+       if(this.id_code==0){
+        setTimeout(() =>{
+          this.router.navigate(['admin/shipping']);
+           },2000);
+      
+         }
+       else {
+        setTimeout(() =>{
+          this.router.navigate(['admin/adminHome']);
+           },2000);
+
+       }
        });
   }
 }

@@ -12,14 +12,22 @@ import { GlobalService } from '../shared/services/global.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  //singupval=0;
+   id_code!:any;
   logIn!:FormGroup ;
-  constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: GlobalService ) { }
+  showConfirm:boolean = false;
+  constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: GlobalService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.logIn = new FormGroup({
     'email' : new FormControl(null ,Validators.required ),
     'password': new FormControl(null , Validators.required)
+    });
+
+    this.activatedRoute.paramMap.subscribe(params => {
+        this.id_code = params.get('id');
+      console.log("ccccccccccccccccccccc",this.id_code)
+     
     });
   }
 
@@ -36,10 +44,17 @@ export class LoginComponent implements OnInit {
         //     res.message
         //         )
        console.log("success") ;
-       setTimeout(() =>{
-        this.router.navigate(['admin/adminHome']);
-         },2000);
-
+        
+         if(this.id_code==1){
+          setTimeout(() =>{
+            this.router.navigate(['admin/adminHome']);
+             },2000);
+         }
+         else{
+          setTimeout(() =>{
+            this.router.navigate(['admin/shipping']);
+             },2000);
+         }
        },
        error => {
         // console.log(error);

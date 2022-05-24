@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfigurationOptions, CustomCountryModel, TooltipOptionsEnum } from 'intl-input-phone';
 
 @Component({
@@ -10,7 +11,8 @@ export class NavbarComponent implements OnInit {
   collapsed=true;
   selected :any;
   element:any;
-  constructor() {
+  val=1;
+  constructor(private router:Router ) {
 
    
    }
@@ -28,6 +30,7 @@ export class NavbarComponent implements OnInit {
   select(item:any) {
     this.selected = item;
       this.hideNavBar();
+     
   };
   hideNavBar(){
     this.element = document.getElementById('navbarSupportedContent');
@@ -37,4 +40,5 @@ export class NavbarComponent implements OnInit {
     // this.element.style.height='1px'; 
     // this.element.style.cursor='pointer';
   }
+ 
 }

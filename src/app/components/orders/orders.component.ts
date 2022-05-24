@@ -6,6 +6,7 @@ import { GlobalService } from '../shared/services/global.service';
   import { Router } from '@angular/router';
  
 import { ViewChild } from '@angular/core';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -20,7 +21,9 @@ export class OrdersComponent implements OnInit {
   typeofShipping:any;
   typeOfShipment:any; 
   successStatus=false ;
+  successImage=true;
   costs:any ; 
+  logo:any;
   info:any=[]
   @ViewChild('shippingWeight') shippingWeight!:ElementRef;
   @ViewChild('shippingLength') shippingLength!:ElementRef;
@@ -28,6 +31,9 @@ export class OrdersComponent implements OnInit {
   @ViewChild('shippingHeight') shippingHeight!:ElementRef;
   showCBM=false ;
   showKg=true ;
+  btnStyle!:any;
+  errorMessages:any=[];
+  val=0;
   constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService) { }
 
   ngOnInit(): void {
@@ -114,26 +120,41 @@ getLenght(){
        console.log("REEEEEEEEEEE",res)
        console.log("REEEEEEEEEEE",res.status)
         if(res.status===true){
-          this.successStatus=true
+          this.successStatus=true;
+          this.successImage=false;
           this.info=res['data'];
           console.log("infoooooooooooooo",this.info)
           this.costs=this.info;
           for(let i=0; i<this.info.length ; i++){
             this.service.order_company_id= this.info[0].id
+            this.logo=this.info[0].imagePath
+            
+            
           }
           console.log("company idddddddd" , this.service.order_company_id)
-
- 
-        }
+        
+         this.btnStyle = document.getElementById('btnCalculating');
+         this.btnStyle.style.display = 'none';
+         }
         else{
-          this.successStatus=false
+          console.log("errorrrrrr", res.errors)
+          this.successStatus=false;
+          this.successImage=true;
+          for(let i=0 ; i<res.errors.length;i++){
+            this.errorMessages=res.errors[0]
+            
+           }
+           Swal.fire(
+            "Fail" ,
+            this.errorMessages
+           )
         }
       })
   }
 
   goadmindashboard(){
     setTimeout(() =>{
-      this.router.navigate(['root/login']);
+      this.router.navigate(['root/login',this.val]);
        },1500);
        console.log("navigated")
   }

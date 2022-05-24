@@ -10,14 +10,14 @@
                         <label>Parcel From : </label>
                         <!-- formControlName="china_harbor_id" -->
                         <select class="form-control" (change)="onChangeChina($event)" >
-                            <option [selected]="true">Choose ...</option>
+                            <option [selected]="true">Choose Parcel From</option>
                             <option value="1">China</option>
                         </select>
                     </div>
                     <div class="form-group  col-md-6">
                         <label>To :</label>
                         <select class="form-control" formControlName="saudi_harbor_id" (change)="onChangeSaudi($event)">
-                            <option disabled  [selected]="true">Choose ...</option>
+                            <option disabled  [selected]="true">Choose To</option>
                             <option *ngFor="let harbor of saudiharbors" [value]="harbor.id"> {{harbor.name_ar}}  </option>
                         </select>
                     </div>
@@ -29,26 +29,26 @@
                    <div class="form-group col-md-4">
                        <label>Type of Shipping : </label>
                        <select class="form-control " (change)="onTypeOfShipping($event)">
-                        <option [selected]="true">Choose ...</option>
+                        <option [selected]="true">Choose Type of Shipping </option>
                            <option value="1">Aerial</option>
                            <option value="0">Nautical</option>
                        </select>
                    </div>
                    <div class="form-group col-md-4">
                     <label>Type of Shipment : </label>
-                    <!-- formControlName="shipment_type" -->
+                   
                     <select class="form-control" (change)="onTypeOfShipment($event)">
-                        <option [selected]="true">Choose ...</option>
+                        <option [selected]="true">Choose Type of Shipmen</option>
                         <option value="1" >Battery</option>
                     </select>
                 </div>
                 <div class=" form-group col-md-4">
-                    <label>weight: </label>
+                    <label>Weight: </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" #shippingWeight (blur)="getWeight()"  formControlName="weight">
+                        <input type="text" class="form-control" #shippingWeight (blur)="getWeight()"  formControlName="weight" placeholder="Estimated Weight">
                         <div class="input-group-append">
-                           <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>
-                            <span class="input-group-text " style="height:38px;" *ngIf="showKg">Kg</span>
+                           <span class="input-group-text" *ngIf="showCBM">CBM</span>
+                           <span class="input-group-text" *ngIf="showKg">Kg</span>
                         </div>
                    </div>
                   </div>
@@ -60,43 +60,48 @@
                 <div class=" form-group col-md-4">
                     <label>Length: </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getLenght()" #shippingLength>
+                        <input type="text" class="form-control" (blur)="getLenght()" #shippingLength placeholder="Length">
                         <div class="input-group-append">
-                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        <span class="input-group-text">cm</span>
                         </div>
                    </div>
                   </div>
                   <div class=" form-group col-md-4">
                     <label>Width : </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getWidth()" #shippingWidth>
+                        <input type="text" class="form-control" (blur)="getWidth()" #shippingWidth placeholder="Width">
                         <div class="input-group-append">
-                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        <span class="input-group-text">cm</span>
                         </div>
                    </div>
                   </div>
                   <div class=" form-group col-md-4">
                     <label>Height : </label>
                     <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getHeight()" #shippingHeight>
+                        <input type="text" class="form-control" (blur)="getHeight()" #shippingHeight placeholder="Height">
                         <div class="input-group-append">
-                        <span class="input-group-text " style="height: 38px;">cm</span>
+                        <span class="input-group-text">cm</span>
                         </div>
                    </div>
                   </div>
               </div> 
               <br>
               <div class="row justify-content-center"> 
-              
-                <button type="submit" class="btn col-md-8 btnBooking"  style="background-color:#32B457 ; color:white ; padding: 10px 0px ; margin:10px"> Calculate </button> 
-            
-               </div>
-              </form>
+                    <button type="submit" class="btn col-md-8 btnCalculating" id="btnCalculating"> Calculate </button> 
+              </div>
+            </form>
         </div>
+    
+            <div class="rightCard img1 col-md-5" *ngIf="successImage">
+                <div class="imgg">
+                  <div class="fullImage"></div>
+                </div>
+              </div>
+         
         <div class="rightCard col-md-5" *ngIf="successStatus"> 
             <div class="container"> 
              <div class="row ">
-                <div class="leftSideCard col-md-8 col-sm-6">
+                <div class="leftSideCard col-md-6 col-sm-6">
                   <span> Aerial</span>
                   <span> Charging Type </span>
                   <ul> 
@@ -106,10 +111,11 @@
                       <li>In case the goods are not standardized made in China . the amount for Sar 500 will be added  </li>
                   </ul>
                 </div>
-                <div class="rightSideCard col-md-4 col-sm-6">
+                <div class="rightSideCard col-md-5 col-sm-6">
                     <div class="row">  
                         <div class="col-md-12 col-sm-12 top">
-                            <img src="../../../assets/images/ipe.jpg"  class=" img-fluid float-left" alt="right">
+                     
+                            <img [src]="logo"  class=" img-fluid float-left" height="auto" width="50%" alt="right">
                             <p class="float-left "> International Parcel </p>
                         </div>
                     </div>
@@ -120,7 +126,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-sm-12 bottom"> 
-                        <p class="tect-center" *ngFor="let cost of costs"> {{cost.price}}<sub>SR</sub> </p>
+                            <p class="tect-center" *ngFor="let cost of costs"> {{cost.price}}<sub>$</sub> </p>
                         </div>
                    </div>
                    
@@ -133,48 +139,10 @@
                    </div>
             </div> 
             
-            </div> <!-- container-->
-            <!-- <div class="container"> 
-                <div class="row">
-                    <div class="leftSideCard col-md-8 col-sm-6">
-                      <span> Aerial</span>
-                      <span> Charging Type </span>
-                      <ul> 
-                          <li> Actual Weight </li>
-                          <li> 5-12 Days Approximate Shipping Time</li>
-                          <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li> 
-                          <li>In case the goods are not standardized made in China . the amount for Sar 500 will be added  </li>
-                      </ul>
-                    </div>
-                    <div class="rightSideCard col-md-4 col-sm-6">
-                        <div class="row">  
-                            <div class="col-md-12 col-sm-12 top">
-                                <img src="../../../assets/images/ipe.jpg"  class=" img-fluid float-left" alt="right">
-                                <p class="float-left "> International Parcel </p>
-                            </div>
-                        </div>
-                        <div class="row"> 
-                            <div class="col-md-12 col-sm-12 middle">  
-                              <p class="tect-center"> Shipping Charges </p>    
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 bottom"> 
-                            <p class="tect-center"> 3,800<sub>SR</sub> </p>
-                            </div>
-                       </div>
-                       
-                    </div>
-                     
-                </div>
-                  <div class="row"> 
-                        <div class="rightSideBtn col-md-12 col-sm-12">  
-                        <button class="btn col-md-10 btnBooking"> Booking </button> 
-                       </div>
-                 </div> 
-                </div>  container -->
+            </div> 
+     
       </div>
-
+            
       
       
 </div>

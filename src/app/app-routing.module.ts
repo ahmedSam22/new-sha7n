@@ -36,9 +36,9 @@ const routes: Routes = [
     { path: 'orders', component: OrdersComponent},
     { path: 'about-us', component: AboutUsComponent},
     { path: 'contact-us', component: ContactUsComponent},
-    { path: 'sign-up', component: SignUpComponent},
-    { path: 'login', component: LoginComponent},
-    { path: 'verify-code', component: VerifyCodeComponent},
+    { path: 'sign-up/:id', component: SignUpComponent},
+    { path: 'login/:id', component: LoginComponent},
+    { path: 'verify-code/:id', component: VerifyCodeComponent},
   ]},
   { path: 'admin', component: HomeAdminComponent,  children: [
 
