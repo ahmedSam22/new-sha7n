@@ -1,150 +1,249 @@
-<div class="orders col-md-12"> 
-    <div class="row justify-content-around"> 
-        <div class="leftCard col-md-5  my-5 py-5"> 
-            <h3 class="text-center"> Shipping Rates </h3>
-               <p class="text-center">We help Calculate The Approximate Shipping Cost To Your Country </p> 
-               <form class="shipping" [formGroup]="form" (ngSubmit)="onSubmit()">
-                <h6>Shipment Address </h6>
-                 <div class="row justify-content-around shipForm"> 
-                    <div class="form-group col-md-6">
-                        <label>Parcel From : </label>
-                        <!-- formControlName="china_harbor_id" -->
-                        <select class="form-control" (change)="onChangeChina($event)" >
-                            <option [selected]="true">Choose Parcel From</option>
-                            <option value="1">China</option>
-                        </select>
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label>To :</label>
-                        <select class="form-control" formControlName="saudi_harbor_id" (change)="onChangeSaudi($event)">
-                            <option disabled  [selected]="true">Choose To</option>
-                            <option *ngFor="let harbor of saudiharbors" [value]="harbor.id"> {{harbor.name_ar}}  </option>
-                        </select>
-                    </div>
-                </div> 
-
-                <h6>Shipment Information </h6>
-                <!-- formControlName="type" -->
-                <div class="row justify-content-around shipForm"> 
-                   <div class="form-group col-md-4">
-                       <label>Type of Shipping : </label>
-                       <select class="form-control " (change)="onTypeOfShipping($event)">
-                        <option [selected]="true">Choose Type of Shipping </option>
-                           <option value="1">Aerial</option>
-                           <option value="0">Nautical</option>
-                       </select>
-                   </div>
-                   <div class="form-group col-md-4">
-                    <label>Type of Shipment : </label>
-                   
-                    <select class="form-control" (change)="onTypeOfShipment($event)">
-                        <option [selected]="true">Choose Type of Shipmen</option>
-                        <option value="1" >Battery</option>
-                    </select>
-                </div>
-                <div class=" form-group col-md-4">
-                    <label>Weight: </label>
-                    <div class="input-group"> 
-                        <input type="text" class="form-control" #shippingWeight (blur)="getWeight()"  formControlName="weight" placeholder="Estimated Weight">
-                        <div class="input-group-append">
-                           <span class="input-group-text" *ngIf="showCBM">CBM</span>
-                           <span class="input-group-text" *ngIf="showKg">Kg</span>
-                        </div>
-                   </div>
-                  </div>
-                   
-               </div> 
-
-               <h6>Shipment Dimensions (optional) </h6>
-               <div class="row justify-content-around shipForm"> 
-                <div class=" form-group col-md-4">
-                    <label>Length: </label>
-                    <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getLenght()" #shippingLength placeholder="Length">
-                        <div class="input-group-append">
-                        <span class="input-group-text">cm</span>
-                        </div>
-                   </div>
-                  </div>
-                  <div class=" form-group col-md-4">
-                    <label>Width : </label>
-                    <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getWidth()" #shippingWidth placeholder="Width">
-                        <div class="input-group-append">
-                        <span class="input-group-text">cm</span>
-                        </div>
-                   </div>
-                  </div>
-                  <div class=" form-group col-md-4">
-                    <label>Height : </label>
-                    <div class="input-group"> 
-                        <input type="text" class="form-control" (blur)="getHeight()" #shippingHeight placeholder="Height">
-                        <div class="input-group-append">
-                        <span class="input-group-text">cm</span>
-                        </div>
-                   </div>
-                  </div>
-              </div> 
-              <br>
-              <div class="row justify-content-center"> 
-                    <button type="submit" class="btn col-md-8 btnCalculating" id="btnCalculating"> Calculate </button> 
-              </div>
-            </form>
+<div class="orders col-md-12">
+  <div class="row justify-content-around">
+    <div class="leftCard col-md-5 my-5 py-5">
+      <h3 class="text-center">Shipping Rates</h3>
+      <p class="text-center">
+        We help Calculate The Approximate Shipping Cost To Your Country
+      </p>
+      <form class="shipping" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h6>Shipment Address</h6>
+        <div class="row justify-content-around shipForm">
+          <div class="form-group col-md-6">
+            <label>Parcel From : </label>
+            <!-- formControlName="china_harbor_id" -->
+            <select class="form-control" (change)="onChangeChina($event)">
+              <option [selected]="true">Choose Parcel From</option>
+              <option value="1">China</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>To :</label>
+            <select
+              class="form-control"
+              formControlName="saudi_harbor_id"
+              (change)="onChangeSaudi($event)"
+            >
+              <option disabled [selected]="true">Choose To</option>
+              <option *ngFor="let harbor of saudiharbors" [value]="harbor.id">
+                {{ harbor.name_ar }}
+              </option>
+            </select>
+          </div>
         </div>
-    
-            <div class="rightCard img1 col-md-5" *ngIf="successImage">
-                <div class="imgg">
-                  <div class="fullImage"></div>
-                </div>
+
+        <h6>Shipment Information</h6>
+        <!-- formControlName="type" -->
+        <div class="row justify-content-around shipForm">
+          <div class="form-group col-md-4">
+            <label>Type of Shipping : </label>
+            <select class="form-control" (change)="onTypeOfShipping($event)">
+              <option [selected]="true">Choose Type of Shipping</option>
+              <option value="1">Aerial</option>
+              <option value="0">Nautical</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Type of Shipment : </label>
+
+            <select class="form-control" (change)="onTypeOfShipment($event)">
+              <option [selected]="true">Choose Type of Shipmen</option>
+              <option value="1">Battery</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Weight: </label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                #shippingWeight
+                (blur)="getWeight()"
+                formControlName="weight"
+                placeholder="Estimated Weight"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" *ngIf="showCBM">CBM</span>
+                <span class="input-group-text" *ngIf="showKg">Kg</span>
               </div>
-         
-        <div class="rightCard col-md-5" *ngIf="successStatus"> 
-            <div class="container"> 
-             <div class="row ">
-                <div class="leftSideCard col-md-6 col-sm-6">
-                  <span> Aerial</span>
-                  <span> Charging Type </span>
-                  <ul> 
-                      <li> Actual Weight </li>
-                      <li> 5-12 Days Approximate Shipping Time</li>
-                      <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li> 
-                      <li>In case the goods are not standardized made in China . the amount for Sar 500 will be added  </li>
-                  </ul>
-                </div>
-                <div class="rightSideCard col-md-5 col-sm-6">
-                    <div class="row">  
-                        <div class="col-md-12 col-sm-12 top">
-                     
-                            <img [src]="logo"  class=" img-fluid float-left" height="auto" width="50%" alt="right">
-                            <p class="float-left "> International Parcel </p>
-                        </div>
-                    </div>
-                    <div class="row"> 
-                        <div class="col-md-12 col-sm-12 middle">  
-                          <p class="tect-center"> Shipping Charges </p>    
-                        </div> 
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 bottom"> 
-                            <p class="tect-center" *ngFor="let cost of costs"> {{cost.price}}<sub>$</sub> </p>
-                        </div>
-                   </div>
-                   
-                </div>
-                 
             </div>
-              <div class="row"> 
-                    <div class="rightSideBtn col-md-12 col-sm-12">  
-                    <button class="btn col-md-10 btnBooking" (click)="goadmindashboard()"> Booking </button> 
-                   </div>
-            </div> 
-            
-            </div> 
-     
+          </div>
+        </div>
+
+        <h6>Shipment Dimensions (optional)</h6>
+        <div class="row justify-content-around shipForm">
+          <div class="form-group col-md-4">
+            <label>Length: </label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                (blur)="getLenght()"
+                #shippingLength
+                placeholder="Length"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">cm</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Width : </label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                (blur)="getWidth()"
+                #shippingWidth
+                placeholder="Width"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">cm</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Height : </label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                (blur)="getHeight()"
+                #shippingHeight
+                placeholder="Height"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">cm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+          <button
+            type="submit"
+            class="btn col-md-8 btnCalculating"
+            id="btnCalculating"
+          >
+            Calculate
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="rightCard img1 col-md-5" *ngIf="!successImage">
+      <div class="imgg">
+        <div class="fullImage"></div>
       </div>
-            
-      
-      
+    </div>
+<!-- 
+    <div class="rightCard col-md-5" *ngIf="!successStatus">
+      <div class="container">
+        <div class="row">
+          <div class="leftSideCard col-md-6 col-sm-12">
+            <span> Aerial</span>
+            <span> Charging Type </span>
+            <ul>
+              <li>Actual Weight</li>
+              <li>5-12 Days Approximate Shipping Time</li>
+              <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li>
+              <li>
+                In case the goods are not standardized made in China . the
+                amount for Sar 500 will be added
+              </li>
+            </ul>
+          </div>
+          <div class="rightSideCard col-md-5 col-sm-12">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 top">
+                <img
+                  [src]="logo"
+                  class="img-fluid float-left"
+                  height="auto"
+                  width="50%"
+                  alt="right"
+                />
+                <p class="float-left">International Parcel</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 middle">
+                <p class="tect-center">Shipping Charges</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 bottom">
+                <p class="tect-center" *ngFor="let cost of costs">
+                  {{ cost.price }}<span>$</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="rightSideBtn col-md-12 col-sm-12">
+            <button
+              class="btn col-md-10 btnBooking"
+              (click)="goadmindashboard()"
+            >
+              Booking
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-md-6 py-2">
+      <div class="myCard p-3 bg-light">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text">
+              <div class="text_top d-flex justify-content-between">
+                <span> Aerial</span>
+                <span> Charging Type </span>
+              </div>
+
+              <ul>
+                <li>Actual Weight</li>
+                <li>5-12 Days Approximate Shipping Time</li>
+                <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li>
+                <li>
+                  In case the goods are not standardized made in China . the
+                  amount for Sar 500 will be added
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 forBorder">
+            <div class="forImg d-flex justify-content-between">
+              <span>
+                <img
+                  [src]="logo"
+                  class="img-fluid"
+                  height="auto"
+                  width="50%"
+                  alt="right"
+                />
+              </span>
+              <span> International Parcel </span>
+            </div>
+            <div class="forText d-flex flex-column mt-3">
+              <span>Shipping Charges</span>
+              <span class="m-auto"> 22222222222$ </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center">
+                <button
+                type="submit"
+                class="btn col-md-8 btnCalculating"
+                id="btnCalculating"
+              >
+                Calculate
+              </button>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-  

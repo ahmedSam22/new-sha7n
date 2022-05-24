@@ -126,10 +126,14 @@
 
 @media only screen and (min-width: 480px) and (max-width:1440px) {
     .rightCard .rightSideCard .middle p {
-        font-size: 15px;
+        font-size: 12px;
     }
     .rightCard .rightSideCard .bottom p {
-        font-size: 25px;
+        font-size: 20px;
+    }
+    .rightCard .rightSideCard .top  {
+        display: flex !important;
+       justify-content: space-between !important;
     }
     .rightCard .rightSideCard .top p {
         padding:8px;
@@ -138,10 +142,10 @@
     }
     .rightCard .leftSideCard ul li {
         line-height: 30px;
-        font-size: 13px;
+        font-size: 12px;
     }
     .rightCard .leftSideCard span {
-        font-size: 13px;
+        font-size: 12px;
     }
     .rightCard .rightSideCard .top img {
         width:50px;
@@ -162,6 +166,21 @@
     }
     .img1{
         display: none;
+    }
+
+    .leftSideCard{
+        height: auto !important;
+    }
+    .text span{
+        font-size: 16px;
+    }
+
+    .text li{
+        font-size: 12px;
+    }
+    .forBorder{
+        border-left: none !important;
+        border-top: 1px solid gray;
     }
 }
 
@@ -201,3 +220,18 @@
    bottom: 0px;
 }
  
+.text span{
+    font-size: 18px;
+}
+
+.text li{
+    font-size: 14px;
+}
+
+.myCard{
+    background-color: white !important;
+}
+
+.forBorder{
+    border-left: 1px solid gray;
+}
