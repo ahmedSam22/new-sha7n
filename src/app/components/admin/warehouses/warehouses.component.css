@@ -10,7 +10,8 @@
     height: 300px;
     resize: both;
     position: absolute;
-    top: 87px;
+    /* top: 87px; */
+    top:109px;
     left: 0;
     height: 300px;
     min-width: 100%;
@@ -85,6 +86,6 @@
 
 @media only screen and (max-width:996px) {
     .warehouses {
-        margin: 200px auto;
+        margin: 280px auto;
     }
 }

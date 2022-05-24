@@ -100,32 +100,38 @@ span {
     margin: 0;
     font-family: "Lato", sans-serif;
   }
-  
+  .logoImage {
+    text-align: center;
+    padding: 5px;
+}
   .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
+    width: 16.65%;
     height: 100%;
-    overflow: auto;
+    background-color: #0F4F56; 
+    position: fixed;
+     overflow: auto;
   }
-  
+  .sidebar li:first-of-type {
+    background-color:#32b457 ;
+    color:#FFFFFF;
+  }
   .sidebar a {
     display: block;
-    color: black;
-    padding: 16px;
+    color:#FFFFFF;
+     padding: 16px;
     text-decoration: none;
   }
    
   .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
+    background-color:#0F4F56;  
+    color:#FFFFFF;
   }
   
   .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color:#FFFFFF;
+    color: #0F4F56;
   }
   
   div.content {
@@ -134,7 +140,7 @@ span {
     height: 1000px;
   }
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     .sidebar {
       width: 100%;
       height: auto;
@@ -150,3 +156,36 @@ span {
       float: none;
     }
   }
+
+  svg{
+    margin-bottom: 2px;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  @media (max-width: 768px) { 
+   .logoImage img{
+     height: 15%;
+     width: 15%;
+    }
+    .logoImage span {
+      font-size: 10px;
+    }
+
+   }

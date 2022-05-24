@@ -130,7 +130,7 @@
       </form>
     </div>
 
-    <div class="rightCard img1 col-md-5" *ngIf="!successImage">
+    <div class="rightCard img1 col-md-5" *ngIf="successImage">
       <div class="imgg">
         <div class="fullImage"></div>
       </div>
@@ -191,9 +191,9 @@
         </div>
       </div>
     </div> -->
-
-    <div class="col-md-6 py-2">
-      <div class="myCard p-3 bg-light">
+    
+    <div class="col-md-6 py-2" *ngIf="successStatus" >
+      <div class="myCard p-3 bg-light" >
         <div class="row">
           <div class="col-md-6">
             <div class="text">
@@ -228,7 +228,10 @@
             </div>
             <div class="forText d-flex flex-column mt-3">
               <span>Shipping Charges</span>
-              <span class="m-auto"> 22222222222$ </span>
+              <!-- <span class="m-auto"> 22222222222$ </span> -->
+              <p class="tect-center" *ngFor="let cost of costs">
+                {{ cost.price }}<span>$</span>
+              </p>
             </div>
           </div>
         </div>
@@ -245,5 +248,6 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
-</div>
+ 

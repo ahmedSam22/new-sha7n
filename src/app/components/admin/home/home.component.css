@@ -41,7 +41,7 @@ footer {
     }
     .sidebarToggler {
         transition: all 0.5s linear;
-        display: none;
+        display: none; 
     }
     .wr {
         margin: 0 !important;
