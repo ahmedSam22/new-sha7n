@@ -198,7 +198,7 @@
 }
  
 .input-group-text{
-    height: 38px;
+    height: 100%;
     color: #32B457;
     /* background-color :white ; */
     font-weight: 500 ;
@@ -234,4 +234,9 @@
 
 .forBorder{
     border-left: 1px solid gray;
+}
+
+.company-rules li {
+   line-height: 25px;
+   margin-top: 5px ;
 }

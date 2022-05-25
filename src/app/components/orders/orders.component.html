@@ -192,7 +192,7 @@
       </div>
     </div> -->
     
-    <div class="col-md-6 py-2" *ngIf="successStatus" >
+    <div class="col-md-6 py-5" *ngIf="successStatus" >
       <div class="myCard p-3 bg-light" >
         <div class="row">
           <div class="col-md-6">
@@ -202,7 +202,7 @@
                 <span> Charging Type </span>
               </div>
 
-              <ul>
+              <ul class="company-rules">
                 <li>Actual Weight</li>
                 <li>5-12 Days Approximate Shipping Time</li>
                 <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li>
@@ -218,20 +218,21 @@
               <span>
                 <img
                   [src]="logo"
-                  class="img-fluid"
+                  class="img-fluid float-left"
                   height="auto"
-                  width="50%"
+                  width="20%"
                   alt="right"
+                  style="border-radius:50%"
                 />
               </span>
               <span> International Parcel </span>
             </div>
             <div class="forText d-flex flex-column mt-3">
               <span>Shipping Charges</span>
-              <!-- <span class="m-auto"> 22222222222$ </span> -->
-              <p class="tect-center" *ngFor="let cost of costs">
+              <span class="my-3" style="color:#32B457 ;"> <b> {{costs}}$  </b> </span> 
+              <!-- <p class="tect-center" *ngFor="let cost of costs">
                 {{ cost.price }}<span>$</span>
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
@@ -241,6 +242,7 @@
                 type="submit"
                 class="btn col-md-8 btnCalculating"
                 id="btnCalculating"
+                (click)="goadmindashboard()"
               >
                 Calculate
               </button>

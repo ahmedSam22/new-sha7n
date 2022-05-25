@@ -4,8 +4,9 @@
       <div class="row"> 
           <div class="col-md-12 col-sm-12">
               <div class=" text-center orderlinks my-3"> 
-                <a href="" (click)="onOpenOrder()"> Open Orders </a> 
-                <a href=""(click)="onCloseOrder()"> Close Orders </a> 
+                <a href="javascript:void(0)" role="tab" (click)="getOrders('0')"> Order Recieving  </a> 
+                <a href="javascript:void(0)" role="tab"(click)="getOrders('1')"> Order In Shipping  </a> 
+                <a href="javascript:void(0)" role="tab" (click)="getOrders('2')"> Order Delivered  </a> 
               </div>
               
           </div>  
@@ -92,19 +93,19 @@
         </div> -->
         <div class="closeorders">
         <!-- <div class="closeorders" *ngIf="closeOrder&&!openOrder"> -->
-            <div class="ordercard"> 
+            <div class="ordercard" *ngFor="let order of orders"> 
                 <div class="row justify-content-around "> 
                       <div class="col-md-3 col-sm-6" > 
                           <p>Order Number </p> 
-                          <span> 33434545345432 </span>
+                          <span> {{order.order_refrence}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
                             <p>Order Date </p> 
-                            <span> 25 Nov.2022 </span>
+                            <span> {{order.created_at}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
                             <p>Shipping Charges </p> 
-                            <span> 4,800 SR </span>
+                            <span>{{order.shipping_price}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
                           <button (click)=" details()" class="float-right btn btn-primary my-4"> More Details 
@@ -116,7 +117,7 @@
                       
                   </div>  
                  
-                  <div class="col-md-12 col-sm-12">
+                  <!-- <div class="col-md-12 col-sm-12">
                         <mat-stepper
                           class="example-stepper"
                           [orientation]="(stepperOrientation | async)!">
@@ -128,7 +129,7 @@
                           <mat-step> <ng-template matStepLabel>  Receive Shipment </ng-template> </mat-step>
                          
                       </mat-stepper>
-                  </div> 
+                  </div>  -->
                  <div  *ngIf="moreDetails" > 
                   <div class="row"> 
                       <div class="col-md-3 col-sm-12"> 

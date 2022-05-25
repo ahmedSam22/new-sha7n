@@ -16,7 +16,7 @@ export class GlobalService {
   height:any ; 
   width:any ;
   length:any;
-  order_company_id!:any ;
+  order_company_id=1 ;
 
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -128,5 +128,7 @@ homeOrders(china_harbor_id:any ,saudi_harbor_id:any , type:any , shipment_type:a
 bookingOrder(form:any){
   return this.http.post(`${environment.endpoint}/companies/add-booking`,form) ;
  }
- 
+orderByStatusId(status_id:any){
+  return this.http.get(`${environment.endpoint}/backend/orders?status_id=${status_id}`) ;
+}
 }

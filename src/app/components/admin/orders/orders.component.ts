@@ -4,7 +4,8 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 import {StepperOrientation} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-
+import { GlobalService } from '../../shared/services/global.service';
+// created_at shipping_price
 @Component({
   selector: 'admin-orders',
   templateUrl: './orders.component.html',
@@ -14,7 +15,9 @@ export class OrdersAdminComponent implements OnInit {
   moreDetails=false ;
   openOrder=true;
   closeOrder=false;
-  orders:any
+  orders:any=[]
+  type!:any;
+
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -26,32 +29,42 @@ export class OrdersAdminComponent implements OnInit {
   });
   stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
+  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver , private service:GlobalService) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
   
-
-  ngOnInit(): void {
-  this.openOrder=this.openOrder ; //true
-  this.closeOrder=this.closeOrder ; //false
-}
-  onOpenOrder() {
-   this.openOrder=this.openOrder ; //true
-   this.closeOrder=this.closeOrder ; //false
-  }
- onCloseOrder() {
+ 
   
-  this.openOrder=!this.openOrder ;//false
-  this.closeOrder=!this.closeOrder ; // true
+  ngOnInit(): void {
+   
+//   this.service.orderByStatusId(this.type).subscribe((res:any)=>{
+//     console.log("resssss orderrrrsss ",res );
+//     console.log("Typppppe",this.type);
+//  }) 
+  // this.orderList(this.type)
 }
-   details(){
+statusOrder(status:any){
+  this.service.orderByStatusId(status).subscribe((res:any)=>{
+    this.orders=res['data'].data 
+    console.log("resssss orderrrrsss",  this.orders );
+    console.log("Typppppe",status);
+ })  
+ 
+}
+getOrders(x:any){
+  this.type=x;
+  this.statusOrder(this.type)
+}
+//   onOpenOrder() {
+//    this.openOrder=this.openOrder ; //true
+//    this.closeOrder=this.closeOrder ; //false
+//   }
+// onShippingOrder(){}
+// onDeliverOrder(){}
+ details(){
  this.moreDetails=!this.moreDetails;
 }
-// filter(status_id){
-// this.service.getOrder(status_id).subscribe(res=>{
-//   this.orders = res
-// })
-// }
+ 
 }

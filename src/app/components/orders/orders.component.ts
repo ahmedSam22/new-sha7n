@@ -122,15 +122,15 @@ getLenght(){
         if(res.status===true){
           this.successStatus=true;
           this.successImage=false;
-          this.info=res['data'];
-          console.log("infoooooooooooooo",this.info)
-          this.costs=this.info;
-          for(let i=0; i<this.info.length ; i++){
-            this.service.order_company_id= this.info[0].id
-            this.logo=this.info[0].imagePath
-            
-            
-          }
+          // this.info=res['data'];
+          // console.log("infoooooooooooooo",this.info)
+          // this.costs=this.info;
+          // for(let i=0; i<this.info.length ; i++){
+          //   this.service.order_company_id= this.info[0].id
+          //   this.logo=this.info[0].imagePath
+          // }
+          this.costs=res.price
+          this.logo=res.data.imagePath
           console.log("company idddddddd" , this.service.order_company_id)
         
          this.btnStyle = document.getElementById('btnCalculating');
