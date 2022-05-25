@@ -69,6 +69,13 @@
             <li class="nav-item">
                 <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">Contact us</a>
             </li>
+            <li class="nav-item">
+
+                <button class="btn-success" (click)="translate.use('ar')">ar</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn-success" (click)="translate.use('en')">en</button>
+            </li>
        
         </ul>
         <!-- form-inline  -->

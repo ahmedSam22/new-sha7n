@@ -48,9 +48,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { AddComponent } from './components/admin/payment-method/add/add.component';
 import { GlobalserviceService } from './components/globalservice/globalservice.service';
 import { JwtInterceptor } from './jwt.interceptor';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalService } from './components/shared/services/global.service';
 import { ToastrModule } from 'ngx-toastr';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 @NgModule({
@@ -105,6 +107,15 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: true,
       progressBar:true
     }),
+    TranslateModule.forRoot({
+      defaultLanguage: "ar",
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+    }
+    }),
+    
   ],
   providers: [GlobalService ,{ provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true }
   ],
@@ -113,3 +124,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 })
 export class AppModule { }
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http,"./assets/translate/",".json");
+}

@@ -10,6 +10,7 @@ import { GlobalserviceService } from '../globalservice/globalservice.service';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { GlobalService } from '../shared/services/global.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-landing-home',
   templateUrl: './landing-home.component.html',
@@ -54,8 +55,12 @@ export class LandingHomeComponent implements OnInit {
   };
   constructor(
     private formBuilder: FormBuilder,
-    private service: GlobalService
-  ) {}
+    private service: GlobalService,
+    public translate: TranslateService
+  ) {
+    translate.setDefaultLang(navigator.language);
+    translate.use(navigator.language);
+  }
 
   ngOnInit(): void {
     this.contactmessagetrue = false;

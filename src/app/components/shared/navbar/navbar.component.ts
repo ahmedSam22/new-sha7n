@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { translate } from '@angular/localize/src/translate';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ConfigurationOptions, CustomCountryModel, TooltipOptionsEnum } from 'intl-input-phone';
 
 @Component({
@@ -12,7 +14,7 @@ export class NavbarComponent implements OnInit {
   selected :any;
   element:any;
   val=1;
-  constructor(private router:Router ) {
+  constructor(private router:Router,public translate: TranslateService ) {
 
    
    }
