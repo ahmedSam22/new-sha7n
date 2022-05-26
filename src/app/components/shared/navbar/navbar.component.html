@@ -69,13 +69,13 @@
             <li class="nav-item">
                 <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">Contact us</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
 
-                <button class="btn-success" (click)="translate.use('ar')">ar</button>
+                <button class="btn-success" (click)="changeLang('ar')">ar</button>
             </li>
             <li class="nav-item">
-                <button class="btn-success" (click)="translate.use('en')">en</button>
-            </li>
+                <button class="btn-success" (click)="changeLang('en')">en</button>
+            </li> -->
        
         </ul>
         <!-- form-inline  -->
@@ -83,7 +83,7 @@
             <button #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/root/sign-up',val]">Sign up</button>  
             <!-- <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/root/login']">Log in</button>   -->
              <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/root/login',val]">Log in</button> 
-            <ngx-flag-picker [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+            <ngx-flag-picker (click)="changeLang()" [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
             </ngx-flag-picker>
         
         </form>

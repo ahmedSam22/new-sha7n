@@ -108,7 +108,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       progressBar:true
     }),
     TranslateModule.forRoot({
-      defaultLanguage: "ar",
+      defaultLanguage: navigator.language,
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,

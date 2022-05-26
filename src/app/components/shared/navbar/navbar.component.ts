@@ -14,11 +14,13 @@ export class NavbarComponent implements OnInit {
   selected :any;
   element:any;
   val=1;
+  currentLang:string;
   constructor(private router:Router,public translate: TranslateService ) {
-
+    this.currentLang = localStorage.getItem("currentLang") || navigator.language;
+    this.translate.use(this.currentLang)
    
    }
-   selectedCountryCode = 'us';
+   selectedCountryCode:any = 'us';
   countryCodes = ['us', 'eg'];
 
   changeSelectedCountryCode(value: string): void {
@@ -43,4 +45,19 @@ export class NavbarComponent implements OnInit {
     // this.element.style.cursor='pointer';
   }
  
+
+  // if(this.selectedCountryCode === "us"){
+      
+  // }
+  changeLang(){
+    let lang:any;
+    if(this.selectedCountryCode === "us"){
+        lang = "en"
+    }else if(this.selectedCountryCode === "eg"){
+       lang = "ar"
+
+    }
+    this.translate.use(lang);
+    localStorage.setItem("currentLang" , lang);
+  }
 }

@@ -5,15 +5,12 @@
         <div class="col-lg-6 col-md-12 col-12 y">
           <div class="text-wrapper d-flex flex-column">
             <h1>
-              INTEGRATED SYSTEM<br />
-              FOR YOUR E-COMMERCE
+              {{"header" | translate}}
             </h1>
-            <span>
-              Get instant access to multiple unused warehouses, planes, <Br />
-              ships through one tech-based shipping carrier solution.s
+            <span>{{'title' | translate}}
             </span>
             <button class="btn btn-success p-3 mt-4" [routerLink]="'/root/shipping'">
-              Calculate your shipment
+              {{"calculateBtn" | translate}}
             </button>
           </div>
         </div>
@@ -45,7 +42,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              Shipping
+              {{"Shipping" | translate}}
             </div>
             <div class="column">
               <img
@@ -55,7 +52,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              Import
+              {{"Import" | translate}}
             </div>
           </div>
 
@@ -68,7 +65,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              Ware houses
+              {{"ware-house" | translate}}
             </div>
             <div class="column">
               <img
@@ -78,7 +75,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              Why us?
+              {{"Why-Us" | translate}}
             </div>
           </div>
         </div>
@@ -99,17 +96,7 @@
       <div class="col-md-6 greenBack d-flex flex-column justify-content-center">
         <h2 class="my-4">{{'AboutUs' | translate}}</h2>
         <span>
-          we provide alot of shipment in the shipment area so it is a lrge text
-          that provide alot of function lorem It is a long established fact that
-          a reader will be distracted by the readable content of a page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters, as opposed to using
-          'Content here, content here', making it look like readable English.
-          Many desktop publishing packages and web page editors now use Lorem
-          Ipsum as their default model text, and a search for 'lorem ipsum' will
-          uncover many web sites still in their infancy. Various versions have
-          evolved over the years, sometimes by kjaccident, sometimes on purpose
-          (injected humour and the like).
+         {{"aboutUsText" | translate}}
         </span>
       </div>
     </div>
@@ -146,21 +133,19 @@
     <!-- Testmonials -->
     <div class="banner">
       <span>
-        Calculate your shipment Now with
-        <Br /> International Parcel Express
+        {{"calcText" | translate}}
       </span>
 
       <button class="btn btn-success my-4 p-3" [routerLink]="'/root/shipping'">
-        Calculate your shipment
+        {{"calculateBtn" | translate}}
       </button>
     </div>
   </section>
   <section class="contact-us my-4">
     <div class="header my-4">
-      <h2>Contact Us !</h2>
+      <h2>{{"contactUs" | translate}} !</h2>
       <span class="text-muted">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore,
-        obcaecati? Quia molestias delectus minima nihil doloribus
+        {{"contactText" | translate}}
       </span>
     </div>
     <div class="row w-100 natural">
@@ -189,13 +174,13 @@
                 <div class="form-row mb-2">
                   <div class="col-md-6">
                     <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> Full name </mat-label>
+                      <mat-label> {{"fullName" | translate}} </mat-label>
                       <input matInput type="text" formControlName="name" />
                     </mat-form-field>
                   </div>
                   <div class="col-md-6">
                     <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> Email </mat-label>
+                      <mat-label> {{"email" | translate}} </mat-label>
                       <input matInput type="text" formControlName="email" />
                     </mat-form-field>
                   </div>
@@ -203,7 +188,7 @@
                 <div class="form-row">
                   <div class="col-md-12">
                     <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> Phone </mat-label>
+                      <mat-label> {{"phone" | translate}} </mat-label>
                       <input matInput type="text" formControlName="phone" />
                     </mat-form-field>
                   </div>
@@ -211,7 +196,7 @@
                 <div class="form-row">
                   <div class="col-md-12">
                     <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> MessageTitle </mat-label>
+                      <mat-label> {{"messageTitle" | translate}} </mat-label>
                       <input matInput type="text" formControlName="title" />
                     </mat-form-field>
                   </div>
@@ -219,14 +204,14 @@
                 <div class="form-row">
                   <div class="col-md-12">
                     <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> Message </mat-label>
+                      <mat-label> {{"message" | translate}} </mat-label>
                       <input matInput type="text" formControlName="message" />
                     </mat-form-field>
                   </div>
                 </div>
 
                 <button class="btn btn-success w-100 p-3" type="submit">
-                  Send
+                  {{"Send" | translate}}
                 </button>
               </div>
             </form>
