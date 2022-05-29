@@ -10,20 +10,20 @@ import { GlobalserviceService } from '../globalservice/globalservice.service';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { GlobalService } from '../shared/services/global.service';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-landing-home',
   templateUrl: './landing-home.component.html',
   styleUrls: ['./landing-home.component.css'],
 })
-export class LandingHomeComponent implements OnInit , OnChanges {
+export class LandingHomeComponent implements OnInit, OnChanges {
   contactmessagetrue = false;
   contactmessagefalse = true;
   testmonials: any;
   imageText: string = '';
   imageTitle: string = '';
   form!: FormGroup;
-  thisLang:any ;
+  thisLang: any;
   contactUsForm!: FormGroup;
   customOptions: OwlOptions = {
     loop: true,
@@ -59,11 +59,24 @@ export class LandingHomeComponent implements OnInit , OnChanges {
     private service: GlobalService,
     public translate: TranslateService
   ) {
-    translate.setDefaultLang(navigator.language);
-    translate.use(navigator.language);
-  }
+    this.thisLang = localStorage.getItem('currentLang');
+    console.log(this.thisLang, 'from ocnst');
 
+    translate.setDefaultLang(this.thisLang);
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
+  }
   ngOnInit(): void {
+    console.log(this.thisLang, "let's try ");
+
     this.contactmessagetrue = false;
     this.contactmessagefalse = false;
     this.getImageText('Shipping');
@@ -85,9 +98,7 @@ export class LandingHomeComponent implements OnInit , OnChanges {
     });
   }
 
-  ngOnChanges() {
-    this.thisLang = localStorage.getItem("currentLang") || navigator.language;
-  }
+  ngOnChanges() {}
   testmonialList() {
     this.service
       .gtAllTestmonialsHome()
@@ -103,69 +114,68 @@ export class LandingHomeComponent implements OnInit , OnChanges {
     console.log(status);
     switch (status) {
       case 'Shipping':
-        if(localStorage.getItem("currentLang") === "en"){
+        if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
-        }else{
+        } else {
           this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
         }
-       
-        if(localStorage.getItem("currentLang") === "en"){
-          this.imageTitle  = status;
-        }else{
-          this.imageTitle = "الشحن";
-        };
+
+        if (localStorage.getItem('currentLang') === 'en') {
+          this.imageTitle = status;
+        } else {
+          this.imageTitle = 'الشحن';
+        }
         break;
       case 'Import':
-        if(localStorage.getItem("currentLang") === "en"){
+        if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less ages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
-        }else{
+        } else {
           this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
         }
-        if(localStorage.getItem("currentLang") === "en"){
-          this.imageTitle  = status;
-        }else{
-          this.imageTitle = "الاستيراد";
-        };
+        if (localStorage.getItem('currentLang') === 'en') {
+          this.imageTitle = status;
+        } else {
+          this.imageTitle = 'الاستيراد';
+        }
 
         break;
       case 'Warehouses':
-        if(localStorage.getItem("currentLang") === "en"){
+        if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
           It is a long establishtion of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
-        }else{
+        } else {
           this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
         }
-        if(localStorage.getItem("currentLang") === "en"){
-          this.imageTitle  = status;
-        }else{
-          this.imageTitle = "المستودعات";
-        };
+        if (localStorage.getItem('currentLang') === 'en') {
+          this.imageTitle = status;
+        } else {
+          this.imageTitle = 'المستودعات';
+        }
 
         break;
       case 'Why-Us':
-        if(localStorage.getItem("currentLang") === "en"){
+        if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
-        }else{
+        } else {
           this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
         }
-        if(localStorage.getItem("currentLang") === "en"){
-          this.imageTitle  = status;
-        }else{
-          this.imageTitle = "لماذا نحن ؟";
-        };
+        if (localStorage.getItem('currentLang') === 'en') {
+          this.imageTitle = status;
+        } else {
+          this.imageTitle = 'لماذا نحن ؟';
+        }
 
         break;
       default:
         break;
     }
-
   }
 
   // this.contactmessage=false ;
@@ -195,11 +205,9 @@ export class LandingHomeComponent implements OnInit , OnChanges {
     });
 
     this.contactUsForm.reset();
-    
+
     Object.keys(this.contactUsForm.controls).forEach((key) => {
-      this.contactUsForm.controls[key].setValidators([
-        Validators.required,
-      ]);
+      this.contactUsForm.controls[key].setValidators([Validators.required]);
     });
   }
 }

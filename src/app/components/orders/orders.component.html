@@ -1,29 +1,29 @@
 <div class="orders col-md-12">
   <div class="row justify-content-around">
     <div class="leftCard col-md-5 my-5 py-5">
-      <h3 class="text-center">Shipping Rates</h3>
+      <h3 class="text-center">{{"shippingRates" | translate}}</h3>
       <p class="text-center">
-        We help Calculate The Approximate Shipping Cost To Your Country
+        {{"shippingTitle" | translate}}
       </p>
       <form class="shipping" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h6>Shipment Address</h6>
+        <h6>{{"shippingAddress" | translate}}</h6>
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-6">
-            <label>Parcel From : </label>
+            <label>{{"from" | translate}}: </label>
             <!-- formControlName="china_harbor_id" -->
             <select class="form-control" (change)="onChangeChina($event)">
-              <option [selected]="true">Choose Parcel From</option>
+              <option [selected]="true">{{"parcelChoose" | translate}}</option>
               <option value="1">China</option>
             </select>
           </div>
           <div class="form-group col-md-6">
-            <label>To :</label>
+            <label>{{"to" | translate}} :</label>
             <select
               class="form-control"
               formControlName="saudi_harbor_id"
               (change)="onChangeSaudi($event)"
             >
-              <option disabled [selected]="true">Choose To</option>
+              <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
               <option *ngFor="let harbor of saudiharbors" [value]="harbor.id">
                 {{ harbor.name_ar }}
               </option>
@@ -31,27 +31,27 @@
           </div>
         </div>
 
-        <h6>Shipment Information</h6>
+        <h6>{{"shipmentinfo" | translate}} </h6>
         <!-- formControlName="type" -->
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-4">
-            <label>Type of Shipping : </label>
+            <label>{{"typeShipping" | translate}} : </label>
             <select class="form-control" (change)="onTypeOfShipping($event)">
-              <option [selected]="true">Choose Type of Shipping</option>
+              <option [selected]="true">{{"chooseShippingType" | translate}}</option>
               <option value="1">Aerial</option>
               <option value="0">Nautical</option>
             </select>
           </div>
           <div class="form-group col-md-4">
-            <label>Type of Shipment : </label>
+            <label>{{"typeshipment" | translate}} : </label>
 
             <select class="form-control" (change)="onTypeOfShipment($event)">
-              <option [selected]="true">Choose Type of Shipmen</option>
+              <option [selected]="true">{{"chooseType" | translate}}</option>
               <option value="1">Battery</option>
             </select>
           </div>
           <div class="form-group col-md-4">
-            <label>Weight: </label>
+            <label>{{"weight" | translate}}: </label>
             <div class="input-group">
               <input
                 type="text"
@@ -59,7 +59,7 @@
                 #shippingWeight
                 (blur)="getWeight()"
                 formControlName="weight"
-                placeholder="Estimated Weight"
+                placeholder="{{'weight' | translate}}"
               />
               <div class="input-group-append">
                 <span class="input-group-text" *ngIf="showCBM">CBM</span>
@@ -69,17 +69,17 @@
           </div>
         </div>
 
-        <h6>Shipment Dimensions (optional)</h6>
+        <h6>{{"dimention" | translate}}</h6>
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-4">
-            <label>Length: </label>
+            <label>{{"length" | translate}}: </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getLenght()"
                 #shippingLength
-                placeholder="Length"
+                placeholder="{{'length' | translate}}"
               />
               <div class="input-group-append">
                 <span class="input-group-text">cm</span>
@@ -87,14 +87,14 @@
             </div>
           </div>
           <div class="form-group col-md-4">
-            <label>Width : </label>
+            <label>{{"width" | translate}} : </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getWidth()"
                 #shippingWidth
-                placeholder="Width"
+                placeholder="{{'width' | translate}}"
               />
               <div class="input-group-append">
                 <span class="input-group-text">cm</span>
@@ -102,14 +102,14 @@
             </div>
           </div>
           <div class="form-group col-md-4">
-            <label>Height : </label>
+            <label>{{"height" | translate}} : </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getHeight()"
                 #shippingHeight
-                placeholder="Height"
+                placeholder="{{'height' | translate}}"
               />
               <div class="input-group-append">
                 <span class="input-group-text">cm</span>
@@ -124,7 +124,7 @@
             class="btn col-md-8 btnCalculating"
             id="btnCalculating"
           >
-            Calculate
+          {{"calculateBtn" | translate}}
           </button>
         </div>
       </form>
@@ -132,7 +132,7 @@
 
     <div class="rightCard img1 col-md-5" *ngIf="successImage">
       <div class="imgg">
-        <div class="fullImage"></div>
+        <div  [ngClass]="thisLang==='ltr' ? 'fullImage' : 'fullImage-rtl'"></div>
       </div>
     </div>
 <!-- 

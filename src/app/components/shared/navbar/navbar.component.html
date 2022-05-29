@@ -55,19 +55,19 @@
         <ul class="navbar-nav mx-auto mt-2 mt-lg-0 " >
            
             <li class="nav-item active">
-                <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/home']">Home <span class="sr-only">(current)</span></a>
+                <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/home']">{{"home" | translate}} <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/orders']">Orders</a>
+                <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/orders']">{{"orders" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a  #service (click)="select(service.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/our-services']">Our services</a>
+                <a  #service (click)="select(service.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/our-services']">{{"ourServices" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a  #about (click)="select(about.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/about-us']">About us</a>
+                <a  #about (click)="select(about.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/about-us']">{{"AboutUs" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">Contact us</a>
+                <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/root/contact-us']">{{"contactUs" | translate}}</a>
             </li>
             <!-- <li class="nav-item">
 
@@ -80,9 +80,9 @@
         </ul>
         <!-- form-inline  -->
         <form class="my-2 my-lg-0">
-            <button #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/root/sign-up',val]">Sign up</button>  
+            <button #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/root/sign-up',val]">{{"signup" | translate}}</button>  
             <!-- <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/root/login']">Log in</button>   -->
-             <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/root/login',val]">Log in</button> 
+             <button #login (click)="select(login.id)" class="btn btn-success x ml-2" [routerLink]="['/root/login',val]">{{"login" | translate}}</button> 
             <ngx-flag-picker (click)="changeLang()" [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
             </ngx-flag-picker>
         

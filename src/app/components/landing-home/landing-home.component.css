@@ -16,6 +16,7 @@ img {
   background-position: right;
   margin: 0;
   padding: 0;
+  unicode-bidi: bidi-override;
 }
 
 .y {
@@ -190,6 +191,19 @@ img {
 }
 .contact-message {
   padding: 0px 0px 10px 0px;
+}
+
+.x-rtl {
+  background-image: url("../../../assets/images/flip.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left;
+  margin: 0;
+  padding: 0;
+
+}
+.ltr{
+  direction: ltr;
 }
 
 /* ------------ ipad & land space ---------*/
@@ -377,3 +391,4 @@ img {
 *::-webkit-scrollbar{
   display: none;
 }
+

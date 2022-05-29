@@ -219,6 +219,18 @@
    right: 0px;
    bottom: 0px;
 }
+.fullImage-rtl {
+    background-image: url('../../../assets/images/flip.png');  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    resize: both;
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+ }
  
 .text span{
     font-size: 18px;

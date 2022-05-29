@@ -16,7 +16,87 @@
     "phone" : "phone number",
     "messageTitle" : "message Title",
     "message" : "message",
-    "Send" : "send"
+    "Send" : "send",
+    "testimonialHeader"  :"Our Clients testimonials",
+    "testimonialTitle"  :"We Are Proud To Make Happy Experiences For Our Customers",
+
+
+
+
+
+
+    "for navBar 'not used '" : "for navBar 'not used '",
+
+    "home" : "Home",
+    "orders" : "Orders",
+    "ourServices" : "Our Services",
+    "signup" : "Sign Up",
+    "login" : "Login",
+
+
+
+
+    "for orders page 'not used '" : "for orders page 'not used '",
+
+    "shippingRates" : "Shipping Rates",
+    "shippingTitle" : "We help Calculate The Approximate Shipping Cost To Your Country",
+    "shippingAddress" : "Shipping Address",
+    "from" : "From",
+    "to" : "To",
+    "shipmentinfo" : "Shipment Information",
+    "weight" : "Weight",
+    "typeshipment" : "Type Of Shipment",
+    "typeShipping" : "Type Of Shipping",
+    "dimention" : "Shipping Dimention (optional)",
+    "height" : "Height",
+    "width" : "Width",
+    "length" : "Length",
+    "chooseType" : "Choose Type Of Shipment",
+    "chooseShippingType" : "Choose Type Of Shipping",
+    "parcelChoose" : "Choose Parcel From",
+    "parcelChooseTo" : "Choose Parcel To",
+
+
+
+
+
+    "for our services page 'not used '" : "for our services page 'not used '",
+
+
+
+
+    "ourServicesTitle" : "With Our Service , We Open New Horizons To Shopping And Integrated E-Commerce",
+
+
+
+
+
+
+    "for about us page 'not used '" : "for about us page 'not used '",
+
+
+    "worktime" : "Work Time",
+    "worktimeTitle" : "worktime ? Shipping days? Everything you need to know about it",
+
+
+
+
+
+
+    "for contact us page 'not used '" : "for contact us page 'not used '",
+
+
+    "hello" : "Hello There !",
+    "contactTitle" : "Have A Question ? Send Us Your Notes Using The Form Below , And Team Will Response As Soon As Possible",
+    "salesContact" : "SALES CONTACTS :",
+    "address" : "Come to Our Office",
+    "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt"
+
+
+
+
+
+
 
 
 }

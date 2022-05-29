@@ -1,3 +1,4 @@
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -12,8 +13,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ContactUsComponent implements OnInit {
   contactUs!: FormGroup;
-  constructor(private service: GlobalService, private toastr: ToastrService) {}
+  constructor(private service: GlobalService, private toastr: ToastrService,public translate: TranslateService) {
+    this.thisLang = localStorage.getItem('currentLang');
+    console.log(this.thisLang, 'from ocnst');
 
+    translate.setDefaultLang(this.thisLang);
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
+
+  }
+  thisLang:any;
   ngOnInit(): void {
     this.contactUs = new FormGroup({
       name: new FormControl(null, Validators.required),
