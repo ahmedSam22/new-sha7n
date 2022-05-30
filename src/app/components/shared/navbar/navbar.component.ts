@@ -14,9 +14,19 @@ export class NavbarComponent implements OnInit {
   selected :any;
   element:any;
   val=1;
+  logedIn:Boolean = false;
   currentLang:string;
   constructor(private router:Router,public translate: TranslateService ) {
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.logedIn = true
+    }else{
+      this.logedIn = false
+
+    }
     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
+    if(this.currentLang === "ar"){
+      this.selectedCountryCode = 'eg';
+    }
     this.translate.use(this.currentLang)
    
    }
@@ -59,5 +69,8 @@ export class NavbarComponent implements OnInit {
     }
     this.translate.use(lang);
     localStorage.setItem("currentLang" , lang);
+  }
+  logout(){
+    localStorage.removeItem("qadiautkCurrentUser")
   }
 }

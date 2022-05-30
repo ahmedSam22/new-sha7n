@@ -32,6 +32,7 @@
     "ourServices" : "Our Services",
     "signup" : "Sign Up",
     "login" : "Login",
+    "loguot" : "Log out",
 
 
 
@@ -55,6 +56,8 @@
     "chooseShippingType" : "Choose Type Of Shipping",
     "parcelChoose" : "Choose Parcel From",
     "parcelChooseTo" : "Choose Parcel To",
+    "cm" : "CM",
+    "kg" : "KG",
 
 
 

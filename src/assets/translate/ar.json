@@ -35,6 +35,7 @@
     "ourServices" : "خدماتنا",
     "signup" : "انشاء حساب",
     "login" : "تسجيل دخول",
+    "loguot" : "تسجيل خروج",
 
 
 
@@ -57,7 +58,8 @@
     "chooseShippingType" : "أختر نوع الشحن",
     "parcelChoose" : "اختار واجهة الشحنة ",
     "parcelChooseTo" : "أختر بلد الشحن",
-
+    "cm" : "سم",
+    "kg" : "كج",
 
 
 
