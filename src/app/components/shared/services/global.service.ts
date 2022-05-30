@@ -17,7 +17,10 @@ export class GlobalService {
   width:any ;
   length:any;
   order_company_id=1 ;
-
+  logged:any;
+  old_order:any;
+  new_order:any;
+  
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
@@ -126,9 +129,26 @@ homeOrders(china_harbor_id:any ,saudi_harbor_id:any , type:any , shipment_type:a
 }
 
 bookingOrder(form:any){
-  return this.http.post(`${environment.endpoint}/companies/add-booking`,form) ;
+  const formData: FormData = new FormData();
+formData.append("china_harbor_id", form.china_harbor_id);
+formData.append("saudi_harbor_id",form.saudi_harbor_id);
+formData.append("type", form.type);
+formData.append("shipment_type", form.shipment_type);
+formData.append("weight", form.weight);
+formData.append("length", form.length);
+formData.append("width", form.width);
+formData.append("height", form.height);
+formData.append("company_id", form.company_id );
+formData.append("invoice", form.invoice);
+formData.append("list", form.list);
+formData.append("code", form.code);
+  return this.http.post(`${environment.endpoint}/companies/add-booking`,formData) ;
  }
 orderByStatusId(status_id:any){
-  return this.http.get(`${environment.endpoint}/backend/orders?status_id=${status_id}`) ;
+  // return this.http.get(`${environment.endpoint}/backend/orders?status_id=${status_id}`) ;
+  return this.http.get(`${environment.endpoint}/orders?status_id=${status_id}`) ;
+}
+orderByOrderId(order_id:any){
+  return this.http.get(`${environment.endpoint}/backend/orders?order_id=${order_id}`) ;
 }
 }

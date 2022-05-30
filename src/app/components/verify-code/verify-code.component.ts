@@ -46,13 +46,15 @@ export class VerifyCodeComponent implements OnInit {
         setTimeout(() =>{
           this.router.navigate(['admin/shipping']);
            },2000);
-      
+          this.service.old_order=this.id_code;
+          console.log("Verification Old Order ID = " ,this.service.old_order)
          }
        else {
         setTimeout(() =>{
           this.router.navigate(['admin/adminHome']);
            },2000);
-
+        this.service.new_order=this.id_code;
+        console.log("Verification New Order ID = " ,this.service.new_order)
        }
        });
   }

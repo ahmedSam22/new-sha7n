@@ -97,6 +97,9 @@
 color:grey
 }
 
+.fullrequiredFiles{
+    color : #28a745;
+}
 @media only screen and (max-width:996px) {
     .shippingfee {
         margin: 350px auto 100px auto;

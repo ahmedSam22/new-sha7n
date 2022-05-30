@@ -3,6 +3,7 @@ import { GlobalService } from '../../shared/services/global.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Input } from '@angular/core';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-shipping-fee-calculator',
   templateUrl: './shipping-fee-calculator.component.html',
@@ -33,7 +34,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   showKg=true ;
   showComercialInvoice=true ;
   showPackingList=true;
-  constructor( private service:GlobalService ,private formbuilder:FormBuilder ,) { }
+  fullComercialInvoice=false ;
+  fullPackingList=false;
+
+  constructor( private service:GlobalService ,private formbuilder:FormBuilder ,private router:Router ,) { }
 
   ngOnInit(): void {
     this.fromChinaHarbor=this.service.fromChinaHarbor;
@@ -70,6 +74,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       
       })
      
+      
   }
   onChangeChina(event:any){ }
   onTypeOfShipping(event:any){}
@@ -105,10 +110,13 @@ commercialInvoiceChange(event:any) {
   this.commercialInvoice=event.target.files;
   console.log("files" , this.commercialInvoice[0]);
   if(this.commercialInvoice.length!=0){
-    this.showComercialInvoice=false
+    this.showComercialInvoice=false;
+    this.fullComercialInvoice=true ;
+   
   }
    else {
-    this.showComercialInvoice=true
+    this.showComercialInvoice=true;
+    this.fullComercialInvoice=false ;
  }
 }
 
@@ -117,9 +125,11 @@ packingListChange(event:any){
   console.log("files" , this.packingList[0] );
   if(this.packingList.length!=0){
     this.showPackingList=false
+    this.fullPackingList=true;
   }
    else {
-    this.showPackingList=true
+    this.showPackingList=true;
+    this.fullPackingList=false;
  }
 }
 resetForm() {
@@ -136,22 +146,33 @@ resetForm() {
   });
 
 }
+
+newOrder(){
+  setTimeout(() =>{
+    this.router.navigate(['root/orders']);
+     },1500);
+    //  this.service.logged=2;
+     console.log("navigated")
+}
+ 
 onSubmit(){
-  
+ 
   let subForm = {
     ...this.form.value,
     company_id: this.service.order_company_id,
     invoice: this.commercialInvoice[0],
-    list:this.packingList[0],
+    list:this.packingList[0]  ,
     code:''
   }
+
   console.log("hello " , subForm)
   this.service.bookingOrder(subForm).subscribe((res:any)=>{
     Swal.fire(
-         "Success"
+        res.message
         )
    console.log("fee reeeeees",res)
-   this.resetForm()
-  })
+  
+  } )
 }
+ 
 }

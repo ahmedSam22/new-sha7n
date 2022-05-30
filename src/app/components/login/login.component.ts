@@ -49,12 +49,18 @@ export class LoginComponent implements OnInit {
           setTimeout(() =>{
             this.router.navigate(['admin/adminHome']);
              },2000);
+             this.service.new_order=this.id_code;
+             console.log("LOG IN New Order ID = " ,this.service.new_order)
          }
          else{
           setTimeout(() =>{
             this.router.navigate(['admin/shipping']);
              },2000);
+             this.service.old_order=this.id_code;
+             console.log("LOG IN Old Order ID = " ,this.service.old_order)
          }
+
+         
        },
        error => {
         // console.log(error);
@@ -65,6 +71,6 @@ export class LoginComponent implements OnInit {
             )
        }
        );
-
+      
   }
 }

@@ -7,6 +7,7 @@ import { GlobalService } from '../shared/services/global.service';
  
 import { ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -34,6 +35,12 @@ export class OrdersComponent implements OnInit {
   btnStyle!:any;
   errorMessages:any=[];
   val=0;
+  chinaHarborError=false;
+  saudiHarborError=false;
+  shipmentTypeError=false;
+  shippingError=false ;
+  weightError=false;
+  submit=false;
   constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService) { }
 
   ngOnInit(): void {
@@ -57,11 +64,13 @@ export class OrdersComponent implements OnInit {
       this.fromharbor=event.target.value ;
      // console.log("fromharbor",this.fromharbor)
       this.service.fromChinaHarbor=this.fromharbor;
+      this.chinaHarborError=false;
   }
   onChangeSaudi(event:any){
     this.toharbor=event.target.value ;
    // console.log("toharbor",this.toharbor)
     this.service.toSaudiHarbor=this.toharbor;
+    this.saudiHarborError=false;
   }
   onTypeOfShipping(event:any){
     this.typeofShipping=event.target.value ;
@@ -75,14 +84,21 @@ export class OrdersComponent implements OnInit {
     this.showKg=true ;
     this.showCBM=false ;
   }
+  this.shippingError=false ;
 }
 onTypeOfShipment(event:any){
     this.typeOfShipment=event.target.value ;
    // console.log("typeOfShipment",this.typeOfShipment)
-    this.service.typeOfShipment=this.typeOfShipment
+    this.service.typeOfShipment=this.typeOfShipment;
+    this.shipmentTypeError=false;
 }
 getWeight(){
-  this.service.shipmentWeight=this.shippingWeight.nativeElement.value
+  this.service.shipmentWeight=this.shippingWeight.nativeElement.value;
+  if(this.service.shipmentWeight!="")
+  this.weightError=false; 
+  else {
+    this.weightError=true; 
+  }
 }
  
 getHeight(){
@@ -115,20 +131,45 @@ getLenght(){
            type:  this.typeofShipping ,
           shipment_type: this.typeOfShipment,
       }
+
+      // saudiHarborError=true;
+      // chinaHarborError=true;
+      // shipmentTypeError=true;
+      // shippingError=true ;
+      // weightError=true; 
+        if(postedForm.china_harbor_id==undefined || postedForm.china_harbor_id==""){
+            this.chinaHarborError=true;
+        }
+        else if (postedForm.saudi_harbor_id==undefined || postedForm.saudi_harbor_id==""){
+          this.saudiHarborError=true;
+        }
+        else if (postedForm.type==undefined || postedForm.type=="") {
+          this.shippingError=true ;
+        }
+        else if (postedForm.shipment_type==undefined || postedForm.shipment_type=="") {
+           this.shipmentTypeError=true;
+        }
+        else if (postedForm.weight==undefined || postedForm.weight=="") {
+          this.weightError=true; 
+        }
+        else {
+        console.log("kolo tamammmmm")
+          this.saudiHarborError=false;
+          this.chinaHarborError=false;
+          this.shipmentTypeError=false;
+          this.shippingError=false ;
+          this.weightError=false; 
+          this.submit=true;
+        }
       console.log("fooooorm",postedForm)
+     if(this.submit==true){
       this.service.homeOrders(postedForm.china_harbor_id,postedForm.saudi_harbor_id, postedForm.type,postedForm.shipment_type,postedForm.weight).subscribe((res:any)=>{
        console.log("REEEEEEEEEEE",res)
        console.log("REEEEEEEEEEE",res.status)
         if(res.status===true){
           this.successStatus=true;
           this.successImage=false;
-          // this.info=res['data'];
-          // console.log("infoooooooooooooo",this.info)
-          // this.costs=this.info;
-          // for(let i=0; i<this.info.length ; i++){
-          //   this.service.order_company_id= this.info[0].id
-          //   this.logo=this.info[0].imagePath
-          // }
+        
           this.costs=res.price
           this.logo=res.data.imagePath
           console.log("company idddddddd" , this.service.order_company_id)
@@ -144,18 +185,33 @@ getLenght(){
             this.errorMessages=res.errors[0]
             
            }
-           Swal.fire(
-            "Fail" ,
-            this.errorMessages
-           )
+          //  Swal.fire(
+          //   "Fail" ,
+          //   this.errorMessages
+          //  )
         }
       })
+    }
+    // else {
+    //   alert("can't submit")
+    // }
   }
 
   goadmindashboard(){
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      setTimeout(() =>{
+        this.router.navigate(['admin/shipping']);
+         },1500);
+      }
+   else {
+    // setTimeout(() =>{
+    //   this.router.navigate(['root/login']);
+    //    },1500);
     setTimeout(() =>{
       this.router.navigate(['root/login',this.val]);
        },1500);
+   }
+    
        console.log("navigated")
   }
 

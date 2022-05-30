@@ -102,7 +102,7 @@ span {
   }
   .logoImage {
     text-align: center;
-    padding: 5px;
+  /* padding: 5px; */
 }
   .sidebar {
     margin: 0;
@@ -113,10 +113,10 @@ span {
     position: fixed;
      overflow: auto;
   }
-  .sidebar li:first-of-type {
+  /* .sidebar li:first-of-type {
     background-color:#32b457 ;
     color:#FFFFFF;
-  }
+  } */
   .sidebar a {
     display: block;
     color:#FFFFFF;
@@ -139,23 +139,28 @@ span {
     padding: 1px 16px;
     height: 1000px;
   }
-  
-  @media screen and (max-width: 768px) {
+  #btnId{
+    display: none;
+  }
+ 
+  @media screen and (max-width: 1200px) {
     .sidebar {
       width: 100%;
-      height: auto;
+      height: 100%;
       position: relative;
     }
-    .sidebar a {float: left;}
+    .sidebar a {float: left;   padding: 5px }
     div.content {margin-left: 0;}
   }
   
   @media screen and (max-width: 400px) {
     .sidebar a {
-      text-align: center;
+      
       float: none;
+     margin: auto;
     }
-  }
+   
+  }  
 
   svg{
     margin-bottom: 2px;
@@ -180,6 +185,9 @@ span {
   }
 
   @media (max-width: 768px) { 
+    #btnId{
+      display: inline;
+    }
    .logoImage img{
      height: 15%;
      width: 15%;
@@ -187,9 +195,30 @@ span {
     .logoImage span {
       font-size: 10px;
     }
-
+    .list {
+      float: left;
+    }
    }
-/* 
-   .sidebar ul li {
-     width: 100%;
-   } */
+   .show {
+    display: none;
+    }
+  
+   @media screen and (min-width:768px) {
+    .show {
+      display: block;
+      }
+      .sidebar a {
+     
+      padding: 15px 5px;
+      }
+    }
+  
+ .toggleBtn {
+   background-color: #32b457;
+   border-radius: 0px ;
+   border: 0px solid grey;
+   
+   /* position: fixed;
+  top:0px;
+  z-index: 2000000; */
+ }

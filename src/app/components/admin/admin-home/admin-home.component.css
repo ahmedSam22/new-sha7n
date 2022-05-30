@@ -97,14 +97,14 @@
  ::ng-deep .owl-prev,
 ::ng-deep .owl-next {
     position: absolute;
-    top: 33%;
+    top:43%;
     transform: translateY(-50%);
 }
 
 ::ng-deep .owl-prev {
-    left: -3em;
+    left: -2em;
 }
 
 ::ng-deep .owl-next {
-    right: -3em;
+    right: -2em;
 }
