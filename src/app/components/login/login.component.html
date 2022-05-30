@@ -18,14 +18,14 @@
           Back To Home
         </a>
         <div class="text-center" style="position: absolute; left: 45%">
-          <h3 class="text-center">Sign In</h3>
+          <h3 class="text-center">{{"login" | translate}}</h3>
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12"></div>
         </div>
-        <form [formGroup]="logIn" (ngSubmit)="onSubmit()">
+        <form [formGroup]="logIn" (ngSubmit)="onSubmit()" style="direction: ltr;">
           <div class="form-group col-md-8 col-sm-12 col-12">
-            <label for="exampleInputEmail1">Email </label>
+            <label for="exampleInputEmail1">{{"email" | translate}} </label>
             <input
               type="email"
               class="form-control form-control-lg"
@@ -37,7 +37,7 @@
           </div>
          
           <div class="form-group col-md-8">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1">{{"password" | translate}}</label>
             <div class="d-flex align-items-center">  
             <input
               id="exampleInputPassword1"
@@ -64,15 +64,15 @@
             />
             
             <label class="form-check-label" for="exampleCheck1"
-              >Remember me <span>Forget Password ? </span>
+              >{{"remember" | translate}} <span>{{"forget" | translate}} </span>
             </label>
           </div>
         
           <!-- [routerLink]="['/root/verify-code']" -->
-          <button type="sumbit" class="btn btn-primary col-md-8">Sign In</button>
+          <button type="sumbit" class="btn btn-primary col-md-8">{{"login" | translate}}</button>
           <p>
-            You Don't Have an Account ?
-            <a [routerLink]="['/root/sign-up',id_code]"> Create Account </a>
+            {{"dontHaveAccount" | translate}}
+            <a [routerLink]="['/root/sign-up',id_code]"> {{"createAccount" | translate}} </a>
           </p>
         </form>
       </div>

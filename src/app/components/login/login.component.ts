@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from '../shared/services/global.service';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
  
 @Component({
   selector: 'app-login',
@@ -15,8 +16,26 @@ export class LoginComponent implements OnInit {
   //singupval=0;
    id_code!:any;
   logIn!:FormGroup ;
+  thisLang:any;
+
   showConfirm:boolean = false;
-  constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: GlobalService,private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: GlobalService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+    this.thisLang = localStorage.getItem('currentLang');
+    console.log(this.thisLang, 'from ocnst');
+
+    translate.setDefaultLang(this.thisLang);
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
+
+  }
 
   ngOnInit(): void {
     this.logIn = new FormGroup({

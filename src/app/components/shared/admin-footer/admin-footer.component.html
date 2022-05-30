@@ -3,7 +3,7 @@
         Your Balance is : <b>5620 SAR</b>
     </div>
     <div class="col-md-2" style="text-align: end;">
-        <ngx-flag-picker [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+        <ngx-flag-picker (click)="changeLang()" [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
         </ngx-flag-picker>
     </div>
     <div class="d-flex justify-content-between align-items-center breaking-news bg-white w-100">

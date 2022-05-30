@@ -93,7 +93,22 @@
     "contactTitle" : "Have A Question ? Send Us Your Notes Using The Form Below , And Team Will Response As Soon As Possible",
     "salesContact" : "SALES CONTACTS :",
     "address" : "Come to Our Office",
-    "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt"
+    "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt",
+
+
+
+
+
+
+    "for Login & Signup page 'not used '" : "for Login & Signup page 'not used '",
+
+
+    "password" : "Password",
+    "remember" : "Remember Me",
+    "forget" : "Forget Password ?",
+    "dontHaveAccount" : "You Don't Have an Account",
+    "createAccount" : "Create Account"
+
 
 
 

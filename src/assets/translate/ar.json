@@ -89,7 +89,25 @@
     "contactTitle" : "لدي سؤال ؟ أرسل لنا ملاحظاتك باستخدام النموذج أدناه ، وسيقوم الفريق بالرد في أقرب وقت ممكن",
     "salesContact" : "اتصالات المبيعات",
     "address" : "عنوان مكتبنا ",
-    "addressDetails" : "5 شارع صلاح توفيق متفرع من شارع رشدي الاسكندريه مصر"
+    "addressDetails" : "5 شارع صلاح توفيق متفرع من شارع رشدي الاسكندريه مصر",
+
+
+
+
+
+
+    "for Login & Signup page 'not used '" : "for Login & Signup page 'not used '",
+
+
+    "password" : "كلمة السر",
+    "remember" : "تذكرني لاحقاً",
+    "forget" : "نسيت كلمة السر?",
+    "dontHaveAccount" : "لا يوجد لديك حساب ؟",
+    "createAccount" : "انشىء حساب "
+
+
+
+
 
 
 
