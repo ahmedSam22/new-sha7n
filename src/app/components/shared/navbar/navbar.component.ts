@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { translate } from '@angular/localize/src/translate';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ConfigurationOptions, CustomCountryModel, TooltipOptionsEnum } from 'intl-input-phone';
 
 @Component({
@@ -12,11 +14,23 @@ export class NavbarComponent implements OnInit {
   selected :any;
   element:any;
   val=1;
-  constructor(private router:Router ) {
+  logedIn:Boolean = false;
+  currentLang:string;
+  constructor(private router:Router,public translate: TranslateService ) {
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.logedIn = true
+    }else{
+      this.logedIn = false
 
+    }
+    this.currentLang = localStorage.getItem("currentLang") || navigator.language;
+    if(this.currentLang === "ar"){
+      this.selectedCountryCode = 'eg';
+    }
+    this.translate.use(this.currentLang)
    
    }
-   selectedCountryCode = 'us';
+   selectedCountryCode:any = 'us';
   countryCodes = ['us', 'eg'];
 
   changeSelectedCountryCode(value: string): void {
@@ -41,4 +55,22 @@ export class NavbarComponent implements OnInit {
     // this.element.style.cursor='pointer';
   }
  
+
+  // if(this.selectedCountryCode === "us"){
+      
+  // }
+  changeLang(){
+    // let lang:any;
+    // if(this.selectedCountryCode === "us"){
+    //     lang = "en"
+    // }else if(this.selectedCountryCode === "eg"){
+    //    lang = "ar"
+
+    // }
+    // this.translate.use(lang);
+    // localStorage.setItem("currentLang" , lang);
+  }
+  logout(){
+    localStorage.removeItem("qadiautkCurrentUser")
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { GlobalserviceService } from '../globalservice/globalservice.service';
 import { GlobalService } from '../shared/services/global.service';
@@ -12,7 +13,25 @@ export class OurServicesComponent implements OnInit {
    services:any;
    textLeft=false ;
    textRight=false ;
-  constructor(private service:GlobalService) { }
+   thisLang:any;
+  constructor(private service:GlobalService,    public translate: TranslateService
+    ) { 
+      this.thisLang = localStorage.getItem('currentLang');
+      console.log(this.thisLang, 'from ocnst');
+  
+      translate.setDefaultLang(this.thisLang);
+      translate.use(this.thisLang || navigator.language);
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        if (event.lang == 'ar') {
+          this.thisLang = 'rtl';
+          console.log(this.thisLang, 'test1');
+        } else {
+          this.thisLang = 'ltr';
+          console.log(this.thisLang, 'test2');
+        }
+      });
+
+    }
 
   ngOnInit(): void {
     this.servicesList();

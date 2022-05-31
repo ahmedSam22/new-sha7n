@@ -85,7 +85,20 @@ personalInfo(){
 }
 
 updatePersonalInfo(info:any){
-  return this.http.post(`${environment.endpoint}/users/update-profile`,info) ;
+    // name:this.personalInfo.value.name ,
+  // phone:this.personalInfo.value.phone ,
+  // email:this.personalInfo.value.email  ,
+  // image:this.file[0]
+  const formData: FormData = new FormData();
+  formData.append("name", info.name);
+  formData.append("phone", info.phone);
+  formData.append("email", info.email);
+  formData.append("image", info.image);
+  return this.http.post(`${environment.endpoint}/users/update-profile`,formData) ;
+}
+
+updatePersonalpassword(info:any){
+   return this.http.post(`${environment.endpoint}/users/update-password`,info) ;
 }
 
 gtAllTestmonialsHome(){

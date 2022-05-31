@@ -23,4 +23,8 @@ export class AdminSidebarComponent implements OnInit {
    let x= document.getElementById('divId') as HTMLElement;
    x.classList.toggle("show");
   }
+
+  logout(){
+    localStorage.removeItem("qadiautkCurrentUser")
+  }
 }

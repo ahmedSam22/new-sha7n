@@ -1,6 +1,6 @@
-.personalinfo { 
-    min-height: 200px;
-}
+/* .personalinfo { 
+     min-height: 200px;  
+} */
 
 .personalinfo .profilebtn button:nth-child(1) {
     background-color: #32B457;
@@ -26,3 +26,30 @@
   color:grey; 
   font-size:14px;
 }
+
+.image{
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    width:300px;
+}
+    img.user-image-avatar{
+        position: absolute;
+        width: 35%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0.4;
+        border-radius: 50%;
+    }
+    svg{
+        position: relative;
+        z-index: 33;
+         left: 11%;
+         top:25%
+    }
+    .hideEmptyImg[src=""] {
+        visibility: hidden;
+     }
+ 

@@ -8,6 +8,7 @@ import { GlobalService } from '../shared/services/global.service';
 import { ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -41,7 +42,25 @@ export class OrdersComponent implements OnInit {
   shippingError=false ;
   weightError=false;
   submit=false;
-  constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService) { }
+
+  thisLang:any;
+  constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService ,     public translate: TranslateService
+    ) {
+      this.thisLang = localStorage.getItem('currentLang');
+      console.log(this.thisLang, 'from ocnst');
+  
+      translate.setDefaultLang(this.thisLang);
+      translate.use(this.thisLang || navigator.language);
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        if (event.lang == 'ar') {
+          this.thisLang = 'rtl';
+          console.log(this.thisLang, 'test1');
+        } else {
+          this.thisLang = 'ltr';
+          console.log(this.thisLang, 'test2');
+        }
+      });
+   }
 
   ngOnInit(): void {
 
