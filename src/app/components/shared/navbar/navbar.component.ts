@@ -60,15 +60,15 @@ export class NavbarComponent implements OnInit {
       
   // }
   changeLang(){
-    // let lang:any;
-    // if(this.selectedCountryCode === "us"){
-    //     lang = "en"
-    // }else if(this.selectedCountryCode === "eg"){
-    //    lang = "ar"
+    let lang:any;
+    if(this.selectedCountryCode === "us"){
+        lang = "en"
+    }else if(this.selectedCountryCode === "eg"){
+       lang = "ar"
 
-    // }
-    // this.translate.use(lang);
-    // localStorage.setItem("currentLang" , lang);
+    }
+    this.translate.use(lang);
+    localStorage.setItem("currentLang" , lang);
   }
   logout(){
     localStorage.removeItem("qadiautkCurrentUser")
