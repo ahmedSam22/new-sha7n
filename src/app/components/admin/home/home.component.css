@@ -9,7 +9,7 @@
 }
 
 .page-body {
-    direction: ltr;
+    /* direction: ltr; */
     text-align: justify;
 }
 
@@ -24,7 +24,7 @@ footer {
 }
 
 .bodyCo {
-    direction: ltr;
+    /* direction: ltr; */
 }
 
 .flex-direction-column {

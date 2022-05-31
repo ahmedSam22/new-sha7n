@@ -110,7 +110,7 @@
 
 .container-fluid .leftSide form {
     margin-top: 80px;
-    position: relative;
+    /* position: relative; */
     top: 10%;
     left: 20%;
 }
@@ -198,4 +198,15 @@
     border-left: none;
     
 
+}
+
+.rtl{
+    direction: rtl !important;
+}
+.ltr{
+    direction: ltr !important;
+}
+
+::ng-deep form{
+    direction: ltr !important;
 }

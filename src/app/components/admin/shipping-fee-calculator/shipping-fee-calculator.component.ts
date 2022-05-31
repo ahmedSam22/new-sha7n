@@ -3,6 +3,7 @@ import { GlobalService } from '../../shared/services/global.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Input } from '@angular/core';
 import Swal from 'sweetalert2';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-shipping-fee-calculator',
   templateUrl: './shipping-fee-calculator.component.html',
@@ -33,7 +34,27 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   showKg=true ;
   showComercialInvoice=true ;
   showPackingList=true;
-  constructor( private service:GlobalService ,private formbuilder:FormBuilder ,) { }
+  thisLang:any;
+
+  constructor( private service:GlobalService ,private formbuilder:FormBuilder ,public translate: TranslateService) { 
+
+
+    this.thisLang = localStorage.getItem('currentLang');
+    console.log(this.thisLang, 'from ocnst');
+
+    translate.setDefaultLang(this.thisLang);
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
+
+  }
 
   ngOnInit(): void {
     this.fromChinaHarbor=this.service.fromChinaHarbor;

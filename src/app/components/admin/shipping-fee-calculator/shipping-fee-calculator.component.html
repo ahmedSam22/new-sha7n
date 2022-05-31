@@ -4,21 +4,21 @@
             <div class="topShipContent">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <h1>Book Your Shipment Now</h1>
-                        <p> We Help You Calculate The Approximate Shipping Cost To Your Country !</p>
+                        <h1>{{"bookShipment" | translate}}</h1>
+                        <p> {{"bookShipmentTitle" | translate}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <section class="banner">
-        Fill in the required data and then <b>15%</b> of the total amount of seriousness will be paid upon receipt <br> Payment of your shipment will be completed before receiving your shipment
+        {{"fillData" | translate}} <b>15%</b> {{"fillData2" | translate}} <br> {{"fillData3" | translate}}
     </section>
     <section class="shippingfee">
 
         <div class="row my-3 ">
             <div class="col-md-12 col-sm-12">
-                <h5> Shipment Address </h5>
+                <h5> {{"shipmentAddress" | translate}} </h5>
             </div>
         </div>
         <div class="shippingform">
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12 my-3">
                         <div class="form-group input-group-lg col-md-12">
-                            <label for="exampleFormControlSelect1">Parcel From : </label>
+                            <label for="exampleFormControlSelect1">{{"from" | translate}} : </label>
                              <!--  (change)="onChangeChina($event)" -->
                             <select class="form-control"  formControlName="china_harbor_id" >
                                <option value="1" disabled>China</option>
@@ -38,7 +38,7 @@
                     <div class="col-md-6 col-sm-12 my-3">
 
                         <div class="form-group input-group-lg col-md-12">
-                            <label for="exampleFormControlSelect2">To : </label>
+                            <label for="exampleFormControlSelect2">{{"to" | translate}} : </label>
                             <select class="form-control" formControlName="saudi_harbor_id" >
                                  <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" disabled> {{harbor.name_ar}}  </option>
                             </select>
@@ -46,28 +46,28 @@
                         
                     </div>
                 </div>
-                <h5 class="mb-4"> Shipment Information </h5>
+                <h5 class="mb-4"> {{"shipmentinfo" | translate}} </h5>
                 <div class="form-row">
                     <div class="form-group input-group-lg  col-md-4">
-                        <label for="inputState">Type Of Shipping : </label>
+                        <label for="inputState">{{"typeShipping" | translate}}  : </label>
                         <select class="form-control" formControlName="type" >
                                <option value="1" disabled>Aerial</option>
                                <option value="0" disabled>Nautical</option>
                            </select>
                     </div>
                     <div class="form-group input-group-lg  col-md-4">
-                        <label for="inputState">Type Of Shippment : </label>
+                        <label for="inputState">{{"typeshipment" | translate}}: </label>
                         <select class="form-control" formControlName="shipment_type" >
                            <option value="1" disabled>Battery</option>
                         </select>
                     </div>
 
                     <div class=" form-group col-md-4">
-                        <label>Weight: </label>
+                        <label>{{"weight" | translate}}: </label>
                         <div class="input-group"> 
-                            <input type="text" class="form-control"  placeholder="Estimated Weight"  formControlName="weight" [disabled]="true" >
+                            <input type="text" class="form-control"  placeholder="{{ 'widthEstimate' | translate }}"  formControlName="weight" [disabled]="true" >
                             <div class="input-group-append">
-                            <span class="input-group-text " style="height:38px;" *ngIf="showKg">Kg</span>
+                            <span class="input-group-text " style="height:38px;" *ngIf="showKg">{{"kg" | translate}}</span>
                             <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>
                             </div>
                        </div>
@@ -75,32 +75,32 @@
 
                 </div>
 
-                <h5 class="my-4"> Shipment Dimensions (Optional) </h5>
+                <h5 class="my-4"> {{"dimention" | translate}} </h5>
                 <div class="form-row">
                     <div class=" form-group col-md-4">
-                        <label>Length: </label>
+                        <label>{{"length" | translate}}: </label>
                         <div class="input-group"> 
-                            <input type="text" class="form-control" placeholder="Length" formControlName="length" >
+                            <input type="text" class="form-control" placeholder="{{ 'length' | translate }}" formControlName="length" >
                             <div class="input-group-append">
-                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            <span class="input-group-text " style="height: 38px;">{{"cm" | translate}}</span>
                             </div>
                        </div>
                     </div>
                     <div class=" form-group col-md-4">
-                        <label>Width: </label>
+                        <label>{{"width" | translate}}: </label>
                         <div class="input-group"> 
-                            <input type="text" class="form-control" placeholder="Width" formControlName="width" >
+                            <input type="text" class="form-control" placeholder="{{ 'width' | translate }}" formControlName="width" >
                             <div class="input-group-append">
-                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            <span class="input-group-text " style="height: 38px;">{{"cm" | translate}}</span>
                             </div>
                        </div>
                     </div>
                     <div class=" form-group col-md-4">
-                        <label>Height: </label>
+                        <label>{{"height" | translate}}: </label>
                         <div class="input-group"> 
-                            <input type="text" class="form-control" placeholder="Height" formControlName="height" >
+                            <input type="text" class="form-control" placeholder="{{ 'height' | translate }}" formControlName="height" >
                             <div class="input-group-append">
-                            <span class="input-group-text " style="height: 38px;">cm</span>
+                            <span class="input-group-text " style="height: 38px;">{{"cm" | translate}}</span>
                             </div>
                        </div>
                     </div>
@@ -111,18 +111,18 @@
                         <button type="submit" class="btn btn-primary"> Book Shipment </button>
                     </div>
                 </div> -->
-                <h5 class="my-4"> More Information </h5>
+                <h5 class="my-4"> {{"moreInfo" | translate}} </h5>
                 <div class="form-row">
                  <div class="form-group col-md-6">
                     <button class="btn btn-primary btn-lg" style="display:inline-block; " onclick="document.getElementById('commercial-invoice').click()" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                           </svg>  
-                        Commercial Invoice 
+                          {{"invoice" | translate}} 
                          
                       </button>
                      <input type='file' id="commercial-invoice" style="display:none" class="form-control" formControlName="invoice" (change)="commercialInvoiceChange($event)">  
-                     <p class="requiredFiles" *ngIf="showComercialInvoice">This must be filled in to complete the booking</p> 
+                     <p class="requiredFiles" *ngIf="showComercialInvoice">{{"req" | translate}} </p> 
                     </div>    
                     
 
@@ -131,18 +131,18 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                           </svg>  
-                        Packing List 
+                          {{"invoice2" | translate}}
                          
                       </button>
                     
                      <input type='file' id="packing-list" style="display:none" class="form-control" formControlName="list" (change)="packingListChange($event)">  
-                    <p class="requiredFiles" *ngIf="showPackingList">This must be filled in to complete the booking</p> 
+                    <p class="requiredFiles" *ngIf="showPackingList">{{"req" | translate}} </p> 
                     </div>  
                 </div> 
                 <br>
                     <div class="row  ">
                     <div class="form-group col-md-6 ">
-                        <button type="submit" class="btn btn-primary" style="padding:12px;" (click)="onSubmit()"> Book Shipment </button>
+                        <button type="submit" class="btn btn-primary" style="padding:12px;" (click)="onSubmit()"> {{"bookShipment" | translate}} </button>
                     </div>
                 </div>
             </form>

@@ -99,13 +99,94 @@
     "for Login & Signup page 'not used '" : "for Login & Signup page 'not used '",
 
 
-    "password" : "كلمة السر",
+    "password" : "كلمة المرور",
+    "confirmPassword" : "تأكيد كلمة المرور",
     "remember" : "تذكرني لاحقاً",
     "forget" : "نسيت كلمة السر?",
     "dontHaveAccount" : "لا يوجد لديك حساب ؟",
-    "createAccount" : "انشىء حساب "
+    "createAccount" : "انشىء حساب ",
+    "passwordValid" : "يجب ان تكون على الأقل 4 عناصر",
+    "phoneValid" : "يجب أن تكون على الأقل 9 عناصر",
+    "agree" : "أوافق على ",
+    "terms" : "شروط الاستخدام و الخصوصية",
+    "haveaccount" : "لديك حساب ؟ ",
+    "backHome" : "الرجوع للرئيسية",
 
 
+
+
+
+
+    "for admin header page 'not used '" : "for admin header page 'not used '",
+
+
+
+    "balance" : "رصيدك هو ",
+    "sar" : "ريال",
+
+
+
+
+    "for shipping fee page 'not used '" : "for shipping fee page 'not used '",
+
+
+    "bookShipment" : "احجز شحنتك الآن",
+    "bookShipmentTitle" : "نحن نساعدك على حساب تكلفة الشحن التقريبية لبلدك!",
+    "fillData" : "املأ البيانات المطلوبة ثم",
+    "fillData2" : "من المبلغ الإجمالي للجدية سيتم دفعها عند الاستلام",
+    "fillData3" : "سيتم إتمام سداد شحنتك قبل استلام شحنتك",
+    "shipmentAddress" : "عنوان الشحنة",
+    "moreInfo" : "معلومات إضافية",
+    "req" : "يجب ملء هذا لإكمال الحجز",
+    "invoice" : "فاتورة تجارية",
+    "invoice2" : "قائمة التعبئة",
+    "widthEstimate" : "الوزن بالتقريب",
+
+
+
+
+
+    "for Sidebar page 'not used '" : "for Sidebar page 'not used '",
+
+
+    "overview" : "نظرة عامة",
+    "personalinfo" : "البيانات الشخصية",
+    "shippingCalc" : "حساب رسوم الشحن",
+    "orders" :"الطلبات",
+    "commercialshippment" : "شحنة تجارية",
+    "importation" : "استيراد",
+    "warehouses" : "المستودعات",
+    "notification" : "الإشعارات",
+    "customerservice":"خدمة العملاء",
+
+
+
+    "for overView page 'not used '" : "for Sidebar page 'not used '",
+
+
+
+
+
+    "shopperorder" : "طلبات المتسوق",
+    "numberofshipment" : "عدد الشحنات",
+    "shipment" : "شحنة",
+    "numberofparcels" : "عدد الطرود ",
+    "parcels" : "طرد",
+    "startwithus" : "ابدأ معنا واشحن شحنتك الآن",
+    "startnow" : "ابدأ الآن",
+    "lastshipment" : "آخر الشحنات",
+    "showmore" : "عرض المزيد",
+
+
+
+    "for Notification page 'not used '" : "for Sidebar page 'not used '",
+
+
+
+"for importation page 'not used '" : "for Sidebar page 'not used '",
+
+
+"startimport" : "ابدأ الآن في استيراد كل ما تريده من إبرة إلى صاروخ"
 
 
 

@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { GlobalService } from '../shared/services/global.service';
 import { catchError, first , take } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,12 +17,29 @@ export class SignUpComponent implements OnInit {
   signUp!: FormGroup;
   // val=0;
   id_code:any;
+  thisLang:any;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private _location: Location,
-    private service: GlobalService
-  ) {}
+    private service: GlobalService,public translate: TranslateService
+  ) {
+    this.thisLang = localStorage.getItem('currentLang');
+    console.log(this.thisLang, 'from ocnst');
+
+    translate.setDefaultLang(this.thisLang);
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.signUp = new FormGroup({

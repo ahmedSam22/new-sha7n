@@ -10,8 +10,10 @@ import { GlobalService } from '../services/global.service';
 export class AdminFooterComponent implements OnInit {
   ads:any
   thisLang:any;
-
+  currentLang:any;
   constructor(private service : GlobalService,public translate: TranslateService) { 
+     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
+
     this.thisLang = localStorage.getItem('currentLang');
     console.log(this.thisLang, 'from ocnst');
 
@@ -26,6 +28,9 @@ export class AdminFooterComponent implements OnInit {
         console.log(this.thisLang, 'test2');
       }
     });
+    if(this.currentLang === "ar"){
+      this.selectedCountryCode = 'eg';
+    }
   }
 
   ngOnInit(): void {
