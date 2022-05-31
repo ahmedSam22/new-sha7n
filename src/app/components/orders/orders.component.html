@@ -164,7 +164,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-6 forBorder">
+          <div class="col-md-6 " [ngClass]="thisLang==='ltr' ? 'forBorder' : 'forBorder-rtl'">
             <div class="forImg d-flex justify-content-between">
               <span>
                 <img
@@ -192,8 +192,8 @@
                 class="btn col-md-8 btnCalculating"
                 id="btnCalculating"
                 (click)="goadmindashboard()"
-                >
-                Booking
+              >
+                {{"calculateBtn" | translate}}
               </button>
               </div>
         </div>

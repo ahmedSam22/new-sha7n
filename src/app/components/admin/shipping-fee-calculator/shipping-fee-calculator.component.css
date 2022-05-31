@@ -107,7 +107,7 @@ color:grey
 }
 
 .input-group-text{
-    height: 38px;
+    height: 100% !important;
     color: #32B457;
     font-weight: 500 ;
   

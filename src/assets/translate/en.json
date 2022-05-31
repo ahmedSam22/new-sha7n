@@ -94,12 +94,103 @@
     "contactTitle" : "Have A Question ? Send Us Your Notes Using The Form Below , And Team Will Response As Soon As Possible",
     "salesContact" : "SALES CONTACTS :",
     "address" : "Come to Our Office",
-    "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt"
+    "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt",
 
 
 
 
 
+
+    "for Login & Signup page 'not used '" : "for Login & Signup page 'not used '",
+
+
+    "password" : "Password",
+    "confirmPassword" : "Confirm Password",
+    "remember" : "Remember Me",
+    "forget" : "Forget Password ?",
+    "dontHaveAccount" : "You Don't Have an Account ?",
+    "createAccount" : "Create Account",
+    "passwordValid" : "password must be at least 4 characters long.",
+    "phoneValid" : "Name must be at least 9 characters long.",
+    "agree" : "I Agree To",
+    "terms" : "Terms Of Use and Privacy",
+    "haveaccount" : "You have an account ? ",
+    "backHome" : "Back To Home",
+   
+
+
+
+
+
+
+
+    "for admin header page 'not used '" : "for admin header page 'not used '",
+
+
+
+    "balance" : "Your Balance is",
+    "sar" : "SAR",
+
+
+
+
+
+    "for shipping fee page 'not used '" : "for shipping fee page 'not used '",
+
+
+    "bookShipment" : "Book Your Shipment Now",
+    "bookShipmentTitle" : "We Help You Calculate The Approximate Shipping Cost To Your Country !",
+    "fillData" : "Fill in the required data and then",
+    "fillData2" : "of the total amount of seriousness will be paid upon receipt",
+    "fillData3" : "Payment of your shipment will be completed before receiving your shipment",
+    "shipmentAddress" : "Shipment Address",
+    "moreInfo" : "More Information",
+    "req" : "This must be filled in to complete the booking",
+    "invoice" : "Commercial Invoice",
+    "invoice2" : "Packing List",
+    "widthEstimate" : "Width Estimate",
+
+
+
+    "for Sidebar page 'not used '" : "for Sidebar page 'not used '",
+
+
+    "overview" : "OverView",
+    "personalinfo" : "Personal Info",
+    "orders" :"Your Orders",
+    "shippingCalc" : "Shipping Fee Calculator",
+    "commercialshippment" : "Commercial Shipment",
+    "importation" : "Importation",
+    "warehouses" : "Warehouses",
+    "notification" : "Notification",
+    "customerservice":"Customer Service",
+
+
+
+
+
+
+
+    "for overView page 'not used '" : "for Sidebar page 'not used '",
+
+    "shopperorder" : "Shopper Orders",
+    "numberofshipment" : "Number Of Shipments",
+    "shipment" : "Shipment",
+    "numberofparcels" : " Number Of Parcels",
+    "parcels" : "Parcels",
+    "startwithus" : "Start with us and ship your shipment now",
+    "startnow" : "Start Now",
+    "lastshipment" : "My Last Shipments",
+    "showmore" : "Show More",
+
+    "for Notification page 'not used '" : "for Sidebar page 'not used '",
+
+
+
+"for importation page 'not used '" : "for Sidebar page 'not used '",
+
+
+"startimport" : "Start now import with us everything you want from needle to rocket"
 
 
 

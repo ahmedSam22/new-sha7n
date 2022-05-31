@@ -15,20 +15,21 @@
               d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
             />
           </svg>
-          Back To Home
+          {{"backHome" | translate}}
         </a>
-        <div class="text-center" style="position: absolute; left: 45%;">
-          <h3 class="text-center">Sign In</h3>
+        <div class="text-center" style="position: absolute; left: 45%">
+          <h3 class="text-center">{{"login" | translate}}</h3>
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12"></div>
         </div>
-        <form [formGroup]="logIn" (ngSubmit)="onSubmit()">
-          <div class="form-group col-md-8 col-sm-12 col-12">
-            <label for="exampleInputEmail1">Email </label>
+        <form [formGroup]="logIn" (ngSubmit)="onSubmit()" style="direction: ltr;">
+          <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
+            <label for="exampleInputEmail1">{{"email" | translate}} </label>
             <input
               type="email"
               class="form-control form-control-lg"
+              [ngClass]="thisLang==='ltr' ? 'ltr' : 'rtl'"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Email"
@@ -36,13 +37,14 @@
             />
           </div>
          
-          <div class="form-group col-md-8">
-            <label for="exampleInputPassword1">Password</label>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPassword1">{{"password" | translate}}</label>
             <div class="d-flex align-items-center">  
             <input
               id="exampleInputPassword1"
               [type]="showConfirm ? 'text' : 'password'"
               class="form-control form-control-lg"
+              [ngClass]="thisLang==='ltr' ? 'ltr' : 'rtl'"
               required="true"
               minlength="6"
               placeholder="Password"
@@ -56,23 +58,23 @@
           
         
         </div>
-          <div class="form-check check" style="direction: ltr;">
+          <div class="form-check check offset-md-2 col-md-8 ">
             <input
               type="checkbox"
-              class="form-check-input"
+              class="form-check-input d-block"
               id="exampleCheck1"
             />
             
-            <label class="form-check-label d-inline-flex" for="exampleCheck1"
-              >Remember me <span>Forget Password ? </span>
+            <label class="form-check-label d-flex justify-content-between w-100" for="exampleCheck1"
+              >{{"remember" | translate}} <span>{{"forget" | translate}} </span>
             </label>
           </div>
         
           <!-- [routerLink]="['/root/verify-code']" -->
-          <button type="sumbit" class="btn btn-primary col-md-8 d-block">Sign In</button>
+          <button type="sumbit" class="btn btn-primary offset-md-2 col-md-8 col-sm-12 d-block">{{"login" | translate}}</button>
           <p class="text-center">
-            You Don't Have an Account ?
-            <a [routerLink]="['/root/sign-up',id_code]"> Create Account </a>
+            {{"dontHaveAccount" | translate}}
+            <a [routerLink]="['/root/sign-up',id_code]"> {{"createAccount" | translate}} </a>
           </p>
         </form>
       </div>

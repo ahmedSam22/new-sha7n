@@ -26,64 +26,64 @@
             <div class="col-md-3 col-sm-6">
                 <div class="text-center balance">
                     <ul class="list-unstyled balancelist">
-                        <li> Balance </li>
+                        <li> {{"balance" | translate}} </li>
                         <li> <strong>123.00 </strong> </li>
-                        <li>SAR</li>
+                        <li>{{"sar" | translate}}</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="text-center order">
                     <ul class="list-unstyled orderlist">
-                        <li> Shopper Orders </li>
+                        <li> {{"shopperorder" | translate}} </li>
                         <li> <strong> 23 </strong> </li>
-                        <li>Orders </li>
+                        <li>{{"orders" | translate}} </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="text-center shipment">
                     <ul class="list-unstyled shipmentlist">
-                        <li> Number Of Shipments </li>
+                        <li> {{"numberofshipment" | translate}} </li>
                         <li> <strong> 50 </strong> </li>
-                        <li>Shipment</li>
+                        <li>{{"shipment" | translate}}</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="text-center parcel">
                     <ul class="list-unstyled parcellist">
-                        <li> Number Of Parcels</li>
+                        <li> {{"numberofparcels" | translate}}</li>
                         <li> <strong> 300 </strong> </li>
-                        <li>Parcels</li>
+                        <li>{{"parcels" | translate}}</li>
                     </ul>
                 </div>
             </div>
 
         </div>
     </section>
-    <section class="startcontent">
-        <div class="start row">
-            <!-- <div class="col-md-12 col-sm-12">
-                <div class="start row "> -->
-                    <p class="col-md-10 col-sm-8 col-xs-12"> Start with us and ship your shipment now </p> 
-                    <button class="btn btn-primary mb-4 mt-1 col-md-2 col-sm-4 col-xs-12"> Start Now</button>
-                <!-- </div>
-            </div> -->
+    <section class="startcontent my-3">
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="start  ">
+                    <p class="float-left"> {{"startwithus" | translate}} </p>
+                    <button class="btn btn-primary float-right"> {{"startnow" | translate}}</button>
+                </div>
+            </div>
         </div>
     </section>
     <section class="showcontent py-4 ">
         <div class="row justify-content-between">
             <div class="col-md-5 col-sm-12 left">
                 <div class="head">
-                    <p class="float-left pt-1">My Last Shipments </p>
-                    <button class="btn btn-primary float-right mb-1" (click)="LeftTable()"> Show More </button>
+                    <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
+                    <button class="btn btn-primary float-right mb-1" (click)="LeftTable()"> {{"showmore" | translate}} </button>
                 </div>
             </div>
             <div class="col-md-5 col-sm-12 right">
                 <div class="head">
-                    <p class="float-left pt-1">My Last Shipments </p>
-                    <button class="btn btn-primary float-right mb-1" (click)="RightTable()"> Show More </button>
+                    <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
+                    <button class="btn btn-primary float-right mb-1" (click)="RightTable()"> {{"showmore" | translate}} </button>
                 </div>
             </div>
         </div>

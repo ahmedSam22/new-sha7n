@@ -112,7 +112,7 @@
     margin-top: 80px;
     position: relative;
     top: 10%;
-    left: 20%;
+    /* left: 20%; */
 }
 
 .container-fluid .leftSide form input {
@@ -134,7 +134,7 @@
 .container-fluid .leftSide button {
     background-color: #32B457;
     padding: 10px 0px;
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
     border: 1px solid #32B457;
 }
 

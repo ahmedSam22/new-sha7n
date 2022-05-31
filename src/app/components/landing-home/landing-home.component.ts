@@ -24,6 +24,8 @@ export class LandingHomeComponent implements OnInit, OnChanges {
   imageTitle: string = '';
   form!: FormGroup;
   thisLang: any;
+  currentLang:any;
+
   contactUsForm!: FormGroup;
   customOptions: OwlOptions = {
     loop: true,
@@ -60,6 +62,7 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     public translate: TranslateService
   ) {
     this.thisLang = localStorage.getItem('currentLang');
+    this.currentLang = localStorage.getItem("currentLang") || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
     translate.setDefaultLang(this.thisLang);

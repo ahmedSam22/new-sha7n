@@ -247,6 +247,10 @@
 .forBorder{
     border-left: 1px solid gray;
 }
+.forBorder-rtl{
+    border-right: 1px solid gray;
+}
+
 
 .company-rules li {
    line-height: 25px;

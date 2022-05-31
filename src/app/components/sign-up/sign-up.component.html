@@ -70,75 +70,83 @@
               d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
             />
           </svg>
-          Back To Home
+          {{"backHome" | translate}}
         </a>
         <div class="text-center" style="left: 45%">
-          <h3 class="text-center">Create An Account</h3>
+          <h3 class="text-center">{{ "signup" | translate }}</h3>
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12"></div>
         </div>
-        <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
-          <div class="form-group col-md-8">
-            <label for="exampleInputName1">Name</label>
+        <form
+          [formGroup]="signUp"
+          style="direction: ltr"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputName1">{{ "fullName" | translate }}</label>
             <input
               type="text"
               class="form-control form-control-lg"
               id="exampleInputName1"
-              placeholder="Name"
+              placeholder="{{ 'fullName' | translate }}"
               [formControlName]="'name'"
             />
           </div>
-          <div class="form-group col-md-8">
-            <label for="exampleInputPhone1">Phone</label>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
             <div *ngIf="signUp.controls.phone.errors?.['minlength']">
-              Name must be at least 9 characters long.
+              {{ 'phoneValid' | translate }}
             </div>
             <input
               type="text"
               class="form-control form-control-lg"
               id="exampleInputPhone1"
-              placeholder="Phone"
+              placeholder="{{ 'phone' | translate }}"
               [formControlName]="'phone'"
             />
           </div>
-          <div class="form-group col-md-8">
-            <label for="exampleInputEmail1">Email </label>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputEmail1">{{ "email" | translate }} </label>
             <input
               type="email"
               class="form-control form-control-lg"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Email"
+              placeholder="{{ 'email' | translate }}"
               [formControlName]="'email'"
             />
             <!-- <span>show</span> -->
           </div>
-          <div class="form-group col-md-8">
-            <label for="exampleInputPassword1">Password</label>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPassword1">{{
+              "password" | translate
+            }}</label>
 
             <div *ngIf="signUp.controls.password.errors?.['minlength']">
-              password must be at least 4 characters long.
+              {{ 'passwordValid' | translate }}
             </div>
             <div class="d-flex align-items-center">
               <input
                 type="password"
-                class="form-control form-control-lg "
+                class="form-control form-control-lg"
                 required="true"
                 minlength="6"
                 id="exampleInputPassword1"
-                placeholder="Password"
+                placeholder="{{ 'password' | translate }}"
                 [type]="show ? 'text' : 'password'"
                 [formControlName]="'password'"
               />
               <span class="showPassword" (click)="this.show = !this.show"
                 ><i class="fas fa-eye" *ngIf="!show"></i>
                 <i class="fas fa-eye-slash" *ngIf="show"></i>
-            </span>
+              </span>
             </div>
           </div>
-          <div class="form-group col-md-8">
-            <label for="exampleInputPassword2">Confirm Password</label>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPassword2">{{
+              "confirmPassword" | translate
+            }}</label>
             <div class="d-flex align-items-center">
               <input
                 [type]="showConfirm ? 'text' : 'password'"
@@ -146,15 +154,18 @@
                 required="true"
                 minlength="6"
                 id="exampleInputPassword2"
-                placeholder="Confirm Password"
+                placeholder="{{ 'confirmPassword' | translate }}"
                 [formControlName]="'confirm_password'"
               />
-              <span class="showPassword" (click)="this.showConfirm = !this.showConfirm"
+              <span
+                class="showPassword"
+                (click)="this.showConfirm = !this.showConfirm"
                 ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
                 <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
-               </span>
+              </span>
             </div>
           </div>
+<<<<<<< HEAD
           <div class="form-check check">
             <input
               type="checkbox"
@@ -178,6 +189,35 @@
             You have an account ?
             <a [routerLink]="['/root/login',id_code]"> Sign In </a>
           </p>
+=======
+          <div class="form-group offset-md-2 col-md-8">
+            <div class="form-check check justify-content-start d-flex">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                [checked]="true"
+                (click)="switchaccept()"
+              />
+              <label class="form-check-label w-100" for="exampleCheck1"
+                >{{ 'agree' | translate }} <span> {{ 'terms' | translate }} </span>
+              </label>
+            </div>
+            <!-- [routerLink]="['/root/verify-code']" -->
+            <button
+              type="submit"
+              class="btn btn-primary col-8 d-block"
+              [disabled]="!signUp.valid"
+            >
+              {{ "signup" | translate }}
+            </button>
+            <p class="text-center">
+              {{ 'haveaccount' | translate }}
+              <a [routerLink]="['/root/login', id_code]"> {{ 'login' | translate }} </a>
+            </p>
+          </div> 
+  
+>>>>>>> 931bd93b50fb7c7dfd5219a75b7ac03da4a35656
         </form>
       </div>
     </div>
