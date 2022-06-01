@@ -5,15 +5,15 @@
           <div class="col-md-12 col-sm-12">
               <div class=" text-center orderlinks my-3"> 
                <div class="row"> 
-                <a class="col-md-3 col-sm-12" #ho id="ho" href="javascript:void(0)" (click)="getOrders('0');select(ho.id)" [ngClass]="{active: isActive(ho.id) }"> Order Recieving  </a> 
-                <a class="col-md-3 col-sm-12" #sh id="sh" vhref="javascript:void(1)" (click)="getOrders('1');select(sh.id)" [ngClass]="{active: isActive(sh.id)}"> Order In Shipping  </a> 
-                <a class="col-md-3 col-sm-12" #de id="de" href="javascript:void(1)" (click)="getOrders('2');select(de.id)" [ngClass]="{active: isActive(de.id)}" > Order Delivered  </a> 
+                <a class="col-md-3 col-sm-12" #ho id="ho" href="javascript:void(0)" (click)="getOrders('0');select(ho.id)" [ngClass]="{active: isActive(ho.id) }"> {{"recieving" | translate}}  </a> 
+                <a class="col-md-3 col-sm-12" #sh id="sh" vhref="javascript:void(1)" (click)="getOrders('1');select(sh.id)" [ngClass]="{active: isActive(sh.id)}"> {{"inshipping" | translate}}  </a> 
+                <a class="col-md-3 col-sm-12" #de id="de" href="javascript:void(1)" (click)="getOrders('2');select(de.id)" [ngClass]="{active: isActive(de.id)}" > {{"delivered" | translate}}  </a> 
               </div>
             </div>
           </div>  
         </div>
         <div *ngIf="showmessage" class="emptyOrder">
-            <p class="text-center my-3 px-5"> There Is No Orders In This Stage </p>
+            <p class="text-center my-3 px-5"> {{"noorders" | translate}}</p>
         </div> 
         <!-- <div class="openorders" *ngIf="openOrder&&!closeOrder">  
          <div class="ordercard"> 
@@ -100,19 +100,19 @@
             <div class="ordercard"  *ngFor="let order of orders"> 
                 <div class="row justify-content-around "  > 
                       <div class="col-md-3 col-sm-6" > 
-                          <p>Order Number </p> 
+                          <p>{{"ordernumber" | translate}} </p> 
                           <span> {{order.order_refrence}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
-                            <p>Order Date </p> 
+                            <p>{{"orderdate" | translate}} </p> 
                             <span> {{order.created_at}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
-                            <p>Shipping Charges </p> 
+                            <p>{{"shippingcharges" | translate}} </p> 
                             <span>{{order.shipping_price}} </span>
                         </div>
                         <div class="col-md-3 col-sm-6" > 
-                          <button class="detail" (click)="details(order.id)" id="id{{order.id}}"  class="float-right btn btn-primary my-4"> More Details 
+                          <button class="detail" (click)="details(order.id)" id="id{{order.id}}"  class="float-right btn btn-primary my-4"> {{"moredetails" | translate}} 
                               <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
                                   <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
                                 </svg> -->
@@ -138,36 +138,53 @@
                  <div class="hide" id="{{order.id}}"> 
                   <div class="row"> 
                       <div class="col-md-3 col-sm-12"> 
-                        <h5 class="my-5">Shipping Rate </h5> 
+                        <h5 class="my-5">{{"shippingrate" | translate}} </h5> 
                        
                         <dl> 
-                            <dt>Shipment Address </dt>
+                            <dt>{{"shipmentAddress" |translate}} </dt>
 
-                            <dd>Parcel From : <span>  {{order.chinaharbor.name_en}} </span></dd>
-                            <dd>To : <span> {{order.saudiharbor.name_en}}</span> </dd>
+                            <dd>{{"parcelfrom" | translate}} : 
+                                
+                                
+                                
+                                <span *ngIf="this.thisLang === 'en'">  {{order.chinaharbor.name_en}} </span>
+                                <span *ngIf="this.thisLang === 'ar'">  {{order.chinaharbor.name_ar}} </span>
+                            
+                            
+                            
+                            </dd>
+                            <dd>To : <span *ngIf="this.thisLang === 'en'"> {{order.saudiharbor.name_en}}</span> 
+                            
+                                <span *ngIf="this.thisLang === 'ar'"> {{order.saudiharbor.name_ar}}</span> 
+                            </dd>
                         </dl>
                         <dl> 
-                            <dt>Shipment Information </dt>
+                            <dt>{{"shipmentinfo" | translate}} </dt>
 
-                            <dd > Type of Shipping : <span> {{order.type==1?'Aerial':'Nautical'}}</span>  </dd>
+                            <dd > {{"typeshipment" | translate}}: <span> {{order.type==1?'Aerial':'Nautical'}}</span>  </dd>
                           
-                            <dd> Type of Shipment : <span>{{order.shipping_type.name_en}}</span>  </dd>
-                            <dd >Weight : <span> {{order.weight}}</span> KG </dd>
+                            <dd> {{"typeshipment" | translate}} :
+                                
+                                <span *ngIf="this.thisLang === 'en'">{{order.shipping_type.name_en}}</span>
+                                <span *ngIf="this.thisLang === 'ar'">{{order.shipping_type.name_ar}}</span>
+                            
+                            </dd>
+                            <dd >{{"weight" | translate}} : <span> {{order.weight}}</span> KG </dd>
                         </dl>
                       </div>
                       <div class="col-md-5 col-sm-12">
-                        <h5 class="my-5">Shipping Details </h5> 
+                        <h5 class="my-5">{{"shippingdetails" | translate}} </h5> 
                         <ul>
-                            <li><span> {{order.type==1?'Aerial':'Nautical'}}</span> Charging Type </li>
-                            <li>Actial Weight <span> {{order.weight}}</span>KG </li>
-                            <li>5-12 Days Approximate Shipping Time </li>
-                            <li>Extra Charge of Total Shipping 5% (fuel fee) </li>
-                            <li>In Case The Goods Are Not Standardized Made In China . The Amount Of Sar 500 Will  </li>
+                            <li><span> {{order.type==1?'Aerial':'Nautical'}}</span> {{"chargingtype" | translate}} </li>
+                            <li>{{"actialweight" | translate}} <span> {{order.weight}}</span>KG </li>
+                            <li>{{"shippingcardtime" | translate}} </li>
+                            <li>{{"extracharge" | translate}} </li>
+                            <li>{{"return" | translate}}  </li>
                         </ul>
                      </div>
                       <div class="col-md-4 col-sm-12"> 
-                        <h5 class="my-5">Shipping Charges </h5> 
-                        <p> The total cost will be determined when you confirm the weight and sizes of the attached shipment and when you confirm all the data you will be informed of the total cost and if the cost is not suitable for you you can return the amount of the deposit in full
+                        <h5 class="my-5">{{"shippingcharges" | translate}} </h5> 
+                        <p> {{"shippingchargetitle" | translate}}
                          </p>
                       </div>
                   </div>

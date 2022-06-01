@@ -63,6 +63,7 @@ export class NavbarComponent implements OnInit {
     let lang:any;
     if(this.selectedCountryCode === "us"){
         lang = "en"
+
     }else if(this.selectedCountryCode === "eg"){
        lang = "ar"
 

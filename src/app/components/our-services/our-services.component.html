@@ -19,12 +19,12 @@
       <div class="row">
         <div class="col-md-8 col-xs-6 left">
           <div class="middleLeft">
-            <h4 *ngIf="this.thisLang === 'ltr'">{{ service.title_en }}</h4>
-            <h4 *ngIf="this.thisLang === 'rtl'">{{ service.title_ar }}</h4>
-            <p *ngIf="this.thisLang === 'ltr'">
+            <h4 *ngIf="this.thisLang === 'en'">{{ service.title_en }}</h4>
+            <h4 *ngIf="this.thisLang === 'ar'">{{ service.title_ar }}</h4>
+            <p *ngIf="this.thisLang === 'en'">
               {{ service.description_en }}
             </p>
-            <p *ngIf="this.thisLang === 'rtl'">
+            <p *ngIf="this.thisLang === 'ar'">
               {{ service.description_ar }}
             </p>
             <button class="btn serviceBtn" [routerLink]="'/admin/shipping'">

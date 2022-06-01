@@ -5,6 +5,7 @@ import {StepperOrientation} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { GlobalService } from '../../shared/services/global.service';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 // created_at shipping_price
 @Component({
   selector: 'admin-orders',
@@ -36,11 +37,22 @@ export class OrdersAdminComponent implements OnInit {
     thirdCtrl: ['', Validators.required],
   });
   stepperOrientation: Observable<StepperOrientation>;
+  thisLang:any;
 
-  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver , private service:GlobalService) {
+  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver , private service:GlobalService,public translate: TranslateService) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+      this.thisLang = localStorage.getItem('currentLang');
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        if (event.lang == 'ar') {
+          this.thisLang = 'ar';
+        } else if(event.lang == 'en') {
+          this.thisLang = 'en';
+  
+        }
+        
+      });
   }
   
  
@@ -112,10 +124,21 @@ getOrders(x:any){
  
    
    if(this.element.contains("show") ){
-    b.innerText = "Less Details"
+     if(this.thisLang === "en"){
+       b.innerText = "Less Details"
+     }
+     if(this.thisLang === "ar"){
+      b.innerText = "عرض الأقل"
+     }
+    
    }
    else {
-    b.innerText = "More Details";
+    if(this.thisLang === "en"){
+      b.innerText = "More Details"
+    }
+    if(this.thisLang === "ar"){
+     b.innerText = "عرض المزيد"
+    }
    }
 }
  

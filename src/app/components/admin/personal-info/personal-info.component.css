@@ -44,7 +44,7 @@
         border-radius: 50%;
     }
     svg{
-        position: relative;
+        position: absolute;
         z-index: 33;
          left: 11%;
          top:25%
