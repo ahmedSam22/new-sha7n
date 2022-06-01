@@ -180,8 +180,8 @@ img {
 }
 
 .backGroundImage {
-  background: url(../../../assets/images/service2.png) no-repeat center center
-    fixed;
+  background: url(../../../assets/images/Contact_us.png) no-repeat center center ;
+    
   border-radius: 10px;
 }
 

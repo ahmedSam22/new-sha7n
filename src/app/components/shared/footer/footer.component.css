@@ -16,11 +16,18 @@ section {
 i {
     color: green;
     border: 1px solid transparent;
-    padding: 0.1em 0.3em;
+    padding:6px 7px;
+    margin:2px;
     background: #ffff;
     border-radius: 50%;
+    height: 30px;
+    width: 30px;
 }
-
+@media only screen and (max-width: 576px) {
+  .foot{
+        text-align:center ;
+    }
+}
 @media only screen and (max-width: 480px) {
     .forWho {
         width: 33.3%;
@@ -31,4 +38,5 @@ i {
     .aboutCom {
         width: 33.3%;
     }
+ 
 }

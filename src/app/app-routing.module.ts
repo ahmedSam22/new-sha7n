@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/root/home'},
   { path: 'admin', pathMatch: 'full', redirectTo: '/admin/adminHome'},
   { path: 'root', pathMatch: 'full', redirectTo: '/root/home'},
-
+ 
 
   { path: 'root', component:HomeComponent, children: [
     { path: 'home', component: LandingHomeComponent},

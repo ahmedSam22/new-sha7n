@@ -62,6 +62,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.fromChinaHarbor=this.service.fromChinaHarbor;
     this.toSaudiHarbor=this.service.toSaudiHarbor;
     this.typeOfShipping=this.service.typeOfShipping;
@@ -84,19 +85,18 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       this.saudiharbors = res['data'];
       console.log("saudiharbors",this.saudiharbors)
     }) 
+  
     this.form = this.formbuilder.group({
       china_harbor_id:[this.fromChinaHarbor,Validators.required],
       saudi_harbor_id:[this.toSaudiHarbor,Validators.required],
       type:[this.typeOfShipping,Validators.required],
       shipment_type:[this.typeOfShipment,Validators.required],
-      weight:[this.shipmentWeight,Validators.required],
+      weight1:[{value:this.shipmentWeight,disabled:true},Validators.required],
       length:[this.length,Validators.required],
       width:[this.width,Validators.required],
       height:[this.height,Validators.required] ,
-      
-      })
-     
-      
+        })
+        // this.form.get('weight')?.disable()  
   }
   onChangeChina(event:any){ }
   onTypeOfShipping(event:any){}
@@ -178,9 +178,11 @@ newOrder(){
 }
  
 onSubmit(){
- 
+  if(this.packingList.length!=0 &&this.commercialInvoice.length!=0){  
+  
   let subForm = {
     ...this.form.value,
+    weight:this.shipmentWeight,
     company_id: this.service.order_company_id,
     invoice: this.commercialInvoice[0],
     list:this.packingList[0]  ,
@@ -192,9 +194,19 @@ onSubmit(){
     Swal.fire(
         res.message
         )
+
    console.log("fee reeeeees",res)
-  
-  } )
+   this.form.reset();
+  } ,
+  (error:any)=>{
+    console.log(error)
+  })
+}
+else {
+  Swal.fire(
+   "Files Are Required"
+    )
+}
 }
  
 }

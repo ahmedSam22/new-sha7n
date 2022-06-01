@@ -11,7 +11,7 @@
           <div class="form-group col-md-6">
             <label>{{"from" | translate}}: </label>
             <!-- formControlName="china_harbor_id" -->
-            <select class="form-control" (change)="onChangeChina($event)">
+            <select class="form-control" (change)="onChangeChina($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"parcelChoose" | translate}}</option>
               <option value="1">China</option>
             </select>
@@ -25,7 +25,7 @@
               (change)="onChangeSaudi($event)"
             >
               <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
-              <option *ngFor="let harbor of saudiharbors" [value]="harbor.id">
+              <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
                 {{ harbor.name_ar }}
               </option>
             </select>
@@ -38,7 +38,7 @@
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-4">
             <label>{{"typeShipping" | translate}} : </label>
-            <select class="form-control" (change)="onTypeOfShipping($event)">
+            <select class="form-control" (change)="onTypeOfShipping($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"chooseShippingType" | translate}}</option>
               <option value="1">Aerial</option>
               <option value="0">Nautical</option>
@@ -48,7 +48,7 @@
           <div class="form-group col-md-4">
             <label>{{"typeshipment" | translate}} : </label>
 
-            <select class="form-control" (change)="onTypeOfShipment($event)">
+            <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"chooseType" | translate}}</option>
               <option value="1">Battery</option>
             </select>
@@ -62,8 +62,8 @@
                 class="form-control"
                 #shippingWeight
                 (blur)="getWeight()"
-                formControlName="weight"
                 placeholder="{{'weight' | translate}}"
+                formControlName="weight"
               />
               <div class="input-group-append">
                 <span class="input-group-text" *ngIf="showCBM">CBM</span>
@@ -86,6 +86,7 @@
                 (blur)="getLenght()"
                 #shippingLength
                 placeholder="{{'length' | translate}}"
+                [disabled]="closeChoises"
               />
               <div class="input-group-append">
                 <span class="input-group-text">{{"cm" | translate}}</span>
@@ -101,6 +102,7 @@
                 (blur)="getWidth()"
                 #shippingWidth
                 placeholder="{{'width' | translate}}"
+                [disabled]="closeChoises"
               />
               <div class="input-group-append">
                 <span class="input-group-text">{{"cm" | translate}}</span>
@@ -116,6 +118,7 @@
                 (blur)="getHeight()"
                 #shippingHeight
                 placeholder="{{'height' | translate}}"
+                [disabled]="closeChoises"
               />
               <div class="input-group-append">
                 <span class="input-group-text">{{"cm" | translate}}</span>

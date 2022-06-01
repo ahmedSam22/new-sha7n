@@ -92,24 +92,28 @@
 }
 
 .container-fluid .leftSide {
-    margin-top: 20px;
+    margin-top: 10%;
 }
 
 .container-fluid .leftSide a {
     text-decoration: none;
     color: black;
+    
 }
 
 .container-fluid .leftSide h3 {
     margin-top: 30px;
-    border-bottom: 2px solid #32B457;
+    /* border-bottom: 2px solid #32B457; */
+    text-decoration: underline;
+    text-decoration-color:#32B457;
+    text-decoration-skip-ink:none;
     position: relative;
     top: 50%;
     bottom: 35%;
 }
 
 .container-fluid .leftSide form {
-    margin-top: 80px;
+    margin-top:30px;
     position: relative;
     top: 10%;
     /* left: 20%; */

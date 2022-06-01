@@ -1,9 +1,12 @@
 .container-fluid {
     background-color: #fbfbfb;
+ 
 }
-
+ .x{
+    min-height: 670px
+ }
 .container-fluid .leftSide {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .container-fluid .leftSide a {
@@ -12,8 +15,11 @@
 }
 
 .container-fluid .leftSide h3 {
-    margin-top: 30px;
-    border-bottom: 2px solid #32B457;
+    margin-top:10px;
+    /* border-bottom: 2px solid #32B457; */
+    text-decoration: underline;
+    text-decoration-color:#32B457;
+    text-decoration-skip-ink:none;
     position: relative;
     top: 50%;
     bottom: 35%;
@@ -113,7 +119,7 @@
     padding: 11px;
     border: 1px solid #d1cece;
     border-left: none;
-    height: 60px;
+    height: 48px;
   }
   #exampleInputPassword1{
     border-bottom-right-radius: 0px;
@@ -123,3 +129,10 @@
   .rtl{
       direction: rtl;
   }
+
+  
+@media (max-width: 567px) { 
+    .x{
+        min-height: 500px
+     }
+}

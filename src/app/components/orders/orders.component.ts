@@ -42,8 +42,8 @@ export class OrdersComponent implements OnInit {
   shippingError=false ;
   weightError=false;
   submit=false;
-
   thisLang:any;
+  closeChoises=false ;
   constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService ,     public translate: TranslateService
     ) {
       this.thisLang = localStorage.getItem('currentLang');
@@ -133,16 +133,16 @@ getLenght(){
   // console.log("length ", this.service.length )
 }
   onSubmit(){
-    console.log("HHHHHHHHHHHHHH")
-    console.log("fromChinaHarbor",this.service.fromChinaHarbor )
-    console.log("toSaudiHarbor", this.service.toSaudiHarbor)
-    console.log("typeOfShipping",this.service.typeOfShipping)
-    console.log("typeOfShipment",this.service.typeOfShipment)
-    console.log("shipmentWeight",this.service.shipmentWeight )
-    console.log("height", this.service.height)
-    console.log("width ", this.service.width)
-    console.log("length ", this.service.length )
-    console.log("HHHHHHHHHHHHHH")
+ //   console.log("HHHHHHHHHHHHHH")
+    // console.log("fromChinaHarbor",this.service.fromChinaHarbor )
+    // console.log("toSaudiHarbor", this.service.toSaudiHarbor)
+    // console.log("typeOfShipping",this.service.typeOfShipping)
+    // console.log("typeOfShipment",this.service.typeOfShipment)
+    // console.log("shipmentWeight",this.service.shipmentWeight )
+    // console.log("height", this.service.height)
+    // console.log("width ", this.service.width)
+    // console.log("length ", this.service.length )
+   // console.log("HHHHHHHHHHHHHH")
     // console.log("REEEEE",this.form.value)
      let postedForm={
           ...this.form.value,
@@ -182,6 +182,7 @@ getLenght(){
         }
       console.log("fooooorm",postedForm)
      if(this.submit==true){
+    
       this.service.homeOrders(postedForm.china_harbor_id,postedForm.saudi_harbor_id, postedForm.type,postedForm.shipment_type,postedForm.weight).subscribe((res:any)=>{
        console.log("REEEEEEEEEEE",res)
        console.log("REEEEEEEEEEE",res.status)
@@ -195,6 +196,10 @@ getLenght(){
         
          this.btnStyle = document.getElementById('btnCalculating');
          this.btnStyle.style.display = 'none';
+         this.closeChoises=true;
+         this.form.get('weight')?.disable()
+         this.form.get('saudi_harbor_id')?.disable()
+          
          }
         else{
           console.log("errorrrrrr", res.errors)

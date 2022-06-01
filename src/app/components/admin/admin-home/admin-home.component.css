@@ -9,19 +9,19 @@
 }
 
 .homecontent .balance {
-    background-color: antiquewhite;
+    background-color: #E2ECFF;
 }
 
 .homecontent .order {
-    background-color: rgb(216, 250, 215);
+    background-color: #CCF5F8;
 }
 
 .homecontent .shipment {
-    background-color: rgb(242, 215, 250);
+    background-color: #FFDEDE;
 }
 
 .homecontent .parcel {
-    background-color: rgb(250, 215, 215);
+    background-color: #D2FFE8;
 }
 
 .homecontent .balance .balancelist li,
@@ -31,6 +31,15 @@
     line-height: 35px;
     padding: 2px;
     margin: 1px;
+}
+.homecontent .order .orderlist li{
+    color : #00CFDD;
+}
+.homecontent .shipment .shipmentlist li{
+color :#FF5B5C;
+}
+.homecontent .parcel .parcellist li{
+color:#39DA8A;
 }
 
 .homecontent .balance .balancelist li:nth-child(2),
@@ -42,7 +51,7 @@
 
 .startcontent {
     background-color: #32B457;
-    height: 100px;
+    min-height: 75px;
     color: white;
 }
 
@@ -51,7 +60,7 @@
 }
 
 .startcontent .start {
-    padding: 36px 20px;
+    padding:20px;
     border-radius: 10px;
 }
 
@@ -91,20 +100,38 @@
 .left {
     padding: 10px;
     margin: 5px;
-    background-color: #dcffce;
+    background-color: #f2f7ff;
 }
 
- ::ng-deep .owl-prev,
+/*
+::ng-deep .owl-prev,
 ::ng-deep .owl-next {
     position: absolute;
     top:43%;
-    transform: translateY(-50%);
-}
+    transform: translateY(-50%);   
+}*/
 
-::ng-deep .owl-prev {
+/* ::ng-deep .owl-prev {
     left: -2em;
+ 
 }
-
+ 
 ::ng-deep .owl-next {
     right: -2em;
-}
+ 
+}   */
+.start button{
+    float: right;
+   }
+@media (max-width: 567px) { 
+    .startcontent .start p {
+     padding: 15px 5px;
+       }
+    .start button{
+     float: none;
+    }
+     }
+     
+     ::ng-deep .owl-carousel .owl-item img {
+         height: 40vh;
+     }

@@ -75,9 +75,9 @@
         <div class="text-center" style="left: 45%">
           <h3 class="text-center">{{ "signup" | translate }}</h3>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12 col-sm-12"></div>
-        </div>
+        </div> -->
         <form
           [formGroup]="signUp"
           style="direction: ltr"
@@ -165,40 +165,15 @@
               </span>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="form-check check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-              (click)="switchaccept()"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >I Agree To <span> Terms Of Use and Privacy </span>
-            </label>
-          </div>
-          <!-- [routerLink]="['/root/verify-code']" -->
-          <button
-            type="submit"
-            class="btn btn-primary col-8"
-            [disabled]="!signUp.valid"
-          >
-            Sign up !
-          </button>
-          <p>
-            You have an account ?
-            <a [routerLink]="['/root/login',id_code]"> Sign In </a>
-          </p>
-=======
           <div class="form-group offset-md-2 col-md-8">
             <div class="form-check check justify-content-start d-flex">
               <input
                 type="checkbox"
                 class="form-check-input"
                 id="exampleCheck1"
-                [checked]="true"
-                (click)="switchaccept()"
+                 (click)="switchaccept()"
               />
+                <!-- [checked]="true" -->
               <label class="form-check-label w-100" for="exampleCheck1"
                 >{{ 'agree' | translate }} <span> {{ 'terms' | translate }} </span>
               </label>
@@ -206,7 +181,7 @@
             <!-- [routerLink]="['/root/verify-code']" -->
             <button
               type="submit"
-              class="btn btn-primary col-8 d-block"
+              class="btn btn-primary col-md-12 d-block"
               [disabled]="!signUp.valid"
             >
               {{ "signup" | translate }}
@@ -217,7 +192,6 @@
             </p>
           </div> 
   
->>>>>>> 931bd93b50fb7c7dfd5219a75b7ac03da4a35656
         </form>
       </div>
     </div>
