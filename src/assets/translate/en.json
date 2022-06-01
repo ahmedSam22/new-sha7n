@@ -149,6 +149,7 @@
     "invoice" : "Commercial Invoice",
     "invoice2" : "Packing List",
     "widthEstimate" : "Width Estimate",
+    "neworder" : "New Order",
 
 
 
@@ -185,12 +186,99 @@
 
     "for Notification page 'not used '" : "for Sidebar page 'not used '",
 
+    "notify" : "SAR 1520 was transfered to the international parcel on 25/1/2022 ",
+
 
 
 "for importation page 'not used '" : "for Sidebar page 'not used '",
 
 
-"startimport" : "Start now import with us everything you want from needle to rocket"
+"startimport" : "Start now import with us everything you want from needle to rocket",
+
+
+
+
+
+"for personal info & change password 'not used '" : "for navBar 'not used '",
+
+
+"editprofile" : "Edit Profile",
+"changepassword" : "Change Password",
+"newpassword" : "New Password",
+"confirmnewpassword" : "confirm New Password",
+"save" : "Save",
+"oldpassword" : "Old Password",
+
+
+
+
+"for admin orders 'not used '" : "for admin orders 'not used '",
+
+"delivered" : "Order Delivered",
+"inshipping" : "Order In Shipping",
+"recieving" : "Order Recieving",
+"noorders" : "There Is No Orders In This Stage" , 
+"shippingcharges" : "Shipping Charges" ,
+"shippingchargestitle" : "The total cost will be determined when you confirm the weight and sizes of the attached shipment and when you confirm all the data you will be informed of the total cost and if the cost is not suitable for you you can return the amount of the deposit in full",
+"ordernumber" : "Order Number",
+"orderdate" : "Order Date" , 
+"shippingrate" : "Shipping Rate",
+"shippingdetails" : "Shipping Details",
+"parcelfrom" : "Parcel From",
+"chargingtype" : "Charging Type",
+"actialweight" : "Actial Weight",
+ "shippingcardtime" : "5-12 Days Approximate Shipping Time",
+ "extracharge" : "Extra Charge of Total Shipping 5% (fuel fee)",
+ "return" : "In Case The Goods Are Not Standardized Made In China . The Amount Of Sar 500 Will",
+ "moredetails" : "More Details",
+ "lessdetails" : "Less Details",
+
+
+
+
+
+
+
+"for about us'not used '" : "for navBar 'not used '",
+
+
+
+"technicalsupport" : "Technical Support",
+"aboutworktime" : "All days of week from 08:00 AM - 10:00 PM KSA time",
+"ksawarehouses" : "Saudi Arabia Warehouse",
+"shipmentrecipt" : "Receipt of Shipments" , "shipmentrecipttitle" : "from Monday to Friday , from 04:00 AM to 12:30 PM KSA time",
+"shippingparces" : "Shipping Parces" , "shippingparcestitle" : "from Monday to Friday , from 04:00 in the morning to 12:30 in the evening saudi time",
+"chinawarehouses" : "China Warehouse Warehouse",
+"ksaholidays" : "Official Holidays in the Kingdom of Saudi Arabia",
+"fitr" : " Happy Eid Al Fitr Holiday , Which extends over 3 days",
+"adha" : "Eid Al-Adha Holiday , Which extends over 3 days",
+"nationalday" : "The Saudi National Day is for one day",
+"chinaholidays" : "Official Holidays in china",
+"chinaholidaytext" : "Public Holidays in China is Vary , due to the presence of some holidays that follow chinese calender , and the following are the most comman holidys",
+
+
+
+
+
+"for footer'not used '" : "for footer 'not used '",
+
+"help" : "Help",
+"termsofuse" : "Terms Of Use",
+"privacypolicy" : "Privacy Policy",
+"contactwithus" : "Contact With Us",
+
+"services":"Services",
+"shipping" : "Shipping",
+"import" : "Import",
+
+"moreaboutus" : "More About Us",
+"whoweare" : "Who We Are"
+
+
+
+
+
+
 
 
 

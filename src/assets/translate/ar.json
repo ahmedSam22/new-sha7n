@@ -141,6 +141,8 @@
     "invoice" : "فاتورة تجارية",
     "invoice2" : "قائمة التعبئة",
     "widthEstimate" : "الوزن بالتقريب",
+    "neworder" : "طلب جديد",
+
 
 
 
@@ -181,12 +183,109 @@
 
     "for Notification page 'not used '" : "for Sidebar page 'not used '",
 
+    "notify" : "تم تحويل 1250 ريال في يوم 25/1/2022  ",
+
+
 
 
 "for importation page 'not used '" : "for Sidebar page 'not used '",
 
 
-"startimport" : "ابدأ الآن في استيراد كل ما تريده من إبرة إلى صاروخ"
+"startimport" : "ابدأ الآن في استيراد كل ما تريده من إبرة إلى صاروخ",
+
+
+
+
+
+
+"for personal info & change password 'not used '" : "for navBar 'not used '",
+
+
+"editprofile" : "تعديل البيانات",
+"changepassword" : "تغيير كلمة السر",
+"newpassword" : "كلمة السر الجديدة",
+"confirmnewpassword" : "تأكيد كلمة السر الجديدة",
+"save" : "حفظ",
+"oldpassword" : "كلمة المرور القديمة",
+
+
+
+
+
+"for admin orders 'not used '" : "for navBar 'not used '",
+
+"delivered" : "طلبات تم توصيلها",
+"inshipping" : "طلبات قيد الشحن",
+"recieving" : "طلبات تم إستقبالها",
+"noorders" : "لا يوجد طلبات حتى الان",
+"shippingcharges" : "رسوم الشحن" ,
+"shippingchargestitle" : "سيتم تحديد التكلفة الإجمالية عندما تؤكد وزن وأحجام الشحنة المرفقة وعندما تؤكد جميع البيانات ، سيتم إعلامك بالتكلفة الإجمالية وإذا كانت التكلفة غير مناسبة لك يمكنك إرجاع مبلغ الإيداع ممتلئ",
+"ordernumber" : "رقم الطلب",
+"orderdate" : "تاريخ الطلب" , 
+"shippingrate" : "سعر الشحن",
+"shippingdetails" : "تفاصيل الشحن",
+"parcelfrom" : "طرد من",
+"chargingtype" : "نوع الشحن",
+"actialweight" : "الوزن الفعلي",
+ "shippingcardtime" : "5-12 أيام وقت الشحن التقريبي",
+ "extracharge" : "الرسوم الإضافية من إجمالي الشحن 5٪ (رسوم الوقود)",
+ "return" : "في حالة عدم توحيد السلع المصنوعة في الصين. مبلغ 500 ريال",
+ "moredetails" : "عرض المزيد",
+ "lessdetails" : "عرض الأقل",
+
+
+
+
+
+
+
+
+"for about us'not used '" : "for navBar 'not used '",
+
+
+
+"technicalsupport" : "الدعم الفنّي",
+"aboutworktime" : "يوميا من 8 صباحا حتى 10 مسائا بتوقيت السعودية",
+"ksawarehouses" : "مستودعات المملكة العربية السعودية",
+"shipmentrecipt" : "استلام الشحنات" , "shipmentrecipttitle" : "من الاثنين إلى الجمعة من الساعة 04:00 صباحًا حتى 12:30 ظهرًا بتوقيت المملكة العربية السعودية",
+"shippingparces" : "طرود الشحن" , "shippingparcestitle" : "من الاثنين إلى الجمعة من الساعة 04:00 صباحًا حتى 12:30 مساءً بتوقيت السعودية",
+"chinawarehouses" : "مستودعات الصين",
+"ksaholidays" : "الأجازات الرسمية للمملكة العربية السعودية",
+"fitr" : " عيد الفطر السعيد الذي يمتد على 3 أيام",
+"adha" : "عطلة عيد الأضحى المبارك والتي تمتد على 3 أيام",
+"nationalday" : "اليوم الوطني السعودي ليوم واحد",
+"chinaholidays" : "العطل الرسمية في الصين",
+"chinaholidaytext" : "تتنوع الإجازات الرسمية في الصين ، نظرًا لوجود بعض الإجازات التي تلي التقويم الصيني ، وفيما يلي أكثر العطلات شيوعًا",
+
+
+
+
+
+
+"for footer'not used '" : "for footer 'not used '",
+
+"help" : "مساعدة ؟",
+"termsofuse" : "سياسة الإستخدام",
+"privacypolicy" : "سياسة الخصوصية",
+"contactwithus" : "تواصل معنا",
+
+"services":"الخدمات",
+"shipping" : "الشحن",
+"import" : "التصدير",
+
+"moreaboutus" : "للمزيد عنا",
+"whoweare" : "من نحن ؟"
+
+
+
+
+
+
+
+
+
+
+
 
 
 
