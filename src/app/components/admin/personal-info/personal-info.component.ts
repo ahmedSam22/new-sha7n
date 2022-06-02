@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 import { getTsBuildInfoEmitOutputFilePath } from 'typescript';
 import { GlobalserviceService } from '../../globalservice/globalservice.service';
 import { GlobalService } from '../../shared/services/global.service';
@@ -25,7 +26,6 @@ export class PersonalInfoComponent implements OnInit {
   base64Image:any ;
   showImg=true ;
   imgSrc:any;
- 
   type:any
   showButtons=true;
   firstRow=true;
@@ -34,6 +34,14 @@ export class PersonalInfoComponent implements OnInit {
   imgpath:any;
   file:File[]=[]
   @ViewChild("image") image: any;
+  showConfirm:boolean = false;
+  showConfirm2:boolean = false;
+  showConfirm3:boolean = false;
+
+  showPasswordError:boolean=false;
+  showNewPasswordError:boolean=false;
+  showConfirmPasswordError:boolean=false;
+  submit:boolean=false;
   constructor( private formbuilder:FormBuilder , private service:GlobalService) {}
  
   ngOnInit(): void {
@@ -117,15 +125,13 @@ export class PersonalInfoComponent implements OnInit {
       this.secondtRow=false;
       this.edit=true;
     }
-    // console.log("Current Type" , this.type)
+    console.log("Current Type" , this.type)
   }
   onSubmit() {
-  //  console.log("resssssssssssss",this.personalInfo.value )
-    this.showButtons=true;
-    this.firstRow=true;
-    this.secondtRow=false;
-    // console.log("ttttttttttttttttttttt",this.type)
-
+    // this.showButtons=true;
+    //  this.firstRow=true;
+    //  this.secondtRow=false;
+     
     if(this.type==0){
       let infoform ={
        name:this.personalInfo.value.name ,
@@ -133,12 +139,27 @@ export class PersonalInfoComponent implements OnInit {
        email:this.personalInfo.value.email  ,
        image:this.file[0]
       }
-        //console.log("iiiiiiiiiiiiiiiiiii", infoform); 
-    this.service.updatePersonalInfo(infoform).subscribe(res=>{
+ 
+    this.service.updatePersonalInfo(infoform).subscribe((res:any)=>{
       location.reload();
      console.log("infoooooo" ,res);
+     Swal.fire(
+      "success" ,
+      res.message
+     )
       this.edit=true;
-   
+      this.showButtons=true;
+      this.firstRow=true;
+      this.secondtRow=false;
+     },
+     (e:any)=>{
+      Swal.fire(
+        "Fail ", 
+        e.error.message
+      )
+      this.showButtons=true;
+      this.firstRow=true;
+      this.secondtRow=false;
      })
      
     }
@@ -148,12 +169,29 @@ export class PersonalInfoComponent implements OnInit {
         password: this.personalInfo.value.password , 
         confirm_password:this.personalInfo.value.confirm_password  
       }
-     // console.log("pppppppppppppppppp",passwordform);
-      this.service. updatePersonalpassword(passwordform).subscribe(res=>{
-       // console.log("passssssssss" , res);
+    
+      this.service. updatePersonalpassword(passwordform).subscribe((res:any)=>{
+        console.log("res pppppp",res)
+           Swal.fire(
+            "success" ,
+            res.message
+           )
+           this.showButtons=true;
+           this.firstRow=true;
+           this.secondtRow=false;
+       },
+       (e:any)=>{
+         Swal.fire(
+           "Fail ", 
+           e.error.message
+         )
+         this.showButtons=false;
+         this.firstRow=false;
+         this.secondtRow=true;
        })
-      
+    
     }
     
+ 
   }
 }

@@ -110,5 +110,6 @@ color:grey
     height: 100% !important;
     color: #32B457;
     font-weight: 500 ;
-  
+    border-bottom-right-radius: 0px;
+    border-top-right-radius:0px;
 }

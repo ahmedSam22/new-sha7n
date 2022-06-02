@@ -52,4 +52,14 @@
     .hideEmptyImg[src=""] {
         visibility: hidden;
      }
- 
+ .showPassword{
+    padding: 7px;
+    border: 1px solid #d1cece;
+    border-left: none;
+    height: 38px;
+  }
+
+ #inputPassword4,#inputPassword5,#inputPassword6 {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius:0px;
+  }

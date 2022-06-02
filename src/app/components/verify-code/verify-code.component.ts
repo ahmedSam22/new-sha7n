@@ -14,6 +14,9 @@ export class VerifyCodeComponent implements OnInit {
   concat='' ;
   verification_code = {};
   id_code!:any;
+  timeLeftMinutes: number = 90;
+  // timeLeftSeconds: number = 30;
+  interval:any;
   constructor( private service:GlobalService, private activatedRoute:ActivatedRoute ,private router:Router ) { }
 
   ngOnInit(): void {
@@ -28,8 +31,30 @@ export class VerifyCodeComponent implements OnInit {
     console.log("ccccccccccccccccccccc",this.id_code)
    
   });
-  }
+ this.minutesTimer()
 
+ 
+  }
+  minutesTimer(){
+    this.interval = setInterval(() => {
+      if(this.timeLeftMinutes > 0) {
+        this.timeLeftMinutes--;
+      } else {
+       this.timeLeftMinutes = 90;
+         }
+    },1000)
+     
+  }
+//  secondsTimer(){
+//     this.interval = setInterval(() => {
+//       if(this.timeLeftSeconds > 0) {
+//         this.timeLeftSeconds--;
+//       } else {
+//          this.timeLeftSeconds = 30;
+//         }
+//     },1000)
+   
+//   }
    onSubmit(){
     this.concat=this.verify.value.verify_input1+this.verify.value.verify_input2+this.verify.value.verify_input3+this.verify.value.verify_input4 ;
     this.verification_code ={'code':this.concat}
