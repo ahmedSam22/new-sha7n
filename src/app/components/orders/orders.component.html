@@ -13,9 +13,9 @@
             <!-- formControlName="china_harbor_id" -->
             <select class="form-control" (change)="onChangeChina($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"parcelChoose" | translate}}</option>
-              <option value="1">China</option>
+              <option value="1">{{"china" | translate}}</option>
             </select>
-            <span class="text-danger" *ngIf="chinaHarborError"> * this filed is required</span>
+            <span class="text-danger" *ngIf="chinaHarborError"> * {{"req" | translate}}</span>
           </div>
           <div class="form-group col-md-6">
             <label>{{"to" | translate}} :</label>
@@ -26,10 +26,16 @@
             >
               <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
               <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
-                {{ harbor.name_ar }}
+                <span  *ngIf="thisLang==='rtl'">
+                  {{ harbor.name_ar }}
+                </span>
+                <span  *ngIf="thisLang==='ltr'">
+                  {{ harbor.name_en }}
+                </span>
+                
               </option>
             </select>
-            <span class="text-danger" *ngIf="saudiHarborError"> * this filed is required</span>
+            <span class="text-danger" *ngIf="saudiHarborError"> * {{"req" | translate}}</span>
             </div>
         </div>
 
@@ -40,19 +46,19 @@
             <label>{{"typeShipping" | translate}} : </label>
             <select class="form-control" (change)="onTypeOfShipping($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"chooseShippingType" | translate}}</option>
-              <option value="1">Aerial</option>
-              <option value="0">Nautical</option>
+              <option value="1">{{"aerial" | translate}}</option>
+              <option value="0">{{"nautical" | translate}}</option>
             </select>
-            <span class="text-danger" *ngIf="shippingError"> * this filed is required</span>
+            <span class="text-danger" *ngIf="shippingError"> * {{"req" | translate}}</span>
           </div>
           <div class="form-group col-md-4">
             <label>{{"typeshipment" | translate}} : </label>
 
             <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="closeChoises">
               <option [selected]="true">{{"chooseType" | translate}}</option>
-              <option value="1">Battery</option>
+              <option value="1">{{"battery" | translate}}</option>
             </select>
-            <span class="text-danger" *ngIf="shipmentTypeError"> * this filed is required</span>
+            <span class="text-danger" *ngIf="shipmentTypeError"> * {{"req" | translate}}</span>
           </div>
           <div class="form-group col-md-4">
             <label>{{"weight" | translate}}: </label>
@@ -66,12 +72,12 @@
                 formControlName="weight"
               />
               <div class="input-group-append">
-                <span class="input-group-text" *ngIf="showCBM">CBM</span>
+                <span class="input-group-text" *ngIf="showCBM">{{"cdm" | translate}}<sup *ngIf="thisLang==='rtl'">3</sup></span>
                 <span class="input-group-text" *ngIf="showKg">{{"kg" | translate}}</span>
               </div>
             </div>
              
-            <span class="text-danger" *ngIf="weightError"> * this filed is required</span>
+            <span class="text-danger" *ngIf="weightError"> * {{"req" | translate}}</span>
           </div>
         </div>
 
@@ -152,17 +158,16 @@
           <div class="col-md-6">
             <div class="text">
               <div class="text_top d-flex justify-content-between">
-                <span> Aerial</span>
-                <span> Charging Type </span>
+                <span> {{"aerial" | translate}}</span>
+                <span> {{"chargingtype" | translate}} </span>
               </div>
 
               <ul class="company-rules">
-                <li>Actual Weight</li>
-                <li>5-12 Days Approximate Shipping Time</li>
-                <li>Extra Charge of Total Shipping 5% (Fuel Fee )</li>
+                <li>{{"actialweight" | translate}}</li>
+                <li>{{"shippingcardtime" | translate}}</li>
+                <li>{{"extracharge" | translate}}</li>
                 <li>
-                  In case the goods are not standardized made in China . the
-                  amount for Sar 500 will be added
+                  {{"return" | translate}}
                 </li>
               </ul>
             </div>
@@ -182,7 +187,7 @@
               <span> International Parcel </span>
             </div>
             <div class="forText d-flex flex-column mt-3">
-              <span>Shipping Charges</span>
+              <span>{{"shippingcharges" | translate}}</span>
               <span class="my-3" style="color:#32B457 ;"> <b> {{costs}}$  </b> </span> 
             
             </div>

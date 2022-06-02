@@ -31,7 +31,7 @@
                             <label for="exampleFormControlSelect1">{{"from" | translate}} : </label>
                              <!--  (change)="onChangeChina($event)" -->
                             <select class="form-control"  formControlName="china_harbor_id" >
-                               <option value="1" disabled>China</option>
+                               <option value="1" disabled>{{"china" | translate}}</option>
                             </select>
                         </div>
                        
@@ -42,7 +42,12 @@
                         <div class="form-group input-group-lg col-md-12">
                             <label for="exampleFormControlSelect2">{{"to" | translate}} : </label>
                             <select class="form-control" formControlName="saudi_harbor_id" >
-                                 <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" disabled> {{harbor.name_ar}}  </option>
+                                 <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" disabled>    <span  *ngIf="thisLang==='rtl'">
+                                    {{ harbor.name_ar }}
+                                  </span>
+                                  <span  *ngIf="thisLang==='ltr'">
+                                    {{ harbor.name_en }}
+                                  </span>  </option>
                             </select>
                         </div>
                         
@@ -53,14 +58,14 @@
                     <div class="form-group input-group-lg  col-md-4">
                         <label for="inputState">{{"typeShipping" | translate}}  : </label>
                         <select class="form-control" formControlName="type" >
-                               <option value="1" disabled>Aerial</option>
-                               <option value="0" disabled>Nautical</option>
+                               <option value="1" disabled>{{"aerial" | translate}}</option>
+                               <option value="0" disabled>{{"nautical" | translate}}</option>
                            </select>
                     </div>
                     <div class="form-group input-group-lg  col-md-4">
                         <label for="inputState">{{"typeshipment" | translate}}: </label>
                         <select class="form-control" formControlName="shipment_type" >
-                           <option value="1" disabled>Battery</option>
+                           <option value="1" disabled>{{"battery" | translate}}</option>
                         </select>
                     </div>
 
@@ -70,7 +75,7 @@
                             <input type="text" class="form-control"  placeholder="{{ 'widthEstimate' | translate }}"  formControlName="weight1" >
                             <div class="input-group-append">
                             <span class="input-group-text " style="height:38px;" *ngIf="showKg">{{"kg" | translate}}</span>
-                            <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">CBM</span>
+                            <span class="input-group-text " style="height:38px;"  *ngIf="showCBM">{{"cdm" | translate}}<sup *ngIf="thisLang==='rtl'">3</sup></span>
                             </div>
                        </div>
                       </div>
@@ -131,7 +136,7 @@
                      <p class="requiredFiles" *ngIf="showComercialInvoice">{{"req" | translate}} </p> 
                      <p class="fullrequiredFiles" *ngIf="fullComercialInvoice">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                      </svg> file uploded </p>  
+                      </svg> {{"uploaded" | translate}} </p>  
                     </div>    
                     
 
@@ -152,7 +157,7 @@
                     <p class="requiredFiles" *ngIf="showPackingList">{{"req" | translate}} </p> 
                     <p class="fullrequiredFiles" *ngIf="fullPackingList"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                      </svg> file uploded </p> 
+                      </svg> {{"uploaded" | translate}} </p> 
                 </div>  
                 </div> 
                 <br>

@@ -55,8 +55,8 @@ export class OrdersComponent implements OnInit {
         this.thisLang = 'ltr';
         console.log(this.thisLang, 'test2');
       }
-      translate.setDefaultLang(this.thisLang);
-      translate.use(this.thisLang || navigator.language);
+      translate.setDefaultLang(localStorage.getItem("currentLang") || navigator.language);
+      translate.use(localStorage.getItem("currentLang") || navigator.language);
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         if (event.lang == 'ar') {
           this.thisLang = 'rtl';

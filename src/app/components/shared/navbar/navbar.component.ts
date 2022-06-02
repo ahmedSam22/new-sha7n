@@ -25,13 +25,13 @@ export class NavbarComponent implements OnInit {
     }
     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
     if(this.currentLang === "ar"){
-      this.selectedCountryCode = 'eg';
+      this.selectedCountryCode = 'sa';
     }
     this.translate.use(this.currentLang)
    
    }
    selectedCountryCode:any = 'us';
-  countryCodes = ['us', 'eg'];
+  countryCodes = ['us', 'sa'];
 
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
     if(this.selectedCountryCode === "us"){
         lang = "en"
 
-    }else if(this.selectedCountryCode === "eg"){
+    }else if(this.selectedCountryCode === "sa"){
        lang = "ar"
 
     }
