@@ -29,7 +29,7 @@ export class AdminFooterComponent implements OnInit {
       }
     });
     if(this.currentLang === "ar"){
-      this.selectedCountryCode = 'eg';
+      this.selectedCountryCode = 'sa';
     }
   }
 
@@ -42,7 +42,7 @@ export class AdminFooterComponent implements OnInit {
     )
   }
   selectedCountryCode = 'us';
-  countryCodes = ['us', 'eg'];
+  countryCodes = ['us', 'sa'];
 
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
@@ -52,7 +52,7 @@ export class AdminFooterComponent implements OnInit {
     let lang:any;
     if(this.selectedCountryCode === "us"){
         lang = "en"
-    }else if(this.selectedCountryCode === "eg"){
+    }else if(this.selectedCountryCode === "sa"){
        lang = "ar"
 
     }

@@ -56,6 +56,7 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     },
     nav: true,
   };
+  
   constructor(
     private formBuilder: FormBuilder,
     private service: GlobalService,
@@ -65,28 +66,36 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
     console.log(this.thisLang, 'from const');
     if (this.thisLang == 'ar') {
+      setTimeout(()=>{this.getImageText("Import")
+    },1000)
       this.thisLang = 'rtl';
       console.log(this.thisLang, 'test1');
     } else {
       this.thisLang = 'ltr';
+      setTimeout(()=>{this.getImageText("Import")
+      },1000)
       console.log(this.thisLang, 'test2');
-
     }
-    translate.setDefaultLang(this.thisLang || localStorage.getItem("currentLang"));
-    translate.use(this.thisLang || navigator.language);
+    translate.setDefaultLang(localStorage.getItem("currentLang") || this.thisLang );
+    translate.use(localStorage.getItem("currentLang") || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
         console.log(this.thisLang, 'test1');
-      this.getImageText("shipping")
-        
-        
       } else if(event.lang == 'en') {
         this.thisLang = 'ltr';
         console.log(this.thisLang, 'test2');
-      this.getImageText("shipping")
 
-      }      
+      }    
+      if (this.thisLang == 'ar') {
+        setTimeout(()=>{this.getImageText("Import")
+      },50)
+        console.log(this.thisLang, 'test1');
+      } else {
+        setTimeout(()=>{this.getImageText("Import")
+        },50)
+        console.log(this.thisLang, 'test2');
+      }
       // location.reload()
     });
   }
@@ -133,10 +142,10 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       case 'Shipping':
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using  is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use  as their default model text, and a search for '' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
         } else {
-          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
+          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن  كنص نموذج`;
         }
 
         if (localStorage.getItem('currentLang') === 'en') {
@@ -148,10 +157,10 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       case 'Import':
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less ages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using  is that it has a more-or-less ages and web page editors now use  as their default model text, and a search for '' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
         } else {
-          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
+          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن  كنص نموذج`;
         }
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
@@ -163,10 +172,10 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       case 'Warehouses':
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageText = `we provide alot of shippment in the shippment area so it is a lrge text that provide alot of function lorem
-          It is a long establishtion of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          It is a long establishtion of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use  as their default model text, and a search for '' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
         } else if (localStorage.getItem('currentLang') === 'ar') {
-          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
+          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن  كنص نموذج`;
         }
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
@@ -181,7 +190,7 @@ export class LandingHomeComponent implements OnInit, OnChanges {
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           `;
         } else {
-          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن Lorem Ipsum كنص نموذج`;
+          this.imageText = ` محتوى نصي" ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن  كنص نموذج`;
         }
         if (localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;

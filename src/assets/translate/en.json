@@ -59,6 +59,12 @@
     "parcelChooseTo" : "Choose Parcel To",
     "cm" : "CM",
     "kg" : "KG",
+    "cdm" : "CDM",
+    "battery" : "Battery",
+    "aerial" : "Aerial",
+    "nautical" : "Nautical",
+    "china" : "China",
+
 
 
 
@@ -194,6 +200,8 @@
 
 
 "startimport" : "Start now import with us everything you want from needle to rocket",
+"showmap" : "show google map",
+
 
 
 
@@ -232,6 +240,7 @@
  "return" : "In Case The Goods Are Not Standardized Made In China . The Amount Of Sar 500 Will",
  "moredetails" : "More Details",
  "lessdetails" : "Less Details",
+ "uploaded" : "File Uploaded",
 
 
 
@@ -272,7 +281,21 @@
 "import" : "Import",
 
 "moreaboutus" : "More About Us",
-"whoweare" : "Who We Are"
+"whoweare" : "Who We Are",
+
+
+"for Verification code page 'not used '" : "for footer 'not used '",
+
+"back" : "Back",
+"verify": "Verify",
+"verificationcode" : "Verification Code",
+"enterverificationcode" : "Please Enter The Verification Code You Recieved From",
+"validationestimer" : "verification code will be sent within 1:30",
+"resendcode" : "Resend Verification Code"
+
+
+
+
 
 
 

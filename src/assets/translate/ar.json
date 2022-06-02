@@ -59,7 +59,14 @@
     "parcelChoose" : "اختار واجهة الشحنة ",
     "parcelChooseTo" : "أختر بلد الشحن",
     "cm" : "سم",
-    "kg" : "كج",
+    "kg" : "كجم ",
+    "cdm" : "متر",
+    "battery" : "بطاريات",
+    "aerial" : "جوي",
+    "nautical" : "بحري",
+    "china" : "الصين",
+
+
 
 
 
@@ -133,7 +140,7 @@
     "bookShipment" : "احجز شحنتك الآن",
     "bookShipmentTitle" : "نحن نساعدك على حساب تكلفة الشحن التقريبية لبلدك!",
     "fillData" : "املأ البيانات المطلوبة ثم",
-    "fillData2" : "من المبلغ الإجمالي للجدية سيتم دفعها عند الاستلام",
+    "fillData2" : "من المبلغ الإجمالي للجدية سيتم دفعها عند استلام الطلب",
     "fillData3" : "سيتم إتمام سداد شحنتك قبل استلام شحنتك",
     "shipmentAddress" : "عنوان الشحنة",
     "moreInfo" : "معلومات إضافية",
@@ -191,7 +198,8 @@
 "for importation page 'not used '" : "for Sidebar page 'not used '",
 
 
-"startimport" : "ابدأ الآن في استيراد كل ما تريده من إبرة إلى صاروخ",
+"startimport" : "ابدأ الآن في استيراد كل ما تريده من الإبرة إلى الصاروخ",
+"showmap" : "عنوان مكتبنا",
 
 
 
@@ -232,6 +240,8 @@
  "return" : "في حالة عدم توحيد السلع المصنوعة في الصين. مبلغ 500 ريال",
  "moredetails" : "عرض المزيد",
  "lessdetails" : "عرض الأقل",
+ "uploaded" : "تم رفع الملف بنجاح",
+
 
 
 
@@ -274,37 +284,18 @@
 "import" : "التصدير",
 
 "moreaboutus" : "للمزيد عنا",
-"whoweare" : "من نحن ؟"
+"whoweare" : "من نحن ؟",
 
 
 
+"for Verification code page 'not used '" : "for footer 'not used '",
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"back" : "رجوع",
+"verify": "تحقق",
+"verificationcode" : "رمز التحقق",
+"enterverificationcode" : "الرجاء إدخال رمز التحقق الذي تلقيته من",
+"validationestimer" : "سيتم إرسال رمز التحقق في غضون 1:30",
+"resendcode" : "إعادة إرسال رمز التحقق"
 
 
 
