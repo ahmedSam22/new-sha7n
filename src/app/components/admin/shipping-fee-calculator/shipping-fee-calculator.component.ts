@@ -171,7 +171,7 @@ resetForm() {
 
 newOrder(){
   setTimeout(() =>{
-    this.router.navigate(['root/orders']);
+    this.router.navigate(['/orders']);
      },1500);
     //  this.service.logged=2;
      console.log("navigated")

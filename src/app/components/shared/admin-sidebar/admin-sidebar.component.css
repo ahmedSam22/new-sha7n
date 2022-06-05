@@ -104,6 +104,10 @@ span {
     text-align: center;
   /* padding: 5px; */
 }
+
+ul  {
+  padding:0px
+} 
   .sidebar {
     margin: 0;
     padding: 0;
@@ -197,6 +201,7 @@ span {
     }
     .list {
       float: left;
+     
     }
    }
    .show {

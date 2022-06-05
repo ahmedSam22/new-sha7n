@@ -1,24 +1,44 @@
 <div class="container">
 
   <div class=" my-4" style="direction: initial;">
-        <owl-carousel-o [options]="customOptions">
+        <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='ltr'">
             <ng-template carouselSlide>
                 <img src="../../../assets/images/overview.png" class="img-responsive" alt="" srcset="">
 
             </ng-template>
             <ng-template carouselSlide>
-                <img src="../../../assets/images//overview.png" class="img-responsive" alt="" srcset="">
+                <img src="../../../assets/images/overview.png" class="img-responsive" alt="" srcset="">
 
             </ng-template>
             <ng-template carouselSlide>
-                <img src="../../../assets/images//overview.png" class="img-responsive" alt="" srcset="">
+                <img src="../../../assets/images/overview.png" class="img-responsive" alt="" srcset="">
 
             </ng-template>
             <ng-template carouselSlide>
-                <img src="../../../assets/images//overview.png" class="img-responsive" alt="" srcset="">
+                <img src="../../../assets/images/overview.png" class="img-responsive" alt="" srcset="">
 
             </ng-template>
         </owl-carousel-o>
+
+        <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='rtl'">
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/arabic.png" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/arabic.png" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/arabic.png" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+            <ng-template carouselSlide>
+                <img src="../../../assets/images/arabic.png" class="img-responsive" alt="" srcset="">
+
+            </ng-template>
+        </owl-carousel-o>
+        
     </div>
     <section class="homecontent my-3">
         <div class="row justify-content-around">
@@ -34,7 +54,7 @@
             </div> -->
             <div class="col-md-3 col-sm-6">
                 <div class="text-center order">
-                    <ul class="list-unstyled orderlist">
+                    <ul class="orderlist">
                         <li> {{"shopperorder" | translate}} </li>
                         <li> <strong> 23 </strong> </li>
                         <li>{{"orders" | translate}} </li>
@@ -43,7 +63,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="text-center shipment">
-                    <ul class="list-unstyled shipmentlist">
+                    <ul class=" shipmentlist">
                         <li> {{"numberofshipment" | translate}} </li>
                         <li> <strong> 50 </strong> </li>
                         <li>{{"shipment" | translate}}</li>
@@ -52,7 +72,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="text-center parcel">
-                    <ul class="list-unstyled parcellist">
+                    <ul class="parcellist">
                         <li> {{"numberofparcels" | translate}}</li>
                         <li> <strong> 300 </strong> </li>
                         <li>{{"parcels" | translate}}</li>

@@ -10,20 +10,31 @@
 
 .homecontent .balance {
     background-color: #E2ECFF;
+   
 }
 
 .homecontent .order {
     background-color: #CCF5F8;
+     
 }
 
 .homecontent .shipment {
     background-color: #FFDEDE;
+   
 }
 
 .homecontent .parcel {
     background-color: #D2FFE8;
+   
 }
-
+.homecontent .balance .balancelist ,
+.homecontent .order .orderlist ,
+.homecontent .shipment .shipmentlist ,
+.homecontent .parcel .parcellist  {
+   
+    padding: 0px;
+  
+}
 .homecontent .balance .balancelist li,
 .homecontent .order .orderlist li,
 .homecontent .shipment .shipmentlist li,
@@ -31,6 +42,7 @@
     line-height: 35px;
     padding: 2px;
     margin: 1px;
+    list-style-type: none;
 }
 .homecontent .order .orderlist li{
     color : #00CFDD;

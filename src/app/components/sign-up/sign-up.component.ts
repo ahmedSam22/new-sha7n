@@ -66,7 +66,7 @@ export class SignUpComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/root/home']);
+    this.router.navigate(['/home']);
   }
 
   accept:boolean = false;
@@ -93,7 +93,7 @@ export class SignUpComponent implements OnInit {
               return ;
             }
               Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
-              this.router.navigate(['/root/verify-code',this.id_code]);
+              this.router.navigate(['/verify-code',this.id_code]);
           },
           error: (error) => {
 

@@ -235,10 +235,10 @@ getLenght(){
       }
    else {
     // setTimeout(() =>{
-    //   this.router.navigate(['root/login']);
+    //   this.router.navigate(['login']);
     //    },1500);
     setTimeout(() =>{
-      this.router.navigate(['root/login',this.val]);
+      this.router.navigate(['/login',this.val]);
        },1500);
    }
     

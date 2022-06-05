@@ -2,7 +2,8 @@
     "AboutUs": "About Us",
     "title" : "Get instant access to multiple unused warehouses,\n \n planes, ships through one tech-based shipping carrier solution.",
     "header" : "INTEGRATED SYSTEM \n FOR YOUR E-COMMERCE",
-    "calculateBtn" : "  calculate your shipment ",
+    "calculateBtn" : "  Calculate ",
+    "BookingBtn":"Booking ",
     "aboutUsText" : "we provide alot of shipment in the shipment area so it is a lrge text that provide alot of function lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by kjaccident, sometimes on purpose (injected humour and the like)",
     "Shipping" : "Shipping",
     "Import" : "Import",
@@ -33,6 +34,7 @@
     "signup" : "Sign Up",
     "login" : "Login",
     "loguot" : "Log out",
+    "createaccount":"Create Account",
 
 
 
@@ -151,7 +153,7 @@
     "fillData3" : "Payment of your shipment will be completed before receiving your shipment",
     "shipmentAddress" : "Shipment Address",
     "moreInfo" : "More Information",
-    "req" : "This must be filled in to complete the booking",
+    "req" : "This field is required",
     "invoice" : "Commercial Invoice",
     "invoice2" : "Packing List",
     "widthEstimate" : "Width Estimate",
@@ -290,8 +292,9 @@
 "verify": "Verify",
 "verificationcode" : "Verification Code",
 "enterverificationcode" : "Please Enter The Verification Code You Recieved From",
-"validationestimer" : "verification code will be sent within 1:30",
-"resendcode" : "Resend Verification Code"
+"validationestimer" : "verification code will be sent within :",
+"resendcode" : "Resend Verification Code",
+"backtosignup": "Back To Sign Up"
 
 
 

@@ -25,12 +25,12 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyCodeComponent } from './components/verify-code/verify-code.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/root/home'},
+  { path: '', pathMatch: 'full', redirectTo: '/home'},
   { path: 'admin', pathMatch: 'full', redirectTo: '/admin/adminHome'},
-  { path: 'root', pathMatch: 'full', redirectTo: '/root/home'},
+  { path: '', pathMatch: 'full', redirectTo: '/home'},
  
 
-  { path: 'root', component:HomeComponent, children: [
+  { path: '', component:HomeComponent, children: [
     { path: 'home', component: LandingHomeComponent},
     { path: 'our-services', component: OurServicesComponent},
     { path: 'orders', component: OrdersComponent},
