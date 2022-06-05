@@ -12,7 +12,8 @@
             <label>{{"from" | translate}}: </label>
             <!-- formControlName="china_harbor_id" -->
             <select class="form-control" (change)="onChangeChina($event)" [disabled]="closeChoises">
-              <option [selected]="true">{{"parcelChoose" | translate}}</option>
+              <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
+
               <option value="1">{{"china" | translate}}</option>
             </select>
             <span class="text-danger" *ngIf="chinaHarborError"> * {{"req" | translate}}</span>
@@ -24,8 +25,8 @@
               formControlName="saudi_harbor_id"
               (change)="onChangeSaudi($event)"
             >
-              <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
-              <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
+            <option [selected]="true">{{"parcelChoose" | translate}}</option>
+            <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
                 <span  *ngIf="thisLang==='rtl'">
                   {{ harbor.name_ar }}
                 </span>
