@@ -84,7 +84,6 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       } else if(event.lang == 'en') {
         this.thisLang = 'ltr';
         console.log(this.thisLang, 'test2');
-
       }    
       if (this.thisLang == 'ar') {
         setTimeout(()=>{this.getImageText("Import")

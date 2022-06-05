@@ -38,9 +38,15 @@ export class AdminHomeComponent implements OnInit {
   }
   constructor(public translate: TranslateService) {
     this.thisLang = localStorage.getItem('currentLang')   || navigator.language;
-    console.log(this.thisLang, 'from ocnst');
-
-    translate.use(this.thisLang || navigator.language);
+    console.log(this.thisLang, 'from const');
+    translate.use(this.thisLang || "en");
+    if (localStorage.getItem('currentLang')== 'ar') {
+      this.thisLang = 'rtl';
+      console.log(this.thisLang, 'test1');
+    } else {
+      this.thisLang = 'ltr';
+      console.log(this.thisLang, 'test2');
+    }
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
@@ -55,7 +61,6 @@ export class AdminHomeComponent implements OnInit {
   thisLang:any;
 
   ngOnInit(): void {
-    
   }
 
 

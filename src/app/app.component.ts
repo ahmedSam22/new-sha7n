@@ -15,7 +15,7 @@ export class AppComponent {
    this.thisLang = localStorage.getItem('currentLang')  || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
-    translate.setDefaultLang(this.thisLang);
+    // translate.setDefaultLang(this.thisLang);
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
