@@ -76,7 +76,6 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       },1000)
       console.log(this.thisLang, 'test2');
     }
-    translate.setDefaultLang(localStorage.getItem("currentLang") || this.thisLang );
     translate.use(localStorage.getItem("currentLang") || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {

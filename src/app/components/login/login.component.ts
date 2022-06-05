@@ -20,10 +20,9 @@ export class LoginComponent implements OnInit {
 
   showConfirm:boolean = false;
   constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: GlobalService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
-    this.thisLang = localStorage.getItem('currentLang');
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
-    translate.setDefaultLang(this.thisLang);
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {

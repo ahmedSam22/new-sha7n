@@ -108,8 +108,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       progressBar:true
     }),
     TranslateModule.forRoot({
-      defaultLanguage: localStorage.getItem("currentLang") ||  navigator.language,
-      //  defaultLanguage: "en",
+      // defaultLanguage: localStorage.getItem("currentLang") ||  navigator.language,
+       defaultLanguage: "en",
 
       loader: {
         provide: TranslateLoader,
