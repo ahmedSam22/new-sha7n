@@ -14,10 +14,9 @@ export class AdminFooterComponent implements OnInit {
   constructor(private service : GlobalService,public translate: TranslateService) { 
      this.currentLang = localStorage.getItem("currentLang") || navigator.language;
 
-    this.thisLang = localStorage.getItem('currentLang');
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
-    translate.setDefaultLang(this.thisLang);
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {

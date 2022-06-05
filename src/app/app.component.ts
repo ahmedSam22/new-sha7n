@@ -12,7 +12,7 @@ export class AppComponent {
   thisLang:any = localStorage.getItem("currentLang") || navigator.language;
 
   constructor(public translate:TranslateService){
-   this.thisLang = localStorage.getItem('currentLang');
+   this.thisLang = localStorage.getItem('currentLang')  || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
     translate.setDefaultLang(this.thisLang);

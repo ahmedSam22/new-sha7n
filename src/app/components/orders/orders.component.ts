@@ -46,7 +46,7 @@ export class OrdersComponent implements OnInit {
   closeChoises=false ;
   constructor(private router:Router ,private formbuilder:FormBuilder , private globalService:GlobalserviceService , private service:GlobalService ,     public translate: TranslateService
     ) {
-      this.thisLang = localStorage.getItem('currentLang');
+      this.thisLang = localStorage.getItem('currentLang') || navigator.language;
       console.log(this.thisLang, 'from ocnst');
       if (this.thisLang == 'ar') {
         this.thisLang = 'rtl';
@@ -55,7 +55,6 @@ export class OrdersComponent implements OnInit {
         this.thisLang = 'ltr';
         console.log(this.thisLang, 'test2');
       }
-      translate.setDefaultLang(localStorage.getItem("currentLang") || navigator.language);
       translate.use(localStorage.getItem("currentLang") || navigator.language);
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         if (event.lang == 'ar') {
