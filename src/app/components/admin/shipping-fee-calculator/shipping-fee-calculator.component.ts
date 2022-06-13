@@ -178,7 +178,8 @@ newOrder(){
  
 onSubmit(){
   if(this.packingList.length!=0 &&this.commercialInvoice.length!=0){  
-  
+  let orderId:number;
+  let payed:number;
   let subForm = {
     ...this.form.value,
     weight:this.shipmentWeight,
@@ -191,11 +192,15 @@ onSubmit(){
   console.log("hello " , subForm)
   this.service.bookingOrder(subForm).subscribe((res:any)=>{
     Swal.fire(
+  
+      
         res.message
         )
-
-   console.log("fee reeeeees",res)
+        orderId = res.data.id
+        payed = res.data.payed
+   console.log("res",res)
    this.form.reset();
+   this.orderPayment(orderId,payed)
   } ,
   (error:any)=>{
     console.log(error)
@@ -208,4 +213,12 @@ else {
 }
 }
  
+orderPayment(orderId:any,payed:number){
+  return this.service.orderPayment(orderId,payed).subscribe((e:any)=>{
+  
+window.open(`${e.url}`)
+      console.log(e.url);
+      
+  })
+}
 }

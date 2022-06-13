@@ -53,6 +53,8 @@ import { GlobalService } from './components/shared/services/global.service';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SuccessComponent } from './components/admin/payment-method/success/success.component';
+import { FailComponent } from './components/admin/payment-method/fail/fail.component';
 
 
 @NgModule({
@@ -87,7 +89,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     AdminHomeComponent,
     LandingHomeComponent,
     WalletComponent,
-    AddComponent
+    AddComponent,
+    SuccessComponent,
+    FailComponent
   ],
   imports: [
     HttpClientModule,

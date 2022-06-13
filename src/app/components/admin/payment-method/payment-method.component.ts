@@ -17,7 +17,6 @@ export class PaymentMethodComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCards()
-
   }
   getCards(){
     this.service.getCards().subscribe((res:any)=>{

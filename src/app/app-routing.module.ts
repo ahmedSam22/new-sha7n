@@ -1,3 +1,5 @@
+import { FailComponent } from './components/admin/payment-method/fail/fail.component';
+import { SuccessComponent } from './components/admin/payment-method/success/success.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -47,6 +49,7 @@ const routes: Routes = [
     { path: 'orders', component: OrdersAdminComponent},
     { path: 'shipping', component: ShippingFeeCalculatorComponent},
     { path: 'commercial', component: ComercialShippmentComponent},
+
     { path: 'warehouses', component: WarehousesComponent},
     { path: 'import', component: ImportationComponent},
 
@@ -60,6 +63,8 @@ const routes: Routes = [
 
 
   ]},
+  { path: 'paymentsuccess', component: SuccessComponent},
+  { path: 'paymentfail', component: FailComponent},
 
 ];
 
