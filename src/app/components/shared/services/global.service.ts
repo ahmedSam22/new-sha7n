@@ -164,4 +164,10 @@ orderByStatusId(status_id:any){
 orderByOrderId(order_id:any){
   return this.http.get(`${environment.endpoint}/backend/orders?order_id=${order_id}`) ;
 }
+
+orderPayment(order_id:number,payed:number){
+  return this.http.post(`${environment.endpoint}/orders/pay?order_id=${order_id}&payed=${payed}` , {}) ;
+
+}
+
 }
