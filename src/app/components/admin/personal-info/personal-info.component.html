@@ -1,8 +1,8 @@
 <div class="container-fluid"> 
     <section class="personalinfo" >  
         <form [formGroup]="personalInfo" (ngSubmit)="onSubmit()">
-       <div class="row my-3 "> 
-            <div class="col-md-4 col-sm-4" *ngIf="!showButtons" > 
+       <div class="row my-3 d-flex justify-content-between"> 
+            <div class="" *ngIf="!showButtons" > 
                 <div class=" image" *ngIf="hideImg"> 
                  <img *ngIf="showImg" class="user-image-avatar hideEmptyImg" src="{{imgpath}}"  alt="wrong">
                       <img *ngIf="base64Image" class="user-image-avatar" src="{{base64Image}}" alt="noo" style="padding:10px 0px">
@@ -10,14 +10,13 @@
                       <input type="file" hidden #image (change)="base64($event)" accept="image/*"> 
                     </div>
               </div>
-              <div class="col-md-4 col-sm-4 " *ngIf="showButtons"  > 
+              <div class=" " *ngIf="showButtons"  > 
                 <div class=" image"> 
                  <img class="user-image-avatar hideEmptyImg "  src="{{imgpath}}"  alt="wrong">
                    
                     </div>
               </div>
-            <div class="col-md-6 col-sm-6" *ngIf="showButtons"> 
-                <div class="float-right profilebtn"> 
+                <div class=" profilebtn"  *ngIf="showButtons"> 
                     <!-- (click)="editPersonalInfo()" -->
                     <button class="btn btn-primary my-2 mx-2" (click)="setType(0)" >  
                         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -30,8 +29,7 @@
                     <button class="btn btn-primary my-2 mx-2"  (click)="setType(1)"> {{"changepassword" | translate}} </button>
                 </div>
                  
-             </div>
-             <div class="col-md-8 col-sm-8 profilebtn  py-1 px-5" *ngIf="!showButtons"> 
+             <div class="profilebtn  py-1 px-5" *ngIf="!showButtons"> 
                  <button type="submit" class="btn btn-primary  my-4 px-4 float-right" (click)="onSubmit()"> {{"save" | translate}} </button>
              </div>
         </div>

@@ -98,7 +98,6 @@ export class OrdersComponent implements OnInit {
   }
   onTypeOfShipping(event:any){
     this.typeofShipping=event.target.value ;
-    //console.log(" typeofShipping",this.typeofShipping)
     this.service.typeOfShipping=this.typeofShipping
   if(this.typeofShipping==0){
     this.showCBM=true ;

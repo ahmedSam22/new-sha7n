@@ -4,7 +4,7 @@
     "header" : "INTEGRATED SYSTEM \n FOR YOUR E-COMMERCE",
     "calculateBtn" : "  Calculate ",
     "BookingBtn":"Booking ",
-    "aboutUsText" : "we provide alot of shipment in the shipment area so it is a lrge text that provide alot of function lorem It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by kjaccident, sometimes on purpose (injected humour and the like)",
+    "aboutUsText" : "We are one of the largest companies in the world that offers shipping prices, including the costs incurred from certificates (customs clearance - internal shipping), so we offer you many facilities for import and e-commerce services from China at a low price and high quality that is not comparable in other global markets, so a company was launched to build a bridge Between the buyer and between the customer, the merchant and the company, to make the import, shipping and trade client one of the easiest things that a company can provide, to make our goal to import from China and other countries as simple as possible, so the customer can buy with all the required procedures and at the lowest possible price to provide all door to door and import our products in the warehouse for assembly Complete and ship the necessary facilities for trade with a few clicks through a professional electronic creation to include many services (packaging, storage, inspection Products, and others ... To provide our services, air and sea freight, to ensure distinguished arrival to our customers in the shortest possible period without any effort or trouble from you",
     "Shipping" : "Shipping",
     "Import" : "Import",
     "Why-Us" : "Why-Us",
@@ -35,6 +35,7 @@
     "login" : "Login",
     "loguot" : "Log out",
     "createaccount":"Create Account",
+    "dashboard" :  "Profile",
 
 
 
@@ -61,7 +62,7 @@
     "parcelChooseTo" : "Choose Parcel To",
     "cm" : "CM",
     "kg" : "KG",
-    "cdm" : "CDM",
+    "cdm" : "CBM",
     "battery" : "Battery",
     "aerial" : "Aerial",
     "nautical" : "Nautical",
@@ -118,13 +119,14 @@
     "forget" : "Forget Password ?",
     "dontHaveAccount" : "You Don't Have an Account ?",
     "createAccount" : "Create Account",
-    "passwordValid" : "password must be at least 4 characters long.",
+    "passwordValid" : "password must be at least 6 characters long.",
     "phoneValid" : "Name must be at least 9 characters long.",
     "agree" : "I Agree To",
     "terms" : "Terms Of Use and Privacy",
     "haveaccount" : "You have an account ? ",
     "backHome" : "Back To Home",
-   
+    "forgetpassword" : "Reset Password",
+    "sendcode" : "Send Code",
 
 
 
@@ -200,10 +202,12 @@
 
 "for importation page 'not used '" : "for Sidebar page 'not used '",
 
+"ksa" : "KSA",
 
-"startimport" : "Start now import with us everything you want",
+"startimport" : "We are your best choice to simplify shopping and importing from the world",
 "showmap" : "show google map",
-
+"importationtitle" : "Our site management provides advice and advice on the successful import process while ensuring that the standards are met quality and on the efficient use of resources and the experience gained by our site and import management Flexible and seamless solutions in order to reduce negative impacts and protect your projects in importing from any countries other.",
+"commertialText" : "The most prominent features that our site offers in shipping provide containers of different sizes and types that suit the size, type and nature of commercial shipments that suit our customers who wish to ship one or more containers with the possibility of using the company’s warehouses by customers in order to facilitate the processes of collecting shipments or re-shipping them and Distributing them or packing them as needed, and completing all procedures and permits required when shipping and exporting them to all countries of the world. Also, our site is characterized by high professionalism and punctuality. Our company has road cadres and all the technology reached to manage our customers’ operations and ensure delivery on time through our site.",
 
 
 
@@ -241,6 +245,8 @@
  "extracharge" : "Extra Charge of Total Shipping 5% (fuel fee)",
  "return" : "In Case The Goods Are Not Standardized Made In China . The Amount Of Sar 500 Will",
  "moredetails" : "More Details",
+ "customs" : "The price includes customs clearance",
+"madeinchina" : "Fees are added if made in China is not placed",
  "lessdetails" : "Less Details",
  "uploaded" : "File Uploaded",
 

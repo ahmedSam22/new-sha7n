@@ -93,10 +93,13 @@
               [formControlName]="'name'"
             />
           </div>
-          <div class="form-group offset-md-2 col-md-8">
-            <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
-            <div *ngIf="signUp.controls.phone.errors?.['minlength']">
-              {{ 'phoneValid' | translate }}
+<div class="offset-md-2 col-md-8">
+
+      <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
+          <div class="input-group align-items-center">
+            <div class="input-group-prepend">
+              <ngx-flag-picker  [showFlags]="true" [showLabels]=false [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes" (changedCountryCode)="changeSelectedCountryCode($event)">
+              </ngx-flag-picker>
             </div>
             <input
               type="text"
@@ -105,7 +108,14 @@
               placeholder="{{ 'phone' | translate }}"
               [formControlName]="'phone'"
             />
+   
+            <div *ngIf="signUp.controls.phone.errors?.['minlength']">
+              {{ 'phoneValid' | translate }}
+            </div>
           </div>
+
+</div>
+    
           <div class="form-group offset-md-2 col-md-8">
             <label for="exampleInputEmail1">{{ "email" | translate }} </label>
             <input

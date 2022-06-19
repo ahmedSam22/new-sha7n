@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   // val=0;
   id_code:any;
   thisLang:any;
+  code:any;
 
   constructor(
     private router: Router,
@@ -39,7 +40,11 @@ export class SignUpComponent implements OnInit {
       }
     });
   }
-
+  selectedCountryCode:any = 'sa';
+  countryCodes = ['us', 'sa'];
+  changeSelectedCountryCode(value: string): void {
+    this.selectedCountryCode = value;
+  }
   ngOnInit(): void {
     this.signUp = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -59,7 +64,7 @@ export class SignUpComponent implements OnInit {
     });
     this.route.paramMap.subscribe(params => {
       this.id_code = params.get('id');
-    console.log("ccccccccccccccccccccc",this.id_code)
+    console.log("jkkkkkkkkkk",this.id_code)
    
   });
   }

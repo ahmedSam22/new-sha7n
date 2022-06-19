@@ -31,11 +31,11 @@
     position: relative;
     overflow: hidden;
     height: 100px;
-    width:300px;
+    width:100px;
 }
     img.user-image-avatar{
         position: absolute;
-        width: 35%;
+        /* width: 35%; */
         height: 100%;
         top: 0;
         left: 0;
@@ -46,7 +46,7 @@
     svg{
         position: absolute;
         z-index: 33;
-         left: 11%;
+         left: 25%;
          top:25%
     }
     .hideEmptyImg[src=""] {

@@ -65,4 +65,8 @@
            color :blue;
            text-decoration: underline;
        }
-      
+      .num::before{
+        content: "+";
+        unicode-bidi: embed;
+
+      }

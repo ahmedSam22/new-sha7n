@@ -7,3 +7,18 @@ main {
 main .wrapping {
     flex-grow: 1;
 }
+
+.forIcon{
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
+    background: green;
+    padding: 10px;
+    border-radius: 16px;
+
+}
+
+span i{
+    font-size: 56px;
+    color: white;
+}

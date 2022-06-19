@@ -55,6 +55,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SuccessComponent } from './components/admin/payment-method/success/success.component';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { FailComponent } from './components/admin/payment-method/fail/fail.compo
     WalletComponent,
     AddComponent,
     SuccessComponent,
-    FailComponent
+    FailComponent,
+    ForgetpasswordComponent
   ],
   imports: [
     HttpClientModule,

@@ -26,7 +26,7 @@
               (change)="onChangeSaudi($event)"
             >
             <option [selected]="true">{{"parcelChoose" | translate}}</option>
-            <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
+            <!-- <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
                 <span  *ngIf="thisLang==='rtl'">
                   {{ harbor.name_ar }}
                 </span>
@@ -34,7 +34,8 @@
                   {{ harbor.name_en }}
                 </span>
                 
-              </option>
+              </option> -->
+              <option value="2">{{"ksa" | translate}}</option>
             </select>
             <span class="text-danger" *ngIf="saudiHarborError"> * {{"req" | translate}}</span>
             </div>
@@ -158,17 +159,25 @@
         <div class="row">
           <div class="col-md-6">
             <div class="text">
-              <div class="text_top d-flex justify-content-between">
-                <span> {{"aerial" | translate}}</span>
+              <div class="text_top d-flex justify-content-around">
+                <span *ngIf="typeofShipping == 1">{{"aerial" | translate}}</span>
+                <span *ngIf="typeofShipping == 0">{{"nautical" | translate}}</span>
                 <span> {{"chargingtype" | translate}} </span>
               </div>
 
               <ul class="company-rules">
                 <li>{{"actialweight" | translate}}</li>
-                <li>{{"shippingcardtime" | translate}}</li>
+                <li>{{"customs" | translate}}</li>
+
+                <li *ngIf="typeofShipping == 1">{{"shippingcardtimeaerial" | translate}}</li>
+                <li *ngIf="typeofShipping == 0">{{"shippingcardtimenautical" | translate}}</li>
                 <li>{{"extracharge" | translate}}</li>
                 <li>
                   {{"return" | translate}}
+                </li>
+
+                  <li>
+                  {{"madeinchina" | translate}}
                 </li>
               </ul>
             </div>
@@ -178,7 +187,7 @@
               <span>
                 <img
                   [src]="logo"
-                  class="img-fluid float-left"
+                  class="img-fluid "
                   height="auto"
                   width="20%"
                   alt="right"
@@ -189,7 +198,7 @@
             </div>
             <div class="forText d-flex flex-column mt-3">
               <span>{{"shippingcharges" | translate}}</span>
-              <span class="my-3" style="color:#32B457 ;"> <b> {{costs}}$  </b> </span> 
+              <span class="my-3" style="color:#32B457 ;"> <h3> {{costs}}$  </h3> </span> 
             
             </div>
           </div>

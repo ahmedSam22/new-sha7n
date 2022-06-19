@@ -1,3 +1,4 @@
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
 import { SuccessComponent } from './components/admin/payment-method/success/success.component';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,7 @@ const routes: Routes = [
     { path: 'contact-us', component: ContactUsComponent},
     { path: 'sign-up/:id', component: SignUpComponent},
     { path: 'login/:id', component: LoginComponent},
+    { path: 'forgetpassword', component: ForgetpasswordComponent},
     { path: 'verify-code/:id', component: VerifyCodeComponent},
   ]},
   { path: 'admin', component: HomeAdminComponent,  children: [

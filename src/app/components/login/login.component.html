@@ -67,7 +67,13 @@
             />
             
             <label class="form-check-label d-flex justify-content-between w-100" for="exampleCheck1"
-              >{{"remember" | translate}} <span>{{"forget" | translate}} </span>
+              >{{"remember" | translate}} <span>
+                
+                <a [routerLink]="['/forgetpassword']"> {{"forget" | translate}} </a>
+                
+              </span>
+
+
             </label>
           </div>
         
