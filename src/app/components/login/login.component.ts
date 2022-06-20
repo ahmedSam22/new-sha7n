@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(params => {
         this.id_code = params.get('id');
-      console.log("ccccccccccccccccccccc",this.id_code)
+      console.log("check",this.id_code)
      
     });
   }
