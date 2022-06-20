@@ -114,8 +114,7 @@ import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassw
       progressBar:true
     }),
     TranslateModule.forRoot({
-      defaultLanguage: localStorage.getItem("currentLang") ||  navigator.language,
-      //  defaultLanguage: "en",
+      defaultLanguage: localStorage.getItem("currentLang") ||  navigator.language.split("-")[0],
 
       loader: {
         provide: TranslateLoader,

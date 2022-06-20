@@ -401,3 +401,19 @@ img {
   display: none;
 }
 
+
+.plane{
+  background-image: url("../../../assets/images/plane.png");
+  background-position-x: left;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
+.plane-custom{
+  background:  url("../../../assets/images/plane.png") left top no-repeat, url("../../../assets/images/plane-flip.png") right bottom no-repeat;
+}
+.plane-flip{
+  background-image: url("../../../assets/images/plane-flip.png");
+  background-position-x: right;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}

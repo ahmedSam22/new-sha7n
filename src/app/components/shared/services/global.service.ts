@@ -57,7 +57,7 @@ return this.http.post(`${environment.endpoint}/users/register`,formData)
   logIn(loginUser:any){
   // return this.http.post(`${environment.endpoint}/users/login`,loginUser) ;
     const formData: FormData = new FormData();
-    formData.append("email", loginUser.email);
+    formData.append("phone", loginUser.phone);
     formData.append("password", loginUser.password);
 
     return this.http.post(`${environment.endpoint}/users/login`,formData)
@@ -169,5 +169,13 @@ orderPayment(order_id:number,payed:number){
   return this.http.post(`${environment.endpoint}/orders/pay?order_id=${order_id}&payed=${payed}` , {}) ;
 
 }
+  sendSms(form:any){
+  return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
+
+  }
+  confirmSms(form:any){
+    return this.http.post(`${environment.endpoint}/users/reset_password`,form) ;
+  
+    }
 
 }

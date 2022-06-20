@@ -58,7 +58,7 @@
                 <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/home']">{{"home" | translate}} <span class="sr-only">(current)</span></a>
             </li>
             <li *ngIf="logedIn" class="nav-item">
-                <a  #dashboard (click)="select(dashboard.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['admin/adminHome']">{{"dashboard" | translate}}</a>
+                <a  #dashboard (click)="select(dashboard.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['admin/profile']">{{"dashboard" | translate}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/orders']">{{"orders" | translate}}</a>

@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
     private service: GlobalService,public translate: TranslateService
   ) {
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
-    console.log(this.thisLang, 'from ocnst');
+    console.log(this.thisLang, 'from const');
 
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {

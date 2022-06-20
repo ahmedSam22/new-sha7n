@@ -21,6 +21,7 @@ export class OrdersComponent implements OnInit {
   fromharbor:any;
   toharbor:any;
   typeofShipping:any;
+  allShipmentType:any = [];
   typeOfShipment:any; 
   successStatus=false ;
   successImage=true;
@@ -68,7 +69,9 @@ export class OrdersComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+this.globalService.getAllShipmentTypes().subscribe((res:any)=>{
+  this.allShipmentType = res.data
+})
     this.service.getSaudiWarehouses().subscribe((res:any)=>{
       this.saudiharbors = res['data'];
       console.log("saudiharbors",this.saudiharbors)

@@ -60,9 +60,9 @@
     "chooseShippingType" : "Choose Type Of Shipping",
     "parcelChoose" : "Choose Parcel From",
     "parcelChooseTo" : "Choose Parcel To",
-    "cm" : "CM",
-    "kg" : "KG",
-    "cdm" : "CBM",
+    "cm" : "cm",
+    "kg" : "kg",
+    "cdm" : "cbm",
     "battery" : "Battery",
     "aerial" : "Aerial",
     "nautical" : "Nautical",
@@ -100,7 +100,7 @@
 
 
     "hello" : "Hello There !",
-    "contactTitle" : "Have A Question ? Send Us Your Notes Using The Form Below , And Team Will Response As Soon As Possible",
+    "contactTitle" : "To reach together with the highest quality in the details of the work, by communicating with us",
     "salesContact" : "SALES CONTACTS :",
     "address" : "Come to Our Office",
     "addressDetails" : "5 Salah Tawfiq Street off Roushdy Street Alexandria Egypt",
@@ -207,7 +207,8 @@
 "startimport" : "We are your best choice to simplify shopping and importing from the world",
 "showmap" : "show google map",
 "importationtitle" : "Our site management provides advice and advice on the successful import process while ensuring that the standards are met quality and on the efficient use of resources and the experience gained by our site and import management Flexible and seamless solutions in order to reduce negative impacts and protect your projects in importing from any countries other.",
-"commertialText" : "The most prominent features that our site offers in shipping provide containers of different sizes and types that suit the size, type and nature of commercial shipments that suit our customers who wish to ship one or more containers with the possibility of using the company’s warehouses by customers in order to facilitate the processes of collecting shipments or re-shipping them and Distributing them or packing them as needed, and completing all procedures and permits required when shipping and exporting them to all countries of the world. Also, our site is characterized by high professionalism and punctuality. Our company has road cadres and all the technology reached to manage our customers’ operations and ensure delivery on time through our site.",
+"commertialText" : "Our goal is to make the shipping and shopping experience as easy as possible. So that we provide the lost link between global factories and shoppers from home and abroad. We also provide many facilities for shipping services from all countries of the world",
+
 
 
 
@@ -290,6 +291,17 @@
 
 "moreaboutus" : "More About Us",
 "whoweare" : "Who We Are",
+"whowearetext" : "We are one of the largest companies in the world that offers shipping prices, including the costs incurred from certificates (customs clearance - internal shipping), so we offer you many facilities for import and e-commerce services from China at a low price and high quality that is not comparable in other global markets, so a company was launched to build a bridge Between the buyer and between the customer, the merchant and the company, to make the import, shipping and trade client one of the easiest things that a company can provide, to make our goal to import from China and other countries as simple as possible, so the customer can buy and import our products in the warehouse to assemble them completely and ship them door to door with all the required procedures and at the lowest possible price To provide all the necessary facilities for trade with a few clicks through a professional electronic creation to include many services (packaging, storage, product inspection, and others ... to offer our services air and sea freight to ensure distinctive access to our customers in the shortest possible period without any effort or trouble from you.",
+"servicestext" : "Diverse and comprehensive services related to importing from China and direct shipping from it, starting from providing special information about cities and companies specialized in every commercial commodity until reaching the customer’s warehouses - with our service we also open new horizons for you to import and electronic commerce",
+"warehousestext" : "The possibility of storing goods in our warehouses in China with large storage areas and arranged equipped at the highest level and the maximum degree of safety when stored with receipt, examination and insurance of warehouses - following storage conditions in terms of appropriate storage method and spaces inside the warehouse - the company collects shipments and fragmented shipment via sea and air freight from China to all countries of the world in addition to the presence of distinguished logistics services such as checking, sorting, inspecting and protecting products when packaging and shipping them from door to door. - Follow-up and finalization of all papers related to each shipment - The company follows up the receipt of the goods and inspects the quality in conformity with the agreed specifications",
+"importtext" : "Specialized in importing from China and global and local markets, and under the supervision and management of our office, we search for high-quality goods and present them to the customer at an appropriate price until we came to the concept that all goods, especially the Chinese goods that we offer, compete with the global market in quality, price and very high efficiency and we provide the best services to our customers",
+"importl1" : "1 / The company coordinates with factories to provide the customer's demand at the highest level of quality or according to the customer's desire.",
+"importl2" : "2 / The possibility of purchasing or manufacturing without the need to travel to China.",
+"importl3" : "3 / We follow up the production stages with the factories until receipt is made on the agreed dates.",
+"importl4" : "4 / The company follows up the receipt of the goods and inspects the quality of their conformity with the agreed upon specifications.",
+"importl5" : "5/ The possibility of storing goods in our warehouse in China.",
+"importl6" : "6 / Provide translators in case the client visits China to facilitate the process of dealing with the Chinese party.",
+"adminwarehousestext" : "We give you private storage spaces to store your goods in our warehouse through your own mail address. Warehouses are equipped with the best modern technologies to receive and store your goods. We also provide your goods in warehouses with many professional logistic services to ensure their safety and preservation until the time of shipment. And also for storing imported products for which import duties have not yet been paid. The first is that the goods are presented to the incoming goods or shipments section where they are received - of course, it is preferable to know in advance their quality, sizes and nature - to prepare the appropriate special places for them. The goods are examined immediately after receiving them and a comprehensive report is created describing their condition and safety. The report clearly contains quantities and descriptions of the intact, damaged and lost goods - if any -. The owner of the goods shall be notified of the contents of the report as an essential part of the audit process. The goods are classified and sorted to be placed in the appropriate and designated storage places. After that, the process of coding the goods begins, and the goal of coding is to avoid mixing them with other multiple goods that may be present in the warehouse",
 
 
 "for Verification code page 'not used '" : "for footer 'not used '",

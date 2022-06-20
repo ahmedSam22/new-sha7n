@@ -40,13 +40,13 @@ const routes: Routes = [
     { path: 'about-us', component: AboutUsComponent},
     { path: 'contact-us', component: ContactUsComponent},
     { path: 'sign-up/:id', component: SignUpComponent},
-    { path: 'login/:id', component: LoginComponent},
     { path: 'forgetpassword', component: ForgetpasswordComponent},
+    { path: 'login/:id', component: LoginComponent},
     { path: 'verify-code/:id', component: VerifyCodeComponent},
   ]},
   { path: 'admin', component: HomeAdminComponent,  children: [
 
-    { path: 'adminHome', component: AdminHomeComponent},
+    // { path: 'adminHome', component: AdminHomeComponent},
     { path: 'profile', component: PersonalInfoComponent},
     { path: 'orders', component: OrdersAdminComponent},
     { path: 'shipping', component: ShippingFeeCalculatorComponent},

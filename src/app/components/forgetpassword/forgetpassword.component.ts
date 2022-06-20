@@ -38,8 +38,8 @@ export class ForgetpasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset = new FormGroup({
-    'email' : new FormControl(null ,Validators.required ),
-    'password': new FormControl(null , Validators.required)
+    'phone' : new FormControl(null ,Validators.required ),
+   
     });
 
     this.activatedRoute.paramMap.subscribe(params => {
@@ -55,28 +55,17 @@ export class ForgetpasswordComponent implements OnInit {
 
   onSubmit() {
     console.log(this.reset.value)
-    this.service.logIn({...this.reset.value}).subscribe(res => {
-      console.log("log response") ;
-      console.log(res) ;
-        // Swal.fire(
-        //     res.message
-        //         )
-       console.log("success") ;
+    this.service.sendSms({...this.reset.value}).subscribe((res:any) => {
+      console.log("log response " , res) ;
+      if(res.status == 200){
+    this.router.navigate(['verify-code/reset'])
+
+      }else{
         
-         if(this.id_code==1){
-          setTimeout(() =>{
-            this.router.navigate(['admin/adminHome']);
-             },2000);
-             this.service.new_order=this.id_code;
-             console.log("LOG IN New Order ID = " ,this.service.new_order)
-         }
-         else{
-          setTimeout(() =>{
-            this.router.navigate(['admin/shipping']);
-             },2000);
-             this.service.old_order=this.id_code;
-             console.log("LOG IN Old Order ID = " ,this.service.old_order)
-         }
+        Swal.fire(
+          res.errors[0]
+            )
+      }
 
          
        },
@@ -85,10 +74,13 @@ export class ForgetpasswordComponent implements OnInit {
          console.log(error.error.errors[0]);
 
         Swal.fire(
-          error.error.errors[0]
+          error.errors[0]
             )
        }
        );
       
+  }
+
+  submit(){
   }
 }

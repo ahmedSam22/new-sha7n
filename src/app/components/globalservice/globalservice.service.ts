@@ -83,6 +83,9 @@ gtAllTestmonialsHome(){
 getAllServicesHome(){
   return this.http.get(`${environment.endpoint}/services`) ;
 }
+getAllShipmentTypes(){
+  return this.http.get(`${environment.endpoint}/backend/shipment_types`) ;
 
+}
  
 }

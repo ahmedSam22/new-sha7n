@@ -62,9 +62,9 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     private service: GlobalService,
     public translate: TranslateService
   ) {
-    this.thisLang = localStorage.getItem('currentLang');
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
-    console.log(this.thisLang, 'from const');
+    console.log(navigator.language.split("-")[0], 'from const');
     if (this.thisLang == 'ar') {
       setTimeout(()=>{this.getImageText("Import")
     },1000)

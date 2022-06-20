@@ -14,5 +14,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  openwhatsapp(){
+    window.open(` https://wa.me/+966582402953`)
+  }
 
 }

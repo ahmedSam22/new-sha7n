@@ -57,8 +57,13 @@
             <label>{{"typeshipment" | translate}} : </label>
 
             <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="closeChoises">
-              <option [selected]="true">{{"chooseType" | translate}}</option>
-              <option value="1">{{"battery" | translate}}</option>
+              <!-- <option [selected]="true">{{"chooseType" | translate}}</option> -->
+              <!-- <option *ngFor="let type of allShipmentType;let i = index"  value=i > -->
+                
+                <!-- <span> {{type.name_en </span> -->
+                
+              <!-- </option> -->
+              <option value="1" >{{"battery" | translate}}</option>
             </select>
             <span class="text-danger" *ngIf="shipmentTypeError"> * {{"req" | translate}}</span>
           </div>
@@ -74,7 +79,7 @@
                 formControlName="weight"
               />
               <div class="input-group-append">
-                <span class="input-group-text" *ngIf="showCBM">{{"cdm" | translate}}<sup *ngIf="thisLang==='rtl'">3</sup></span>
+                <span class="input-group-text" *ngIf="showCBM">{{"cdm" | translate}}</span>
                 <span class="input-group-text" *ngIf="showKg">{{"kg" | translate}}</span>
               </div>
             </div>

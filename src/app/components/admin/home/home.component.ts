@@ -51,6 +51,10 @@ export class HomeAdminComponent implements OnInit {
   ///////////////////////////////////////////
    
   ////////////////////////////////////////////////
+
+  openwhatsapp(){
+    window.open(` https://wa.me/+966582402953`)
+  }
 }
 
  

@@ -26,15 +26,15 @@
         </div>
         <form [formGroup]="logIn" (ngSubmit)="onSubmit()" style="direction: ltr;">
           <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
-            <label for="exampleInputEmail1">{{"email" | translate}} </label>
+            <label for="exampleInputEmail1">{{"phone" | translate}} </label>
             <input
-              type="email"
+              type="text"
               class="form-control form-control-lg"
               [ngClass]="thisLang==='ltr' ? 'ltr' : 'rtl'"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Email"
-              [formControlName]="'email'"
+              placeholder="phone"
+              [formControlName]="'phone'"
             />
           </div>
          

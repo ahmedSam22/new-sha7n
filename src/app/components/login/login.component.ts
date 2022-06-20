@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.logIn = new FormGroup({
-    'email' : new FormControl(null ,Validators.required ),
+    'phone' : new FormControl(null ,Validators.required ),
     'password': new FormControl(null , Validators.required)
     });
 
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         
          if(this.id_code==1){
           setTimeout(() =>{
-            this.router.navigate(['admin/adminHome']);
+            this.router.navigate(['admin/orders']);
              },2000);
              this.service.new_order=this.id_code;
              console.log("LOG IN New Order ID = " ,this.service.new_order)
