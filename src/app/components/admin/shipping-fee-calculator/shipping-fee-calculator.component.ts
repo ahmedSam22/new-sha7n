@@ -25,6 +25,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   saudiharbors: any = [];
   form!: FormGroup;
   commercialInvoice: File[] = [];
+  commercialInvoicelength: any= [];
+  packingListlength: any= [];
   packingList: File[] = [];
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
@@ -130,6 +132,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   commercialInvoiceChange(event: any) {
     this.commercialInvoice = event.target.files;
     console.log('files', this.commercialInvoice[0]);
+ 
+    this.commercialInvoicelength.push("one")
+    console.log('length', this.commercialInvoicelength);
     if (this.commercialInvoice.length != 0) {
       this.showComercialInvoice = false;
       this.fullComercialInvoice = true;
@@ -142,6 +147,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   packingListChange(event: any) {
     this.packingList = event.target.files;
     console.log('files', this.packingList[0]);
+    this.packingListlength.push("one")
+    console.log('length', this.packingListlength);
     if (this.packingList.length != 0) {
       this.showPackingList = false;
       this.fullPackingList = true;

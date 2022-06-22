@@ -1,3 +1,4 @@
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
 import { SuccessComponent } from './components/admin/payment-method/success/success.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
     { path: 'contact-us', component: ContactUsComponent},
     { path: 'sign-up/:id', component: SignUpComponent},
     { path: 'forgetpassword', component: ForgetpasswordComponent},
+    { path: 'reset', component: ResetpasswordComponent},
     { path: 'login/:id', component: LoginComponent},
     { path: 'verify-code/:id', component: VerifyCodeComponent},
   ]},

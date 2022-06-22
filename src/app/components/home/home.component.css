@@ -10,16 +10,17 @@ main .wrapping {
 
 .forIcon{
     position: fixed;
-    bottom: 60px;
-    left: 60px;
+    bottom: 30px;
+    left: 30px;
     background: green;
-    padding: 10px;
-    border-radius: 16px;
+    padding: 8px;
+    border-radius: 50%;
     cursor: pointer;
 
 }
 
+
 span i{
-    font-size: 56px;
+    font-size: 36px;
     color: white;
 }

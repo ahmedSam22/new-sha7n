@@ -1,87 +1,95 @@
 <section class="container-fluid">
   <!-- style="min-height: 670px" -->
-  <div class="row x"  >
-    <div class="col-md-6 col-sm-12 col-12 align-self-center" style="direction: ltr;">
+  <div class="row x">
+    <div
+      class="col-md-6 col-sm-12 col-12 align-self-center"
+    >
       <div class="leftSide">
-        <a (click)="back()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-caret-left"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
-            />
-          </svg>
-          {{"backHome" | translate}}
-        </a>
+        <div class="col-md-12">
+          <a (click)="back()">
+          
+            {{ "backHome" | translate }}
+          </a>
+        </div>
+
         <div class="text-center" style="position: absolute; left: 45%">
-          <h3 class="text-center">{{"login" | translate}}</h3>
+          <h3 class="text-center">{{ "login" | translate }}</h3>
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12"></div>
         </div>
-        <form [formGroup]="logIn" (ngSubmit)="onSubmit()" style="direction: ltr;">
+        <form
+          [formGroup]="logIn"
+          (ngSubmit)="onSubmit()"
+          style="direction: ltr"
+        >
           <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
-            <label for="exampleInputEmail1">{{"phone" | translate}} </label>
+            <label for="exampleInputEmail1">{{ "phone" | translate }} </label>
             <input
               type="text"
               class="form-control form-control-lg"
-              [ngClass]="thisLang==='ltr' ? 'ltr' : 'rtl'"
+              [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="phone"
               [formControlName]="'phone'"
             />
           </div>
-         
+
           <div class="form-group offset-md-2 col-md-8">
-            <label for="exampleInputPassword1">{{"password" | translate}}</label>
-            <div class="d-flex align-items-center">  
-            <input
-              id="exampleInputPassword1"
-              [type]="showConfirm ? 'text' : 'password'"
-              class="form-control form-control-lg"
-              [ngClass]="thisLang==='ltr' ? 'ltr' : 'rtl'"
-              required="true"
-              minlength="6"
-              placeholder="Password"
-              [formControlName]="'password'"
-            />
-            <span class="showPassword" (click)="this.showConfirm = !this.showConfirm"
-            ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
-            <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i> </span>
-           </div>
-          
-          
-        
-        </div>
-          <div class="form-check check offset-md-2 col-md-8 ">
+            <label for="exampleInputPassword1">{{
+              "password" | translate
+            }}</label>
+            <div class="d-flex align-items-center">
+              <input
+                id="exampleInputPassword1"
+                [type]="showConfirm ? 'text' : 'password'"
+                class="form-control form-control-lg"
+                [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
+                required="true"
+                minlength="6"
+                placeholder="Password"
+                [formControlName]="'password'"
+              />
+              <span
+                class="showPassword"
+                (click)="this.showConfirm = !this.showConfirm"
+                ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
+                <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
+              </span>
+            </div>
+          </div>
+          <div class="form-check check offset-md-2 col-md-8">
             <input
               type="checkbox"
               class="form-check-input d-block"
               id="exampleCheck1"
             />
-            
-            <label class="form-check-label d-flex justify-content-between w-100" for="exampleCheck1"
-              >{{"remember" | translate}} <span>
-                
-                <a [routerLink]="['/forgetpassword']"> {{"forget" | translate}} </a>
-                
+
+            <label
+              class="form-check-label d-flex justify-content-between w-100"
+              for="exampleCheck1"
+              >{{ "remember" | translate }}
+              <span>
+                <a [routerLink]="['/forgetpassword']">
+                  {{ "forget" | translate }}
+                </a>
               </span>
-
-
             </label>
           </div>
-        
+
           <!-- [routerLink]="['/verify-code']" -->
-          <button type="sumbit" class="btn btn-primary offset-md-2 col-md-8 col-sm-12 d-block">{{"login" | translate}}</button>
+          <button
+            type="sumbit"
+            class="btn btn-primary offset-md-2 col-md-8 col-sm-12 d-block"
+          >
+            {{ "login" | translate }}
+          </button>
           <p class="text-center">
-            {{"dontHaveAccount" | translate}}
-            <a [routerLink]="['/sign-up',id_code]"> {{"createAccount" | translate}} </a>
+            {{ "dontHaveAccount" | translate }}
+            <a [routerLink]="['/sign-up', id_code]">
+              {{ "createAccount" | translate }}
+            </a>
           </p>
         </form>
       </div>

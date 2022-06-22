@@ -57,8 +57,11 @@ export class ForgetpasswordComponent implements OnInit {
     console.log(this.reset.value)
     this.service.sendSms({...this.reset.value}).subscribe((res:any) => {
       console.log("log response " , res) ;
+      localStorage.setItem("phone" , `${this.reset.controls.phone.value}`);
+      
       if(res.status == 200){
-    this.router.navigate(['verify-code/reset'])
+        Swal.fire('تم ارسال الكود بنجاح', '', 'success');
+    this.router.navigate(['/reset'])
 
       }else{
         

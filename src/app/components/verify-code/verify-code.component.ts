@@ -59,13 +59,6 @@ export class VerifyCodeComponent implements OnInit {
 
   //   }
   onSubmit(){
-    if(this.fromPage == "reset"){
-      return this.resetConfirm()
-    }else{
-      return this.registerConfirm()
-    }
-  }
-  registerConfirm() {
     this.concat =
       this.verify.value.verify_input1 +
       this.verify.value.verify_input2 +
@@ -94,24 +87,5 @@ export class VerifyCodeComponent implements OnInit {
         }
       });
   }
-  resetConfirm() {
-    this.service.confirmSms({ ...this.verification_code }).subscribe((res) => {
-      console.log(res);
-      Swal.fire('نجاح', 'تم إدخال كود التحقق بنجاح', 'success');
-      console.log('success');
-      if (this.id_code == 0) {
-        setTimeout(() => {
-          this.router.navigate(['login']);
-        }, 2000);
-        this.service.old_order = this.id_code;
-        console.log('Verification Old Order ID = ', this.service.old_order);
-      } else {
-        setTimeout(() => {
-          this.router.navigate(['admin/orders']);
-        }, 2000);
-        this.service.new_order = this.id_code;
-        console.log('Verification New Order ID = ', this.service.new_order);
-      }
-    });
-  }
+
 }

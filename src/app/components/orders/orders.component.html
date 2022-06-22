@@ -57,13 +57,12 @@
             <label>{{"typeshipment" | translate}} : </label>
 
             <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="closeChoises">
-              <!-- <option [selected]="true">{{"chooseType" | translate}}</option> -->
-              <!-- <option *ngFor="let type of allShipmentType;let i = index"  value=i > -->
-                
-                <!-- <span> {{type.name_en </span> -->
-                
-              <!-- </option> -->
-              <option value="1" >{{"battery" | translate}}</option>
+              <option [selected]="true">{{"chooseType" | translate}}</option>
+              <option *ngFor="let type of allShipmentType;let i = index"  [value]="type.id" >  
+                <span *ngIf="this.thisLang == 'ltr'"> {{type.name_en}} </span>
+                <span *ngIf="this.thisLang == 'rtl'"> {{type.name_ar}} </span>
+              </option>
+              <!-- <option value="1" >{{"battery" | translate}}</option> -->
             </select>
             <span class="text-danger" *ngIf="shipmentTypeError"> * {{"req" | translate}}</span>
           </div>
@@ -164,13 +163,16 @@
         <div class="row">
           <div class="col-md-6">
             <div class="text">
-              <div class="text_top d-flex justify-content-around">
-                <span *ngIf="typeofShipping == 1">{{"aerial" | translate}}</span>
-                <span *ngIf="typeofShipping == 0">{{"nautical" | translate}}</span>
-                <span> {{"chargingtype" | translate}} </span>
-              </div>
+            
 
               <ul class="company-rules">
+                <li>
+                  <div class="text_top d-flex justify-content-start">
+                    <span> {{"chargingtype" | translate}} </span> : 
+                    <span *ngIf="typeofShipping == 1">{{"aerial" | translate}}</span>
+                    <span *ngIf="typeofShipping == 0">{{"nautical" | translate}}</span>
+                  </div>
+                </li>
                 <li>{{"actialweight" | translate}}</li>
                 <li>{{"customs" | translate}}</li>
 
@@ -194,7 +196,7 @@
                   [src]="logo"
                   class="img-fluid "
                   height="auto"
-                  width="20%"
+                  width="100%"
                   alt="right"
                   style="border-radius:50%"
                 />
