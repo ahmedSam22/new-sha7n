@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         
          if(this.id_code==1){
           setTimeout(() =>{
-            this.router.navigate(['admin/orders']);
+            this.router.navigate(['admin/adminHome']);
              },2000);
              this.service.new_order=this.id_code;
              console.log("LOG IN New Order ID = " ,this.service.new_order)

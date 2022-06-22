@@ -48,7 +48,7 @@ const routes: Routes = [
   ]},
   { path: 'admin', component: HomeAdminComponent,  children: [
 
-    // { path: 'adminHome', component: AdminHomeComponent},
+    { path: 'adminHome', component: AdminHomeComponent},
     { path: 'profile', component: PersonalInfoComponent},
     { path: 'orders', component: OrdersAdminComponent},
     { path: 'shipping', component: ShippingFeeCalculatorComponent},

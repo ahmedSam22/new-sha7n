@@ -5,6 +5,7 @@ import { Input } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { GlobalserviceService } from '../../globalservice/globalservice.service';
 @Component({
   selector: 'app-shipping-fee-calculator',
   templateUrl: './shipping-fee-calculator.component.html',
@@ -21,7 +22,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   ];
   fromCities: any = [];
   toCities: any = [];
-
+  allShipmentType:any = [];
+  selectedvalue:any = "tessy";
   saudiharbors: any = [];
   form!: FormGroup;
   commercialInvoice: File[] = [];
@@ -31,6 +33,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
   fromChinaHarbor!: any;
+  label:any;
   toSaudiHarbor!: any;
   typeOfShipping!: any;
   typeOfShipment!: any;
@@ -51,7 +54,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     private service: GlobalService,
     private formbuilder: FormBuilder,
     private router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private globalService:GlobalserviceService
   ) {
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
@@ -77,8 +81,17 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     this.height = this.service.height;
     this.width = this.service.width;
     this.length = this.service.length;
-    console.log('fromChinaHarbor', this.fromChinaHarbor);
+    console.log('fromChinaHarooooooooooooooooooooobor', this.service.typeOfShipment);
+    this.globalService.getAllShipmentTypes().subscribe((res:any)=>{
+      console.log(res.data , "oooooooooooooooooooooooo");
 
+      this.allShipmentType = res.data
+      this.label = this.allShipmentType.filter((e:any)=>{
+        e.id == +this.service.typeOfShipment
+      })
+      console.log(this.label , "oooooooooooooooooooooooo");
+      
+    })
     if (this.typeOfShipping == 0) {
       this.showCBM = true;
       this.showKg = false;

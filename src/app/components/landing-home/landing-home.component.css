@@ -26,6 +26,21 @@ img {
   flex-direction: column;
 }
 
+.plane{
+  background-image: url("../../../assets/images/plane.png");
+  background-position-x: left;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
+.plane-custom{
+  background:  url("../../../assets/images/plane.png") left top no-repeat, url("../../../assets/images/plane-flip.png") right bottom no-repeat;
+}
+.plane-flip{
+  background-image: url("../../../assets/images/plane-flip.png");
+  background-position-x: right;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
 .text-wrapper {
   gap: 25px !important;
 }
@@ -376,7 +391,10 @@ img {
   .testimonials .greenBack {
     padding: 10px 15px;
   }
+.plane-custom{
+  background-size: 107px 43px;
 
+}
 ::ng-deep.owl-item{
   min-height: 317px !important ;
   display: flex ;
@@ -401,19 +419,3 @@ img {
   display: none;
 }
 
-
-.plane{
-  background-image: url("../../../assets/images/plane.png");
-  background-position-x: left;
-  background-position-y: bottom;
-  background-repeat: no-repeat;
-}
-.plane-custom{
-  background:  url("../../../assets/images/plane.png") left top no-repeat, url("../../../assets/images/plane-flip.png") right bottom no-repeat;
-}
-.plane-flip{
-  background-image: url("../../../assets/images/plane-flip.png");
-  background-position-x: right;
-  background-position-y: bottom;
-  background-repeat: no-repeat;
-}

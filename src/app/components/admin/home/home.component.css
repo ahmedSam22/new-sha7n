@@ -79,7 +79,11 @@ footer {
     padding: 8px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: .3;
 
+}
+.forIcon:hover{
+    opacity: 1;
 }
 
 span i{

@@ -17,6 +17,7 @@ export class ResetpasswordComponent implements OnInit {
   id_code!: any;
   reset!: FormGroup;
   thisLang: any;
+  show:boolean = false
 
   showConfirm: boolean = false;
   constructor(
