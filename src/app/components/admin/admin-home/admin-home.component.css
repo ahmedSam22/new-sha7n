@@ -72,14 +72,15 @@ color:#39DA8A;
 }
 
 .startcontent .start {
-    padding:20px;
+    padding:10px;
     border-radius: 10px;
 }
 
 .startcontent .start p {
     color: white;
-    padding: 5px;
+    /* padding: 5px; */
     text-indent: 10px;
+    font-size: 24px;
 }
 
 .startcontent .start button {
@@ -87,6 +88,8 @@ color:#39DA8A;
     background-color: white;
     border: 1px solid #32B457;
     display: block;
+    height: fit-content;
+
 }
 
 .showcontent {

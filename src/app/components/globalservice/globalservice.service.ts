@@ -87,5 +87,8 @@ getAllShipmentTypes(){
   return this.http.get(`${environment.endpoint}/shipment_types`) ;
 
 }
- 
+ checkPromo(code:any){
+  return this.http.get(`${environment.endpoint}/orders/check-promo?code=${code}`) ;
+
+ }
 }

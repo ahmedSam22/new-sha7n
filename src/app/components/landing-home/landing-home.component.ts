@@ -66,13 +66,13 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     this.currentLang = localStorage.getItem("currentLang") || navigator.language;
     console.log(navigator.language.split("-")[0], 'from const');
     if (this.thisLang == 'ar') {
-      setTimeout(()=>{this.getImageText("Import")
+      setTimeout(()=>{this.getImageText("shipping")
     },1000)
       this.thisLang = 'rtl';
       console.log(this.thisLang, 'test1');
     } else {
       this.thisLang = 'ltr';
-      setTimeout(()=>{this.getImageText("Import")
+      setTimeout(()=>{this.getImageText("shipping")
       },1000)
       console.log(this.thisLang, 'test2');
     }

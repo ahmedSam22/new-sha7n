@@ -27,7 +27,7 @@
         >
           + {{ "neworder" | translate }}
         </button>
-        <h5 style="" class="mt-3 mb-0">{{ "shipmentAddress" | translate }}</h5>
+        <h5 class="mt-3 mb-0">{{ "shipmentAddress" | translate }}</h5>
       </div>
     </div>
     <div class="shippingform">
@@ -59,9 +59,9 @@
                                   <span  *ngIf="thisLang==='ltr'">
                                     {{ harbor.name_en }}
                                   </span>  </option> -->
-       
+
                 <option disabled disabled [selected]="true">
-                    {{ "ksa" | translate }}
+                  {{ "ksa" | translate }}
                 </option>
               </select>
             </div>
@@ -80,14 +80,23 @@
           </div>
           <div class="form-group input-group-lg col-md-4">
             <label for="inputState">{{ "typeshipment" | translate }}: </label>
-            <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="true">
-                <option [selected]="true">{{allShipmentType[1].name_ar}}</option>
-                <option *ngFor="let type of allShipmentType;let i = index"  [value]="type.id" >  
-                  <span *ngIf="this.thisLang == 'ltr'"> {{type.name_en}} </span>
-                  <span *ngIf="this.thisLang == 'rtl'"> {{type.name_ar}} </span>
-                </option>
-                <!-- <option value="1" >{{"battery" | translate}}</option> -->
-              </select>
+            <select
+              class="form-control"
+              (change)="onTypeOfShipment($event)"
+              [disabled]="true"
+            >
+              <option [selected]="true">
+                {{ allShipmentType[1].name_ar }}
+              </option>
+              <option
+                *ngFor="let type of allShipmentType; let i = index"
+                [value]="type.id"
+              >
+                <span *ngIf="this.thisLang == 'ltr'"> {{ type.name_en }} </span>
+                <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span>
+              </option>
+              <!-- <option value="1" >{{"battery" | translate}}</option> -->
+            </select>
           </div>
 
           <div class="form-group col-md-4">
@@ -289,6 +298,29 @@
           </div>
         </div>
         <br />
+        <form action="" [formGroup]="promo">
+          <div class="form-group col-md-4">
+            <label>{{ "coupon" | translate }}: </label>
+            <div class="input-group">
+              <input
+                type="time"
+                class="form-control ml-2"
+                placeholder="{{ 'coupon' | translate }}"
+                formControlName="code"
+              />
+              <div class="input-group-append">
+                <button
+                  class="input-group-text"
+                  style="height: 38px"
+                  (click)="checkCode()"
+                >
+                  {{ "check" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+
         <div class="row">
           <div class="form-group col-md-12 d-flex justify-content-center">
             <button

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../shared/services/global.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import { Input } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -22,18 +27,19 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   ];
   fromCities: any = [];
   toCities: any = [];
-  allShipmentType:any = [];
-  selectedvalue:any = "tessy";
+  allShipmentType: any = [];
+  selectedvalue: any = 'tessy';
   saudiharbors: any = [];
   form!: FormGroup;
+  promo!: any;
   commercialInvoice: File[] = [];
-  commercialInvoicelength: any= [];
-  packingListlength: any= [];
+  commercialInvoicelength: any = [];
+  packingListlength: any = [];
   packingList: File[] = [];
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
   fromChinaHarbor!: any;
-  label:any;
+  label: any;
   toSaudiHarbor!: any;
   typeOfShipping!: any;
   typeOfShipment!: any;
@@ -55,7 +61,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     private formbuilder: FormBuilder,
     private router: Router,
     public translate: TranslateService,
-    private globalService:GlobalserviceService
+    private globalService: GlobalserviceService
   ) {
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
@@ -81,17 +87,22 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     this.height = this.service.height;
     this.width = this.service.width;
     this.length = this.service.length;
-    console.log('fromChinaHarooooooooooooooooooooobor', this.service.typeOfShipment);
-    this.globalService.getAllShipmentTypes().subscribe((res:any)=>{
-      console.log(res.data , "oooooooooooooooooooooooo");
+    this.promo = new FormGroup({
+      code: new FormControl(null),
+    });
+    console.log(
+      'fromChinaHarooooooooooooooooooooobor',
+      this.service.typeOfShipment
+    );
+    this.globalService.getAllShipmentTypes().subscribe((res: any) => {
+      console.log(res.data, 'oooooooooooooooooooooooo');
 
-      this.allShipmentType = res.data
-      this.label = this.allShipmentType.filter((e:any)=>{
-        e.id == +this.service.typeOfShipment
-      })
-      console.log(this.label , "oooooooooooooooooooooooo");
-      
-    })
+      this.allShipmentType = res.data;
+      this.label = this.allShipmentType.filter((e: any) => {
+        e.id == +this.service.typeOfShipment;
+      });
+      console.log(this.label, 'oooooooooooooooooooooooo');
+    });
     if (this.typeOfShipping == 0) {
       this.showCBM = true;
       this.showKg = false;
@@ -145,8 +156,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   commercialInvoiceChange(event: any) {
     this.commercialInvoice = event.target.files;
     console.log('files', this.commercialInvoice[0]);
- 
-    this.commercialInvoicelength.push("one")
+
+    this.commercialInvoicelength.push('one');
     console.log('length', this.commercialInvoicelength);
     if (this.commercialInvoice.length != 0) {
       this.showComercialInvoice = false;
@@ -160,7 +171,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   packingListChange(event: any) {
     this.packingList = event.target.files;
     console.log('files', this.packingList[0]);
-    this.packingListlength.push("one")
+    this.packingListlength.push('one');
     console.log('length', this.packingListlength);
     if (this.packingList.length != 0) {
       this.showPackingList = false;
@@ -227,5 +238,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       window.open(`${e.url}`);
       console.log(e.url);
     });
+  }
+  checkCode() {
+    return this.globalService
+      .checkPromo(this.promo.value.code)
+      .subscribe((e: any) => {});
   }
 }

@@ -36,7 +36,7 @@
     "loguot" : "Log out",
     "createaccount":"Create Account",
     "dashboard" :  "Profile",
-
+    "ourservicetext":"We are one of the largest companies in the world that offers shipping prices, including the costs incurred from certificates (customs clearance - internal shipping), so we offer you many facilities for import and e-commerce services from China at a low price and high quality that is not comparable in other global markets, so a company was launched to build a bridge Between the buyer and between the customer, the merchant and the company, to make the import, shipping and trade client one of the easiest things that a company can provide, to make our goal to import from China and other countries as simple as possible, so the customer can buy with all the required procedures and at the lowest possible price to provide all door to door and import our products in the warehouse for assembly Complete and shipped the necessary facilities for trade with a few clicks through a professional electronic creation to include many services (packaging, storage, product inspection, etc... To offer our services air and sea freight to ensure distinctive access to our customers in the shortest possible period without any effort or trouble from you.",
 
 
 
@@ -128,7 +128,8 @@
     "forgetpassword" : "Reset Password",
     "sendcode" : "Send Code",
     "shortcode" : "Verification Code" , 
-
+    "coupon" : "voucher Code",
+    "check" : "Check",
 
 
 

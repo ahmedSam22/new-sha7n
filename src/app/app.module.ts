@@ -34,7 +34,7 @@ import { FAQComponent } from './components/admin/faq/faq.component';
 import { LogOutComponent } from './components/admin/log-out/log-out.component';
 import { HomeAdminComponent } from './components/admin/home/home.component';
 import { OrdersAdminComponent } from './components/admin/orders/orders.component';
-import {  ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminSidebarComponent } from './components/shared/admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './components/shared/admin-footer/admin-footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -115,6 +115,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
       preventDuplicates: true,
       progressBar:true
     }),
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage: localStorage.getItem("currentLang") ||  navigator.language.split("-")[0],
 
