@@ -1,32 +1,42 @@
 <div class="orders col-md-12">
   <div class="row justify-content-around">
     <div class="leftCard col-md-5 my-5 py-5">
-      <h3 class="text-center">{{"shippingRates" | translate}}</h3>
+      <h3 class="text-center">{{ "shippingRates" | translate }}</h3>
       <p class="text-center">
-        {{"shippingTitle" | translate}}
+        {{ "shippingTitle" | translate }}
       </p>
       <form class="shipping" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h6>{{"shippingAddress" | translate}}</h6>
+        <h6>{{ "shippingAddress" | translate }}</h6>
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-6">
-            <label>{{"from" | translate}}: </label>
+            <label>{{ "from" | translate }}: </label>
             <!-- formControlName="china_harbor_id" -->
-            <select class="form-control" (change)="onChangeChina($event)" [disabled]="closeChoises">
-              <option [selected]="true">{{"parcelChooseTo" | translate}}</option>
+            <select
+              class="form-control"
+              (change)="onChangeChina($event)"
+              [disabled]="closeChoises"
+            >
+              <option [selected]="true">
+                {{ "parcelChooseTo" | translate }}
+              </option>
 
-              <option value="1">{{"china" | translate}}</option>
+              <option value="1">{{ "china" | translate }}</option>
             </select>
-            <span class="text-danger" *ngIf="chinaHarborError"> * {{"req" | translate}}</span>
+            <span class="text-danger" *ngIf="chinaHarborError">
+              * {{ "req" | translate }}</span
+            >
           </div>
           <div class="form-group col-md-6">
-            <label>{{"to" | translate}} :</label>
+            <label>{{ "to" | translate }} :</label>
             <select
               class="form-control"
               formControlName="saudi_harbor_id"
               (change)="onChangeSaudi($event)"
             >
-            <option [selected]="true">{{"parcelChoose" | translate}}</option>
-            <!-- <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
+              <option [selected]="true">
+                {{ "parcelChoose" | translate }}
+              </option>
+              <!-- <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
                 <span  *ngIf="thisLang==='rtl'">
                   {{ harbor.name_ar }}
                 </span>
@@ -35,105 +45,133 @@
                 </span>
                 
               </option> -->
-              <option value="2">{{"ksa" | translate}}</option>
+              <option value="2">{{ "ksa" | translate }}</option>
             </select>
-            <span class="text-danger" *ngIf="saudiHarborError"> * {{"req" | translate}}</span>
-            </div>
+            <span class="text-danger" *ngIf="saudiHarborError">
+              * {{ "req" | translate }}</span
+            >
+          </div>
         </div>
 
-        <h6>{{"shipmentinfo" | translate}} </h6>
+        <h6>{{ "shipmentinfo" | translate }}</h6>
         <!-- formControlName="type" -->
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-4">
-            <label>{{"typeShipping" | translate}} : </label>
-            <select class="form-control" (change)="onTypeOfShipping($event)" [disabled]="closeChoises">
-              <option [selected]="true">{{"chooseShippingType" | translate}}</option>
-              <option value="1">{{"aerial" | translate}}</option>
-              <option value="0">{{"nautical" | translate}}</option>
+            <label>{{ "typeShipping" | translate }} : </label>
+            <select
+              class="form-control"
+              (change)="onTypeOfShipping($event)"
+              [disabled]="closeChoises"
+            >
+              <option [selected]="true">
+                {{ "chooseShippingType" | translate }}
+              </option>
+              <option value="1">{{ "aerial" | translate }}</option>
+              <option value="0">{{ "nautical" | translate }}</option>
             </select>
-            <span class="text-danger" *ngIf="shippingError"> * {{"req" | translate}}</span>
+            <span class="text-danger" *ngIf="shippingError">
+              * {{ "req" | translate }}</span
+            >
           </div>
           <div class="form-group col-md-4">
-            <label>{{"typeshipment" | translate}} : </label>
+            <label>{{ "typeshipment" | translate }} : </label>
 
-            <select class="form-control" (change)="onTypeOfShipment($event)" [disabled]="closeChoises">
-              <option [selected]="true">{{"chooseType" | translate}}</option>
-              <option *ngFor="let type of allShipmentType;let i = index"  [value]="type.id" >  
-                <span *ngIf="this.thisLang == 'ltr'"> {{type.name_en}} </span>
-                <span *ngIf="this.thisLang == 'rtl'"> {{type.name_ar}} </span>
+            <select
+              class="form-control"
+              (change)="onTypeOfShipment($event)"
+              [disabled]="closeChoises"
+              (change)="getTypeIndex($event)"
+
+            >
+              <option [selected]="true">{{ "chooseType" | translate }}</option>
+              <option
+                *ngFor="let type of allShipmentType; let i = index"
+                [value]="type.id"
+                
+              >
+                <span *ngIf="this.thisLang == 'ltr'"> {{ type.name_en }} </span>
+                <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span>
               </option>
               <!-- <option value="1" >{{"battery" | translate}}</option> -->
             </select>
-            <span class="text-danger" *ngIf="shipmentTypeError"> * {{"req" | translate}}</span>
+            <span class="text-danger" *ngIf="shipmentTypeError">
+              * {{ "req" | translate }}</span
+            >
           </div>
           <div class="form-group col-md-4">
-            <label>{{"weight" | translate}}: </label>
+            <label>{{ "weight" | translate }}: </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 #shippingWeight
                 (blur)="getWeight()"
-                placeholder="{{'weight' | translate}}"
+                placeholder="{{ 'weight' | translate }}"
                 formControlName="weight"
               />
               <div class="input-group-append">
-                <span class="input-group-text" *ngIf="showCBM">{{"cdm" | translate}}</span>
-                <span class="input-group-text" *ngIf="showKg">{{"kg" | translate}}</span>
+                <span class="input-group-text" *ngIf="showCBM">{{
+                  "cdm" | translate
+                }}</span>
+                <span class="input-group-text" *ngIf="showKg">{{
+                  "kg" | translate
+                }}</span>
               </div>
             </div>
-             
-            <span class="text-danger" *ngIf="weightError"> * {{"req" | translate}}</span>
+
+            <span class="text-danger" *ngIf="weightError">
+              * {{ "req" | translate }}</span
+            >
           </div>
         </div>
 
-        <h6>{{"dimention" | translate}}</h6>
+        <h6>{{ "dimention" | translate }}</h6>
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-4">
-            <label>{{"length" | translate}}: </label>
+            <label>{{ "length" | translate }}: </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getLenght()"
                 #shippingLength
-                placeholder="{{'length' | translate}}"
+                placeholder="{{ 'length' | translate }}"
                 [disabled]="closeChoises"
               />
               <div class="input-group-append">
-                <span class="input-group-text">{{"cm" | translate}}</span>
+                <span class="input-group-text">{{ "cm" | translate }}</span>
               </div>
             </div>
           </div>
           <div class="form-group col-md-4">
-            <label>{{"width" | translate}} : </label>
+            <label>{{ "width" | translate }} : </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getWidth()"
                 #shippingWidth
-                placeholder="{{'width' | translate}}"
+                placeholder="{{ 'width' | translate }}"
                 [disabled]="closeChoises"
               />
               <div class="input-group-append">
-                <span class="input-group-text">{{"cm" | translate}}</span>
+                <span class="input-group-text">{{ "cm" | translate }}</span>
               </div>
             </div>
           </div>
           <div class="form-group col-md-4">
-            <label>{{"height" | translate}} : </label>
+            <label>{{ "height" | translate }} : </label>
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 (blur)="getHeight()"
                 #shippingHeight
-                placeholder="{{'height' | translate}}"
+                placeholder="{{ 'height' | translate }}"
                 [disabled]="closeChoises"
               />
               <div class="input-group-append">
-                <span class="input-group-text">{{"cm" | translate}}</span>
+                <span class="input-group-text">{{ "cm" | translate }}</span>
               </div>
             </div>
           </div>
@@ -145,7 +183,7 @@
             class="btn col-md-8 btnCalculating"
             id="btnCalculating"
           >
-          {{"calculateBtn" | translate}}
+            {{ "calculateBtn" | translate }}
           </button>
         </div>
       </form>
@@ -153,77 +191,88 @@
 
     <div class="rightCard img1 col-md-5" *ngIf="successImage">
       <div class="imgg">
-        <div  [ngClass]="thisLang==='ltr' ? 'fullImage' : 'fullImage-rtl'"></div>
+        <div
+          [ngClass]="thisLang === 'ltr' ? 'fullImage' : 'fullImage-rtl'"
+        ></div>
         <!-- <div  class="fullImage"></div> -->
       </div>
     </div>
 
-    <div class="col-md-6 py-5" *ngIf="successStatus" >
-      <div class="myCard p-3 bg-light" >
+    <div class="col-md-6 py-5" *ngIf="successStatus">
+      <div class="myCard p-3 bg-light">
         <div class="row">
           <div class="col-md-6">
             <div class="text">
-            
-
               <ul class="company-rules">
                 <li>
                   <div class="text_top d-flex justify-content-start">
-                    <span> {{"chargingtype" | translate}} </span> : 
-                    <span *ngIf="typeofShipping == 1">{{"aerial" | translate}}</span>
-                    <span *ngIf="typeofShipping == 0">{{"nautical" | translate}}</span>
+                    <span> {{ "chargingtype" | translate }} </span> :
+                    <span *ngIf="typeofShipping == 1">{{
+                      "aerial" | translate
+                    }}</span>
+                    <span *ngIf="typeofShipping == 0">{{
+                      "nautical" | translate
+                    }}</span>
                   </div>
                 </li>
-                <li>{{"actialweight" | translate}}</li>
-                <li>{{"customs" | translate}}</li>
+                <li>{{ "actialweight" | translate }}</li>
+                <li>{{ "customs" | translate }}</li>
 
-                <li *ngIf="typeofShipping == 1">{{"shippingcardtimeaerial" | translate}}</li>
-                <li *ngIf="typeofShipping == 0">{{"shippingcardtimenautical" | translate}}</li>
-                <li>{{"extracharge" | translate}}</li>
+                <li *ngIf="typeofShipping == 1">
+                  {{ "shippingcardtimeaerial" | translate }}
+                </li>
+                <li *ngIf="typeofShipping == 0">
+                  {{ "shippingcardtimenautical" | translate }}
+                </li>
+                <li>{{ "extracharge" | translate }}</li>
                 <li>
-                  {{"return" | translate}}
+                  {{ "return" | translate }}
                 </li>
 
-                  <li>
-                  {{"madeinchina" | translate}}
+                <li>
+                  {{ "madeinchina" | translate }}
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-md-6 " [ngClass]="thisLang==='ltr' ? 'forBorder' : 'forBorder-rtl'">
+          <div
+            class="col-md-6"
+            [ngClass]="thisLang === 'ltr' ? 'forBorder' : 'forBorder-rtl'"
+          >
             <div class="forImg d-flex justify-content-between">
               <span>
                 <img
                   [src]="logo"
-                  class="img-fluid "
+                  class="img-fluid"
                   height="auto"
                   width="100%"
                   alt="right"
-                  style="border-radius:50%"
+                  style="border-radius: 50%"
                 />
               </span>
               <span> International Parcel </span>
             </div>
             <div class="forText d-flex flex-column mt-3">
-              <span>{{"shippingcharges" | translate}}</span>
-              <span class="my-3" style="color:#32B457 ;"> <h3> {{costs}}$  </h3> </span> 
-            
+              <span>{{ "shippingcharges" | translate }}</span>
+              <span class="my-3" style="color: #32b457">
+                <h3>{{ costs }}$</h3>
+              </span>
             </div>
           </div>
         </div>
         <div class="row mt-1">
-            <div class="col-md-12 d-flex justify-content-center">
-                <button
-                type="submit"
-                class="btn col-md-8 btnCalculating"
-                id="btnCalculating"
-                (click)="goadmindashboard()"
-              >
-                {{"BookingBtn" | translate}}
-              </button>
-              </div>
+          <div class="col-md-12 d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn col-md-8 btnCalculating"
+              id="btnCalculating"
+              (click)="goadmindashboard()"
+            >
+              {{ "BookingBtn" | translate }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    </div>
   </div>
- 
+</div>

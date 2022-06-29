@@ -49,6 +49,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   length!: any;
   showCBM = false;
   showKg = true;
+  index: any;
   showComercialInvoice = true;
   showPackingList = true;
   fullComercialInvoice = false;
@@ -57,16 +58,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   thisLang: any;
 
   constructor(
-    private service: GlobalService,
+    public service: GlobalService,
     private formbuilder: FormBuilder,
     private router: Router,
     public translate: TranslateService,
     private globalService: GlobalserviceService
   ) {
-    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
-    console.log(this.thisLang, 'from ocnst');
-
-    translate.use(this.thisLang || navigator.language);
+  //  alert(this.service.typeOfShipping)
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
@@ -76,9 +74,31 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         console.log(this.thisLang, 'test2');
       }
     });
+    // this.index = localStorage.getItem('shipment_type');
+    this.globalService.getAllShipmentTypes().subscribe((res: any) => {
+      // console.log(res.data, 'oooooooooooooooooooooooo');
+
+      this.allShipmentType = res.data;
+      console.log("qwwwwwwwq" , this.allShipmentType);
+      
+      this.label = this.allShipmentType.filter((e: any) => {
+        return e.id == this.service.typeOfShipment;
+      });
+      console.log(this.label, 'oooooooooooooooooooooooo');
+    });
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
+    console.log(this.thisLang, 'from ocnst');
+
+    translate.use(this.thisLang || navigator.language);
+
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem("currentLang") == 'ar') {
+      this.thisLang = 'rtl';
+    } else if(localStorage.getItem("currentLang") == 'en'){
+       this.thisLang = 'ltr';
+    }
     this.fromChinaHarbor = this.service.fromChinaHarbor;
     this.toSaudiHarbor = this.service.toSaudiHarbor;
     this.typeOfShipping = this.service.typeOfShipping;
@@ -94,15 +114,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       'fromChinaHarooooooooooooooooooooobor',
       this.service.typeOfShipment
     );
-    this.globalService.getAllShipmentTypes().subscribe((res: any) => {
-      console.log(res.data, 'oooooooooooooooooooooooo');
-
-      this.allShipmentType = res.data;
-      this.label = this.allShipmentType.filter((e: any) => {
-        e.id == +this.service.typeOfShipment;
-      });
-      console.log(this.label, 'oooooooooooooooooooooooo');
-    });
+  
     if (this.typeOfShipping == 0) {
       this.showCBM = true;
       this.showKg = false;

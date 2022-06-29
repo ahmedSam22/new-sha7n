@@ -139,6 +139,8 @@ getLenght(){
   this.service.length = this.shippingLength.nativeElement.value
   // console.log("length ", this.service.length )
 }
+
+
   onSubmit(){
  //   console.log("HHHHHHHHHHHHHH")
     // console.log("fromChinaHarbor",this.service.fromChinaHarbor )
@@ -157,6 +159,10 @@ getLenght(){
            type:  this.typeofShipping ,
           shipment_type: this.typeOfShipment,
       }
+
+      // localStorage.setItem("shipment_type" , postedForm.shipment_type)
+      // console.log(postedForm.shipment_type , "weeeeeeeeeeeeeeeee");
+      
 
       // saudiHarborError=true;
       // chinaHarborError=true;
@@ -246,6 +252,9 @@ getLenght(){
        console.log("navigated")
   }
 
-
+  getTypeIndex(e:any){
+    localStorage.setItem("shipment_type" , e.target.selectedIndex)
+    console.log("hhhhhhhhhh" , e.target.selectedIndex);
+  }
   
 }

@@ -71,11 +71,12 @@
         <div class="form-row">
           <div class="form-group input-group-lg col-md-4">
             <label for="inputState">{{ "typeShipping" | translate }} : </label>
-            <select class="form-control" formControlName="type">
-              <option value="1" [selected]="true" disabled>
+            <select class="form-control" formControlName="type" [disabled]="true">
+
+              <option *ngIf="this.service.typeOfShipping == 1" value="1" [selected]="true" disabled >
                 {{ "aerial" | translate }}
               </option>
-              <option value="0" disabled>{{ "nautical" | translate }}</option>
+              <option *ngIf="this.service.typeOfShipping == 0" [selected]="true"  value="0" disabled>{{ "nautical" | translate }}</option>
             </select>
           </div>
           <div class="form-group input-group-lg col-md-4">
@@ -85,16 +86,13 @@
               (change)="onTypeOfShipment($event)"
               [disabled]="true"
             >
-              <option [selected]="true">
-                {{ allShipmentType[1].name_ar }}
+              <option *ngIf="this.thisLang == 'ltr'" [selected]="true">
+                {{ this.label[0].name_en }}
               </option>
-              <option
-                *ngFor="let type of allShipmentType; let i = index"
-                [value]="type.id"
-              >
-                <span *ngIf="this.thisLang == 'ltr'"> {{ type.name_en }} </span>
-                <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span>
+              <option *ngIf="this.thisLang == 'rtl'" [selected]="true">
+                {{ this.label[0].name_ar }}
               </option>
+         
               <!-- <option value="1" >{{"battery" | translate}}</option> -->
             </select>
           </div>
@@ -303,7 +301,7 @@
             <label>{{ "coupon" | translate }}: </label>
             <div class="input-group">
               <input
-                type="time"
+                type="text"
                 class="form-control ml-2"
                 placeholder="{{ 'coupon' | translate }}"
                 formControlName="code"
