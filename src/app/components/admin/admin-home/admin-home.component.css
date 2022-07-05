@@ -65,6 +65,7 @@ color:#39DA8A;
     background-color: #32B457;
     min-height: 75px;
     color: white;
+    
 }
 
 .startcontent {
@@ -89,6 +90,8 @@ color:#39DA8A;
     border: 1px solid #32B457;
     display: block;
     height: fit-content;
+    width: fit-content;
+    margin: auto;
 
 }
 
@@ -150,3 +153,8 @@ color:#39DA8A;
      ::ng-deep .owl-carousel .owl-item img {
          height: 40vh;
      }
+
+     .custom {
+        flex-direction: column !important;
+        display: none;
+    }

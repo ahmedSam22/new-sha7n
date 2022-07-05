@@ -57,6 +57,12 @@ import { SuccessComponent } from './components/admin/payment-method/success/succ
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
+import { CommonqComponent } from './components/commonq/commonq.component';
+import { ForbiddenproductsComponent } from './components/forbiddenproducts/forbiddenproducts.component';
+import { OutwarehousesComponent } from './components/outwarehouses/outwarehouses.component';
+import { ImportsComponent } from './components/imports/imports.component';
+import { OutshipingComponent } from './components/outshiping/outshiping.component';
 
 
 @NgModule({
@@ -95,7 +101,13 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     SuccessComponent,
     FailComponent,
     ForgetpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    TermsandconditionsComponent,
+    CommonqComponent,
+    ForbiddenproductsComponent,
+    OutwarehousesComponent,
+    ImportsComponent,
+    OutshipingComponent
   ],
   imports: [
     HttpClientModule,

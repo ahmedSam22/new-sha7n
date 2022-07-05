@@ -1,3 +1,8 @@
+import { OutshipingComponent } from './components/outshiping/outshiping.component';
+import { OutwarehousesComponent } from './components/outwarehouses/outwarehouses.component';
+import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
+import { CommonqComponent } from './components/commonq/commonq.component';
+import { ForbiddenproductsComponent } from './components/forbiddenproducts/forbiddenproducts.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
@@ -27,11 +32,13 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyCodeComponent } from './components/verify-code/verify-code.component';
+import { ImportsComponent } from './components/imports/imports.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
   { path: 'admin', pathMatch: 'full', redirectTo: '/admin/adminHome'},
   { path: '', pathMatch: 'full', redirectTo: '/home'},
+
   
 
   { path: '', component:HomeComponent, children: [
@@ -45,6 +52,14 @@ const routes: Routes = [
     { path: 'reset', component: ResetpasswordComponent},
     { path: 'login/:id', component: LoginComponent},
     { path: 'verify-code/:id', component: VerifyCodeComponent},
+    { path: 'terms',  component: TermsandconditionsComponent},
+    { path: 'common' , component: CommonqComponent},
+    { path: 'products', component: ForbiddenproductsComponent},
+    { path: 'warehouses', component: OutwarehousesComponent},
+    { path: 'imports', component: ImportsComponent},
+    { path: 'shipping', component: OutshipingComponent},
+
+
   ]},
   { path: 'admin', component: HomeAdminComponent,  children: [
 

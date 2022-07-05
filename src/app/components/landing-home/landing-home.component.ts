@@ -160,22 +160,22 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       case 'Import':
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageText = `Specializing in importing from China and global and local markets, and under the supervision and management of our office, we search for high-quality goods and present them to the customer at an appropriate price, until we came to the concept that all goods, especially the Chinese goods we offer, compete with the global market in quality, price, and efficiency at a very high level, and we provide the best services to our customers.
-          1 / The company coordinates with factories to provide the customer's demand at the highest level of quality or
+          , The company coordinates with factories to provide the customer's demand at the highest level of quality or
           According to the customer's desire.
-          2 / The possibility of purchasing or manufacturing without the need to travel to China.
-          3 / We follow up the production stages with the factories until receipt is made on the agreed dates.
-          4 / The company follows up the receipt of the goods and inspects the quality of their conformity with the agreed upon specifications.
-          5/ Possibility of storing goods in our warehouse in China.
-          6 / Provide translators in case the client visits China to facilitate the process of dealing with the Chinese party`;
+          , The possibility of purchasing or manufacturing without the need to travel to China.
+          , We follow up the production stages with the factories until receipt is made on the agreed dates.
+          , The company follows up the receipt of the goods and inspects the quality of their conformity with the agreed upon specifications.
+          , Possibility of storing goods in our warehouse in China.
+          ,Provide translators in case the client visits China to facilitate the process of dealing with the Chinese party`;
         } else {
           this.imageText = ` متخصصين في الاستيراد من الصين والأسواق العالمية والمحلية وبإشراف وإدارة مكتبنا نبحث عن البضائع عالية الجودة وتقديمها للعميل بسعر مناسب حتى وصلنا إلى مفهوم أن جميع البضائع وخصيصا البضائع الصينية التي نقدمها تنافس السوق العالمي في الجودة والسعر وبكفائه عاليا جدا ونقدم أفضل الخدمات لعمالئنا.
-          1 / تقوم الشركة بالتنسيق مع المصانع لتوفير طلب العميل على أعلى مستوى من الجودة أو 
+          , تقوم الشركة بالتنسيق مع المصانع لتوفير طلب العميل على أعلى مستوى من الجودة أو 
           على حسب رغبة العميل.
-          2 / إمكانية الشراء أو التصنيع دون الحاجة الى السفر للصين.
-          3 / نقوم بمتابعة مراحل الإنتاج مع المصانع حتى يتم الأستلام في المواعيد المتفق عليها .
-          4 / تقوم الشركة بمتابعة الإستلام للبضائع ومعاينة الجودة مطابقتها للمواصفات المتفق عليها.
-          5 / إمكانية تخزين البضائع في مستودعاتنا في الصين.
-          6 / توفير مترجمين في حالة زيارة العميل للصين لتسهيل عملية التعامل مع الطرف الصيني `;
+         ,إمكانية الشراء أو التصنيع دون الحاجة الى السفر للصين.
+          , نقوم بمتابعة مراحل الإنتاج مع المصانع حتى يتم الأستلام في المواعيد المتفق عليها .
+          , تقوم الشركة بمتابعة الإستلام للبضائع ومعاينة الجودة مطابقتها للمواصفات المتفق عليها.
+          , إمكانية تخزين البضائع في مستودعاتنا في الصين.
+          , توفير مترجمين في حالة زيارة العميل للصين لتسهيل عملية التعامل مع الطرف الصيني `;
         }
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;

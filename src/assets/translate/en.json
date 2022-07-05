@@ -90,7 +90,8 @@
 
     "worktime" : "Work Time",
     "worktimeTitle" : "worktime ? Shipping days? Everything you need to know about it",
-
+    "values" : "our values",
+    "valuesdesc" : "Our values and distinction over time thanks to the mutual trust that has developed between us and our customers, which was our mission to earn your trust by providing an excellent service that makes the shipping process easy and enables our valued customers to import without any effort and incur the trouble of storage, transportation and customs clearance and for this reason we launched our professional service that provides you The fast, secure, flexible service and guaranteed management of the supply chain you require",
 
 
 
@@ -284,9 +285,9 @@
 "for footer'not used '" : "for footer 'not used '",
 
 "help" : "Help",
-"termsofuse" : "Terms Of Use",
-"privacypolicy" : "Privacy Policy",
-"contactwithus" : "Contact With Us",
+"termsofuse" : "Terms and Conditions",
+"privacypolicy" : "common questions",
+"contactwithus" : "Prohibited Products",
 
 "services":"Services",
 "shipping" : "Shipping",
@@ -320,13 +321,18 @@
 
 
 
-"filelength" : "files uploaded"
+"filelength" : "files uploaded",
 
 
+"for footer data 'not used '" : "for footer data  'not used '",
 
 
+"forbidden" : "Prohibited shipments",
+"forbiddentitle" : "It includes all organizations that shipping can carry with it (liquid materials) of various types such as perfumes, oils, paint, mercury, any other products that contain liquid materials (biological materials) & food that is subject to rotting, human waste, living and dead organisms, bacteria, viruses, flammable materials and fire-causing materials; batteries; Electronic hookah with or without tobacco lighter, gas tubes, powder and others (weapons of all kinds), & parts of the weapon, electroshock devices, pepper spray, toys, firearms, drones, explosive weapons, (robots) alcohol and drugs. - Spy tools - Medicines and drugs - Coins and illegal materials as well as exceptional products that can be shipped when there are special cases with technical support to complete the process and all shipments containing motors, magnets and pumps that must be subject to inspection ..., things that do not have identification labels: for reasons Many shipping companies do not ship it... Any item you want to ship you can contact customer service and we will be happy to answer any question.",
 
 
+"termsintro" : "Introduction",
+"termintrotitle" : "These terms clarify the liability of IBI for any loss, damage, delay, wrong-delivery or non-delivery that occurs to the shipment while in transit and requires the submission of a claim notice by the customer within the specified period set forth in clause No. 12 of these terms, and the customer must read these The terms are strictly and an insurance cover must be requested on the shipment if it is of high material value"
 
 
 }

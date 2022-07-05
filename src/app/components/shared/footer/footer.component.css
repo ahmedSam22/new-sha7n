@@ -40,3 +40,12 @@ i {
     }
  
 }
+
+.font-s{
+    font-size: .8rem;
+
+}
+
+p{
+    cursor: pointer;
+}
