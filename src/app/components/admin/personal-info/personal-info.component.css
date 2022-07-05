@@ -54,9 +54,9 @@
      }
  .showPassword{
     padding: 7px;
-    border: 1px solid #d1cece;
+    /* border: 1px solid #d1cece; */
     border-left: none;
-    height: 38px;
+    height: 100%;
   }
 
  #inputPassword4,#inputPassword5,#inputPassword6 {

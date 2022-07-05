@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { GlobalService } from '../../shared/services/global.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -9,7 +10,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class AdminHomeComponent implements OnInit {
   toggleLeftTable =true; 
-  toggleRightTable = true; 
+  toggleRightTable = true;
+  myAccount:any; 
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -36,7 +38,7 @@ export class AdminHomeComponent implements OnInit {
     },
     nav: true
   }
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService, public service:GlobalService) {
     this.thisLang = localStorage.getItem('currentLang')   || navigator.language;
     console.log(this.thisLang, 'from const');
     translate.use(this.thisLang || "en");
@@ -61,6 +63,12 @@ export class AdminHomeComponent implements OnInit {
   thisLang:any;
 
   ngOnInit(): void {
+    this.service.myAccountData().subscribe((res:any)=>{
+      this.myAccount = res.data
+      console.log(this.myAccount);
+      
+    })
+    
   }
 
 

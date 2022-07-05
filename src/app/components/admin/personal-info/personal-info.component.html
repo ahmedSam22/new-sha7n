@@ -53,19 +53,19 @@
             
             </div>
           
-            <div class="form-row my-3"  *ngIf="secondtRow">
-                <div class="form-group input-group-lg col-md-4">
+            <div class="form-row my-3 d-flex flex-column"  *ngIf="secondtRow">
+                <div class="form-group input-group-lg col-md-6">
                     
                     <label for="inputPassword4">{{"oldpassword" | translate}}</label>
                     <div class="d-flex align-items-center"> 
                         <input  [type]="showConfirm ? 'text' : 'password'" class="form-control" id="inputPassword4" placeholder="{{ 'oldpassword' | translate }}"  [attr.disabled]='editpassword?"true":null'  formControlName="old_password">
                         <span class="showPassword" (click)="this.showConfirm = !this.showConfirm" > 
-                        <i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
-                        <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i> </span>
+                        <i class="fas fa-eye h-100" *ngIf="!this.showConfirm"></i>
+                        <i class="fas fa-eye-slash h-100" *ngIf="this.showConfirm"></i> </span>
                    </div>
                    <!-- <span class="text-danger" *ngIf="showPasswordError">* this filed is required </span>  -->
                 </div>
-                <div class="form-group input-group-lg col-md-4">
+                <div class="form-group input-group-lg col-md-6">
                     <label for="inputPassword5">{{"password" | translate}}</label>
                     <div class="d-flex align-items-center"> 
                     <input  [type]="showConfirm2 ? 'text' : 'password'" class="form-control" id="inputPassword5" placeholder="{{ 'newpassword' | translate }}" [attr.disabled]='editpassword?"true":null' formControlName="password">
@@ -75,7 +75,7 @@
                    </div>
                    <!-- <span class="text-danger" *ngIf="showNewPasswordError">* this filed is required </span>  -->
                 </div>
-                 <div class="form-group input-group-lg col-md-4">
+                 <div class="form-group input-group-lg col-md-6">
                     <label for="inputPassword6">{{"confirmnewpassword" | translate}}</label>
                     <div class="d-flex align-items-center"> 
                     <input  [type]="showConfirm3 ? 'text' : 'password'"  class="form-control" id="inputPassword6" placeholder="{{ 'confirmnewpassword' | translate }}" [attr.disabled]='editpassword?"true":null' formControlName="confirm_password">

@@ -27,6 +27,22 @@
             <p *ngIf="this.thisLang === 'ar'">
               {{ service.description_ar }}
             </p>
+
+
+            <h4 >{{ "import" | translate }}</h4>
+
+            <p >
+              {{ "importtext" | translate }}
+            </p>
+
+
+            <h4 > {{ "shippingout" | translate }}</h4>
+
+            <p >
+              {{ "shippingoutdesc" | translate }}
+            </p>
+
+
             <button class="btn serviceBtn" [routerLink]="'/admin/shipping'">
               {{ "calculateBtn" | translate }}
             </button>

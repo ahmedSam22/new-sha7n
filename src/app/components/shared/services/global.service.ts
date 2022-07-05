@@ -178,5 +178,9 @@ orderPayment(order_id:number,payed:number){
   
     }
 
+  myAccountData(){
+  return this.http.get(`${environment.endpoint}/users/myaccount`) ;
+
+  }
 
 }
