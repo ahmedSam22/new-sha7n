@@ -63,7 +63,7 @@ export class OrdersAdminComponent implements OnInit {
     var links = document.getElementsByTagName("a");
     console.log("llllllllllllllllllllllinkssssssssss",links)
     for (var i = 0; i < links.length; i++) {
-      this.firstSelect=links[12].id
+      this.firstSelect=links[11].id
       console.log("llllllllllllllllllllllinkssssssssss",this.firstSelect)
       this.isActive(this.firstSelect);
       this.select(this.firstSelect) 
