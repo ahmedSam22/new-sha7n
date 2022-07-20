@@ -86,56 +86,17 @@ export class LandingHomeComponent implements OnInit, OnChanges {
         console.log(this.thisLang, 'test2');
       }    
       if (this.thisLang == 'ar') {
-        setTimeout(()=>{this.getImageText("Import")
+        setTimeout(()=>{this.getImageText("Shipping")
       },50)
         console.log(this.thisLang, 'test1');
       } else {
-        setTimeout(()=>{this.getImageText("Import")
+        setTimeout(()=>{this.getImageText("Shipping")
         },50)
         console.log(this.thisLang, 'test2');
       }
       // location.reload()
     });
   }
-  
-  ngOnInit(): void {
-    console.log(localStorage.getItem("currentLang") , "inittttttttttt");
-    
-    console.log(this.thisLang, "let's try");
-
-    this.contactmessagetrue = false;
-    this.contactmessagefalse = false;
-    this.getImageText('Shipping');
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      MessageTitle: ['', Validators.required],
-      Message: ['', Validators.required],
-    });
-    this.testmonialList();
-
-    this.contactUsForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      message: new FormControl('', Validators.required),
-    });
-  }
-
-  ngOnChanges() {}
-  testmonialList() {
-    this.service
-      .gtAllTestmonialsHome()
-      .pipe(map((res: any) => res['data']))
-      .subscribe((res: any) => {
-        console.log(res);
-        this.testmonials = res;
-        //  console.log(this.testmonials[0].description);
-      });
-  }
-
   getImageText(status: any) {
     console.log(status);
     switch (status) {
@@ -232,6 +193,45 @@ export class LandingHomeComponent implements OnInit, OnChanges {
         break;
     }
   }
+
+  ngOnInit(): void {
+    console.log(localStorage.getItem("currentLang") , "inittttttttttt");
+    
+    console.log(this.thisLang, "let's try");
+
+    this.contactmessagetrue = false;
+    this.contactmessagefalse = false;
+    this.getImageText('Shipping');
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      MessageTitle: ['', Validators.required],
+      Message: ['', Validators.required],
+    });
+    this.testmonialList();
+
+    this.contactUsForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
+      message: new FormControl('', Validators.required),
+    });
+  }
+
+  ngOnChanges() {}
+  testmonialList() {
+    this.service
+      .gtAllTestmonialsHome()
+      .pipe(map((res: any) => res['data']))
+      .subscribe((res: any) => {
+        console.log(res);
+        this.testmonials = res;
+        //  console.log(this.testmonials[0].description);
+      });
+  }
+
 
 
   // this.contactmessage=false ;

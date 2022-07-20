@@ -131,8 +131,11 @@ img {
 }
 
 ::ng-deep .owl-carousel .owl-item img {
-  width: 5%;
+  /* width: 5%; */
   margin: 0 auto;
+}
+.img-responsive{
+  width: 5% !important;
 }
 .opacity {
   opacity: 0.4;

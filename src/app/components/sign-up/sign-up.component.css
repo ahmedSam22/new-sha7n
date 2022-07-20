@@ -212,3 +212,7 @@
     padding: 13px;
   }
  
+
+  .pointer{
+    cursor: pointer;
+  }
