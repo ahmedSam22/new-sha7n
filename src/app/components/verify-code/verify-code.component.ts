@@ -13,6 +13,8 @@ export class VerifyCodeComponent implements OnInit {
   verify!: FormGroup;
   fromPage: any;
   concat = '';
+  userData:any;
+  phoneNumber:any;
   verification_code = {};
   id_code!: any;
   timeLeftMinutes: number = 90;
@@ -27,6 +29,9 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userData = localStorage.getItem("qadiautkCurrentUser")
+    this.phoneNumber = '0960' + ""+JSON.parse(this.userData).data.user.phone;
+    
     this.verify = new FormGroup({
       verify_input1: new FormControl(null, Validators.required),
       verify_input2: new FormControl(null, Validators.required),
