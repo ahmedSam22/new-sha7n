@@ -13,8 +13,8 @@ export class VerifyCodeComponent implements OnInit {
   verify!: FormGroup;
   fromPage: any;
   concat = '';
-  userData:any;
-  phoneNumber:any;
+  userData: any;
+  phoneNumber: any;
   verification_code = {};
   id_code!: any;
   timeLeftMinutes: number = 90;
@@ -29,9 +29,9 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userData = localStorage.getItem("qadiautkCurrentUser")
-    this.phoneNumber = '0960' + ""+JSON.parse(this.userData).data.user.phone;
-    
+    this.userData = localStorage.getItem('qadiautkCurrentUser');
+    this.phoneNumber = '0960' + JSON.parse(this.userData).data.user.phone;
+
     this.verify = new FormGroup({
       verify_input1: new FormControl(null, Validators.required),
       verify_input2: new FormControl(null, Validators.required),
@@ -40,7 +40,7 @@ export class VerifyCodeComponent implements OnInit {
     });
     this.activatedRoute.paramMap.subscribe((params) => {
       this.id_code = params.get('id');
-      console.log('ccccccccccccccccccccc', this.id_code);
+      console.log('cc', this.id_code);
     });
     this.minutesTimer();
   }
@@ -63,20 +63,23 @@ export class VerifyCodeComponent implements OnInit {
   //     },1000)
 
   //   }
-  onSubmit(){
+  onSubmit() {
     this.concat =
       this.verify.value.verify_input1 +
       this.verify.value.verify_input2 +
       this.verify.value.verify_input3 +
       this.verify.value.verify_input4;
-    this.verification_code = { code: this.concat };
+    this.verification_code = {
+      phone: JSON.parse(this.userData).data.user.phone,
+      confirm_code: this.concat,
+    };
     console.log(this.verification_code);
     this.service
-      .verificationCode({ ...this.verification_code })
-      .subscribe((res) => {
-        console.log(res);
-        Swal.fire('نجاح', 'تم إدخال كود التحقق بنجاح', 'success');
-        console.log('success');
+      .confirmSignSms({ ...this.verification_code })
+      .subscribe(res => {
+        // console.log(res.status , "hhhhhhhh");
+        // Swal.fire('نجاح', 'تم إدخال كود التحقق بنجاح', 'success');
+        // console.log('success');
         if (this.id_code == 0) {
           setTimeout(() => {
             this.router.navigate(['admin/shipping']);
@@ -92,5 +95,4 @@ export class VerifyCodeComponent implements OnInit {
         }
       });
   }
-
 }

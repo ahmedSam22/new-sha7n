@@ -173,6 +173,10 @@ orderPayment(order_id:number,payed:number){
   return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
 
   }
+  confirmSignSms(form:any){
+    return this.http.post(`${environment.endpoint}/users/sms/confirm`,form) ;
+  
+    }
   confirmSms(form:any){
     return this.http.post(`${environment.endpoint}/users/reset_password`,form) ;
   

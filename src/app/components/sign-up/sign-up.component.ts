@@ -83,6 +83,14 @@ export class SignUpComponent implements OnInit {
 
   show:boolean = false
   showConfirm:boolean = false
+
+  sendSms(){
+    console.log(this.signUp.controls.phone.value , "test hena ");
+    
+    this.service.sendSms(this.signUp.controls.phone.value).subscribe((res:any) => {
+      console.log("log response " , res) ;
+    
+  })}
   onSubmit() {
     if (this.signUp.valid && this.accept) {
       this.service
@@ -95,7 +103,10 @@ export class SignUpComponent implements OnInit {
               
               Swal.fire('fail', res.errors[0], 'warning');
               return ;
-            }
+            }     
+              this.service.sendSms({'phone' : `${this.signUp.controls.phone.value}`}).subscribe(e=>{
+                console.log(e , "send sms from here")
+              })
               Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
               this.router.navigate(['/verify-code',this.id_code]);
           },

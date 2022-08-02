@@ -139,6 +139,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       length: [this.length, Validators.required],
       width: [this.width, Validators.required],
       height: [this.height, Validators.required],
+      code: [this.promo.controls.code]
     });
     // this.form.get('weight')?.disable()
   }
@@ -223,7 +224,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         company_id: this.service.order_company_id,
         invoice: this.commercialInvoice[0],
         list: this.packingList[0],
-        code: '',
+        // code: 'aaa',
       };
 
       console.log('hello ', subForm);
@@ -247,11 +248,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`);
+      window.open(`${e.url}`, "_self");
       console.log(e.url);
     });
   }
   checkCode() {
+    console.log("aaa" , this.promo.value.code);
+    
     return this.globalService
       .checkPromo(this.promo.value.code)
       .subscribe((e: any) => {
@@ -259,7 +262,11 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         
         if(e.status == false){
       Swal.fire('code is invalid');
+    this.form.controls["code"].setValue("")
+
         }else{
+          this.form.controls["code"].setValue(this.promo.value.code)
+
       Swal.fire('code is valid');
 
         }

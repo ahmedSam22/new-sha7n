@@ -77,10 +77,6 @@ const routes: Routes = [
     { path: 'notification', component: NotificationComponent},
     { path: 'customerservice', component: CustomerServiceComponent},
     { path: 'FAQ', component: FAQComponent},
-
-
-
-
   ]},
   { path: 'paymentsuccess', component: SuccessComponent},
   { path: 'paymentfail', component: FailComponent},
