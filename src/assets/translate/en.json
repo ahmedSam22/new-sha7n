@@ -29,7 +29,6 @@
     "for navBar 'not used '" : "for navBar 'not used '",
 
     "home" : "Home",
-    "orders" : "Orders",
     "ourServices" : "Our Services",
     "signup" : "Sign Up",
     "login" : "Login",
@@ -64,8 +63,8 @@
     "kg" : "kg",
     "cdm" : "cbm",
     "battery" : "Battery",
-    "aerial" : "Aerial",
-    "nautical" : "Nautical",
+    "aerial" : "By Air",
+    "nautical" : "By Sea",
     "china" : "China",
 
 
@@ -237,7 +236,7 @@
 "inshipping" : "Order In Shipping",
 "recieving" : "Order Recieving",
 "noorders" : "There Is No Orders In This Stage" , 
-"shippingcharges" : "Shipping Charges" ,
+"shippingcharges" : "Shipping Charges in dollar" ,
 "shippingchargestitle" : "The total cost will be determined when you confirm the weight and sizes of the attached shipment and when you confirm all the data you will be informed of the total cost and if the cost is not suitable for you you can return the amount of the deposit in full",
 "ordernumber" : "Order Number",
 "orderdate" : "Order Date" , 

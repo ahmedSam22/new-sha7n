@@ -64,7 +64,6 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     public translate: TranslateService,
     private globalService: GlobalserviceService
   ) {
-  //  alert(this.service.typeOfShipping)
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
@@ -108,7 +107,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     this.width = this.service.width;
     this.length = this.service.length;
     this.promo = new FormGroup({
-      code: new FormControl(null),
+      code: new FormControl(""),
     });
     console.log(
       'fromChinaHarooooooooooooooooooooobor',
@@ -139,7 +138,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       length: [this.length, Validators.required],
       width: [this.width, Validators.required],
       height: [this.height, Validators.required],
-      code: [this.promo.controls.code]
+      code: [this.promo.controls.code.value]
     });
     // this.form.get('weight')?.disable()
   }
@@ -218,6 +217,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
       let orderId: number;
       let payed: number;
+      
+      // this.form.controls["code"].setValue("")
       let subForm = {
         ...this.form.value,
         weight: this.shipmentWeight,
@@ -228,6 +229,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       };
 
       console.log('hello ', subForm);
+
       this.service.bookingOrder(subForm).subscribe(
         (res: any) => {
           Swal.fire(res.message);
@@ -253,8 +255,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     });
   }
   checkCode() {
-    console.log("aaa" , this.promo.value.code);
-    
+    if(this.promo.value.code){
+      this.form.controls["code"].setValue(this.promo.value.code)
+    }else{
+    }
     return this.globalService
       .checkPromo(this.promo.value.code)
       .subscribe((e: any) => {
@@ -262,7 +266,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         
         if(e.status == false){
       Swal.fire('code is invalid');
-    this.form.controls["code"].setValue("")
+      this.form.controls["code"].setValue("")
+
 
         }else{
           this.form.controls["code"].setValue(this.promo.value.code)

@@ -30,7 +30,7 @@ export class VerifyCodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = localStorage.getItem('qadiautkCurrentUser');
-    this.phoneNumber = '0960' + JSON.parse(this.userData).data.user.phone;
+    this.phoneNumber = '0966' + JSON.parse(this.userData).data.user.phone;
 
     this.verify = new FormGroup({
       verify_input1: new FormControl(null, Validators.required),

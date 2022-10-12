@@ -19,7 +19,7 @@ export class FailComponent implements OnInit {
   })
     setTimeout(()=>{
    
-    return  this.router.navigate(['admin/orders']);
+    return  this.router.navigate(['/admin/orders']);
 
     },3000)
   }

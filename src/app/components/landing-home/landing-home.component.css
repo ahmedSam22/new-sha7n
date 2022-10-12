@@ -422,3 +422,6 @@ img {
   display: none;
 }
 
+.raduis{
+  border-radius: 15px;
+}

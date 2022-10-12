@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  endpoint:'https://pomac.info/sha7n/public/api',
+  endpoint:'https://api.ipe2w.com/api',
   currentUserKey:'qadiautkCurrentUser',
 };
