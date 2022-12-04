@@ -33,49 +33,7 @@ export class GlobalService {
   public get currentUserValue(): any {
     if(this.currentUserSubject.value != null) { return this.currentUserSubject.value }
   }
-singUp(singupUser:any){
-//return this.http.post(`${environment.endpoint}/users/register`,singupUser) ;
-const formData: FormData = new FormData();
-formData.append("name", singupUser.name);
-formData.append("email", singupUser.email);
-formData.append("phone", singupUser.phone);
-formData.append("password", singupUser.password);
-formData.append("confirm_password", singupUser.confirm_password);
 
-return this.http.post(`${environment.endpoint}/users/register`,formData)
-.pipe( map((user:any) => {
-  console.log('registerrrrrr');
-  console.log(user);
-
-    if (user && user.data.access_token) {
-        localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user));
-        this.currentUserSubject.next(user);
-
-    } return user;
-}));
-  }
-  logIn(loginUser:any){
-  // return this.http.post(`${environment.endpoint}/users/login`,loginUser) ;
-    const formData: FormData = new FormData();
-    formData.append("phone", loginUser.phone);
-    formData.append("password", loginUser.password);
-
-    return this.http.post(`${environment.endpoint}/users/login`,formData)
-    .pipe( map((user:any) => {
-      console.log('userrrrrrrr');
-      console.log(user);
-      console.log(user);
-      console.log(user);
-        if (user && user.data.access_token) {
-            localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user));
-            this.currentUserSubject.next(user);
-
-        } return user;
-    }));
-  }
-verificationCode(code:any){
-  return this.http.post(`${environment.endpoint}/users/active`,code) ;
-}
 contactUsHome(contact:any){
   return this.http.post(`${environment.endpoint}/contact`,contact) ;
 }
@@ -85,10 +43,6 @@ personalInfo(){
 }
 
 updatePersonalInfo(info:any){
-    // name:this.personalInfo.value.name ,
-  // phone:this.personalInfo.value.phone ,
-  // email:this.personalInfo.value.email  ,
-  // image:this.file[0]
   const formData: FormData = new FormData();
   formData.append("name", info.name);
   formData.append("phone", info.phone);
@@ -158,7 +112,6 @@ formData.append("code", form.code);
   return this.http.post(`${environment.endpoint}/companies/add-booking`,formData) ;
  }
 orderByStatusId(status_id:any){
-  // return this.http.get(`${environment.endpoint}/backend/orders?status_id=${status_id}`) ;
   return this.http.get(`${environment.endpoint}/orders?status_id=${status_id}`) ;
 }
 orderByOrderId(order_id:any){
@@ -169,22 +122,12 @@ orderPayment(order_id:number,payed:number){
   return this.http.post(`${environment.endpoint}/orders/pay?order_id=${order_id}&payed=${payed}` , {}) ;
 
 }
-  sendSms(form:any){
-  return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
-
-  }
-  confirmSignSms(form:any){
-    return this.http.post(`${environment.endpoint}/users/sms/confirm`,form) ;
-  
-    }
-  confirmSms(form:any){
-    return this.http.post(`${environment.endpoint}/users/reset_password`,form) ;
-  
-    }
-
   myAccountData(){
   return this.http.get(`${environment.endpoint}/users/myaccount`) ;
 
   }
-
+  getAllShipmentTypes(){
+    return this.http.get(`${environment.endpoint}/shipment_types`) ;
+  
+  }
 }

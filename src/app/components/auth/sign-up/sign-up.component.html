@@ -1,0 +1,140 @@
+<section class="container-fluid">
+  <div class="row" style="min-height: 670px">
+    <div class="col-md-6 col-sm-12 mt-5">
+      <div class="leftSide">
+        <a (click)="back()">
+          {{ "backHome" | translate }}
+        </a>
+        <div class="text-center" style="left: 45%">
+          <h3 class="text-center">{{ "createaccount" | translate }}</h3>
+        </div>
+
+        <form
+          [formGroup]="signUp"
+          style="direction: ltr"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputName1">{{ "fullName" | translate }}</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="exampleInputName1"
+              placeholder="{{ 'fullName' | translate }}"
+              [formControlName]="'name'"
+            />
+          </div>
+          <div class="offset-md-2 col-md-8">
+            <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
+            <div class="input-group align-items-center">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="exampleInputPhone1"
+                placeholder="5xxxxxxxxx"
+                [formControlName]="'phone'"
+              />
+
+              <div *ngIf="signUp.controls.phone.errors?.['minlength']">
+                {{ "phoneValid" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputEmail1">{{ "email" | translate }} </label>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="{{ 'email' | translate }}"
+              [formControlName]="'email'"
+            />
+          </div>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPassword1">{{
+              "password" | translate
+            }}</label>
+
+            <div *ngIf="signUp.controls.password.errors?.['minlength']">
+              {{ "passwordValid" | translate }}
+            </div>
+            <div class="d-flex align-items-center">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                required="true"
+                minlength="6"
+                id="exampleInputPassword1"
+                placeholder="{{ 'password' | translate }}"
+                [type]="show ? 'text' : 'password'"
+                [formControlName]="'password'"
+              />
+              <span class="showPassword" (click)="this.show = !this.show"
+                ><i class="fas fa-eye" *ngIf="!show"></i>
+                <i class="fas fa-eye-slash" *ngIf="show"></i>
+              </span>
+            </div>
+          </div>
+          <div class="form-group offset-md-2 col-md-8">
+            <label for="exampleInputPassword2">{{
+              "confirmPassword" | translate
+            }}</label>
+            <div class="d-flex align-items-center">
+              <input
+                [type]="showConfirm ? 'text' : 'password'"
+                class="form-control form-control-lg"
+                required="true"
+                minlength="6"
+                id="exampleInputPassword2"
+                placeholder="{{ 'confirmPassword' | translate }}"
+                [formControlName]="'confirm_password'"
+              />
+              <span
+                class="showPassword"
+                (click)="this.showConfirm = !this.showConfirm"
+                ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
+                <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
+              </span>
+            </div>
+          </div>
+          <div class="form-group offset-md-2 col-md-8">
+            <div class="form-check check justify-content-start d-flex">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                (click)="switchaccept()"
+              />
+              <label class="form-check-label w-100" for="exampleCheck1"
+                >{{ "agree" | translate }}
+                <span class="pointer" routerLink="/terms">
+                  {{ "terms" | translate }}
+                </span>
+              </label>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary col-md-12 d-block"
+              [disabled]="!signUp.valid"
+            >
+              {{ "createaccount" | translate }}
+            </button>
+            <p class="text-center">
+              {{ "haveaccount" | translate }}
+              <a [routerLink]="['/login', id_code]">
+                {{ "login" | translate }}
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 right--col">
+      <div class="rightSide">
+        <div class="fullImage"></div>
+      </div>
+    </div>
+  </div>
+</section>

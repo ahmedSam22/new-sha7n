@@ -5,22 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { OurServicesComponent } from './components/our-services/our-services.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LoginComponent } from './components/login/login.component';
+
 import { HelpersComponent } from './components/shared/helpers/helpers.component';
-import { GuardsComponent } from './components/shared/guards/guards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxFlagPickerModule } from 'ngx-flag-picker';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { VerifyCodeComponent } from './components/verify-code/verify-code.component';
 import { PersonalInfoComponent } from './components/admin/personal-info/personal-info.component';
 import { ShippingFeeCalculatorComponent } from './components/admin/shipping-fee-calculator/shipping-fee-calculator.component';
 import { ComercialShippmentComponent } from './components/admin/comercial-shippment/comercial-shippment.component';
@@ -29,16 +21,12 @@ import { WarehousesComponent } from './components/admin/warehouses/warehouses.co
 import { PaymentMethodComponent } from './components/admin/payment-method/payment-method.component';
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { NotificationComponent } from './components/admin/notification/notification.component';
-import { CustomerServiceComponent } from './components/admin/customer-service/customer-service.component';
-import { FAQComponent } from './components/admin/faq/faq.component';
 import { LogOutComponent } from './components/admin/log-out/log-out.component';
 import { HomeAdminComponent } from './components/admin/home/home.component';
-import { OrdersAdminComponent } from './components/admin/orders/orders.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminSidebarComponent } from './components/shared/admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './components/shared/admin-footer/admin-footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { LandingHomeComponent } from './components/landing-home/landing-home.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -46,8 +34,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import { AddComponent } from './components/admin/payment-method/add/add.component';
-import { GlobalserviceService } from './components/globalservice/globalservice.service';
-import { JwtInterceptor } from './jwt.interceptor';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalService } from './components/shared/services/global.service';
 import { ToastrModule } from 'ngx-toastr';
@@ -55,15 +41,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SuccessComponent } from './components/admin/payment-method/success/success.component';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
-import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
-import { CommonqComponent } from './components/commonq/commonq.component';
-import { ForbiddenproductsComponent } from './components/forbiddenproducts/forbiddenproducts.component';
-import { OutwarehousesComponent } from './components/outwarehouses/outwarehouses.component';
-import { ImportsComponent } from './components/imports/imports.component';
-import { OutshipingComponent } from './components/outshiping/outshiping.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { JwtInterceptor } from './components/auth/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,43 +50,24 @@ import { OutshipingComponent } from './components/outshiping/outshiping.componen
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    OrdersComponent,
-    OurServicesComponent,
-    AboutUsComponent,
-    ContactUsComponent,
-    SignUpComponent,
-    LoginComponent,
     HelpersComponent,
-    GuardsComponent,
-    VerifyCodeComponent,
-    PersonalInfoComponent,
-    ShippingFeeCalculatorComponent,
-    ComercialShippmentComponent,
-    ImportationComponent,
-    WarehousesComponent,
-    PaymentMethodComponent,
-    NotificationComponent,
-    CustomerServiceComponent,
-    FAQComponent,
+    // PersonalInfoComponent,
+    // ShippingFeeCalculatorComponent,
+    // ComercialShippmentComponent,
+    // ImportationComponent,
+    // PaymentMethodComponent,
+    // NotificationComponent,
     LogOutComponent,
     HomeAdminComponent,
-    OrdersAdminComponent,
+    // OrdersAdminComponent,
     AdminSidebarComponent,
     AdminFooterComponent,
-    AdminHomeComponent,
+    // AdminHomeComponent,
     LandingHomeComponent,
-    WalletComponent,
+    // WalletComponent,
     AddComponent,
     SuccessComponent,
     FailComponent,
-    ForgetpasswordComponent,
-    ResetpasswordComponent,
-    TermsandconditionsComponent,
-    CommonqComponent,
-    ForbiddenproductsComponent,
-    OutwarehousesComponent,
-    ImportsComponent,
-    OutshipingComponent
   ],
   imports: [
     HttpClientModule,
@@ -116,7 +76,9 @@ import { OutshipingComponent } from './components/outshiping/outshiping.componen
     NgbModule,
     NgxFlagPickerModule,
     CarouselModule,
-    BrowserAnimationsModule,MatFormFieldModule,MatInputModule ,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule ,
     ReactiveFormsModule,
     MatStepperModule,
     MatSidenavModule,

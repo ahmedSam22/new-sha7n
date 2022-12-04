@@ -1,0 +1,69 @@
+<section class="container-fluid "  >
+    <div class="row justify-content-center" style="min-height:680px">
+        <div class="col-md-6 col-sm-12 leftverify">
+            <div class="leftSide">
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-md-12 col-sm-12"> -->
+                        <!-- <a [routerLink]="['/sign-up']">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                  </svg> {{"back" | translate}}
+                        </a>
+                </div> -->
+                <!-- </div> -->
+                <div class="row">
+                    
+                    <div class="col-md-12 col-sm-8">
+                        <div class="container-fluid verify justify-content-center align-items-center py-5" >
+                              <div class="p-2">  
+                            <a [routerLink]="['/sign-up',id_code]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                                <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                                </svg> {{"backtosignup" | translate}}
+                            </a>
+                             </div>
+                               <div class="position-relative ">
+                                   <!-- <div class="card p2 text-center"> -->
+                                    <!-- <div class="float-left" style="width:100%">   -->
+                                    
+
+                                <div class="card p2 text-center">
+                                    <form (ngSubmit)="onSubmit()" class="p2 text-center">  
+                                    <h6>{{"verificationcode" | translate}} <br> </h6>
+                                    <div> <span> {{"enterverificationcode" | translate}}</span> <br> <small>{{phoneNumber}}</small> </div>
+                                    <!-- <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> <input class="m-2 text-center form-control rounded" type="text" id="input1" v-on:keyup="inputenter(1)" maxlength="1" [formControlName]="'verify_input1'"/> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text" id="input2" [formControlName]="'verify_input2'"
+                                            maxlength="1" /> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text" id="input3" maxlength="1" [formControlName]="'verify_input3'"/> <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(4)" [formControlName]="'verify_input4'"
+                                            type="text" id="input4" maxlength="1" /> 
+                                    </div> -->
+                                    <div class="text-center mb-5">
+                                        <ng-otp-input (onInputChange)="OTP.code = $event" [config]="{length:OTP.length}"></ng-otp-input>
+                                      </div>
+                                    <!-- routerLink="/admin" -->
+                                    <button type="submit" class="btn btn-primary" style="padding:5px 30px;">{{"Send" | translate}} </button>
+                                    <div class=" content justify-content-center align-items-center">
+                                        <span> {{"validationestimer" | translate}} <span  style="color:#32b457"> {{timeLeftMinutes}} </span>   </span> <br>
+                                        <a href="#" class="text-decoration-none " style="color:#32b457"> &nbsp; {{"resendcode" | translate}}</a>
+                                    </div>
+                                </form> 
+                                </div>  
+                            <!-- </div> -->
+                       
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="col-md-6 col-sm-12 rightverify">
+            <div class=" rightSide ">
+                <div class="fullImage"> </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,258 @@
+.orders {
+    background: url(../../../../assets/images/order.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* position: fixed; 
+    top: 89px; 
+    left: 0;  */
+    min-width: 100%;
+    min-height: 100%;
+    margin-top: 72px;
+}
+
+.leftCard,
+.rightCard {
+    margin-top: 40px;
+}
+
+.leftCard {
+    min-height: 400px;
+    background-color: white;
+}
+
+.leftCard h3 {
+    margin: 20px 0px;
+}
+
+.leftCard p {
+    font-size: 14px;
+}
+
+.leftCard .shipping h6 {
+    margin-top: 30px;
+    color: #32B457;
+}
+
+.leftCard .shipForm label {
+    font-size: 13px;
+    color: grey;
+}
+
+
+/*----------------------------------------------------------- */
+
+.rightCard {
+    min-height: 350px;
+}
+
+.rightCard .container {
+    background-color: white;
+    margin: 10px 0px;
+}
+
+.rightCard .leftSideCard {
+    float: left;
+    height: 200px;
+    padding: 0px 5px;
+}
+
+.rightCard .leftSideCard span {
+    margin: 25px 0px 10px 0px;
+    display: inline-block;
+}
+
+.rightCard .leftSideCard span:first-of-type {
+    float: left;
+    padding: 0px 25px;
+}
+
+.rightCard .leftSideCard span:nth-child(2) {
+    float: right;
+}
+
+.rightCard .leftSideCard ul {
+    margin-top: 60px;
+    padding: 10px;
+}
+
+.rightCard .leftSideCard ul li {
+    line-height: 35px;
+}
+
+.rightCard .rightSideCard {
+    padding: 5px;
+    float: right;
+    border-left: 1px solid black;
+    min-height: 265px;
+    margin: 10px 0px;
+}
+
+.rightCard .rightSideCard .top {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.rightCard .rightSideCard .top img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+.rightCard .rightSideCard .top p {
+    text-align: center;
+    padding: 5px;
+    width: 100px;
+    text-align: left;
+}
+
+.rightCard .rightSideCard .middle p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rightCard .rightSideCard .bottom p {
+    font-size: 50px;
+    color: #32B457;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+
+/* @media (min-width: 768px) and (max-width: 992px){...}
+ @media (min-width: 480px) and (max-width: 767px) {...} */
+
+@media only screen and (min-width: 480px) and (max-width:1440px) {
+    .rightCard .rightSideCard .middle p {
+        font-size: 12px;
+    }
+    .rightCard .rightSideCard .bottom p {
+        font-size: 20px;
+    }
+    .rightCard .rightSideCard .top  {
+        display: flex !important;
+       justify-content: space-between !important;
+    }
+    .rightCard .rightSideCard .top p {
+        padding:8px;
+        font-size: 12px;
+        width: 50px;
+    }
+    .rightCard .leftSideCard ul li {
+        line-height: 30px;
+        font-size: 12px;
+    }
+    .rightCard .leftSideCard span {
+        font-size: 12px;
+    }
+    .rightCard .rightSideCard .top img {
+        width:50px;
+        height:50px;
+    }
+}
+
+@media only screen and (max-width:968px) {
+    .rightCard .rightSideCard .middle p {
+        font-size: 12px;
+        margin-top:30px
+    }
+    .rightCard .rightSideCard .bottom p {
+        font-size: 15px;
+    }
+    .rightCard .leftSideCard ul li {
+        line-height: 25px;
+    }
+    .img1{
+        display: none;
+    }
+
+    .leftSideCard{
+        height: auto !important;
+    }
+    .text span{
+        font-size: 16px;
+    }
+
+    .text li{
+        font-size: 12px;
+    }
+    .forBorder{
+        border-left: none !important;
+        border-top: 1px solid gray;
+    }
+}
+
+.rightCard .rightSideBtn {
+    width: 100%;
+    height: 70px;
+}
+
+ .btnCalculating ,.btnBooking {
+    background-color: #32B457;
+    color: white;
+    padding: 10px 0px ;
+    margin: 10px;
+    
+}
+ 
+.input-group-text{
+    height: 100%;
+    color: #32B457;
+   font-weight: 500 ;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius:0px;
+}
+.imgg {
+    height: 100%;
+}
+ .imgg .fullImage {
+   background-image: url('../../../../assets/images/illustration.png');  
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   width: 100%;
+   height: 100%;
+   resize: both;
+   position: relative;
+   right: 0px;
+   bottom: 0px;
+}
+.fullImage-rtl {
+    background-image: url('../../../../assets/images/flip.png');  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    resize: both;
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+ }
+ 
+.text span{
+    font-size: 18px;
+}
+
+.text li{
+    font-size: 14px;
+}
+
+.myCard{
+    background-color: white !important;
+}
+
+.forBorder{
+    border-left: 1px solid gray;
+}
+.forBorder-rtl{
+    border-right: 1px solid gray;
+}
+
+
+.company-rules li {
+   line-height: 25px;
+   margin-top: 5px ;
+}
