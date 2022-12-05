@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { GlobalserviceService } from '../../globalservice/globalservice.service';
+import { GeneralService } from '../../general/general.service';
 @Component({
   selector: 'app-shipping-fee-calculator',
   templateUrl: './shipping-fee-calculator.component.html',
@@ -62,7 +63,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     private formbuilder: FormBuilder,
     private router: Router,
     public translate: TranslateService,
-    private globalService: GlobalserviceService
+    private globalService: GlobalserviceService,
+    public incomeData : GeneralService
   ) {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
@@ -75,13 +77,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     });
     // this.index = localStorage.getItem('shipment_type');
     this.globalService.getAllShipmentTypes().subscribe((res: any) => {
-      // console.log(res.data, 'oooooooooooooooooooooooo');
+      //  console.log(res.data, 'oooooooooooooooooooooooo');
 
       this.allShipmentType = res.data;
-      console.log("qwwwwwwwq" , this.allShipmentType);
+      // console.log("qwwwwwwwq" , this.allShipmentType);
       
       this.label = this.allShipmentType.filter((e: any) => {
-        return e.id == this.service.typeOfShipment;
+        return e.id == this.typeOfShipment;
       });
       console.log(this.label, 'oooooooooooooooooooooooo');
     });
@@ -98,20 +100,20 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     } else if(localStorage.getItem("currentLang") == 'en'){
        this.thisLang = 'ltr';
     }
-    this.fromChinaHarbor = this.service.fromChinaHarbor;
-    this.toSaudiHarbor = this.service.toSaudiHarbor;
-    this.typeOfShipping = this.service.typeOfShipping;
-    this.typeOfShipment = this.service.typeOfShipment;
-    this.shipmentWeight = this.service.shipmentWeight;
-    this.height = this.service.height;
-    this.width = this.service.width;
-    this.length = this.service.length;
+    this.fromChinaHarbor = this.incomeData.fromChinaHarbor;
+    this.toSaudiHarbor = this.incomeData.toSaudiHarbor;
+    this.typeOfShipping = this.incomeData.typeOfShipping;
+    this.typeOfShipment = this.incomeData.typeOfShipment;
+    this.shipmentWeight = this.incomeData.shipmentWeight;
+    this.height = this.incomeData.height;
+    this.width = this.incomeData.width;
+    this.length = this.incomeData.length;
     this.promo = new FormGroup({
       code: new FormControl(""),
     });
     console.log(
-      'fromChinaHarooooooooooooooooooooobor',
-      this.service.typeOfShipment
+      'tesssssssst',
+      this.incomeData.typeOfShipment
     );
   
     if (this.typeOfShipping == 0) {
