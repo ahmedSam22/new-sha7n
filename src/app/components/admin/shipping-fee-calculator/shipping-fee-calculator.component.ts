@@ -264,17 +264,25 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     return this.globalService
       .checkPromo(this.promo.value.code)
       .subscribe((e: any) => {
-        console.log(e , "coooooooooooode");
+        // console.log(e , "coooooooooooode");
         
         if(e.status == false){
-      Swal.fire('code is invalid');
+          Swal.fire(
+            'خطأ',
+            'الكود المستخدم غير صحيح',
+            'warning'
+          );
       this.form.controls["code"].setValue("")
 
 
         }else{
           this.form.controls["code"].setValue(this.promo.value.code)
 
-      Swal.fire('code is valid');
+          Swal.fire(
+            'نجاح',
+            'تم تعديل الشحنة بنجاح',
+            'success'
+          );
 
         }
       });
