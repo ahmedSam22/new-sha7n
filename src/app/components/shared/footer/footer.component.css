@@ -3,6 +3,7 @@ section {
     color: #fff;
     padding: 40px 0px;
     direction: rtl;
+    position: relative;
 }
 
 .aboutArtna p {
@@ -48,4 +49,10 @@ i {
 
 p{
     cursor: pointer;
+}
+.reserved{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    font-weight: 300;
 }

@@ -425,3 +425,8 @@ img {
 .raduis{
   border-radius: 15px;
 }
+
+::ng-deep .mat-form-field-outline{
+  background-color: #f1f1f1 !important;
+  color: #c8c8c8;
+}

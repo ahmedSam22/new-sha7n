@@ -33,7 +33,7 @@ export class VerifyCodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = localStorage.getItem('qadiautkCurrentUser');
-    this.phoneNumber = '0966' + JSON.parse(this.userData).data.user.phone;
+    this.phoneNumber = '0+669' + JSON.parse(this.userData).data.user.phone;
 
     // this.verify = new FormControl();
     this.activatedRoute.paramMap.subscribe((params) => {

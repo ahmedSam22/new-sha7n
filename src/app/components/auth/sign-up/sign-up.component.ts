@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
     });
     this.route.paramMap.subscribe(params => {
       this.id_code = params.get('id');
-    console.log("jkkkkkkkkkk",this.id_code)
+    // console.log("jkkkkkkkkkk",this.id_code)
    
   });
   }

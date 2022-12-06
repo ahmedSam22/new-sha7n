@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'try-vesterbro, sans-serif';
+
+    src: url(./font/TRYVesterbro-Medium.ttf);
+}
 main {
     display: flex;
     flex-direction: column;
@@ -6,4 +11,7 @@ main {
 
 main .wrapping {
     flex-grow: 1;
+}
+*{
+    font-family: 'try-vesterbro, sans-serif';
 }
