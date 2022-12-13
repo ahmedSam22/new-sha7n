@@ -65,7 +65,7 @@
                 <div class="text-center shipment">
                     <ul class=" shipmentlist">
                         <li> {{"numberofshipment" | translate}} </li>
-                        <li> <strong> {{myAccount.shipped}} </strong> </li>
+                        <li> <strong> {{myAccount?.shipped}} </strong> </li>
                         <li>{{"shipment" | translate}}</li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="text-center parcel">
                     <ul class="parcellist">
                         <li> {{"numberofparcels" | translate}}</li>
-                        <li> <strong> {{myAccount.orders}} </strong> </li>
+                        <li> <strong> {{myAccount?.orders}} </strong> </li>
                         <li>{{"orders" | translate}}</li>
                     </ul>
                 </div>

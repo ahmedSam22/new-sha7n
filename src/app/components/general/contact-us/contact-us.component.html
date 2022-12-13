@@ -107,6 +107,9 @@
                   placeholder="{{ 'fullName' | translate }}"
                   formControlName="name"
                 />
+                <span class="forErrors" *ngIf="contactUs.controls.name.errors &&(contactUs.controls.name.dirty || contactUs.controls.name.touched)">
+                  {{ "nameValid" | translate }}
+                </span>
               </div>
               <div class="form-group col-md-6">
                 <!-- <label for="inputEmail4">Email</label> -->
@@ -114,11 +117,12 @@
                   type="email"
                   class="form-control form-control-lg"
                   id="inputEmail4"
-                  placeholder="Email"
-                formControlName="email"
-
+                  formControlName="email"
                   placeholder="{{ 'email' | translate }}"
                 />
+                <span class="forErrors" *ngIf="contactUs.controls.email.errors &&(contactUs.controls.email.dirty || contactUs.controls.email.touched)">
+                  {{ "mailValid" | translate }}
+                </span>
               </div>
             </div>
             <div class="form-group">
@@ -132,6 +136,9 @@
 
                 placeholder="{{ 'phone' | translate }}"
               />
+              <span class="forErrors" *ngIf="contactUs.controls.phone.errors &&(contactUs.controls.phone.dirty || contactUs.controls.phone.touched)">
+                {{ "phoneValid" | translate }}
+              </span>
             </div>
             <div class="form-group">
               <!-- <label for="inputMessage">Message Title</label> -->
@@ -142,6 +149,9 @@
                 placeholder="{{ 'messageTitle' | translate }}"
                 formControlName="title"
               />
+              <span class="forErrors" *ngIf="contactUs.controls.title.errors &&(contactUs.controls.title.dirty || contactUs.controls.title.touched)">
+                {{ "titleValid" | translate }}
+              </span>
             </div>
 
             <div class="form-group">
@@ -153,8 +163,11 @@
                 placeholder="{{ 'message' | translate }}"
                 formControlName="message"
               ></textarea>
+              <span class="forErrors" *ngIf="contactUs.controls.message.errors &&(contactUs.controls.message.dirty || contactUs.controls.message.touched)">
+                {{ "messageValid" | translate }}
+              </span>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">{{"Send" | translate}}</button>
+            <button type="submit" class="btn btn-primary btn-lg w-25">{{"Send" | translate}}</button>
           </form>
         </div>
       </div>

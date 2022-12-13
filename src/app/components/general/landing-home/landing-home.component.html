@@ -1,17 +1,19 @@
 <div class="customContainer">
   <section class="main-home">
     <div class="container-fluid h-100">
-      <div class="row h-100 x" [ngClass]="thisLang==='ltr' ? 'row h-100 x' : 'row h-100 x-rtl'" >
+      <div
+        class="row h-100 x"
+        [ngClass]="thisLang === 'ltr' ? 'row h-100 x' : 'row h-100 x-rtl'"
+      >
         <!-- <div class="row h-100 x"  > -->
         <div class="col-lg-6 col-md-12 col-12 y">
           <div class="text-wrapper d-flex flex-column">
             <h1>
-              {{"header" | translate}}
+              {{ "header" | translate }}
             </h1>
-            <span>{{'title' | translate}}
-            </span>
+            <span>{{ "title" | translate }} </span>
             <button class="btn btn-success p-3 mt-4" [routerLink]="'/orders'">
-              {{"calculateBtn" | translate}}
+              {{ "calculateBtn" | translate }}
             </button>
           </div>
         </div>
@@ -20,16 +22,15 @@
   </section>
   <section class="gallery">
     <div class="container-fluid">
-      <div class="row gallery-body  plane-custom">
+      <div class="row gallery-body plane-custom">
         <div class="col-md-6 align-self-center gallery--text">
           <div class="headingTitle">
             <img src="../../../assets/images/para1.png" alt="" srcset="" />
 
-            <h3 [innerHTML]="imageTitle">
-            </h3>
+            <h3 [innerHTML]="imageTitle"></h3>
           </div>
           <span class="imageText">
-            {{ imageText }} 
+            {{ imageText }}
           </span>
         </div>
         <div class="col-md-6 custom">
@@ -42,7 +43,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{"Shipping" | translate}}
+              {{ "Shipping" | translate }}
             </div>
             <div class="column">
               <img
@@ -52,7 +53,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{"Import" | translate}}
+              {{ "Import" | translate }}
             </div>
           </div>
 
@@ -65,7 +66,7 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{"ware-house" | translate}}
+              {{ "ware-house" | translate }}
             </div>
             <div class="column">
               <img
@@ -75,29 +76,28 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{"Why-Us" | translate}}
+              {{ "Why-Us" | translate }}
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </section>
-  <section class="testimonials mt-5 " >
+  <section class="testimonials mt-5">
     <div class="row w-100 row-border">
       <div class="col-md-6 p-0">
         <img
-          height="500px"
+          height="700px"
           class="about--img"
-          src="../../../assets/images/dcb510f2-b4e7-494f-89da-6382c5f87a03.jfif"
+          src="../../../assets/images/aboutUshome1.png"
           alt=""
           srcset=""
         />
       </div>
       <div class="col-md-6 greenBack d-flex flex-column justify-content-center">
-        <h2 class="my-4">{{'AboutUs' | translate}}</h2>
+        <h2 class="my-4">{{ "AboutUs" | translate }}</h2>
         <span>
-         {{"aboutUsText" | translate}}
+          {{ "aboutUsText" | translate }}
         </span>
         <!-- <button class=" btn btn-success my-4 p-3 w-75  mx-auto" [routerLink]="'/orders'">
           {{"calculateBtn" | translate}}
@@ -106,9 +106,9 @@
     </div>
     <!-- Testmonials -->
     <div class="carousel my-4 ltr plane">
-      <h4 class="text-center">{{"testimonialHeader" | translate}}</h4>
+      <h4 class="text-center">{{ "testimonialHeader" | translate }}</h4>
       <p class="text-center opacity">
-        {{"testimonialTitle" | translate}}
+        {{ "testimonialTitle" | translate }}
       </p>
       <owl-carousel-o [options]="customOptions">
         <ng-template
@@ -119,7 +119,6 @@
           <img
             src="../../../assets/images/,,.png"
             class="img-responsive"
-            
             alt=""
             srcset=""
           />
@@ -138,22 +137,33 @@
     <!-- Testmonials -->
     <div class="banner mt-2 raduis">
       <span>
-        {{"calcText" | translate}}
+        {{ "calcText" | translate }}
       </span>
 
       <button class="btn btn-success my-4 p-3" [routerLink]="['/sign-up/1']">
-        {{"importwithus" | translate}}
-        <svg style="padding-bottom :2px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+        {{ "importwithus" | translate }}
+        <svg
+          style="padding-bottom: 2px"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="currentColor"
+          class="bi bi-arrow-up-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
+          />
         </svg>
       </button>
     </div>
   </section>
   <section class="contact-us my-4">
     <div class="header my-4">
-      <h2>{{"contactUs" | translate}} !</h2>
-      <span class="text-muted font-4">
-        {{"contactTitle" | translate}}
+      <h2>{{ "contactUs" | translate }} !</h2>
+      <span class="contact-par font-4">
+        {{ "contactTitle" | translate }}
       </span>
     </div>
     <div class="row w-100 natural">
@@ -180,47 +190,64 @@
             <form [formGroup]="contactUsForm" (ngSubmit)="onSubmitContactUs()">
               <div>
                 <div class="form-row mb-2">
-                  <div class="col-md-6">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> {{"fullName" | translate}} </mat-label>
-                      <input matInput type="text" formControlName="name" />
+                  <div class="col-md-6 b-none">
+                    <mat-form-field  class="w-100 b-none" appearance="fill">
+                      <mat-label> {{ "fullName" | translate }} </mat-label>
+                      <input required="true" matInput type="text" formControlName="name" />
                     </mat-form-field>
+                    <span class="forErrors" *ngIf="contactUsForm.controls.name.errors &&(contactUsForm.controls.name.dirty || contactUsForm.controls.name.touched)">
+                      {{ "nameValid" | translate }}
+                    </span>
                   </div>
                   <div class="col-md-6">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> {{"email" | translate}} </mat-label>
-                      <input matInput type="text" formControlName="email" />
+                    <mat-form-field class="w-100" appearance="fill">
+                      <mat-label> {{ "email" | translate }} </mat-label>
+                      <input required="true" matInput type="text" formControlName="email" />
                     </mat-form-field>
+                    <span class="forErrors" *ngIf="contactUsForm.controls.email.errors &&(contactUsForm.controls.email.dirty || contactUsForm.controls.email.touched)">
+                      {{ "mailValid" | translate }}
+                    </span>
+                    
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-12">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> {{"phone" | translate}} </mat-label>
-                      <input matInput type="text" formControlName="phone" />
+                    <mat-form-field class="w-100" appearance="fill">
+                      <mat-label> {{ "phone" | translate }} </mat-label>
+                      <input required="true" matInput type="text" formControlName="phone" />
                     </mat-form-field>
+                    <span class="forErrors" *ngIf="contactUsForm.controls.phone.errors &&(contactUsForm.controls.phone.dirty || contactUsForm.controls.phone.touched)">
+                      {{ "phoneValid" | translate }}
+                    </span>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-12">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> {{"messageTitle" | translate}} </mat-label>
-                      <input matInput type="text" formControlName="title" />
+                    <mat-form-field class="w-100" appearance="fill">
+                      <mat-label> {{ "messageTitle" | translate }} </mat-label>
+                      <input required="true" matInput type="text" formControlName="title" />
                     </mat-form-field>
+                    <span class="forErrors" *ngIf="contactUsForm.controls.title.errors &&(contactUsForm.controls.title.dirty || contactUsForm.controls.title.touched)">
+                      {{ "titleValid" | translate }}
+                    </span>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-12">
-                    <mat-form-field class="w-100" appearance="outline">
-                      <mat-label> {{"message" | translate}} </mat-label>
+                    <mat-form-field class="w-100" appearance="fill">
+                      <mat-label> {{ "message" | translate }} </mat-label>
                       <!-- <input matInput type="text" formControlName="message" /> -->
-                      <textarea matInput type="text" formControlName="message" > </textarea>
+                      <textarea required="true" rows="10" matInput type="text" formControlName="message">
+                      </textarea>
                     </mat-form-field>
+                    <span class="forErrors" *ngIf="contactUsForm.controls.message.errors &&(contactUsForm.controls.message.dirty || contactUsForm.controls.message.touched)">
+                      {{ "messageValid" | translate }}
+                    </span>
                   </div>
                 </div>
 
                 <button class="btn btn-success w-100 p-3" type="submit">
-                  {{"Send" | translate}}
+                  {{ "Send" | translate }}
                 </button>
               </div>
             </form>

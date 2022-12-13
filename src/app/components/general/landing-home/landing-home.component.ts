@@ -6,10 +6,10 @@ import {
   FormControl,
 } from '@angular/forms';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { GlobalserviceService } from '../globalservice/globalservice.service';
+import { GlobalserviceService } from '../../globalservice/globalservice.service';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
-import { GlobalService } from '../shared/services/global.service';
+import { GlobalService } from '../../shared/services/global.service';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-landing-home',
@@ -195,8 +195,7 @@ export class LandingHomeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem("currentLang") , "inittttttttttt");
-    
+    // console.log(localStorage.getItem("currentLang") , "inittttttttttt");
     console.log(this.thisLang, "let's try");
 
     this.contactmessagetrue = false;
@@ -204,8 +203,8 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     this.getImageText('Shipping');
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      phone: ['', Validators.required, Validators.minLength(9),],
       MessageTitle: ['', Validators.required],
       Message: ['', Validators.required],
     });
@@ -267,3 +266,5 @@ export class LandingHomeComponent implements OnInit, OnChanges {
     });
   }
 }
+
+

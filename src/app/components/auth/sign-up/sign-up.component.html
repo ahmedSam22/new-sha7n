@@ -1,6 +1,6 @@
 <section class="container-fluid">
   <div class="row" style="min-height: 670px">
-    <div class="col-md-6 col-sm-12 mt-5">
+    <div class="col-md-5 col-sm-12 mt-5">
       <div class="leftSide">
         <a (click)="back()">
           {{ "backHome" | translate }}
@@ -26,18 +26,21 @@
           </div>
           <div class="offset-md-2 col-md-8">
             <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
-            <div class="input-group align-items-center">
+            <div class="input-group align-items-center flex-column">
               <input
                 type="text"
-                class="form-control form-control-lg"
+                class="form-control form-control-lg w-100"
                 id="exampleInputPhone1"
                 placeholder="5xxxxxxxxx"
                 [formControlName]="'phone'"
               />
 
-              <div *ngIf="signUp.controls.phone.errors?.['minlength']">
+              <span
+                class="d-block"
+                *ngIf="signUp.controls.phone.errors?.['minlength'] || !signUp.controls.phone.value?.startsWith(5)&&(signUp.controls.phone.dirty || signUp.controls.phone.touched)"
+              >
                 {{ "phoneValid" | translate }}
-              </div>
+              </span>
             </div>
           </div>
 
@@ -50,6 +53,7 @@
               aria-describedby="emailHelp"
               placeholder="{{ 'email' | translate }}"
               [formControlName]="'email'"
+              required="true"
             />
           </div>
           <div class="form-group offset-md-2 col-md-8">
@@ -131,7 +135,7 @@
         </form>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 right--col">
+    <div class="col-md-7 col-sm-12 right--col">
       <div class="rightSide">
         <div class="fullImage"></div>
       </div>

@@ -120,7 +120,7 @@
 }
 
 .container-fluid .leftSide form input {
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
 }
 
 .container-fluid .leftSide form label {
@@ -216,3 +216,8 @@
   .pointer{
     cursor: pointer;
   }
+
+  input, .showPassword{
+  background-color: #F1F1F1;
+  border: none;
+}

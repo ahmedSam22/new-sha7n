@@ -17,7 +17,7 @@ import { PersonalInfoComponent } from './components/admin/personal-info/personal
 import { ShippingFeeCalculatorComponent } from './components/admin/shipping-fee-calculator/shipping-fee-calculator.component';
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { WarehousesComponent } from './components/admin/warehouses/warehouses.component';
-import { LandingHomeComponent } from './components/landing-home/landing-home.component';
+import { LandingHomeComponent } from './components/general/landing-home/landing-home.component';
 
 
 import { AuthModule } from './components/auth/module/auth.module';

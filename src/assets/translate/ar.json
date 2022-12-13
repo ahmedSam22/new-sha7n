@@ -97,6 +97,10 @@
 
     "for contact us page 'not used '" : "for contact us page 'not used '",
 
+    "messageValid" : "نص الرسالة مطلوب",
+    "titleValid" : "عنوان الرسالة مطلوب",
+    "mailValid" : "خطأ في البريد الالكتروني",
+    "nameValid" : "الاسم مطلوب",
 
     "hello" : "مرحبا بك !",
     "contactTitle" : "لنصل سويا بقمة الجودة في تفاصيل العمل ، و ذلك من خلال التواصل معنا ",
@@ -119,7 +123,7 @@
     "dontHaveAccount" : "لا يوجد لديك حساب ؟",
     "createAccount" : "انشاء حساب ",
     "passwordValid" : "يجب ان تكون على الأقل 6 عناصر",
-    "phoneValid" : "يجب أن تكون على الأقل 9 عناصر",
+    "phoneValid" : "يجب أن تكون على الأقل 9 عناصر و يبدأ بالرقم 5",
     "agree" : "أوافق على ",
     "terms" : "شروط الاستخدام و الخصوصية",
     "haveaccount" : "لديك حساب ؟ ",

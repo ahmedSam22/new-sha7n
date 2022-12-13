@@ -27,7 +27,7 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminSidebarComponent } from './components/shared/admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './components/shared/admin-footer/admin-footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { LandingHomeComponent } from './components/landing-home/landing-home.component';
+import { LandingHomeComponent } from './components/general/landing-home/landing-home.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
