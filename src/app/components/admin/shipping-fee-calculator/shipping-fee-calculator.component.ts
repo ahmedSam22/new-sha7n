@@ -140,8 +140,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         { value: this.incomeData.shipmentWeight, disabled: true },
         Validators.required,
       ],
-      invoice: ["", Validators.required],
-      list: ["", Validators.required],
+      invoice: [null, Validators.required],
+      list: [null, Validators.required],
 
       length: [this.incomeData.length || "", Validators.required],
       width: [this.incomeData.width || "", Validators.required],
@@ -186,6 +186,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       this.showComercialInvoice = true;
       this.fullComercialInvoice = false;
     }
+    this.form.controls.invoice.setValue(this.commercialInvoice[0]);
   }
 
   packingListChange(event: any) {
@@ -200,6 +201,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       this.showPackingList = true;
       this.fullPackingList = false;
     }
+    this.form.controls.list.setValue(this.packingList[0]);
   }
   resetForm() {
     Object.keys(this.form.controls).forEach((key) => {
@@ -296,7 +298,6 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   test(){
     console.log(this.form.value);
-    
   }
 }
 
