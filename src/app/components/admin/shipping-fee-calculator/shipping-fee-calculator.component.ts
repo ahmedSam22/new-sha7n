@@ -18,39 +18,39 @@ import { GeneralService } from '../../general/general.service';
   styleUrls: ['./shipping-fee-calculator.component.css'],
 })
 export class ShippingFeeCalculatorComponent implements OnInit {
-  ChinaCities = [
-    { id: 1, name: 'HongKong' },
-    { id: 2, name: 'Shanghai' },
-  ];
-  SaudiCities = [
-    { id: 1, name: 'Jeddah' },
-    { id: 1, name: 'Riyadh' },
-  ];
-  fromCities: any = [];
-  toCities: any = [];
-  allShipmentType: any = [];
-  selectedvalue: any = 'tessy';
-  saudiharbors: any = [];
+  // ChinaCities = [
+  //   { id: 1, name: 'HongKong' },
+  //   { id: 2, name: 'Shanghai' },
+  // ];
+  // SaudiCities = [
+  //   { id: 1, name: 'Jeddah' },
+  //   { id: 1, name: 'Riyadh' },
+  // ];
+  // fromCities: any = [];
+  // toCities: any = [];
+  // allShipmentType: any = [];
+  // selectedvalue: any = 'tessy';
+  // saudiharbors: any = [];
   form!: FormGroup;
-  promo!: any;
+  // promo!: any;
   commercialInvoice: File[] = [];
   commercialInvoicelength: any = [];
   packingListlength: any = [];
   packingList: File[] = [];
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
-  fromChinaHarbor!: any;
-  label: any;
-  toSaudiHarbor!: any;
-  typeOfShipping!: any;
-  typeOfShipment!: any;
-  shipmentWeight!: any;
-  height!: any;
-  width!: any;
-  length!: any;
-  showCBM = false;
-  showKg = true;
-  index: any;
+  // fromChinaHarbor!: any;
+  // label: any;
+  // toSaudiHarbor!: any;
+  // typeOfShipping!: any;
+  // typeOfShipment!: any;
+  // shipmentWeight!: any;
+  // height!: any;
+  // width!: any;
+  // length!: any;
+  // showCBM = false;
+  // showKg = true;
+  // index: any;
   showComercialInvoice = true;
   showPackingList = true;
   fullComercialInvoice = false;
@@ -76,17 +76,17 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       }
     });
     // this.index = localStorage.getItem('shipment_type');
-    this.globalService.getAllShipmentTypes().subscribe((res: any) => {
-      //  console.log(res.data, 'oooooooooooooooooooooooo');
+    // this.globalService.getAllShipmentTypes().subscribe((res: any) => {
+    //   //  console.log(res.data, 'oooooooooooooooooooooooo');
 
-      this.allShipmentType = res.data;
-      // console.log("qwwwwwwwq" , this.allShipmentType);
+    //   this.allShipmentType = res.data;
+    //   // console.log("qwwwwwwwq" , this.allShipmentType);
       
-      this.label = this.allShipmentType.filter((e: any) => {
-        return e.id == this.typeOfShipment;
-      });
-      console.log(this.label, 'oooooooooooooooooooooooo');
-    });
+    //   this.label = this.allShipmentType.filter((e: any) => {
+    //     return e.id == this.typeOfShipment;
+    //   });
+    //   console.log(this.label, 'oooooooooooooooooooooooo');
+    // });
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
@@ -95,77 +95,83 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.incomeData , "testststs");
+    
     if (localStorage.getItem("currentLang") == 'ar') {
       this.thisLang = 'rtl';
     } else if(localStorage.getItem("currentLang") == 'en'){
        this.thisLang = 'ltr';
     }
-    this.fromChinaHarbor = this.incomeData.fromChinaHarbor;
-    this.toSaudiHarbor = this.incomeData.toSaudiHarbor;
-    this.typeOfShipping = this.incomeData.typeOfShipping;
-    this.typeOfShipment = this.incomeData.typeOfShipment;
-    this.shipmentWeight = this.incomeData.shipmentWeight;
-    this.height = this.incomeData.height;
-    this.width = this.incomeData.width;
-    this.length = this.incomeData.length;
-    this.promo = new FormGroup({
-      code: new FormControl(""),
-    });
-    console.log(
-      'tesssssssst',
-      this.incomeData.typeOfShipment
-    );
+    // this.fromChinaHarbor = this.incomeData.fromChinaHarbor;
+    // this.toSaudiHarbor = this.incomeData.toSaudiHarbor;
+    // this.typeOfShipping = this.incomeData.typeOfShipping;
+    // this.typeOfShipment = this.incomeData.typeOfShipment;
+    // this.shipmentWeight = this.incomeData.shipmentWeight;
+    // this.height = this.incomeData.height;
+    // this.width = this.incomeData.width;
+    // this.length = this.incomeData.length;
+    // this.promo = new FormGroup({
+    //   code: new FormControl(""),
+    // });
+    // console.log(
+    //   'tesssssssst',
+    //   this.incomeData.typeOfShipment
+    // );
   
-    if (this.typeOfShipping == 0) {
-      this.showCBM = true;
-      this.showKg = false;
-    } else {
-      this.showCBM = false;
-      this.showKg = true;
-    }
-    this.service.getSaudiWarehouses().subscribe((res: any) => {
-      this.saudiharbors = res['data'];
-      console.log('saudiharbors', this.saudiharbors);
-    });
+    // if (this.typeOfShipping == 0) {
+    //   this.showCBM = true;
+    //   this.showKg = false;
+    // } else {
+    //   this.showCBM = false;
+    //   this.showKg = true;
+    // }
+    // this.service.getSaudiWarehouses().subscribe((res: any) => {
+    //   this.saudiharbors = res['data'];
+    //   console.log('saudiharbors', this.saudiharbors);
+    // });
 
     this.form = this.formbuilder.group({
-      china_harbor_id: [this.fromChinaHarbor, Validators.required],
-      saudi_harbor_id: [this.toSaudiHarbor, Validators.required],
-      type: [this.typeOfShipping, Validators.required],
-      shipment_type: [this.typeOfShipment, Validators.required],
+      china_harbor_id: [this.incomeData.fromChinaHarbor || "", Validators.required],
+      saudi_harbor_id: [this.incomeData.toSaudiHarbor || "", Validators.required],
+      // type: [this.typeOfShipping, Validators.required],
+      shipping_type: [this.incomeData.typeOfShipping || "", Validators.required],
+      shipment_type: [this.incomeData.typeOfShipment || "", Validators.required],
       weight1: [
-        { value: this.shipmentWeight, disabled: true },
+        { value: this.incomeData.shipmentWeight, disabled: true },
         Validators.required,
       ],
-      length: [this.length, Validators.required],
-      width: [this.width, Validators.required],
-      height: [this.height, Validators.required],
-      code: [this.promo.controls.code.value]
+      invoice: ["", Validators.required],
+      list: ["", Validators.required],
+
+      length: [this.incomeData.length || "", Validators.required],
+      width: [this.incomeData.width || "", Validators.required],
+      height: [this.incomeData.height || "", Validators.required],
+      // code: [this.promo.controls.code.value]
     });
     // this.form.get('weight')?.disable()
   }
-  onChangeChina(event: any) {}
-  onTypeOfShipping(event: any) {}
-  onTypeOfShipment(event: any) {}
-  GetCity(e: any, place: any) {
-    if (place == 'from') {
-      if (e.target.value == 'China') {
-        this.fromCities = this.ChinaCities;
-      } else if (e.target.value == 'Saudi') {
-        this.fromCities = this.SaudiCities;
-      } else {
-        this.fromCities = [];
-      }
-    } else {
-      if (e.target.value == 'China') {
-        this.toCities = this.ChinaCities;
-      } else if (e.target.value == 'Saudi') {
-        this.toCities = this.SaudiCities;
-      } else {
-        this.toCities = [];
-      }
-    }
-  }
+  // onChangeChina(event: any) {}
+  // onTypeOfShipping(event: any) {}
+  // onTypeOfShipment(event: any) {}
+  // GetCity(e: any, place: any) {
+  //   if (place == 'from') {
+  //     if (e.target.value == 'China') {
+  //       this.fromCities = this.ChinaCities;
+  //     } else if (e.target.value == 'Saudi') {
+  //       this.fromCities = this.SaudiCities;
+  //     } else {
+  //       this.fromCities = [];
+  //     }
+  //   } else {
+  //     if (e.target.value == 'China') {
+  //       this.toCities = this.ChinaCities;
+  //     } else if (e.target.value == 'Saudi') {
+  //       this.toCities = this.SaudiCities;
+  //     } else {
+  //       this.toCities = [];
+  //     }
+  //   }
+  // }
 
   commercialInvoiceChange(event: any) {
     this.commercialInvoice = event.target.files;
@@ -209,82 +215,89 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   newOrder() {
     setTimeout(() => {
-      this.router.navigate(['/orders']);
-    }, 1500);
+      this.router.navigate(['about/orders']);
+    }, 500);
     //  this.service.logged=2;
     console.log('navigated');
   }
 
-  onSubmit() {
-    if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
-      let orderId: number;
-      let payed: number;
+  // onSubmit() {
+  //   if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
+  //     let orderId: number;
+  //     let payed: number;
       
-      // this.form.controls["code"].setValue("")
-      let subForm = {
-        ...this.form.value,
-        weight: this.shipmentWeight,
-        company_id: this.service.order_company_id,
-        invoice: this.commercialInvoice[0],
-        list: this.packingList[0],
-        // code: 'aaa',
-      };
+  //     // this.form.controls["code"].setValue("")
+  //     let subForm = {
+  //       ...this.form.value,
+  //       weight: this.shipmentWeight,
+  //       company_id: this.service.order_company_id,
+  //       invoice: this.commercialInvoice[0],
+  //       list: this.packingList[0],
+  //       // code: 'aaa',
+  //     };
 
-      console.log('hello ', subForm);
+  //     console.log('hello ', subForm);
 
-      this.service.bookingOrder(subForm).subscribe(
-        (res: any) => {
-          Swal.fire(res.message);
-          orderId = res.data.id;
-          payed = res.data.payed;
-          console.log('res', res);
-          this.form.reset();
-          this.orderPayment(orderId, payed);
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
-    } else {
-      Swal.fire('Files Are Required');
-    }
-  }
+  //     this.service.bookingOrder(subForm).subscribe(
+  //       (res: any) => {
+  //         Swal.fire(res.message);
+  //         orderId = res.data.id;
+  //         payed = res.data.payed;
+  //         console.log('res', res);
+  //         this.form.reset();
+  //         this.orderPayment(orderId, payed);
+  //       },
+  //       (error: any) => {
+  //         console.log(error);
+  //       }
+  //     );
+  //   } else {
+  //     Swal.fire('Files Are Required');
+  //   }
+  // }
 
-  orderPayment(orderId: any, payed: number) {
-    return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, "_self");
-      console.log(e.url);
-    });
-  }
-  checkCode() {
-    if(this.promo.value.code){
-      this.form.controls["code"].setValue(this.promo.value.code)
-    }else{
-    }
-    return this.globalService
-      .checkPromo(this.promo.value.code)
-      .subscribe((e: any) => {
-        // console.log(e , "coooooooooooode");
+  // orderPayment(orderId: any, payed: number) {
+  //   return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
+  //     window.open(`${e.url}`, "_self");
+  //     console.log(e.url);
+  //   });
+  // }
+  // checkCode() {
+  //   if(this.promo.value.code){
+  //     this.form.controls["code"].setValue(this.promo.value.code)
+  //   }else{
+  //   }
+  //   return this.globalService
+  //     .checkPromo(this.promo.value.code)
+  //     .subscribe((e: any) => {
+  //       // console.log(e , "coooooooooooode");
         
-        if(e.status == false){
-          Swal.fire(
-            'خطأ',
-            'الكود المستخدم غير صحيح',
-            'warning'
-          );
-      this.form.controls["code"].setValue("")
+  //       if(e.status == false){
+  //         Swal.fire(
+  //           'خطأ',
+  //           'الكود المستخدم غير صحيح',
+  //           'warning'
+  //         );
+  //     this.form.controls["code"].setValue("")
 
 
-        }else{
-          this.form.controls["code"].setValue(this.promo.value.code)
+  //       }else{
+  //         this.form.controls["code"].setValue(this.promo.value.code)
 
-          Swal.fire(
-            'نجاح',
-            'تم تعديل الشحنة بنجاح',
-            'success'
-          );
+  //         Swal.fire(
+  //           'نجاح',
+  //           'تم تعديل الشحنة بنجاح',
+  //           'success'
+  //         );
 
-        }
-      });
+  //       }
+  //     });
+  // }
+
+  test(){
+    console.log(this.form.value);
+    
   }
 }
+
+

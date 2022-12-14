@@ -11,26 +11,233 @@
       </div>
     </div>
   </section>
-  <section class="banner">
+
+  <section class="banner mt-3">
     {{ "fillData" | translate }}
   </section>
   <section class="shippingfee">
     <div class="row my-3">
       <div
         class="col-md-12 col-sm-12 d-flex justify-content-between flex-column"
-      >
-        <!-- <h style="display:inline-block"> Shipment Address </h 5>  -->
-        <button
-          class="btn px-4 py-2"
-          (click)="newOrder()"
-          style="background-color: #28a745; color: white"
-        >
-          + {{ "neworder" | translate }}
-        </button>
-        <h5 class="mt-3 mb-0">{{ "shipmentAddress" | translate }}</h5>
-      </div>
+      ></div>
     </div>
-    <div class="shippingform">
+    <form [formGroup]="form" action="">
+      <!-- shipment address  -->
+    <section>
+      <h5 class="mt-3 mb-5">{{ "shipmentAddress" | translate }}</h5>
+      <div class="d-flex">
+        <div class="col-6 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "from" | translate }} :</h6>
+            <select class="form-control" formControlName="china_harbor_id">
+              <option value="1" [selected]="true">
+                {{ "china" | translate }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="col-6 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "to" | translate }}:</h6>
+            <select class="form-control" formControlName="saudi_harbor_id">
+              <option [selected]="true">
+                {{ "ksa" | translate }}
+              </option>
+            </select>
+          </label>
+        </div>
+        </div>
+
+    </section>
+<!-- shipment address  -->
+
+<!-- shipment information -->
+    <section>
+      <h5 class="mt-3 mb-5">{{ "shipmentinfo" | translate }}</h5>
+      <div class="d-flex">
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "typeShipping" | translate }} :</h6>
+            <select class="form-control" formControlName="shipping_type">
+              <option value="1" [selected]="true">
+                {{ "china" | translate }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "typeshipment" | translate }}:</h6>
+            <select class="form-control" formControlName="shipment_type">
+              <option [selected]="true">
+                {{ "ksa" | translate }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "weight" | translate }}:</h6>
+
+            <div class="d-flex">
+                <input type="text" name="" id="" class="form-control">
+            <select class="form-control w-min-content p-0 w-25 text-success" formControlName="weight1">
+              <option [selected]="true" >
+                {{ "CBM" | translate }}
+              </option>
+            </select>
+            </div>
+          
+          </label>
+        </div>
+      </div>
+    </section>
+<!-- shipment information -->
+
+<!-- shipment attachment  -->
+    <section>
+      <h5 class="mt-3 mb-5">{{ "moreInfo" | translate }}</h5>
+      <div class="d-flex">
+        <div class="col-6 d-flex">
+          <label for="" class="w-100">
+            <h6>{{ "invoice" | translate }} :</h6>
+            <div class="form-row">
+              <div class="form-group w-100">
+<div class="w-100 form-control input-file" onclick="document.getElementById('commercial-invoice').click()">
+
+  <i class="fas fa-file-pdf text-success"></i>
+</div>
+                <input
+                  type="file"
+                  id="commercial-invoice"
+                  style="display: none"
+                  class="form-control"
+                  formControlName="invoice"
+                  (change)="commercialInvoiceChange($event)"
+                />
+
+                <p class="requiredFiles" *ngIf="showComercialInvoice">
+                  {{ "req" | translate }}
+                </p>
+                <p class="fullrequiredFiles" *ngIf="fullComercialInvoice">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-check2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+                    />
+                  </svg>
+                  {{ "uploaded" | translate }}
+
+                  <br />
+
+                  {{ commercialInvoicelength.length }}
+                  {{ "filelength" | translate }}
+                </p>
+              </div>
+            </div>
+          </label>
+        </div>
+        <div class="col-6 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "invoice2" | translate }}:</h6>
+
+            <div class="form-group">
+              <div class="w-100 form-control input-file" onclick="document.getElementById('packing-list').click()">
+                <i class="fas fa-file-pdf text-success"></i>
+              </div>
+
+              <input
+                type="file"
+                id="packing-list"
+                style="display: none"
+                class="form-control"
+                formControlName="list"
+                (change)="packingListChange($event)"
+              />
+
+              <p class="requiredFiles" *ngIf="showPackingList">
+                {{ "req" | translate }}
+              </p>
+              <p class="fullrequiredFiles" *ngIf="fullPackingList">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+                  />
+                </svg>
+                {{ "uploaded" | translate }}
+                <br />
+                {{ packingListlength.length }} {{ "filelength" | translate }}
+              </p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+<!-- shipment attachment  -->
+
+<!-- shipment dimentions -->
+    <section>
+      <h5 class="mt-3 mb-5">{{ "dimention" | translate }}</h5>
+      <div action="" class="d-flex">
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "length" | translate }} :</h6>
+            <div class="d-flex">
+              <input type="text" name="" id="" class="form-control" placeholder="{{'length' | translate}}" formControlName="length">
+        
+          </div>
+          </label>
+        </div>
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "width" | translate }}:</h6>
+            <div class="d-flex">
+              <input type="text" name="" id="" class="form-control" placeholder="{{'width' | translate}}" formControlName="width">
+        
+          </div>
+          </label>
+        </div>
+        <div class="col-4 d-flex">
+          <label for="pacelFrom" class="w-100">
+            <h6>{{ "height" | translate }}:</h6>
+
+            <div class="d-flex">
+                <input type="text" name="" id="" class="form-control" placeholder="{{'height' | translate}}" formControlName="height">
+          
+            </div>
+          
+          </label>
+        </div>
+      </div>
+    </section>
+<!-- shipment dimentions -->
+
+<!-- submit button -->
+<div class="w-100 mt-5">
+  <!-- <button class="m-auto d-block btn btn-success btn-lg" >{{ "bookShipment" | translate }}</button> -->
+  <input type="submit" (click)="test()" value="" class="btn bg-success btn-lg m-auto d-block" value="{{ 'bookShipment' | translate }}">
+</div>
+<!-- submit button -->
+
+
+
+    </form>
+
+
+    <!-- <div class="shippingform">
       <form [formGroup]="form" *ngIf="this.incomeData">
         <div class="row">
           <div class="col-md-6 col-sm-12 my-3">
@@ -38,7 +245,6 @@
               <label for="exampleFormControlSelect1"
                 >{{ "from" | translate }} :
               </label>
-              <!--  (change)="onChangeChina($event)" -->
               <select class="form-control" formControlName="china_harbor_id">
                 <option value="1" disabled [selected]="true">
                   {{ "china" | translate }}
@@ -52,13 +258,7 @@
                 >{{ "to" | translate }} :
               </label>
               <select class="form-control" formControlName="saudi_harbor_id">
-                <!-- <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" disabled>  
-                      <span  *ngIf="thisLang==='rtl'">
-                                    {{ "ksa"|translate }}
-                                  </span>
-                                  <span  *ngIf="thisLang==='ltr'">
-                                    {{ harbor.name_en }}
-                                  </span>  </option> -->
+          
 
                 <option disabled disabled [selected]="true">
                   {{ "ksa" | translate }}
@@ -94,7 +294,6 @@
                 {{ this.label[0]?.name_ar }}
               </option>
         
-              <!-- <option value="1" >{{"battery" | translate}}</option> -->
             </select>
           </div>
 
@@ -177,11 +376,7 @@
             </div>
           </div>
         </div>
-        <!-- <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <button type="submit" class="btn btn-primary"> Book Shipment </button>
-                    </div>
-                </div> -->
+     
         <h5 class="my-4">{{ "moreInfo" | translate }}</h5>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -212,10 +407,7 @@
               formControlName="invoice"
               (change)="commercialInvoiceChange($event)"
             />
-            <!-- <p class="requiredFiles" *ngIf="showComercialInvoice">This must be filled in to complete the booking</p>  
-                     <p class="fullrequiredFiles" *ngIf="fullComercialInvoice">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                      </svg> file uploded </p> -->
+
             <p class="requiredFiles" *ngIf="showComercialInvoice">
               {{ "req" | translate }}
             </p>
@@ -270,10 +462,7 @@
               formControlName="list"
               (change)="packingListChange($event)"
             />
-            <!-- <p class="requiredFiles" *ngIf="showPackingList">This must be filled in to complete the booking</p> 
-                    <p class="fullrequiredFiles" *ngIf="fullPackingList"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                      </svg> file uploded </p>   -->
+   
             <p class="requiredFiles" *ngIf="showPackingList">
               {{ "req" | translate }}
             </p>
@@ -333,6 +522,6 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
   </section>
 </div>

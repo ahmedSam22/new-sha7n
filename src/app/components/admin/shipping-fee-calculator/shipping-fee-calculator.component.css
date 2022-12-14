@@ -113,3 +113,38 @@ color:grey
     border-bottom-right-radius: 0px;
     border-top-right-radius:0px;
 }
+.w-50{
+    width: 50% !important;
+}
+.input-file{
+    position: relative;
+    background-color: #F1F1F1 !important;
+    height: 60px;
+    border: none;
+
+
+}
+
+.input-file i{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+
+}
+
+
+select{
+    background-color: #F1F1F1 !important;
+    height: 60px;
+    border: none;
+}
+
+input{
+    background-color: #F1F1F1 !important;
+    border: none;
+    height: 60px;
+}
+
+.w-90{
+    width: 100%;
+}
