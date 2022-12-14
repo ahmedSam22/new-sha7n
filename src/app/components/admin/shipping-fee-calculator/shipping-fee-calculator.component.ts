@@ -64,7 +64,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private globalService: GlobalserviceService,
-    public incomeData : GeneralService
+    public incomeData: GeneralService
   ) {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
@@ -81,7 +81,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
     //   this.allShipmentType = res.data;
     //   // console.log("qwwwwwwwq" , this.allShipmentType);
-      
+
     //   this.label = this.allShipmentType.filter((e: any) => {
     //     return e.id == this.typeOfShipment;
     //   });
@@ -91,16 +91,15 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     console.log(this.thisLang, 'from ocnst');
 
     translate.use(this.thisLang || navigator.language);
-
   }
 
   ngOnInit(): void {
-    console.log(this.incomeData , "testststs");
-    
-    if (localStorage.getItem("currentLang") == 'ar') {
+    console.log(this.incomeData, 'testststs');
+
+    if (localStorage.getItem('currentLang') == 'ar') {
       this.thisLang = 'rtl';
-    } else if(localStorage.getItem("currentLang") == 'en'){
-       this.thisLang = 'ltr';
+    } else if (localStorage.getItem('currentLang') == 'en') {
+      this.thisLang = 'ltr';
     }
     // this.fromChinaHarbor = this.incomeData.fromChinaHarbor;
     // this.toSaudiHarbor = this.incomeData.toSaudiHarbor;
@@ -117,7 +116,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     //   'tesssssssst',
     //   this.incomeData.typeOfShipment
     // );
-  
+
     // if (this.typeOfShipping == 0) {
     //   this.showCBM = true;
     //   this.showKg = false;
@@ -131,21 +130,31 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     // });
 
     this.form = this.formbuilder.group({
-      china_harbor_id: [this.incomeData.fromChinaHarbor || "", Validators.required],
-      saudi_harbor_id: [this.incomeData.toSaudiHarbor || "", Validators.required],
+      china_harbor_id: [
+        this.incomeData.fromChinaHarbor || '',
+        Validators.required,
+      ],
+      saudi_harbor_id: [
+        this.incomeData.toSaudiHarbor || '',
+        Validators.required,
+      ],
       // type: [this.typeOfShipping, Validators.required],
-      shipping_type: [this.incomeData.typeOfShipping || "", Validators.required],
-      shipment_type: [this.incomeData.typeOfShipment || "", Validators.required],
+      shipping_type: [
+        this.incomeData.typeOfShipping || '',
+        Validators.required,
+      ],
+      shipment_type: [
+        this.incomeData.typeOfShipment || '',
+        Validators.required,
+      ],
       weight1: [
         { value: this.incomeData.shipmentWeight, disabled: true },
         Validators.required,
       ],
-      invoice: [null, Validators.required],
-      list: [null, Validators.required],
 
-      length: [this.incomeData.length || "", Validators.required],
-      width: [this.incomeData.width || "", Validators.required],
-      height: [this.incomeData.height || "", Validators.required],
+      length: [this.incomeData.length || '', Validators.required],
+      width: [this.incomeData.width || '', Validators.required],
+      height: [this.incomeData.height || '', Validators.required],
       // code: [this.promo.controls.code.value]
     });
     // this.form.get('weight')?.disable()
@@ -186,7 +195,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       this.showComercialInvoice = true;
       this.fullComercialInvoice = false;
     }
-    this.form.controls.invoice.setValue(this.commercialInvoice[0]);
+    this.form.addControl('invoice', new FormControl(this.commercialInvoice[0]));
   }
 
   packingListChange(event: any) {
@@ -201,15 +210,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       this.showPackingList = true;
       this.fullPackingList = false;
     }
-    this.form.controls.list.setValue(this.packingList[0]);
+    this.form.addControl('list', new FormControl(this.packingList[0]));
   }
   resetForm() {
     Object.keys(this.form.controls).forEach((key) => {
       this.form.controls[key].clearValidators();
     });
-
     this.form.reset();
-
     Object.keys(this.form.controls).forEach((key) => {
       this.form.controls[key].setValidators([Validators.required]);
     });
@@ -227,7 +234,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   //   if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
   //     let orderId: number;
   //     let payed: number;
-      
+
   //     // this.form.controls["code"].setValue("")
   //     let subForm = {
   //       ...this.form.value,
@@ -273,7 +280,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   //     .checkPromo(this.promo.value.code)
   //     .subscribe((e: any) => {
   //       // console.log(e , "coooooooooooode");
-        
+
   //       if(e.status == false){
   //         Swal.fire(
   //           'خطأ',
@@ -281,7 +288,6 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   //           'warning'
   //         );
   //     this.form.controls["code"].setValue("")
-
 
   //       }else{
   //         this.form.controls["code"].setValue(this.promo.value.code)
@@ -296,9 +302,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   //     });
   // }
 
-  test(){
+  test() {
     console.log(this.form.value);
   }
 }
-
-

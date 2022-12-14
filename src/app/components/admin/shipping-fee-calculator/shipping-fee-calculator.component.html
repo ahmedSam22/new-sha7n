@@ -115,7 +115,6 @@
                     #commercialInvoice
                     style="display: none"
                     class="form-control"
-                    formControlName="invoice"
                     (change)="commercialInvoiceChange($event)"
                   />
 
@@ -163,7 +162,6 @@
                   type="file"
                   style="display: none"
                   class="form-control"
-                  formControlName="list"
                   (change)="packingListChange($event)"
                 />
 
@@ -255,7 +253,7 @@
           type="submit"
           (click)="test()"
           value=""
-          class="btn bg-success btn-lg m-auto d-block"
+          class="btn btn-lg m-auto d-block submit-btn"
           value="{{ 'bookShipment' | translate }}"
         />
       </div>
