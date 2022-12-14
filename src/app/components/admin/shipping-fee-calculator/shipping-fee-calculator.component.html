@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="shippingform">
-      <form [formGroup]="form">
+      <form [formGroup]="form" *ngIf="this.incomeData">
         <div class="row">
           <div class="col-md-6 col-sm-12 my-3">
             <div class="form-group input-group-lg col-md-12">
@@ -71,12 +71,12 @@
         <div class="form-row">
           <div class="form-group input-group-lg col-md-4">
             <label for="inputState">{{ "typeShipping" | translate }} : </label>
-            <select class="form-control" formControlName="type" [disabled]="true">
+            <select class="form-control"  [disabled]="true">
 
-              <option *ngIf="this.incomeData.typeOfShipping == 1" value="1" [selected]="true" disabled >
+              <option *ngIf="this.incomeData?.typeOfShipping == 1" value="1" [selected]="true" disabled >
                 {{ "aerial" | translate }}
               </option>
-              <option *ngIf="this.incomeData.typeOfShipping == 0" [selected]="true"  value="0" disabled>{{ "nautical" | translate }}</option>
+              <option *ngIf="this.incomeData?.typeOfShipping == 0" [selected]="true"  value="0" disabled>{{ "nautical" | translate }}</option>
             </select>   
           </div>
           <div class="form-group input-group-lg col-md-4">
@@ -85,13 +85,13 @@
               class="form-control"
               (change)="onTypeOfShipment($event)"
               [disabled]="true"
-              *ngIf="this.label[0].name_en || this.label[0].name_ar"
+              
             >
               <option *ngIf="this.thisLang == 'ltr'" [selected]="true">
-                {{ this.label[0].name_en }}
+                {{ this.label[0]?.name_en }}
               </option>
               <option *ngIf="this.thisLang == 'rtl'" [selected]="true">
-                {{ this.label[0].name_ar }}
+                {{ this.label[0]?.name_ar }}
               </option>
         
               <!-- <option value="1" >{{"battery" | translate}}</option> -->
