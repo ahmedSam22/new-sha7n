@@ -242,47 +242,41 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     console.log('navigated');
   }
 
-  // onSubmit() {
-  //   if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
-  //     let orderId: number;
-  //     let payed: number;
+  onSubmit() {
+    if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
+      let orderId: number;
+      let payed: number;
 
-  //     // this.form.controls["code"].setValue("")
-  //     let subForm = {
-  //       ...this.form.value,
-  //       weight: this.shipmentWeight,
-  //       company_id: this.service.order_company_id,
-  //       invoice: this.commercialInvoice[0],
-  //       list: this.packingList[0],
-  //       // code: 'aaa',
-  //     };
+      // this.form.controls["code"].setValue("")
+      let subForm = {
+        ...this.form.value,
+        weight: this.form.controls.weight1.value,
+        company_id: this.service.order_company_id,
+        invoice: this.commercialInvoice[0],
+        list: this.packingList[0],
+        // code: 'aaa',
+      };
 
-  //     console.log('hello ', subForm);
 
-  //     this.service.bookingOrder(subForm).subscribe(
-  //       (res: any) => {
-  //         Swal.fire(res.message);
-  //         orderId = res.data.id;
-  //         payed = res.data.payed;
-  //         console.log('res', res);
-  //         this.form.reset();
-  //         this.orderPayment(orderId, payed);
-  //       },
-  //       (error: any) => {
-  //         console.log(error);
-  //       }
-  //     );
-  //   } else {
-  //     Swal.fire('Files Are Required');
-  //   }
-  // }
+      this.service.bookingOrder(subForm).subscribe(
+        (res: any) => {
+          Swal.fire(res.message);
+          orderId = res.data.id;
+          payed = res.data.payed;
+          console.log('res', res);
+          this.form.reset();
+          this.orderPayment(orderId, payed);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+    } else {
+      Swal.fire('Files Are Required');
+    }
+  }
 
-  // orderPayment(orderId: any, payed: number) {
-  //   return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-  //     window.open(`${e.url}`, "_self");
-  //     console.log(e.url);
-  //   });
-  // }
+
   // checkCode() {
   //   if(this.promo.value.code){
   //     this.form.controls["code"].setValue(this.promo.value.code)
@@ -314,9 +308,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   //     });
   // }
 
-  test() {
-    console.log(this.form.value);
-  }
+  // test() {
+  //   console.log(this.form.value);
+  // }
   getShipmentType(){
     this.service.getAllShipmentTypes().subscribe((res: any) => {
       this.allShipmentType = res.data;
@@ -339,5 +333,12 @@ export class ShippingFeeCalculatorComponent implements OnInit {
           }
           console.log(res);
         })
+  }
+
+  orderPayment(orderId: any, payed: number) {
+    return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
+      window.open(`${e.url}`, "blank");
+      console.log(e.url , "333333333333333");
+    });
   }
 }

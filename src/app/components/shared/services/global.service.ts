@@ -128,6 +128,5 @@ orderPayment(order_id:number,payed:number){
   }
   getAllShipmentTypes(){
     return this.http.get(`${environment.endpoint}/shipment_types`) ;
-  
   }
 }
