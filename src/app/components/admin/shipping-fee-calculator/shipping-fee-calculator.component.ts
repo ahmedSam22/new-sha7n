@@ -32,7 +32,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   // selectedvalue: any = 'tessy';
   // saudiharbors: any = [];
   form!: FormGroup;
-  // promo!: any;
+  promo!: any;
   commercialInvoice: File[] = [];
   commercialInvoicelength: any = [];
   packingListlength: any = [];
@@ -151,7 +151,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         Validators.required,
       ],
       // type: [this.typeOfShipping, Validators.required],
-      shipping_type: [
+      type: [
         this.incomeData.typeOfShipping || '',
         Validators.required,
       ],
@@ -260,9 +260,11 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
       this.service.bookingOrder(subForm).subscribe(
         (res: any) => {
+          console.log("resssssssss" , res);
+          
           Swal.fire(res.message);
-          orderId = res.data.id;
-          payed = res.data.payed;
+          // orderId = res.data.id;
+          // payed = res.data.payed;
           console.log('res', res);
           this.form.reset();
           this.orderPayment(orderId, payed);
@@ -277,40 +279,40 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
 
-  // checkCode() {
-  //   if(this.promo.value.code){
-  //     this.form.controls["code"].setValue(this.promo.value.code)
-  //   }else{
-  //   }
-  //   return this.globalService
-  //     .checkPromo(this.promo.value.code)
-  //     .subscribe((e: any) => {
-  //       // console.log(e , "coooooooooooode");
+  checkCode() {
+    if(this.promo.value.code){
+      this.form.controls["code"].setValue(this.promo.value.code)
+    }else{
+    }
+    return this.globalService
+      .checkPromo(this.promo.value.code)
+      .subscribe((e: any) => {
+        // console.log(e , "coooooooooooode");
 
-  //       if(e.status == false){
-  //         Swal.fire(
-  //           'خطأ',
-  //           'الكود المستخدم غير صحيح',
-  //           'warning'
-  //         );
-  //     this.form.controls["code"].setValue("")
+        if(e.status == false){
+          Swal.fire(
+            'خطأ',
+            'الكود المستخدم غير صحيح',
+            'warning'
+          );
+      this.form.controls["code"].setValue("")
 
-  //       }else{
-  //         this.form.controls["code"].setValue(this.promo.value.code)
+        }else{
+          this.form.controls["code"].setValue(this.promo.value.code)
 
-  //         Swal.fire(
-  //           'نجاح',
-  //           'تم تعديل الشحنة بنجاح',
-  //           'success'
-  //         );
+          Swal.fire(
+            'نجاح',
+            'تم تعديل الشحنة بنجاح',
+            'success'
+          );
 
-  //       }
-  //     });
-  // }
+        }
+      });
+  }
 
-  // test() {
-  //   console.log(this.form.value);
-  // }
+  test() {
+    console.log(this.form.value);
+  }
   getShipmentType(){
     this.service.getAllShipmentTypes().subscribe((res: any) => {
       this.allShipmentType = res.data;
@@ -322,7 +324,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         .homeOrders(
           this.form.controls.china_harbor_id.value,
           this.form.controls.saudi_harbor_id.value,
-          this.form.controls.shipping_type.value,
+          this.form.controls.type.value,
           this.form.controls.shipment_type.value,
           this.form.controls.weight1.value
         ).subscribe

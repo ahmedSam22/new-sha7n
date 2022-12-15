@@ -30,7 +30,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
               <select class="form-control" formControlName="china_harbor_id">
-                <option [value]="1"  [disabled]="case == 1">
+                <option value="1"  [disabled]="case == 1">
                   {{ "china" | translate }}
                 </option>
               </select>
@@ -40,7 +40,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "to" | translate }}:</h6>
               <select class="form-control" formControlName="saudi_harbor_id">
-                <option [value]="1"   [disabled]="case == 1">
+                <option value="1"   [disabled]="case == 1">
                   {{ "ksa" | translate }}
                 </option>
               </select>
@@ -57,7 +57,7 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeShipping" | translate }} :</h6>
-              <select #shippingType class="form-control" formControlName="shipping_type" >
+              <select #shippingType class="form-control" formControlName="type" >
                 <option value="1" [selected]="true" [disabled]="case == 1">
                   {{ "aerial" | translate }}
                 </option>
@@ -563,10 +563,10 @@
             <ul class="company-rules">
                 <div class="text_top d-flex justify-content-between">
                   <span> {{ "shippingType" | translate }} </span> 
-                  <span *ngIf="this.form.controls.shipping_type.value == 1">{{
+                  <span *ngIf="this.form.controls.type.value == 1">{{
                     "aerial" | translate
                   }}</span>
-                  <span *ngIf="this.form.controls.shipping_type.value == 0">{{
+                  <span *ngIf="this.form.controls.type.value == 0">{{
                     "nautical" | translate
                   }}</span>
                 </div>
@@ -580,10 +580,10 @@
                 </div>
               <li>{{ "customs" | translate }}</li>
 
-              <li *ngIf="this.form.controls.shipping_type.value == 1">
+              <li *ngIf="this.form.controls.type.value == 1">
                 {{ "shippingcardtimeaerial" | translate }}
               </li>
-              <li *ngIf="this.form.controls.shipping_type.value == 0">
+              <li *ngIf="this.form.controls.type.value == 0">
                 {{ "shippingcardtimenautical" | translate }}
               </li>
               <li>{{ "extracharge" | translate }}</li>
