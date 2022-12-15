@@ -153,3 +153,117 @@ input{
     background: #24bb24 !important;
     color: white;
 }
+
+.cm-position{
+    right: 10px;
+    top:20px;
+}
+
+
+/*----------------------------------------------------------- */
+
+.rightCard {
+    min-height: 350px;
+}
+
+.rightCard .container {
+    background-color: white;
+    margin: 10px 0px;
+}
+
+.rightCard .leftSideCard {
+    float: left;
+    height: 200px;
+    padding: 0px 5px;
+}
+
+.rightCard .leftSideCard span {
+    margin: 25px 0px 10px 0px;
+    display: inline-block;
+}
+
+.rightCard .leftSideCard span:first-of-type {
+    float: left;
+    padding: 0px 25px;
+}
+
+.rightCard .leftSideCard span:nth-child(2) {
+    float: right;
+}
+
+.rightCard .leftSideCard ul {
+    margin-top: 60px;
+    padding: 10px;
+}
+
+.rightCard .leftSideCard ul li {
+    line-height: 35px;
+}
+
+.rightCard .rightSideCard {
+    padding: 5px;
+    float: right;
+    border-left: 1px solid black;
+    min-height: 265px;
+    margin: 10px 0px;
+}
+
+.rightCard .rightSideCard .top {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.rightCard .rightSideCard .top img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+.rightCard .rightSideCard .top p {
+    text-align: center;
+    padding: 5px;
+    width: 100px;
+    text-align: left;
+}
+
+.rightCard .rightSideCard .middle p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rightCard .rightSideCard .bottom p {
+    font-size: 50px;
+    color: #32B457;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.forBorder{
+    border-left: 1px solid gray;
+}
+.forBorder-rtl{
+    border-right: 1px solid gray;
+}
+
+ul li{
+    margin-top: 10px;
+}
+
+.myCard{
+    /* display: none; */
+    box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+    -webkit-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+    width: 65%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.btnCalculating ,.btnBooking {
+    background-color: #32B457;
+    color: white;
+    padding: 10px 0px ;
+    margin: 10px;
+    
+}

@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { Input } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { GlobalserviceService } from '../../globalservice/globalservice.service';
 import { GeneralService } from '../../general/general.service';
@@ -55,6 +55,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   showPackingList = true;
   fullComercialInvoice = false;
   fullPackingList = false;
+  case:any;
+  allShipmentType:any = [];
+  offerDetails:any;
+  showCard:boolean = false
 
   thisLang: any;
 
@@ -64,9 +68,16 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private globalService: GlobalserviceService,
-    public incomeData: GeneralService
+    public incomeData: GeneralService,
+    private route: ActivatedRoute,
+
   ) {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.route.queryParams.subscribe((params) => {
+        this.case = params['case'];
+        console.log(this.case , "hhhjkhhjklhjkh");
+      });
+      
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
         console.log(this.thisLang, 'test1');
@@ -94,6 +105,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getShipmentType()
     console.log(this.incomeData, 'testststs');
 
     if (localStorage.getItem('currentLang') == 'ar') {
@@ -131,11 +143,11 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
     this.form = this.formbuilder.group({
       china_harbor_id: [
-        this.incomeData.fromChinaHarbor || '',
+         '',
         Validators.required,
       ],
       saudi_harbor_id: [
-        this.incomeData.toSaudiHarbor || '',
+         '',
         Validators.required,
       ],
       // type: [this.typeOfShipping, Validators.required],
@@ -148,7 +160,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         Validators.required,
       ],
       weight1: [
-        { value: this.incomeData.shipmentWeight, disabled: true },
+        this.incomeData.shipmentWeight || '',
         Validators.required,
       ],
 
@@ -304,5 +316,28 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   test() {
     console.log(this.form.value);
+  }
+  getShipmentType(){
+    this.service.getAllShipmentTypes().subscribe((res: any) => {
+      this.allShipmentType = res.data;
+      console.log(this.allShipmentType , "3333333");
+    });
+  }
+  calculate(){
+    this.service
+        .homeOrders(
+          this.form.controls.china_harbor_id.value,
+          this.form.controls.saudi_harbor_id.value,
+          this.form.controls.shipping_type.value,
+          this.form.controls.shipment_type.value,
+          this.form.controls.weight1.value
+        ).subscribe
+        ((res:any)=>{
+          this.offerDetails = res
+          if(res.status === true){
+            this.showCard = true
+          }
+          console.log(res);
+        })
   }
 }

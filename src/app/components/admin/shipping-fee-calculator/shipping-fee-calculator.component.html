@@ -30,7 +30,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
               <select class="form-control" formControlName="china_harbor_id">
-                <option value="1" [selected]="true">
+                <option [value]="1"  [disabled]="case == 1">
                   {{ "china" | translate }}
                 </option>
               </select>
@@ -40,7 +40,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "to" | translate }}:</h6>
               <select class="form-control" formControlName="saudi_harbor_id">
-                <option [selected]="true">
+                <option [value]="1"   [disabled]="case == 1">
                   {{ "ksa" | translate }}
                 </option>
               </select>
@@ -57,9 +57,12 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeShipping" | translate }} :</h6>
-              <select class="form-control" formControlName="shipping_type">
-                <option value="1" [selected]="true">
-                  {{ "china" | translate }}
+              <select #shippingType class="form-control" formControlName="shipping_type" >
+                <option value="1" [selected]="true" [disabled]="case == 1">
+                  {{ "aerial" | translate }}
+                </option>
+                <option value="0"  [selected]="true" [disabled]="case == 1">
+                  {{ "nautical" | translate }}
                 </option>
               </select>
             </label>
@@ -67,10 +70,17 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeshipment" | translate }}:</h6>
-              <select class="form-control" formControlName="shipment_type">
-                <option [selected]="true">
-                  {{ "ksa" | translate }}
-                </option>
+              <select class="form-control" formControlName="shipment_type" >
+                <option
+                *ngFor="let type of allShipmentType; let i = index"
+                [value]="type.id"
+                [disabled]="case == 1"
+                [selected]="true"
+                
+              >
+                <span > {{ this.thisLang == 'ltr' ? type.name_en : type.name_ar }} </span>
+                <!-- <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span> -->
+              </option>
               </select>
             </label>
           </div>
@@ -78,16 +88,9 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "weight" | translate }}:</h6>
 
-              <div class="d-flex">
-                <input type="text" name="" id="" class="form-control" />
-                <select
-                  class="form-control w-min-content p-0 w-25 text-success"
-                  formControlName="weight1"
-                >
-                  <option [selected]="true">
-                    {{ "CBM" | translate }}
-                  </option>
-                </select>
+              <div class="d-flex position-relative">
+                <input type="text" name="" id="" class="form-control" formControlName="weight1" />
+                <h5 class=" text-success position-absolute cm-position"> {{ "CBM" | translate }}</h5>
               </div>
             </label>
           </div>
@@ -199,7 +202,7 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "length" | translate }} :</h6>
-              <div class="d-flex">
+              <div class="d-flex position-relative">
                 <input
                   type="text"
                   name=""
@@ -208,13 +211,14 @@
                   placeholder="{{ 'length' | translate }}"
                   formControlName="length"
                 />
+                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
               </div>
             </label>
           </div>
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "width" | translate }}:</h6>
-              <div class="d-flex">
+              <div class="d-flex position-relative">
                 <input
                   type="text"
                   name=""
@@ -223,6 +227,8 @@
                   placeholder="{{ 'width' | translate }}"
                   formControlName="width"
                 />
+                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
+
               </div>
             </label>
           </div>
@@ -230,7 +236,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "height" | translate }}:</h6>
 
-              <div class="d-flex">
+              <div class="d-flex position-relative">
                 <input
                   type="text"
                   name=""
@@ -239,6 +245,8 @@
                   placeholder="{{ 'height' | translate }}"
                   formControlName="height"
                 />
+                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
+
               </div>
             </label>
           </div>
@@ -251,7 +259,7 @@
         <!-- <button class="m-auto d-block btn btn-success btn-lg" >{{ "bookShipment" | translate }}</button> -->
         <input
           type="submit"
-          (click)="test()"
+          (click)="calculate()"
           value=""
           class="btn btn-lg m-auto d-block submit-btn"
           value="{{ 'bookShipment' | translate }}"
@@ -546,5 +554,86 @@
         </div>
       </form>
     </div> -->
+  </section>
+  <section *ngIf="showCard">
+    <div class="myCard p-3 bg-light">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text">
+            <ul class="company-rules">
+                <div class="text_top d-flex justify-content-between">
+                  <span> {{ "shippingType" | translate }} </span> 
+                  <span *ngIf="this.form.controls.shipping_type.value == 1">{{
+                    "aerial" | translate
+                  }}</span>
+                  <span *ngIf="this.form.controls.shipping_type.value == 0">{{
+                    "nautical" | translate
+                  }}</span>
+                </div>
+             
+                <div class="d-flex justify-content-between">
+                  <span>{{ "actialweight" | translate }}</span>
+                  <span>{{this.form.controls.weight1.value}}</span>
+                   
+                  
+
+                </div>
+              <li>{{ "customs" | translate }}</li>
+
+              <li *ngIf="this.form.controls.shipping_type.value == 1">
+                {{ "shippingcardtimeaerial" | translate }}
+              </li>
+              <li *ngIf="this.form.controls.shipping_type.value == 0">
+                {{ "shippingcardtimenautical" | translate }}
+              </li>
+              <li>{{ "extracharge" | translate }}</li>
+              <li>
+                {{ "return" | translate }}
+              </li>
+
+              <li>
+                {{ "madeinchina" | translate }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="col-md-6"
+          [ngClass]="thisLang === 'ltr' ? 'forBorder' : 'forBorder-rtl'"
+        >
+          <div class="forImg d-flex justify-content-between">
+            <span>
+              <img
+                [src]="offerDetails.data.imagePath"
+                class="img-fluid"
+                height="auto"
+                width="100%"
+                alt="right"
+                style="border-radius: 50%"
+              />
+            </span>
+            <span> International Parcel </span>
+          </div>
+          <div class="forText d-flex flex-column mt-3">
+            <span>{{ "shippingcharges" | translate }}</span>
+            <span class="my-3" style="color: #32b457">
+              <h3>{{ offerDetails.price }}$</h3>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-md-12 d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn col-md-8 btnCalculating"
+            id="btnCalculating"
+           
+          >
+            {{ "BookingBtn" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
