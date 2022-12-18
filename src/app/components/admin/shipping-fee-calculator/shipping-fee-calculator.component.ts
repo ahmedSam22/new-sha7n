@@ -234,13 +234,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     });
   }
 
-  newOrder() {
-    setTimeout(() => {
-      this.router.navigate(['about/orders']);
-    }, 500);
-    //  this.service.logged=2;
-    console.log('navigated');
-  }
+  // newOrder() {
+  //   setTimeout(() => {
+  //     this.router.navigate(['about/orders']);
+  //   }, 500);
+  //   //  this.service.logged=2;
+  //   console.log('navigated');
+  // }
 
   onSubmit() {
     if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
@@ -260,14 +260,14 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
       this.service.bookingOrder(subForm).subscribe(
         (res: any) => {
-          console.log("resssssssss" , res);
+          console.log("resssssssss" , subForm);
           
           Swal.fire(res.message);
           // orderId = res.data.id;
           // payed = res.data.payed;
-          console.log('res', res);
+          console.log('res', orderId , payed);
           this.form.reset();
-          this.orderPayment(orderId, payed);
+          // this.orderPayment(orderId, payed);
         },
         (error: any) => {
           console.log(error);
@@ -279,40 +279,40 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
 
-  checkCode() {
-    if(this.promo.value.code){
-      this.form.controls["code"].setValue(this.promo.value.code)
-    }else{
-    }
-    return this.globalService
-      .checkPromo(this.promo.value.code)
-      .subscribe((e: any) => {
-        // console.log(e , "coooooooooooode");
+  // checkCode() {
+  //   if(this.promo.value.code){
+  //     this.form.controls["code"].setValue(this.promo.value.code)
+  //   }else{
+  //   }
+  //   return this.globalService
+  //     .checkPromo(this.promo.value.code)
+  //     .subscribe((e: any) => {
+  //       // console.log(e , "coooooooooooode");
 
-        if(e.status == false){
-          Swal.fire(
-            'خطأ',
-            'الكود المستخدم غير صحيح',
-            'warning'
-          );
-      this.form.controls["code"].setValue("")
+  //       if(e.status == false){
+  //         Swal.fire(
+  //           'خطأ',
+  //           'الكود المستخدم غير صحيح',
+  //           'warning'
+  //         );
+  //     this.form.controls["code"].setValue("")
 
-        }else{
-          this.form.controls["code"].setValue(this.promo.value.code)
+  //       }else{
+  //         this.form.controls["code"].setValue(this.promo.value.code)
 
-          Swal.fire(
-            'نجاح',
-            'تم تعديل الشحنة بنجاح',
-            'success'
-          );
+  //         Swal.fire(
+  //           'نجاح',
+  //           'تم تعديل الشحنة بنجاح',
+  //           'success'
+  //         );
 
-        }
-      });
-  }
+  //       }
+  //     });
+  // }
 
-  test() {
-    console.log(this.form.value);
-  }
+  // test() {
+  //   console.log(this.form.value);
+  // }
   getShipmentType(){
     this.service.getAllShipmentTypes().subscribe((res: any) => {
       this.allShipmentType = res.data;
