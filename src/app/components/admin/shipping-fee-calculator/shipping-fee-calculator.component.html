@@ -254,6 +254,37 @@
       </section>
       <!-- shipment dimentions -->
 
+      <!-- Promo code -->
+
+      <section>
+        <h5 class="mt-3 mb-5">{{ "coupon" | translate }}</h5>
+        <div action="" class="d-flex">
+          <div class="col-4 d-flex">
+            <label for="pacelFrom" class="w-100">
+              <h6>{{ "coupon" | translate }} :</h6>
+              <div class="d-flex position-relative">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  placeholder="{{ 'coupon' | translate }}"
+                  formControlName="code"
+                />
+                {{this.form.controls.promo}}
+                <button  class=" text-success position-absolute check-position btn btn-link"  (click)="checkCode()">{{ "check" | translate }}</button>
+
+                <!-- <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5> -->
+              </div>
+            </label>
+          </div>
+
+      
+        </div>
+      </section>
+      <!-- Promo code -->
+
+
       <!-- submit button -->
       <div class="w-100 mt-5">
         <!-- <button class="m-auto d-block btn btn-success btn-lg" >{{ "bookShipment" | translate }}</button> -->
