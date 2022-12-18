@@ -252,7 +252,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, "_self");
+      window.open(`${e.url}`, "_blank");
       console.log(e.url);
     });
   }
