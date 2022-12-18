@@ -55,10 +55,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   showPackingList = true;
   fullComercialInvoice = false;
   fullPackingList = false;
-  case:any;
-  allShipmentType:any = [];
-  offerDetails:any;
-  showCard:boolean = false
+  case: any;
+  allShipmentType: any = [];
+  offerDetails: any;
+  showCard: boolean = false;
 
   thisLang: any;
 
@@ -69,15 +69,14 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     public translate: TranslateService,
     private globalService: GlobalserviceService,
     public incomeData: GeneralService,
-    private route: ActivatedRoute,
-
+    private route: ActivatedRoute
   ) {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.route.queryParams.subscribe((params) => {
         this.case = params['case'];
-        console.log(this.case , "hhhjkhhjklhjkh");
+        console.log(this.case, 'hhhjkhhjklhjkh');
       });
-      
+
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
         console.log(this.thisLang, 'test1');
@@ -105,7 +104,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getShipmentType()
+    this.getShipmentType();
     console.log(this.incomeData, 'testststs');
 
     if (localStorage.getItem('currentLang') == 'ar') {
@@ -142,28 +141,15 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     // });
 
     this.form = this.formbuilder.group({
-      china_harbor_id: [
-         '',
-        Validators.required,
-      ],
-      saudi_harbor_id: [
-         '',
-        Validators.required,
-      ],
+      china_harbor_id: ['', Validators.required],
+      saudi_harbor_id: ['', Validators.required],
       // type: [this.typeOfShipping, Validators.required],
-      type: [
-        this.incomeData.typeOfShipping || '',
-        Validators.required,
-      ],
+      type: [this.incomeData.typeOfShipping || '', Validators.required],
       shipment_type: [
         this.incomeData.typeOfShipment || '',
         Validators.required,
       ],
-      weight1: [
-        this.incomeData.shipmentWeight || '',
-        Validators.required,
-      ],
-
+      weight1: [this.incomeData.shipmentWeight || '', Validators.required],
       length: [this.incomeData.length || '', Validators.required],
       width: [this.incomeData.width || '', Validators.required],
       height: [this.incomeData.height || '', Validators.required],
@@ -257,15 +243,14 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         // code: 'aaa',
       };
 
-
       this.service.bookingOrder(subForm).subscribe(
         (res: any) => {
-          console.log("resssssssss" , subForm);
-          
+          console.log('resssssssss', subForm);
+
           Swal.fire(res.message);
           // orderId = res.data.id;
           // payed = res.data.payed;
-          console.log('res', orderId , payed);
+          console.log('res', orderId, payed);
           this.form.reset();
           // this.orderPayment(orderId, payed);
         },
@@ -277,7 +262,6 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       Swal.fire('Files Are Required');
     }
   }
-
 
   // checkCode() {
   //   if(this.promo.value.code){
@@ -313,34 +297,34 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   // test() {
   //   console.log(this.form.value);
   // }
-  getShipmentType(){
+  getShipmentType() {
     this.service.getAllShipmentTypes().subscribe((res: any) => {
       this.allShipmentType = res.data;
-      console.log(this.allShipmentType , "3333333");
+      console.log(this.allShipmentType, '3333333');
     });
   }
-  calculate(){
+  calculate() {
     this.service
-        .homeOrders(
-          this.form.controls.china_harbor_id.value,
-          this.form.controls.saudi_harbor_id.value,
-          this.form.controls.type.value,
-          this.form.controls.shipment_type.value,
-          this.form.controls.weight1.value
-        ).subscribe
-        ((res:any)=>{
-          this.offerDetails = res
-          if(res.status === true){
-            this.showCard = true
-          }
-          console.log(res);
-        })
+      .homeOrders(
+        this.form.controls.china_harbor_id.value,
+        this.form.controls.saudi_harbor_id.value,
+        this.form.controls.type.value,
+        this.form.controls.shipment_type.value,
+        this.form.controls.weight1.value
+      )
+      .subscribe((res: any) => {
+        this.offerDetails = res;
+        if (res.status === true) {
+          this.showCard = true;
+        }
+        console.log(res);
+      });
   }
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, "blank");
-      console.log(e.url , "333333333333333");
+      window.open(`${e.url}`, 'blank');
+      console.log(e.url, '333333333333333');
     });
   }
 }
