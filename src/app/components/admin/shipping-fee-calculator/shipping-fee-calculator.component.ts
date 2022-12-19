@@ -323,7 +323,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, 'blank');
+      window.open(`${e.url}`, '_self');
       console.log(e.url, '333333333333333');
     });
   }
