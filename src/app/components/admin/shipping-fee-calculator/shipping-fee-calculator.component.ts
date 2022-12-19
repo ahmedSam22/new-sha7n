@@ -280,7 +280,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
           Swal.fire(
             'نجاح',
-            'تم تعديل الشحنة بنجاح',
+            'تم تفعيل كود الخصم بنجاح',
             'success'
           );
 

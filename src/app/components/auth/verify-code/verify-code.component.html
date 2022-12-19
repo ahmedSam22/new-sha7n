@@ -42,7 +42,7 @@
                                     <button type="submit" class="btn btn-primary" style="padding:5px 30px;">{{"Send" | translate}} </button>
                                     <div class=" content justify-content-center align-items-center">
                                         <span> {{"validationestimer" | translate}} <span  style="color:#32b457"> {{timeLeftMinutes}} </span>   </span> <br>
-                                        <a href="#" class="text-decoration-none " style="color:#32b457"> &nbsp; {{"resendcode" | translate}}</a>
+                                        <span  class="text-decoration-none btn btn-link bg-light text-success" (click)="resendCode()"> &nbsp; {{"resendcode" | translate}}</span>
                                     </div>
                                 </form> 
                                 </div>  

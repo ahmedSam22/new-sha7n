@@ -33,7 +33,7 @@ export class VerifyCodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = localStorage.getItem('qadiautkCurrentUser');
-    this.phoneNumber = '0966' + JSON.parse(this.userData).data.user.phone;
+    this.phoneNumber = '+669' + JSON.parse(this.userData).data.user.phone;
 
     // this.verify = new FormControl();
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -47,7 +47,8 @@ export class VerifyCodeComponent implements OnInit {
       if (this.timeLeftMinutes > 0) {
         this.timeLeftMinutes--;
       } else {
-        this.timeLeftMinutes = 90;
+        this.timeLeftMinutes = 0;
+        return
       }
     }, 1000);
   }
@@ -85,5 +86,22 @@ export class VerifyCodeComponent implements OnInit {
        
       }
       );
+  }
+
+  resendCode(){
+    if(this.timeLeftMinutes  > 0){
+      Swal.fire( `برجاء الانتظار ${this.timeLeftMinutes} ثانية`, '' , 'warning');
+      return ;
+    }else{
+       this.service.sendSms({phone : JSON.parse(this.userData).data.user.phone}).subscribe(async (res:any)=>{
+      if(await res.status === 200){
+        Swal.fire('نجاح', 'تم ارسال الكود بنجاح', 'success');
+        this.timeLeftMinutes = 90
+
+
+      }
+    })
+    }
+   
   }
 }

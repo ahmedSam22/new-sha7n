@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   selected :any;
   element:any;
   val=1;
+  currentLogin:Boolean = true
   logedIn:Boolean = false;
   currentLang:string;
   constructor(private router:Router,public translate: TranslateService ) {
@@ -73,5 +74,7 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem("qadiautkCurrentUser")
+    location.reload();
+
   }
 }

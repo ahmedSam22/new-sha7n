@@ -1,172 +1,172 @@
 <div class="container">
 
-  <div class=" my-4" style="direction: initial;">
-        <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='ltr'">
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-        </owl-carousel-o>
-
-        <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='rtl'">
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
-
-            </ng-template>
-        </owl-carousel-o>
-        
-    </div>
-    <section class="homecontent my-3">
-        <div class="row justify-content-around">
-
-            <!-- <div class="col-md-3 col-sm-6">
-                <div class="text-center balance">
-                    <ul class="list-unstyled balancelist">
-                        <li> {{"balance" | translate}} </li>
-                        <li> <strong>123.00 </strong> </li>
-                        <li>{{"sar" | translate}}</li>
-                    </ul>
-                </div>
-            </div> -->
-            <!-- <div class="col-md-3 col-sm-6">
-                <div class="text-center order">
-                    <ul class="orderlist">
-                        <li> {{"shopperorder" | translate}} </li>
-                        <li> <strong> 23 </strong> </li>
-                        <li>{{"orders" | translate}} </li>
-                    </ul>
-                </div>
-            </div> -->
-            <div class="col-md-3 col-sm-6">
-                <div class="text-center shipment">
-                    <ul class=" shipmentlist">
-                        <li> {{"numberofshipment" | translate}} </li>
-                        <li> <strong> {{myAccount?.shipped}} </strong> </li>
-                        <li>{{"shipment" | translate}}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="text-center parcel">
-                    <ul class="parcellist">
-                        <li> {{"numberofparcels" | translate}}</li>
-                        <li> <strong> {{myAccount?.orders}} </strong> </li>
-                        <li>{{"orders" | translate}}</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <section class="startcontent my-3">
-        <div class="row ">
-            <div class="col-md-12 col-sm-12">
-                <div class="start d-flex flex-column">
-                    <p class="text-center"> {{"startwithus" | translate}} </p>
-                    <button class="btn btn-primary " routerLink="/orders"> {{"startnow" | translate}}</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- <section class="showcontent py-4 ">
-        <div class="row justify-content-between">
-            <div class="col-md-5 col-sm-12 left">
-                <div class="head">
-                    <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
-                    <button class="btn btn-primary float-right mb-1" (click)="LeftTable()"> {{"showmore" | translate}} </button>
-                </div>
-            </div>
-            <div class="col-md-5 col-sm-12 right">
-                <div class="head">
-                    <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
-                    <button class="btn btn-primary float-right mb-1" (click)="RightTable()"> {{"showmore" | translate}} </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="showtable">
-        <div class="row justify-content-between">
-            <div class="col-md-5 col-sm-12">
-                <table class="table" *ngIf="!toggleLeftTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-5 col-sm-12">
-                <table class="table" *ngIf="!toggleRightTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-
-        </div>
-    </section> -->
-
-</div>
+    <div class=" my-4" style="direction: initial;">
+          <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='ltr'">
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+          </owl-carousel-o>
+  
+          <owl-carousel-o [options]="customOptions" *ngIf="thisLang==='rtl'">
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+              <ng-template carouselSlide>
+                  <img src="../../../assets/images/banner.png" class="img-responsive" alt="" srcset="">
+  
+              </ng-template>
+          </owl-carousel-o>
+          
+      </div>
+      <section class="homecontent my-3">
+          <div class="row justify-content-around">
+  
+              <!-- <div class="col-md-3 col-sm-6">
+                  <div class="text-center balance">
+                      <ul class="list-unstyled balancelist">
+                          <li> {{"balance" | translate}} </li>
+                          <li> <strong>123.00 </strong> </li>
+                          <li>{{"sar" | translate}}</li>
+                      </ul>
+                  </div>
+              </div> -->
+              <!-- <div class="col-md-3 col-sm-6">
+                  <div class="text-center order">
+                      <ul class="orderlist">
+                          <li> {{"shopperorder" | translate}} </li>
+                          <li> <strong> 23 </strong> </li>
+                          <li>{{"orders" | translate}} </li>
+                      </ul>
+                  </div>
+              </div> -->
+              <div class="col-md-3 col-sm-6">
+                  <div class="text-center shipment">
+                      <ul class=" shipmentlist">
+                          <li> {{"numberofshipment" | translate}} </li>
+                          <li> <strong> {{myAccount?.shipped}} </strong> </li>
+                          <li>{{"shipment" | translate}}</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                  <div class="text-center parcel">
+                      <ul class="parcellist">
+                          <li> {{"numberofparcels" | translate}}</li>
+                          <li> <strong> {{myAccount?.orders}} </strong> </li>
+                          <li>{{"orders" | translate}}</li>
+                      </ul>
+                  </div>
+              </div>
+  
+          </div>
+      </section>
+      <section class="startcontent my-3">
+          <div class="row ">
+              <div class="col-md-12 col-sm-12">
+                  <div class="start d-flex flex-column">
+                      <p class="text-center"> {{"startwithus" | translate}} </p>
+                      <button class="btn btn-primary " [routerLink]="['/admin/shipping']" [queryParams]="{case: 0}"> {{"startnow" | translate}}</button>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- <section class="showcontent py-4 ">
+          <div class="row justify-content-between">
+              <div class="col-md-5 col-sm-12 left">
+                  <div class="head">
+                      <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
+                      <button class="btn btn-primary float-right mb-1" (click)="LeftTable()"> {{"showmore" | translate}} </button>
+                  </div>
+              </div>
+              <div class="col-md-5 col-sm-12 right">
+                  <div class="head">
+                      <p class="float-left pt-1">{{"lastshipment" | translate}} </p>
+                      <button class="btn btn-primary float-right mb-1" (click)="RightTable()"> {{"showmore" | translate}} </button>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="showtable">
+          <div class="row justify-content-between">
+              <div class="col-md-5 col-sm-12">
+                  <table class="table" *ngIf="!toggleLeftTable">
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">First</th>
+                              <th scope="col">Last</th>
+                              <th scope="col">Handle</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th scope="row">1</th>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                          </tr>
+                          <tr>
+                              <th scope="row">2</th>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>@fat</td>
+                          </tr>
+  
+                      </tbody>
+                  </table>
+              </div>
+              <div class="col-md-5 col-sm-12">
+                  <table class="table" *ngIf="!toggleRightTable">
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">First</th>
+                              <th scope="col">Last</th>
+                              <th scope="col">Handle</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th scope="row">1</th>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                          </tr>
+                          <tr>
+                              <th scope="row">2</th>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>@fat</td>
+                          </tr>
+  
+                      </tbody>
+                  </table>
+              </div>
+  
+  
+          </div>
+      </section> -->
+  
+  </div>
