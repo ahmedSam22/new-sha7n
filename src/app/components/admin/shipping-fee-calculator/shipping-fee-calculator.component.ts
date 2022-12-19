@@ -120,9 +120,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     // this.height = this.incomeData.height;
     // this.width = this.incomeData.width;
     // this.length = this.incomeData.length;
-    // this.promo = new FormGroup({
-    //   code: new FormControl(""),
-    // });
+    this.promo = new FormGroup({
+      code: new FormControl(""),
+    });
     // console.log(
     //   'tesssssssst',
     //   this.incomeData.typeOfShipment
@@ -153,7 +153,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       length: [this.incomeData.length || '', Validators.required],
       width: [this.incomeData.width || '', Validators.required],
       height: [this.incomeData.height || '', Validators.required],
-      code: [this.promo.controls.code.value]
+      // code: [this.promo.controls.code.value]
     });
     // this.form.get('weight')?.disable()
   }
@@ -263,13 +263,13 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     }
   }
 
-  checkCode() {
-    if(this.promo.value.code){
-      this.form.controls["code"].setValue(this.promo.value.code)
-    }else{
-    }
+  checkCode(code:any) {
+    // if(code){
+    //   this.form.controls["code"].setValue(code)
+    // }else{
+    // }
     return this.globalService
-      .checkPromo(this.promo.value.code)
+      .checkPromo(code)
       .subscribe((e: any) => {
         // console.log(e , "coooooooooooode");
 
@@ -279,10 +279,10 @@ export class ShippingFeeCalculatorComponent implements OnInit {
             'الكود المستخدم غير صحيح',
             'warning'
           );
-      this.form.controls["code"].setValue("")
+      // this.form.controls["code"].setValue("")
 
         }else{
-          this.form.controls["code"].setValue(this.promo.value.code)
+          // this.form.controls["code"].setValue(this.promo.value.code)
 
           Swal.fire(
             'نجاح',

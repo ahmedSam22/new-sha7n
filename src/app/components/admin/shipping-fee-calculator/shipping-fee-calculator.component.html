@@ -269,10 +269,10 @@
                   id=""
                   class="form-control"
                   placeholder="{{ 'coupon' | translate }}"
-                  formControlName="code"
+                  #code
+           
                 />
-                {{this.form.controls.promo}}
-                <button  class=" text-success position-absolute check-position btn btn-link"  (click)="checkCode()">{{ "check" | translate }}</button>
+                <button  class=" text-success position-absolute check-position btn btn-link"  (click)="checkCode(code.value)">{{ "check" | translate }}</button>
 
                 <!-- <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5> -->
               </div>
