@@ -73,5 +73,6 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem("qadiautkCurrentUser")
+    location.reload()
   }
 }
