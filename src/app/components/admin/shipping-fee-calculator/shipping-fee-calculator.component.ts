@@ -18,10 +18,10 @@ import { GeneralService } from '../../general/general.service';
   styleUrls: ['./shipping-fee-calculator.component.css'],
 })
 export class ShippingFeeCalculatorComponent implements OnInit {
-  // ChinaCities = [
-  //   { id: 1, name: 'HongKong' },
-  //   { id: 2, name: 'Shanghai' },
-  // ];
+  allShippingType:any = [
+    { id: 1, name: 'aerial' },
+    { id: 0, name: 'nautical' },
+  ]
   // SaudiCities = [
   //   { id: 1, name: 'Jeddah' },
   //   { id: 1, name: 'Riyadh' },
@@ -141,8 +141,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     // });
 
     this.form = this.formbuilder.group({
-      china_harbor_id: ['', Validators.required],
-      saudi_harbor_id: ['', Validators.required],
+      china_harbor_id: [this.incomeData.fromChinaHarbor||'', Validators.required],
+      saudi_harbor_id: [this.incomeData.toSaudiHarbor||'', Validators.required],
       // type: [this.typeOfShipping, Validators.required],
       type: [this.incomeData.typeOfShipping || '', Validators.required],
       shipment_type: [
@@ -153,7 +153,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       length: [this.incomeData.length || '', Validators.required],
       width: [this.incomeData.width || '', Validators.required],
       height: [this.incomeData.height || '', Validators.required],
-      // code: [this.promo.controls.code.value]
+      code: [this.promo.controls.code.value]
     });
     // this.form.get('weight')?.disable()
   }
@@ -233,7 +233,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       let orderId: number;
       let payed: number;
 
-      // this.form.controls["code"].setValue("")
+      this.form.controls["code"].setValue("")
       let subForm = {
         ...this.form.value,
         weight: this.form.controls.weight1.value,
@@ -248,8 +248,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
           console.log('resssssssss', subForm);
 
           Swal.fire(res.message);
-          orderId = res.data.id;
-          payed = res.data.payed;
+          orderId = res.data?.id;
+          payed = res.data?.payed;
           console.log('res', orderId, payed);
           this.form.reset();
           this.orderPayment(orderId, payed);

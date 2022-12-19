@@ -202,7 +202,7 @@ export class OrdersComponent implements OnInit {
   goadmindashboard() {
     if (localStorage.getItem('qadiautkCurrentUser')) {
       setTimeout(() => {
-        this.router.navigate(['admin/shipping']);
+        this.router.navigate(['admin/shipping'],{queryParams : {case: 1}});
       }, 1500);
     } else {
       // setTimeout(() =>{

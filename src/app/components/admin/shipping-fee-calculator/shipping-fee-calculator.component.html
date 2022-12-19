@@ -30,7 +30,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
               <select class="form-control" formControlName="china_harbor_id">
-                <option value="1"  [disabled]="case == 1">
+                <option [value]="this.incomeData.fromChinaHarbor || 1" selected  [disabled]="case == 1">
                   {{ "china" | translate }}
                 </option>
               </select>
@@ -58,12 +58,15 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeShipping" | translate }} :</h6>
               <select #shippingType class="form-control" formControlName="type" >
-                <option value="1" [selected]="true" [disabled]="case == 1">
-                  {{ "aerial" | translate }}
+                <option 
+                *ngFor="let type of allShippingType; let i = index"
+                [value]="type.id"
+                [disabled]="case == 1"
+                [selected]="this.incomeData.typeOfShipping == type.id"
+                >
+                  {{ type.name | translate }}
                 </option>
-                <option value="0"  [selected]="true" [disabled]="case == 1">
-                  {{ "nautical" | translate }}
-                </option>
+
               </select>
             </label>
           </div>
@@ -75,8 +78,7 @@
                 *ngFor="let type of allShipmentType; let i = index"
                 [value]="type.id"
                 [disabled]="case == 1"
-                [selected]="true"
-                
+                [selected]="this.incomeData.typeOfShipment == type.id"
               >
                 <span > {{ this.thisLang == 'ltr' ? type.name_en : type.name_ar }} </span>
                 <!-- <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span> -->
@@ -290,7 +292,7 @@
         <!-- <button class="m-auto d-block btn btn-success btn-lg" >{{ "bookShipment" | translate }}</button> -->
         <input
           type="submit"
-          (click)="calculate()"
+          (click)=" case == 0  ?  calculate() : onSubmit()"
           value=""
           class="btn btn-lg m-auto d-block submit-btn"
           value="{{ 'bookShipment' | translate }}"
