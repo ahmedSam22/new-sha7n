@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify-code',
@@ -19,6 +19,7 @@ export class VerifyCodeComponent implements OnInit {
     code: '',
   };
   phoneNumber: any;
+  phone_param:any;
   verification_code = {};
   id_code!: any;
   timeLeftMinutes: number = 90;
@@ -32,8 +33,16 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((res:Params) => {
+      this.phone_param=res.params.id      ;
+      this.id_code = 3;
+      console.log('cccccccccc', this.phone_param);
+    });
+    this.minutesTimer();
+    // '0966' +
+    this.phoneNumber =this.phone_param;
     this.userData = localStorage.getItem('qadiautkCurrentUser');
-    this.phoneNumber = '+966' + JSON.parse(this.userData).data.user.phone;
+    this.phoneNumber =  this.phone_param;
 
     // this.verify = new FormControl();
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -57,18 +66,17 @@ export class VerifyCodeComponent implements OnInit {
     // this.concat
      
     this.verification_code = {
-      phone: JSON.parse(this.userData).data.user.phone,
+      phone: this.phoneNumber,
       confirm_code: this.OTP.code,
     };
     console.log(this.verification_code);
     this.service
       .confirmSignSms({ ...this.verification_code })
       .subscribe(async (res:any) => {
-         if(await res.status === 200){
+         if(await res.status != 200){
+          this.router.navigate(['/sign-up']);
            if (this.id_code == 0) {
-          setTimeout(() => {
-            this.router.navigate(['admin/shipping']);
-          }, 2000);
+         ;
           this.service.old_order = this.id_code;
           console.log('Verification Old Order ID = ', this.service.old_order);
         } else {
@@ -90,12 +98,12 @@ export class VerifyCodeComponent implements OnInit {
 
   resendCode(){
     if(this.timeLeftMinutes  > 0){
-      Swal.fire('نجاح', 'برجاء الا', 'success');
-      return ;
+      Swal.fire( `برجاء الانتظار ${this.timeLeftMinutes} ثانية`, '' , 'warning');      return ;
     }else{
-       this.service.sendSms({phone : JSON.parse(this.userData).data.user.phone}).subscribe(async (res:any)=>{
+      
+       this.service.sendSms(this.phone_param).subscribe(async (res:any)=>{
       if(await res.status === 200){
-        Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
+        Swal.fire('نجاح', 'تم ارسال الكود بنجاح', 'success');
         this.timeLeftMinutes = 90
 
 

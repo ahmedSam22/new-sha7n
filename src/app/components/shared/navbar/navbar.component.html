@@ -44,7 +44,7 @@
         </ul>
         <!-- form-inline  -->
         <form class="my-2 my-lg-0">
-            <button *ngIf="!logedIn" #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/sign-up',val]">{{"signup" | translate}}</button>  
+            <button *ngIf="!logedIn" #register (click)="select(register.id)" class="btn btn-default white" [routerLink]="['/landing']">{{"signup" | translate}}</button>  
             <!-- <button #login (click)="select(login.id)" class="btn btn-success x" [routerLink]="['/login']">Log in</button>   -->
              <button *ngIf="!logedIn" #login (click)="select(login.id)" class="btn btn-success x ml-2" [routerLink]="['/login',val]">{{"login" | translate}}</button> 
              <button *ngIf="logedIn"(click)="logout()" class="btn btn-success x ml-2" [routerLink]="['/login',val]">{{"loguot" | translate}}</button> 

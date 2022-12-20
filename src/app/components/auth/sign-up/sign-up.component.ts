@@ -75,7 +75,6 @@ export class SignUpComponent implements OnInit {
   switchaccept(){
     this.accept = !this.accept;
     console.log(this.accept);
-    
   }
 
   show:boolean = false

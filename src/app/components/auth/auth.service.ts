@@ -65,10 +65,16 @@ verificationCode(code:any){
   return this.http.post(`${environment.endpoint}/users/active`,code) ;
 }
 
-  sendSms(form:any){
-  return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
+  // sendSms(form:any){
+  // return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
 
-  }
+  // }
+
+  sendSms(phone:any){
+    // return this.http.post(`${environment.endpoint}/users/sms/send`,form) ;
+    return this.http.post(`${environment.endpoint}/users/sms/send?phone=${phone}` , {}) ;
+    }
+    
   confirmSignSms(form:any){
     return this.http.post(`${environment.endpoint}/users/sms/confirm`,form) ;
   

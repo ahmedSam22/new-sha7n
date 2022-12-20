@@ -1,0 +1,54 @@
+<section class="container-fluid" style="min-height: 670px">
+  <!-- style="min-height: 670px" -->
+
+  <div class="row x">
+    <div class="col-md-6 col-sm-12 col-12 align-self-center">
+      <div class="leftSide">
+        <!-- <a (click)="back()" class="back-section">
+          <span class="back-bg"
+            
+          >
+          <i [class]="thisLang === 'rtl' ?  'fas fa-chevron-left' : 'fas fa-chevron-right'"></i>
+          </span>
+          {{thisLang}}
+          {{"back" | translate}}
+        </a> -->
+
+        <div class="mb-3 row">
+          <div class="text-center" style="position: absolute; left: 45%">
+            <h3 class="text-center">{{"createaccount" | translate}}</h3>
+          </div>
+
+          <div class="col-md-12">
+            <form
+              style="direction: ltr"
+              [formGroup]="landing"
+              (ngSubmit)="submit()"
+            >
+              <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
+                <input
+                  type="text"
+                  class="form-control form-control-lg my-4"
+                  placeholder="5xxxxxxxx"
+                  [formControlName]="'phone'"
+                />
+                <button
+                  type="submit"
+                  class="btn btn-default col-md-12 col-sm-12 d-block"
+                >
+                  {{"verify" | translate}}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 right-col">
+      <div class="rightSide">
+        <div class="fullImage"></div>
+      </div>
+    </div>
+  </div>
+</section>

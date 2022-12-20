@@ -1,3 +1,4 @@
+import { LandingComponent } from './../landing/landing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
@@ -7,7 +8,8 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 import { VerifyCodeComponent } from '../verify-code/verify-code.component';
 
 const routes: Routes = [
-  { path: 'sign-up/:id', component: SignUpComponent},
+  { path: 'sign-up', component: SignUpComponent},
+  { path: 'landing', component: LandingComponent},
   { path: 'forgetpassword', component: ForgetpasswordComponent},
   { path: 'reset', component: ResetpasswordComponent},
   { path: 'login/:id', component: LoginComponent},

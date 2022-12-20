@@ -1,3 +1,4 @@
+import { LandingComponent } from './../landing/landing.component';
 // import { NgxOtpInputComponent } from './../../../../../node_modules/ngx-otp-input/src/lib/component/ngx-otp-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -26,7 +27,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     ResetpasswordComponent,
     SignUpComponent,
-    VerifyCodeComponent
+    VerifyCodeComponent,
+    LandingComponent
   ],
   imports: [
     CommonModule,
