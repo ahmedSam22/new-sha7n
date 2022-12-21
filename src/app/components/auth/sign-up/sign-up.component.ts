@@ -16,14 +16,19 @@ export class SignUpComponent implements OnInit {
   id_code:any;
   thisLang:any;
   code:any;
+  phoneNumber:any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private _location: Location,
     private service: AuthService,
-    public translate: TranslateService
+    public translate: TranslateService,
+
   ) {
+    this.route.queryParams.subscribe((params) => {
+      this.phoneNumber = params['phone'];
+    });
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from const');
 
@@ -47,7 +52,7 @@ export class SignUpComponent implements OnInit {
     this.signUp = new FormGroup({
       name: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      phone: new FormControl(null, [
+      phone: new FormControl(this.phoneNumber || null, [
         Validators.required,
         Validators.minLength(9),
       ]),
@@ -62,6 +67,7 @@ export class SignUpComponent implements OnInit {
     });
     this.route.paramMap.subscribe(params => {
       this.id_code = params.get('id');
+
    
   });
   }
@@ -99,11 +105,11 @@ export class SignUpComponent implements OnInit {
               Swal.fire('fail', res.errors[0], 'warning');
               return ;
             }     
-              this.service.sendSms({'phone' : `${this.signUp.controls.phone.value}`}).subscribe(e=>{
-                console.log(e , "send sms from here")
-              })
+              // this.service.sendSms({'phone' : `${this.signUp.controls.phone.value}`}).subscribe(e=>{
+              //   console.log(e , "send sms from here")
+              // })
               Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
-              this.router.navigate(['/verify-code',this.id_code]);
+              this.router.navigate(['/']);
           },
           error: (error) => {
 

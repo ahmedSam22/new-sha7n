@@ -74,18 +74,18 @@ export class VerifyCodeComponent implements OnInit {
       .confirmSignSms({ ...this.verification_code })
       .subscribe(async (res:any) => {
          if(await res.status != 200){
-          this.router.navigate(['/sign-up']);
-           if (this.id_code == 0) {
-         ;
-          this.service.old_order = this.id_code;
-          console.log('Verification Old Order ID = ', this.service.old_order);
-        } else {
-          setTimeout(() => {
-            this.router.navigate(['admin/orders']);
-          }, 2000);
-          this.service.new_order = this.id_code;
-          console.log('Verification New Order ID = ', this.service.new_order);
-        }
+          this.router.navigate(['/sign-up'],{queryParams : {phone: this.phoneNumber}});
+        //    if (this.id_code == 0) {
+        //  ;
+        //   this.service.old_order = this.id_code;
+        //   console.log('Verification Old Order ID = ', this.service.old_order);
+        // } else {
+        //   setTimeout(() => {
+        //     this.router.navigate(['admin/orders']);
+        //   }, 2000);
+        //   this.service.new_order = this.id_code;
+        //   console.log('Verification New Order ID = ', this.service.new_order);
+        // }
         }else{
           Swal.fire(` Fail `, res.errors[0], `warning`);;
 
