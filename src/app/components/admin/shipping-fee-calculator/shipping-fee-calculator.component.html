@@ -92,7 +92,7 @@
 
               <div class="d-flex position-relative">
                 <input type="text" name="" id="" class="form-control" formControlName="weight1" />
-                <h5 class=" text-success position-absolute cm-position"> {{ "CBM" | translate }}</h5>
+                <h5 class=" text-success position-absolute cm-position"> {{ this.form.controls.type.value == 0? 'CBM':'KG' | translate}}</h5>
               </div>
             </label>
           </div>
