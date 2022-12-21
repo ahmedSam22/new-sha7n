@@ -58,6 +58,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   case: any;
   allShipmentType: any = [];
   offerDetails: any;
+  discount: any;
   showCard: boolean = false;
 
   thisLang: any;
@@ -274,15 +275,14 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     } else {
     }
     return this.globalService.checkPromo(code).subscribe((e: any) => {
-      console.log(e, 'coooooooooooode');
-
+      
       if (e.status == false) {
         Swal.fire('خطأ', 'الكود المستخدم غير صحيح', 'warning');
         this.form.controls['code'].setValue('');
       } else {
-        this.form.controls['code'].setValue(this.promo.value.code);
-
-        Swal.fire('نجاح', 'تم تعديل الشحنة بنجاح', 'success');
+        Swal.fire('نجاح', 'تم التحقق من كود الخصم  ', 'success');
+        this.discount = +e.data.discount_precentage/100;
+        this.form.controls['code'].setValue(code);
       }
     });
   }

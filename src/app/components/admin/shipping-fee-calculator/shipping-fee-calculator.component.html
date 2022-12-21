@@ -650,7 +650,7 @@
           <div class="forText d-flex flex-column mt-3">
             <span>{{ "shippingcharges" | translate }}</span>
             <span class="my-3" style="color: #32b457">
-              <h3>{{ offerDetails.price }}$</h3>
+              <h3>{{ (offerDetails.price - (offerDetails.price*discount)) || offerDetails.price  }}$</h3>
             </span>
           </div>
         </div>
