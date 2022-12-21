@@ -22,7 +22,7 @@
                 <a  #dashboard (click)="select(dashboard.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['admin/profile']">{{"dashboard" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active-nav" [routerLink]="['/about/orders']">{{"orders" | translate}}</a>
+                <a class="nav-link" #order (click)="select(order.id)" routerLinkActive="active-nav" [routerLink]="['/about/orders']">{{"orders" | translate}}</a>
             </li>
             <li class="nav-item">
                 <a  #service (click)="select(service.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/about/our-services']">{{"ourServices" | translate}}</a>

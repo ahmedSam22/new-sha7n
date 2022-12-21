@@ -211,6 +211,15 @@
 }
 .imgg {
     height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    width: 116%;
+    height: 100%;
+    resize: both;
+    position: relative;
+    left: 0px;
+    bottom: 0px;
 }
  .imgg .fullImage {
    background-image: url('../../../../assets/images/illustration.png');  
@@ -260,4 +269,7 @@
 .company-rules li {
    line-height: 25px;
    margin-top: 5px ;
+}
+select{
+    padding: 0;
 }

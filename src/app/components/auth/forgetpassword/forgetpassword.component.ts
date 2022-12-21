@@ -14,77 +14,48 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
   styleUrls: ['./forgetpassword.component.css']
 })
 export class ForgetpasswordComponent implements OnInit {
-  //singupval=0;
-  id_code!:any;
-  reset!:FormGroup ;
+   // @ViewChild('phone') phone!:ElementRef ;   
   thisLang:any;
 
-  showConfirm:boolean = false;
-  constructor(private router:Router , private route:ActivatedRoute,private _location: Location , private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
-    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
-    console.log(this.thisLang, 'from ocnst');
+  // phone_num!:any ;
+  landing!: FormGroup;
 
-    translate.use(this.thisLang || navigator.language);
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (event.lang == 'ar') {
-        this.thisLang = 'rtl';
-        console.log(this.thisLang, 'test1');
-      } else {
-        this.thisLang = 'ltr';
-        console.log(this.thisLang, 'test2');
-      }
-    });
-
-  }
+    constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+      this.thisLang = localStorage.getItem('currentLang');
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        if (event.lang == 'ar') {
+          this.thisLang = 'rtl';
+        } else if(event.lang == 'en') {
+          this.thisLang = 'ltr';
+  
+        }
+        
+      });
+    }
 
   ngOnInit(): void {
-    this.reset = new FormGroup({
-    'phone' : new FormControl(null ,Validators.required ),
    
-    });
-
-    this.activatedRoute.paramMap.subscribe(params => {
-        this.id_code = params.get('id');
-      console.log("ccccccccccccccccccccc",this.id_code)
-     
-    });
+    this.landing = new FormGroup({
+   
+      phone: new FormControl(null, [Validators.required, Validators.minLength(9)]),
+    })
   }
-
-  back(){
-    this._location.back();
+  
+  back() {
+    this.router.navigate(['/']);
   }
-
-  onSubmit() {
-    console.log(this.reset.value)
-    this.service.sendSms({...this.reset.value}).subscribe((res:any) => {
-      console.log("log response " , res) ;
-      localStorage.setItem("phone" , `${this.reset.controls.phone.value}`);
-      
-      if(res.status == 200){
-        Swal.fire('تم ارسال الكود بنجاح', '', 'success');
-    this.router.navigate(['/reset'])
-
-      }else{
-        
-        Swal.fire(
-          res.errors[0]
-            )
-      }
-
-         
-       },
-       error => {
-        // console.log(error);
-         console.log(error.error.errors[0]);
-
-        Swal.fire(
-          error.errors[0]
-            )
-       }
-       );
-      
-  }
-
-  submit(){
+  
+  submit() {
+    console.log("phone" ,this.landing.value.phone)
+      this.service.sendSms(this.landing.controls.phone.value).subscribe((res:any) => {
+       console.log("landing response", res) ;
+            // this.phone_num =this.phone.nativeElement.value ;
+        // localStorage.setItem("phone",this.landing.controls.phone.value)
+        if (res.status==200){
+          this.router.navigate(['/reset'],{queryParams : {phone: this.landing.controls.phone.value}});
+        }
+ 
+  })
+ 
   }
 }

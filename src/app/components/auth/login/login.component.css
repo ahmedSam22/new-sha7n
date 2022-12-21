@@ -137,3 +137,12 @@
         min-height: 500px
      }
 }
+input{
+    text-align: center;
+}
+
+.cm-position{
+    left: 10px;
+    top:10px;
+    border-radius: 1px solid gray;
+}

@@ -221,3 +221,11 @@
   background-color: #F1F1F1;
   border: none;
 }
+
+input{
+    text-align: center;
+}
+.cm-position{
+    left: 10px;
+    top:10px;
+}

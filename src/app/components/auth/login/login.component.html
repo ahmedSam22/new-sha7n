@@ -24,16 +24,25 @@
           style="direction: ltr"
         >
           <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
-            <label for="exampleInputEmail1">{{ "phone" | translate }} </label>
-            <input
-              type="text"
-              class="form-control form-control-lg"
-              [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="{{ 'phone' | translate }}"
-              [formControlName]="'phone'"
-            />
+            <label for="" class="w-100">
+              <h6>{{ "phone" | translate }} :</h6>
+              <div class="d-flex position-relative">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  placeholder="{{ 'phone' | translate }}"
+                  [formControlName]="'phone'"
+                  #number
+                  style="text-align: center"
+           
+                />
+
+                <h6 class=" text-success position-absolute cm-position"> +966</h6>
+              </div>
+            </label>
+
           </div>
 
           <div class="form-group offset-md-2 col-md-8">

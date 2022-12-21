@@ -10,6 +10,8 @@ export class AdminSidebarComponent implements OnInit {
   showFiller = false;
   collapsed=true;
   thisLang:any;
+  element:any;
+
 
   constructor(public translate: TranslateService) { 
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
@@ -35,7 +37,10 @@ export class AdminSidebarComponent implements OnInit {
     
   }
   closeNav() {
-   
+    this.element = document.getElementById('divId');
+    this.element.classList.toggle('show')
+    this.element.style.transition='transform ease-out 3s'; 
+    this.element.classList.add("collapse");
   }
   doSomeThing(){
    let x= document.getElementById('divId') as HTMLElement;

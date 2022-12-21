@@ -280,7 +280,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         Swal.fire('خطأ', 'الكود المستخدم غير صحيح', 'warning');
         this.form.controls['code'].setValue('');
       } else {
-        Swal.fire('نجاح', 'تم التحقق من كود الخصم  ', 'success');
+        Swal.fire('نجاح', 'تم تفعيل كود الخصم بنجاح', 'success');
         this.discount = +e.data.discount_precentage/100;
         this.form.controls['code'].setValue(code);
       }

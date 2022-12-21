@@ -136,3 +136,11 @@
     border-radius: 50%;
     padding: 6px;
 }
+input{
+    text-align: center;
+}
+
+.cm-position{
+    left: 10px;
+    top:10px;
+}

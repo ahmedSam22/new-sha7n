@@ -81,9 +81,9 @@ export class ResetpasswordComponent implements OnInit {
         },
         (error) => {
           // console.log(error);
+          Swal.fire(error.error.errors[0]);
           console.log(error.error.errors[0]);
 
-          Swal.fire(error.errors[0]);
         }
       );
     } else {

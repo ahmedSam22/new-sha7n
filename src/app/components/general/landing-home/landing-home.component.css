@@ -201,7 +201,7 @@ img {
 
 .backGroundImage {
   background: url(../../../../assets/images/Contact_us.png) no-repeat center center;
-
+background-size: contain;
   border-radius: 10px;
 }
 

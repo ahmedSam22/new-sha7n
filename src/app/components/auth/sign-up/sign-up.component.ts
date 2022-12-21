@@ -47,6 +47,7 @@ export class SignUpComponent implements OnInit {
   countryCodes = ['us', 'sa'];
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
+    location.reload()
   }
   ngOnInit(): void {
     this.signUp = new FormGroup({

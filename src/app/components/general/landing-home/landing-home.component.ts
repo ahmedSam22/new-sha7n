@@ -248,6 +248,8 @@ export class LandingHomeComponent implements OnInit, OnChanges {
           this.contactmessagetrue = true;
           this.contactmessagefalse = false;
         } else if (res.status === false) {
+          Swal.fire('fail', res.errors[0], 'warning');
+
           this.contactmessagetrue = false;
           this.contactmessagefalse = true;
         }

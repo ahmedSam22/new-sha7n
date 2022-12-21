@@ -45,6 +45,8 @@ export class AdminFooterComponent implements OnInit {
 
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
+    location.reload()
+
   }
 
   changeLang(){

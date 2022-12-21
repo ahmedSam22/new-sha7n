@@ -35,6 +35,8 @@ export class NavbarComponent implements OnInit {
 
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
+       location.reload()
+
   }
   ngOnInit(): void {
   }
@@ -63,13 +65,19 @@ export class NavbarComponent implements OnInit {
     let lang:any;
     if(this.selectedCountryCode === "us"){
         lang = "en"
+        // location.reload()
+
 
     }else if(this.selectedCountryCode === "sa"){
        lang = "ar"
+      //  location.reload()
+
 
     }
     this.translate.use(lang);
     localStorage.setItem("currentLang" , lang);
+      //  location.reload()
+    
   }
   logout(){
     localStorage.removeItem("qadiautkCurrentUser")
