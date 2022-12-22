@@ -125,7 +125,7 @@
     "dontHaveAccount" : "You Don't Have an Account ?",
     "createAccount" : "Create An Account",
     "passwordValid" : "password must be at least 6 characters long.",
-    "phoneValid" : "Name must be at least 9 characters long and starts with 5.",
+    "phoneValid" : "Phone must be at least 9 characters long and starts with 5.",
     "agree" : "I Agree To",
     "terms" : "Terms Of Use and Privacy",
     "haveaccount" : "You have an account ? ",

@@ -3,6 +3,7 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-verify-code',
@@ -13,6 +14,8 @@ export class VerifyCodeComponent implements OnInit {
   verify!: FormGroup;
   fromPage: any;
   // concat = '';
+  thisLang:any;
+
   userData: any;
   public OTP : any = {
     length: 4,
@@ -27,9 +30,22 @@ export class VerifyCodeComponent implements OnInit {
   constructor(
     private service: AuthService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService,
+
   ) {
     this.fromPage = window.location.href.toString().split('/').slice(-1);
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
+    translate.use(this.thisLang || navigator.language);
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.thisLang = 'rtl';
+        console.log(this.thisLang, 'test1');
+      } else {
+        this.thisLang = 'ltr';
+        console.log(this.thisLang, 'test2');
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -50,6 +66,9 @@ export class VerifyCodeComponent implements OnInit {
       console.log('cc', this.id_code);
     });
     this.minutesTimer();
+  }
+  back() {
+    this.router.navigate(['/home']);
   }
   minutesTimer() {
     this.interval = setInterval(() => {

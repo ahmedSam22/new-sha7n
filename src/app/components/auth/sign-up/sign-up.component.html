@@ -2,9 +2,12 @@
   <div class="row" style="min-height: 670px">
     <div class="col-md-5 col-sm-12 mt-5">
       <div class="leftSide">
-        <a (click)="back()">
-          {{ "backHome" | translate }}
-        </a>
+        <div class="col-md-12">
+          <a (click)="back()">
+            <i [class]=" thisLang == 'ltr' ? 'fas fa-chevron-left':'fas fa-chevron-right'" style="background: #f1f1f1;padding:9px;border-radius : 50%;margin-right: 10px"></i>
+            {{ "backHome" | translate }}
+          </a>
+        </div>
         <div class="text-center" style="left: 45%">
           <h3 class="text-center">{{ "createaccount" | translate }}</h3>
         </div>
@@ -27,12 +30,7 @@
           <div class="offset-md-2 col-md-8">
             <label for="exampleInputPhone1">{{ "phone" | translate }}</label>
             <div class="input-group align-items-center flex-column">
-              <!-- <input
-                type="text"
-                class="form-control form-control-lg w-100"
-                id="exampleInputPhone1"
-                [formControlName]="'phone'"
-              /> -->
+    
               <label  class="w-100">
                 <div class="d-flex position-relative">
                   <input
@@ -43,17 +41,17 @@
                     placeholder="{{ 'phone' | translate }}"
                     [formControlName]="'phone'"
                     #number
-                    style="text-align: center"
-             
+                    style="padding-left: 11%;"
                   />
   
-                  <h6 class=" text-success position-absolute cm-position"> +966</h6>
-                </div>
+                  <div class=" text-success position-absolute cm-position">
+                    <h6 class=" text-muted position-absolute number-position"> +966</h6>
+                  </div>                </div>
               </label>
 
 
               <span
-                class="d-block"
+                class="d-block text-danger"
                 *ngIf="signUp.controls.phone.errors?.['minlength'] || !signUp.controls.phone.value?.startsWith(5)&&(signUp.controls.phone.dirty || signUp.controls.phone.touched)"
               >
                 {{ "phoneValid" | translate }}

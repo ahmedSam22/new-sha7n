@@ -16,6 +16,7 @@ export class ResetpasswordComponent implements OnInit {
   reset!: FormGroup;
   thisLang: any;
   show: boolean = false;
+  phoneNumber:any;
 
   showConfirm: boolean = false;
   constructor(
@@ -26,6 +27,11 @@ export class ResetpasswordComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService
   ) {
+
+    this.route.queryParams.subscribe(params => {
+      this.phoneNumber = params['phone'];
+    });
+ 
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
@@ -43,16 +49,13 @@ export class ResetpasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset = new FormGroup({
-      phone: new FormControl(localStorage.getItem('phone')),
+      phone: new FormControl(this.phoneNumber),
       code: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       confirm_password: new FormControl(null, Validators.required),
     });
 
-    this.activatedRoute.paramMap.subscribe((params) => {
-      this.id_code = params.get('id');
-      console.log('check', this.id_code);
-    });
+    
   }
 
   back() {
@@ -75,7 +78,7 @@ export class ResetpasswordComponent implements OnInit {
               'success'
             );
 
-            this.router.navigate(['/login']);
+            this.router.navigate(['/login/1']);
           } else {
           }
         },

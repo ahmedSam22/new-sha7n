@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,7 +14,7 @@ export class AdminSidebarComponent implements OnInit {
   element:any;
 
 
-  constructor(public translate: TranslateService) { 
+  constructor(public translate: TranslateService,private router:Router) { 
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
@@ -49,5 +50,8 @@ export class AdminSidebarComponent implements OnInit {
 
   logout(){
     localStorage.removeItem("qadiautkCurrentUser")
+    // location.reload()
+    // this.router.navigate(['/login/1']);
   }
+
 }

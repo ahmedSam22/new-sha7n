@@ -17,7 +17,13 @@ export class LoginComponent implements OnInit {
   thisLang:any;
 
   showConfirm:boolean = false;
-  constructor(private router:Router ,private _location: Location , private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+  constructor(private router:Router ,private _location: Location , public service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+    console.log(localStorage.getItem("qadiautkCurrentUser") , "hhh");
+    
+    // if(localStorage.getItem("qadiautkCurrentUser") != undefined){
+    //   this.router.navigate(['/']);
+    // }
+
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
@@ -89,4 +95,6 @@ export class LoginComponent implements OnInit {
        );
       
   }
+
+
 }

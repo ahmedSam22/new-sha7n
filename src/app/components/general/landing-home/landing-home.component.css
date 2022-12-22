@@ -8,7 +8,9 @@
 img {
   width: 100%;
 }
-
+.w-100vw{
+  width: 100vw;
+}
 .x {
   background-image: url("../../../../assets/images/illustration.png");
   background-repeat: no-repeat;
@@ -108,6 +110,7 @@ img {
 
 .customContainer {
   padding: 2em;
+  overflow: hidden;
 }
 
 .greenBack {

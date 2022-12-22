@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   old_order:any;
   new_order:any;
-  private currentUserSubject: BehaviorSubject<any>;
+  public currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
   constructor(private http: HttpClient) {

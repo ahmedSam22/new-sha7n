@@ -136,11 +136,21 @@
     border-radius: 50%;
     padding: 6px;
 }
+
+
 input{
-    text-align: center;
+    font-size: 18px;
 }
 
+
 .cm-position{
+    left: 0px;
+    top:0px;
+    height: 100%;
+    width: 10%;
+    border-right: 1px solid gray;
+}
+.number-position{
     left: 10px;
-    top:10px;
+    top: 12px;
 }

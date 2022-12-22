@@ -7,7 +7,7 @@
       <div class="leftSide">
         <div class="col-md-12">
           <a (click)="back()">
-          
+            <i [class]=" thisLang == 'ltr' ? 'fas fa-chevron-left':'fas fa-chevron-right'" style="background: #f1f1f1;padding:9px;border-radius : 50%;margin-right: 10px"></i>
             {{ "backHome" | translate }}
           </a>
         </div>
@@ -35,11 +35,12 @@
                   placeholder="{{ 'phone' | translate }}"
                   [formControlName]="'phone'"
                   #number
-                  style="text-align: center"
+                  style="padding-left: 11%;"
            
                 />
-
-                <h6 class=" text-success position-absolute cm-position"> +966</h6>
+<div class=" text-success position-absolute cm-position">
+  <h6 class=" text-muted position-absolute number-position"> +966</h6>
+</div>
               </div>
             </label>
 

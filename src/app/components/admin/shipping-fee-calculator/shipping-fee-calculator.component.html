@@ -113,6 +113,7 @@
                     class="w-100 form-control input-file"
                     (click)="commercialInvoice.click()"
                   >
+                    <img *ngIf="commercialInvoicelength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
                     <i class="fas fa-file-pdf text-success"></i>
                   </div>
                   <input
@@ -159,9 +160,10 @@
                   class="w-100 form-control input-file"
                   (click)="packingList.click()"
                 >
+                <img *ngIf="packingListlength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
+
                   <i class="fas fa-file-pdf text-success"></i>
                 </div>
-
                 <input
                 #packingList
                   type="file"
@@ -292,7 +294,7 @@
         <!-- <button class="m-auto d-block btn btn-success btn-lg" >{{ "bookShipment" | translate }}</button> -->
         <input
           type="submit"
-          (click)=" case == 0  ?  calculate() : onSubmit()"
+          (click)="calculate()"
           value=""
           class="btn btn-lg m-auto d-block submit-btn"
           value="{{ 'bookShipment' | translate }}"
@@ -662,6 +664,7 @@
             class="btn col-md-8 btnCalculating"
             id="btnCalculating"
             (click)="onSubmit()"
+            [disabled]="clicked"
           >
             {{ "BookingBtn" | translate }}
           </button>

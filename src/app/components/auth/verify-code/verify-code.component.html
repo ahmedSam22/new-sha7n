@@ -2,15 +2,15 @@
     <div class="row justify-content-center" style="min-height:680px">
         <div class="col-md-6 col-sm-12 leftverify">
             <div class="leftSide">
-                <!-- <div class="row"> -->
-                    <!-- <div class="col-md-12 col-sm-12"> -->
-                        <!-- <a [routerLink]="['/sign-up']">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
-                   <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-                  </svg> {{"back" | translate}}
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <a (click)="back()">
+                          <i [class]=" thisLang == 'ltr' ? 'fas fa-chevron-left':'fas fa-chevron-right'" style="background: #f1f1f1;padding:9px;border-radius : 50%;margin-right: 10px"></i>
+                          {{ "backHome" | translate }}
                         </a>
-                </div> -->
-                <!-- </div> -->
+                      </div>
+                </div>
                 <div class="row">
                     
                     <div class="col-md-12 col-sm-8">

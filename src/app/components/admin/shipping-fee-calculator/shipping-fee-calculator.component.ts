@@ -39,6 +39,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   packingList: File[] = [];
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
+  clicked:Boolean = false;
   // fromChinaHarbor!: any;
   // label: any;
   // toSaudiHarbor!: any;
@@ -235,6 +236,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   // }
 
   onSubmit() {
+    this.clicked = true
     if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
       let orderId: number;
       let payed: number;
@@ -250,15 +252,18 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       };
 
       this.service.bookingOrder(subForm).subscribe(
-        (res: any) => {
+        async (res: any) => {
           console.log('resssssssss', subForm);
 
           Swal.fire(res.message);
+
           orderId = res.data?.id;
           payed = res.data?.payed;
           console.log('res', orderId, payed);
           // this.form.reset();
           this.orderPayment(orderId, payed);
+          this.clicked = false
+
         },
         (error: any) => {
           console.log(error);
@@ -316,7 +321,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, '_blank');
+      window.open(`${e.url}`, '_self');
       // console.log(e.url, '333333333333333');
     });
   }

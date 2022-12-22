@@ -1,6 +1,6 @@
 <div class="customContainer">
   <section class="main-home">
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-100 w-100vw p-0">
       <div
         class="row h-100 x"
         [ngClass]="thisLang === 'ltr' ? 'row h-100 x' : 'row h-100 x-rtl'"
@@ -140,7 +140,7 @@
         {{ "calcText" | translate }}
       </span>
 
-      <button class="btn btn-success my-4 p-3" [routerLink]="['/sign-up/1']">
+      <button class="btn btn-success my-4 p-3" [routerLink]="['/about/orders']">
         {{ "importwithus" | translate }}
         <svg
           style="padding-bottom: 2px"
