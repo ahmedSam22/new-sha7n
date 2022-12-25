@@ -227,3 +227,17 @@ ul  {
   top:0px;
   z-index: 2000000; */
  }
+
+ .active-link {
+  background-color: #fff !important;
+  padding: 0.3em 1em;
+  /* color: black; */
+}
+.active-link svg{
+
+  color: #0f4f56;
+}
+.active-link span{
+
+  color: #0f4f56;
+}

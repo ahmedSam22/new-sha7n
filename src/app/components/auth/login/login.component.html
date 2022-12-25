@@ -1,19 +1,30 @@
 <section class="container-fluid">
   <!-- style="min-height: 670px" -->
   <div class="row x">
-    <div
-      class="col-md-6 col-sm-12 col-12 align-self-center"
-    >
+    <div class="col-md-6 col-sm-12 col-12 align-self-center">
       <div class="leftSide">
         <div class="col-md-12">
           <a (click)="back()">
-            <i [class]=" thisLang == 'ltr' ? 'fas fa-chevron-left':'fas fa-chevron-right'" style="background: #f1f1f1;padding:9px;border-radius : 50%;margin-right: 10px"></i>
+            <i
+              [class]="
+                thisLang == 'ltr'
+                  ? 'fas fa-chevron-left'
+                  : 'fas fa-chevron-right'
+              "
+              style="
+                background: #f1f1f1;
+                padding: 9px;
+                border-radius: 50%;
+                margin-right: 10px;
+              "
+            ></i>
             {{ "backHome" | translate }}
           </a>
         </div>
 
         <div class="text-center" style="position: absolute; left: 45%">
           <h3 class="text-center">{{ "login" | translate }}</h3>
+          <hr style="width: 50%;margin-top: 0px;height: 2px;">
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12"></div>
@@ -35,17 +46,46 @@
                   placeholder="{{ 'phone' | translate }}"
                   [formControlName]="'phone'"
                   #number
-                  style="padding-left: 11%;"
-           
+                  style="padding-left: 11%"
                 />
-<div class=" text-success position-absolute cm-position">
-  <h6 class=" text-muted position-absolute number-position"> +966</h6>
-</div>
+                <div class="text-success position-absolute cm-position">
+                  <h6 class="text-muted position-absolute number-position">
+                    +966
+                  </h6>
+                </div>
               </div>
             </label>
-
           </div>
 
+
+          <div class="form-group offset-md-2 col-md-8 col-sm-12 col-12">
+            <label for="exampleInputPassword1" class="w-100">
+              <h6>{{ "password" | translate }} :</h6>
+              <div class="d-flex position-relative" >
+                <input
+                id="exampleInputPassword1"
+                [type]="showConfirm ? 'text' : 'password'"
+                class="form-control form-control-lg "
+                style="direction: ltr"
+                [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
+                required="true"
+                minlength="6"
+                placeholder="{{ 'password' | translate }}"
+                [formControlName]="'password'"
+              />
+                <div class="text-gray position-absolute password-position">
+                  <span
+                  class="text-muted"
+                  (click)="this.showConfirm = !this.showConfirm"
+                  ><i class="fas fa-eye" *ngIf="!this.showConfirm"></i>
+                  <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
+                </span>
+                </div>
+              </div>
+            </label>
+          </div>
+
+<!-- 
           <div class="form-group offset-md-2 col-md-8">
             <label for="exampleInputPassword1">{{
               "password" | translate
@@ -68,7 +108,7 @@
                 <i class="fas fa-eye-slash" *ngIf="this.showConfirm"></i>
               </span>
             </div>
-          </div>
+          </div> -->
           <div class="form-check check offset-md-2 col-md-8">
             <input
               type="checkbox"
@@ -81,7 +121,7 @@
               for="exampleCheck1"
               >{{ "remember" | translate }}
               <span>
-                <a [routerLink]="['/forgetpassword']">
+                <a [routerLink]="['/forgetpassword']" class="text-success">
                   {{ "forgetpassword" | translate }}
                 </a>
               </span>
@@ -92,6 +132,7 @@
           <button
             type="sumbit"
             class="btn btn-primary offset-md-2 col-md-8 col-sm-12 d-block"
+            [disabled]="!number.value.startsWith('5') || number.value.length <= 8 "
           >
             {{ "login" | translate }}
           </button>

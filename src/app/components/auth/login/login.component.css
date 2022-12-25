@@ -18,12 +18,17 @@
 .container-fluid .leftSide h3 {
     margin-top:10px;
     /* border-bottom: 2px solid #32B457; */
-    text-decoration: underline;
-    text-decoration-color:#32B457;
-    text-decoration-skip-ink:none;
+    /* text-decoration: underline; */
+    /* text-decoration-color:#32B457; */
+    /* text-decoration-skip-ink:none; */
     position: relative;
     top: 50%;
     bottom: 35%;
+}
+.container-fluid .leftSide hr{
+    background: #32b457;
+    height: 3px;
+
 }
 
 .container-fluid .leftSide form {
@@ -150,5 +155,9 @@ input{
 }
 .number-position{
     left: 10px;
+    top: 12px;
+}
+.password-position{
+    right: 10px;
     top: 12px;
 }

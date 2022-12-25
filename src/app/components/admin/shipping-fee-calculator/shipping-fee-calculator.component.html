@@ -90,7 +90,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "weight" | translate }}:</h6>
 
-              <div class="d-flex position-relative">
+              <div class="d-flex position-relative" style="direction: ltr;">
                 <input type="text" name="" id="" class="form-control" formControlName="weight1" />
                 <h5 class=" text-success position-absolute cm-position"> {{ this.form.controls.type.value == 0? 'CBM':'KG' | translate}}</h5>
               </div>
@@ -144,7 +144,8 @@
 
                     <br />
 
-                    {{ commercialInvoicelength.length }}
+                    <!-- {{ commercialInvoicelength.length }} -->
+                    1
                     {{ "filelength" | translate }}
                   </p>
                 </div>
@@ -190,7 +191,9 @@
                   </svg>
                   {{ "uploaded" | translate }}
                   <br />
-                  {{ packingListlength.length }} {{ "filelength" | translate }}
+                  <!-- {{ packingListlength.length }} -->
+                  1
+                   {{ "filelength" | translate }}
                 </p>
               </div>
             </label>
@@ -203,10 +206,10 @@
       <section>
         <h5 class="mt-3 mb-5">{{ "dimention" | translate }}</h5>
         <div action="" class="d-flex">
-          <div class="col-4 d-flex">
+          <div class="col-4 d-flex" >
             <label for="pacelFrom" class="w-100">
               <h6>{{ "length" | translate }} :</h6>
-              <div class="d-flex position-relative">
+              <div class="d-flex position-relative" style="direction: ltr;">
                 <input
                   type="text"
                   name=""
@@ -222,7 +225,7 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "width" | translate }}:</h6>
-              <div class="d-flex position-relative">
+              <div class="d-flex position-relative" style="direction: ltr;">
                 <input
                   type="text"
                   name=""
@@ -240,7 +243,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "height" | translate }}:</h6>
 
-              <div class="d-flex position-relative">
+              <div class="d-flex position-relative" style="direction: ltr;">
                 <input
                   type="text"
                   name=""
@@ -266,7 +269,7 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "coupon" | translate }} :</h6>
-              <div class="d-flex position-relative">
+              <div class="d-flex position-relative" style="direction: ltr;">
                 <input
                   type="text"
                   name=""

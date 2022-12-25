@@ -53,7 +53,7 @@ export class SignUpComponent implements OnInit {
     this.signUp = new FormGroup({
       name: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      phone: new FormControl("" || null, [
+      phone: new FormControl(this.phoneNumber || "" || null, [
         Validators.required,
         Validators.minLength(9),
       ]),
