@@ -43,6 +43,8 @@ import { SuccessComponent } from './components/admin/payment-method/success/succ
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
 import { HomeComponent } from './components/home/home.component';
 import { JwtInterceptor } from './components/auth/jwt.interceptor';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { VerifyCodeComponent } from './components/auth/verify-code/verify-code.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { JwtInterceptor } from './components/auth/jwt.interceptor';
     AddComponent,
     SuccessComponent,
     FailComponent,
+    VerifyCodeComponent
   ],
   imports: [
     HttpClientModule,
@@ -99,6 +102,7 @@ import { JwtInterceptor } from './components/auth/jwt.interceptor';
         deps: [HttpClient]
     }
     }),
+    NgOtpInputModule
     
   ],
   providers: [GlobalService ,{ provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true }

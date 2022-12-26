@@ -1,5 +1,5 @@
-<div class="customContainer">
-  <section class="main-home">
+<div class="customContainer p-0">
+  <section class="main-home px-5">
     <div class="container-fluid h-100 w-100vw p-0">
       <div
         class="row h-100 x"
@@ -20,17 +20,19 @@
       </div>
     </div>
   </section>
-  <section class="gallery">
-    <div class="container-fluid">
-      <div class="row gallery-body plane-custom">
+  <section class="gallery ">
+    <div class="container-fluid ">
+      <div class="row gallery-body plane-custom px-5">
         <div class="col-md-6 align-self-center gallery--text">
           <div class="headingTitle">
-            <img src="../../../assets/images/para1.png" alt="" srcset="" />
+            <img [src]="this.imageSrc" alt="" srcset="" />
 
             <h3 [innerHTML]="imageTitle"></h3>
           </div>
           <span class="imageText">
-            {{ imageText }}
+            <span>
+              {{ imageText }}
+            </span>
           </span>
         </div>
         <div class="col-md-6 custom">
@@ -43,7 +45,10 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{ "Shipping" | translate }}
+              <span>
+
+                {{ "Shipping" | translate }}
+              </span>
             </div>
             <div class="column">
               <img
@@ -53,7 +58,10 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{ "Import" | translate }}
+              <span>
+
+                {{ "Import" | translate }}
+              </span>
             </div>
           </div>
 
@@ -66,7 +74,10 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{ "ware-house" | translate }}
+              <span>
+                {{ "ware-house" | translate }}
+
+              </span>
             </div>
             <div class="column">
               <img
@@ -76,15 +87,18 @@
                 srcset=""
                 style="width: 100%"
               />
-              {{ "Why-Us" | translate }}
+              <span>
+
+                {{ "Why-Us" | translate }}
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="testimonials mt-5">
-    <div class="row w-100 row-border">
+  <section class="testimonials mt-5 " >
+    <div class="row w-100 row-border px-5">
       <div class="col-md-6 p-0">
         <img
           height="700px"
@@ -105,7 +119,7 @@
       </div>
     </div>
     <!-- Testmonials -->
-    <div class="carousel my-4 ltr plane">
+    <div class="carousel my-4 ltr plane px-5">
       <h4 class="text-center">{{ "testimonialHeader" | translate }}</h4>
       <p class="text-center opacity">
         {{ "testimonialTitle" | translate }}
@@ -135,7 +149,7 @@
     </div>
 
     <!-- Testmonials -->
-    <div class="banner mt-2 raduis">
+    <div class="banner mt-2 " >
       <span>
         {{ "calcText" | translate }}
       </span>
@@ -159,7 +173,7 @@
       </button>
     </div>
   </section>
-  <section class="contact-us my-4">
+  <section class="contact-us mt-0">
     <div class="header my-4">
       <h2>{{ "contactUs" | translate }} !</h2>
       <span class="contact-par font-4">

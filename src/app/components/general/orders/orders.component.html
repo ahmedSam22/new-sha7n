@@ -9,7 +9,7 @@
         <h6>{{ "shippingAddress" | translate }}</h6>
         <div class="row justify-content-around shipForm">
           <div class="form-group col-md-6">
-            <label>{{ "from" | translate }}: </label>
+            <label>{{ "parcelChoose" | translate }}: </label>
             <!-- formControlName="china_harbor_id" -->
             <select
               class="form-control"
@@ -17,7 +17,7 @@
               [disabled]="closeChoises"
             >
               <option [selected]="true">
-                {{ "parcelChooseTo" | translate }}
+                {{ "parcelChoose" | translate }}
               </option>
 
               <option value="1">{{ "china" | translate }}</option>
@@ -27,14 +27,14 @@
             >
           </div>
           <div class="form-group col-md-6">
-            <label>{{ "to" | translate }} :</label>
+            <label>{{ "parcelChooseTo" | translate }} :</label>
             <select
               class="form-control"
               formControlName="saudi_harbor_id"
               (change)="onChangeSaudi($event)"
             >
               <option [selected]="true">
-                {{ "parcelChoose" | translate }}
+                {{ "parcelChooseTo" | translate }}
               </option>
               <!-- <option *ngFor="let harbor of saudiharbors" [value]="harbor.id" >
                 <span  *ngIf="thisLang==='rtl'">
@@ -177,10 +177,10 @@
           </div>
         </div>
         <br />
-        <div class="row justify-content-center">
+        <div class="row justify-content-center btnCalculatingParent">
           <button
             type="submit"
-            class="btn col-md-11 btnCalculating"
+            class="btn col-md-12 btnCalculating"
             id="btnCalculating"
           >
             {{ "calculateBtn" | translate }}
@@ -239,8 +239,8 @@
             class="col-md-6"
             [ngClass]="thisLang === 'ltr' ? 'forBorder' : 'forBorder-rtl'"
           >
-            <div class="forImg d-flex justify-content-between">
-              <span>
+            <div class="forImg d-flex justify-content-start w-50">
+              <span class="mx-3">
                 <img
                   [src]="logo"
                   class="img-fluid"
@@ -250,12 +250,12 @@
                   style="border-radius: 50%"
                 />
               </span>
-              <span> International Parcel </span>
+              <span class="w-50"> International Parcel </span>
             </div>
             <div class="forText d-flex flex-column mt-3">
               <span>{{ "shippingcharges" | translate }}</span>
               <span class="my-3" style="color: #32b457">
-                <h3>{{ costs }}$</h3>
+                <h1>{{ costs }}$</h1>
               </span>
             </div>
           </div>

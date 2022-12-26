@@ -1,3 +1,4 @@
+import { LoginComponent } from './components/auth/login/login.component';
 import { AdminModule } from './components/admin/admin.module';
 import { ModuleModule } from './components/general/module/module.module';
 import { FailComponent } from './components/admin/payment-method/fail/fail.component';
@@ -22,6 +23,11 @@ import { LandingHomeComponent } from './components/general/landing-home/landing-
 
 import { AuthModule } from './components/auth/module/auth.module';
 import { HomeComponent } from './components/home/home.component';
+import { LandingComponent } from './components/auth/landing/landing.component';
+import { VerifyCodeComponent } from './components/auth/verify-code/verify-code.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/auth/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -31,10 +37,20 @@ const routes: Routes = [
   component:HomeComponent, 
    children: [
     { path: '', loadChildren: ()=> AuthModule,},
+
     { path: 'home', component: LandingHomeComponent},
     { path: 'about', loadChildren: ()=> ModuleModule,},
   ]
 },
+{ path: 'landing', component: LandingComponent},
+{ path: 'verify-code/:id', component: VerifyCodeComponent},
+{ path: 'sign-up', component: SignUpComponent},
+{ path: 'login/:id', component: LoginComponent},
+{ path: 'forgetpassword', component: ForgetpasswordComponent},
+{ path: 'reset', component: ResetpasswordComponent},
+
+
+
 // { path: 'home', 
 // component:HomeComponent, 
 

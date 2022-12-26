@@ -1,9 +1,11 @@
 import Swal from 'sweetalert2';
 import { AuthService } from './../auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
+import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
 
 @Component({
   selector: 'app-verify-code',
@@ -17,9 +19,18 @@ export class VerifyCodeComponent implements OnInit {
   thisLang:any;
 
   userData: any;
+  @ViewChild(NgOtpInputComponent, { static: false}) ngOtpInput:NgOtpInputComponent | undefined;
+  // config :NgOtpInputConfig = {
+  //   allowNumbersOnly: false,
+  //   length: 4,
+  //   isPasswordInput: false,
+  //   disableAutoFocus: false,
+  //   placeholder: ''
+  // };
   public OTP : any = {
     length: 4,
     code: '',
+    inputClass: 'inputOtp',
   };
   phoneNumber: any;
   phone_param:any;
@@ -28,16 +39,14 @@ export class VerifyCodeComponent implements OnInit {
   timeLeftMinutes: number = 90;
   interval: any;
   constructor(
+    private location: Location,
     private service: AuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public translate: TranslateService,
 
-  ) {
-    this.fromPage = window.location.href.toString().split('/').slice(-1);
-    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
-    translate.use(this.thisLang || navigator.language);
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+  ) {  
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       if (event.lang == 'ar') {
         this.thisLang = 'rtl';
         console.log(this.thisLang, 'test1');
@@ -46,6 +55,10 @@ export class VerifyCodeComponent implements OnInit {
         console.log(this.thisLang, 'test2');
       }
     });
+    this.fromPage = window.location.href.toString().split('/').slice(-1);
+    this.thisLang = localStorage.getItem('currentLang') || navigator.language;
+    translate.use(this.thisLang || navigator.language);
+
   }
 
   ngOnInit(): void {
@@ -68,7 +81,7 @@ export class VerifyCodeComponent implements OnInit {
     this.minutesTimer();
   }
   back() {
-    this.router.navigate(['/home']);
+    this.location.back();
   }
   minutesTimer() {
     this.interval = setInterval(() => {
@@ -92,7 +105,7 @@ export class VerifyCodeComponent implements OnInit {
     this.service
       .confirmSignSms({ ...this.verification_code })
       .subscribe(async (res:any) => {
-         if(await res.status != 200){
+         if(await res.status != 200){ //should changed on live
           this.router.navigate(['/sign-up'],{queryParams : {phone: this.phoneNumber}});
         //    if (this.id_code == 0) {
         //  ;

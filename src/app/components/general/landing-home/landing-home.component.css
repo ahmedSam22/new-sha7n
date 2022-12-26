@@ -96,10 +96,19 @@ img {
 
 .gallery .custom .column:hover {
   background: #0f4f56;
+  color: #C3C3C3;
+  
+}
+.gallery .custom .column:hover {
+ font-size: 14px;
+
+  
 }
 
 .gallery .custom .column:active {
   background: #0f4f56;
+  color: #C3C3C3;
+
 }
 
 .imageText {
@@ -262,9 +271,9 @@ background-size: contain;
     height: auto;
   }
 
-  .headingTitle img {
+  /* .headingTitle img {
     display: none;
-  }
+  } */
 
   .custom {
     font-size: 10px;

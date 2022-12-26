@@ -8,12 +8,6 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 import { VerifyCodeComponent } from '../verify-code/verify-code.component';
 
 const routes: Routes = [
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'landing', component: LandingComponent},
-  { path: 'forgetpassword', component: ForgetpasswordComponent},
-  { path: 'reset', component: ResetpasswordComponent},
-  { path: 'login/:id', component: LoginComponent},
-  { path: 'verify-code/:id', component: VerifyCodeComponent},
 ];
 
 @NgModule({

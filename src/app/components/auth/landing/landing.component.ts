@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 // import { GlobalService } from '../shared/services/global.service';
 
@@ -20,7 +21,8 @@ export class LandingComponent implements OnInit {
   // phone_num!:any ;
   landing!: FormGroup;
 
-    constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+    constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService,    private location: Location,
+      ) { 
       this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 
@@ -46,7 +48,8 @@ export class LandingComponent implements OnInit {
   }
   
   back() {
-    this.router.navigate(['/home']);
+        this.location.back();
+
   }
   
   submit() {
@@ -56,7 +59,7 @@ export class LandingComponent implements OnInit {
             // this.phone_num =this.phone.nativeElement.value ;
         // localStorage.setItem("phone",this.landing.controls.phone.value)
         if (res.status==200){
-         this.router.navigate(['/verify-code',this.landing.controls.phone.value]);
+         this.router.navigate(['verify-code',this.landing.controls.phone.value]);
         }
  
   })

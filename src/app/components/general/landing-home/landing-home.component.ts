@@ -23,6 +23,7 @@ export class LandingHomeComponent implements OnInit, OnChanges {
   imageText: string = '';
   imageTitle: string = '';
   form!: FormGroup;
+  imageSrc:any;
   thisLang: any;
   currentLang:any;
 
@@ -114,8 +115,12 @@ export class LandingHomeComponent implements OnInit, OnChanges {
 
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
+          this.imageSrc = '../../../assets/images/para1.png'
+
         } else {
           this.imageTitle = 'الشحن';
+          this.imageSrc = '../../../assets/images/para1.png'
+
         }
         break;
       case 'Import':
@@ -140,8 +145,11 @@ export class LandingHomeComponent implements OnInit, OnChanges {
         }
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
+          this.imageSrc = '../../../assets/images/2.png'
         } else {
           this.imageTitle = 'الاستيراد';
+          this.imageSrc = '../../../assets/images/2.png'
+
         }
 
         break;
@@ -163,8 +171,13 @@ export class LandingHomeComponent implements OnInit, OnChanges {
         }
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
+          this.imageSrc = '../../../assets/images/3.png'
+
         } else if(localStorage.getItem('currentLang') === 'ar'){
           this.imageTitle = 'المستودعات';
+
+          this.imageSrc = '../../../assets/images/3.png'
+
         }
 
         break;
@@ -184,8 +197,12 @@ export class LandingHomeComponent implements OnInit, OnChanges {
         }
         if (!localStorage.getItem('currentLang') || localStorage.getItem('currentLang') === 'en') {
           this.imageTitle = status;
+          this.imageSrc = '../../../assets/images/4.png'
+
         } else {
           this.imageTitle = 'لماذا نحن ؟';
+          this.imageSrc = '../../../assets/images/4.png'
+
         }
 
         break;

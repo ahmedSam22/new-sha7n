@@ -27,12 +27,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     ResetpasswordComponent,
     SignUpComponent,
-    VerifyCodeComponent,
+    // VerifyCodeComponent,
     LandingComponent
   ],
   imports: [
     CommonModule,
-    NgOtpInputModule,
     AuthRoutingModule,
     FormsModule,
     MatFormFieldModule,
@@ -48,6 +47,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
         deps: [HttpClient]
     }
     }),
+    
   ]
 })
 

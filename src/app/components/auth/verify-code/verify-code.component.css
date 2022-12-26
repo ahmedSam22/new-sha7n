@@ -59,7 +59,7 @@
 }
 
 .container-fluid .rightSide {
-    height: 100%;
+    height: 100vh;
     margin-right: -15px;
 }
 
@@ -164,4 +164,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 input{
     text-align: center;
+}
+
+
+
+.container-fluid .leftSide hr{
+    background: #32b457;
+    height: 3px;
+
+}
+
+::ng-deep.inputOtp{
+    background-color: #e4e4e4 !important;
+    
+}
+
+::ng-deep.ng-otp-input-wrapper{
+    direction: ltr;
 }

@@ -6,16 +6,27 @@
       <div class="leftSide">
         <div class="col-md-12">
           <a (click)="back()">
-            <i [class]=" thisLang == 'ltr' ? 'fas fa-chevron-left mr-3':'fas fa-chevron-right ml-3'"
-             style="background: #f1f1f1;padding:9px;border-radius : 50%"
-            ></i>
+            <i
+            [class]="
+              thisLang == 'rtl'
+                ? 
+               'fas fa-chevron-right' : 'fas fa-chevron-left'
+            "
+            style="
+              background: #f1f1f1;
+              padding: 9px;
+              border-radius: 50%;
+              margin-right: 10px;
+            "
+          ></i>
             {{ "backHome" | translate }}
           </a>
         </div>
 
         <div class="mb-3 row">
-          <div class="text-center" style="position: absolute; left: 45%">
+          <div class="text-center" style="position: absolute; left: 45%;">
             <h3 class="text-center">{{"createaccount" | translate}}</h3>
+            <hr style="width: 50%;margin-top: 0px;height: 2px;">
           </div>
 
           <div class="col-md-12">
@@ -30,7 +41,7 @@
 
 
                 <label for="" class="w-100">
-                  <h6 class="text-black">{{ "phone" | translate }} :</h6>
+                  <h6 class="text-black text-left"  >{{ "phone" | translate }} :</h6>
                   <div class="d-flex position-relative">
                     <input
                       type="text"
@@ -49,6 +60,12 @@
                       <h6 class=" text-muted position-absolute number-position"> +966</h6>
                     </div>                  </div>
                 </label>
+                <span
+                class="d-block text-danger"
+                *ngIf="this.landing.controls.phone.errors?.['minlength'] || !this.landing.controls.phone.value?.startsWith(5)&&(this.landing.controls.phone.dirty || this.landing.controls.phone.touched)"
+              >
+                {{ "phoneValid" | translate }}
+              </span>
 
                 <button
                   type="submit"

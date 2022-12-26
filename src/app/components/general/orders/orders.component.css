@@ -201,6 +201,13 @@
     margin: 10px;
     
 }
+.btnCalculatingParent{
+    max-width: 100%;
+
+margin: auto;}
+.btnCalculating{
+    margin: 0;
+}
  
 .input-group-text{
     height: 100%;
@@ -212,8 +219,8 @@
 .imgg {
     height: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
+    background-size: contain;
+    background-position: bottom;
     width: 116%;
     height: 100%;
     resize: both;
@@ -224,8 +231,8 @@
  .imgg .fullImage {
    background-image: url('../../../../assets/images/illustration.png');  
    background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center center;
+   background-size: contain;
+   background-position: bottom;
    width: 100%;
    height: 100%;
    resize: both;
@@ -236,8 +243,8 @@
 .fullImage-rtl {
     background-image: url('../../../../assets/images/flip.png');  
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: contain;
+    background-position: bottom;
     width: 100%;
     height: 100%;
     resize: both;
@@ -272,4 +279,11 @@
 }
 select{
     padding: 0;
+
+    color: #bfbfbf;
+    font-size: 12px;
 }
+input::placeholder { /* Internet Explorer 10-11 */
+    color: #bfbfbf;
+    font-size: 12px;
+   }

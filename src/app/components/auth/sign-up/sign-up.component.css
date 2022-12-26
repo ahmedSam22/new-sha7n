@@ -104,14 +104,16 @@
 .container-fluid .leftSide h3 {
     margin-top: 30px;
     /* border-bottom: 2px solid #32B457; */
-    text-decoration: underline;
-    text-decoration-color:#32B457;
-    text-decoration-skip-ink:none;
+
     position: relative;
     top: 50%;
     bottom: 35%;
 }
+.container-fluid .leftSide hr{
+    background: #32b457;
+    height: 3px;
 
+}
 .container-fluid .leftSide form {
     margin-top:30px;
     position: relative;
@@ -156,7 +158,7 @@
 }
 
 .container-fluid .rightSide {
-    height: 100%;
+    height: 100vh;
     margin-right: -15px;
 }
 
@@ -235,6 +237,13 @@ input{
     border-right: 1px solid gray;
 }
 .number-position{
-    left: 10px;
+    left: 10%;
+    top: 12px;
+    font-size: .8rem;
+
+   
+}
+.password-position{
+    right: 10px;
     top: 12px;
 }
