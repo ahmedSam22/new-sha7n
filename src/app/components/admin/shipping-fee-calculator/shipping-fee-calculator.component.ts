@@ -73,18 +73,19 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     public incomeData: GeneralService,
     private route: ActivatedRoute
   ) {
+    
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.route.queryParams.subscribe((params) => {
         this.case = params['case'];
       });
 
-      if (event.lang == 'ar') {
-        this.thisLang = 'rtl';
-        console.log(this.thisLang, 'test1');
-      } else {
-        this.thisLang = 'ltr';
-        console.log(this.thisLang, 'test2');
-      }
+      // if (event.lang == 'ar') {
+      //   this.thisLang = 'rtl';
+      //   console.log(this.thisLang, 'test1');
+      // } else {
+      //   this.thisLang = 'ltr';
+      //   console.log(this.thisLang, 'test2');
+      // }
     });
     // this.index = localStorage.getItem('shipment_type');
     // this.globalService.getAllShipmentTypes().subscribe((res: any) => {
@@ -99,6 +100,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     //   console.log(this.label, 'oooooooooooooooooooooooo');
     // });
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
+
     console.log(this.thisLang, 'from ocnst');
 
     translate.use(this.thisLang || navigator.language);
@@ -108,11 +110,11 @@ export class ShippingFeeCalculatorComponent implements OnInit {
     this.getShipmentType();
     console.log(this.incomeData, 'testststs');
 
-    if (localStorage.getItem('currentLang') == 'ar') {
-      this.thisLang = 'rtl';
-    } else if (localStorage.getItem('currentLang') == 'en') {
-      this.thisLang = 'ltr';
-    }
+    // if (localStorage.getItem('currentLang') == 'ar') {
+    //   this.thisLang = 'rtl';
+    // } else if (localStorage.getItem('currentLang') == 'en') {
+    //   this.thisLang = 'ltr';
+    // }
     // this.fromChinaHarbor = this.incomeData.fromChinaHarbor;
     // this.toSaudiHarbor = this.incomeData.toSaudiHarbor;
     // this.typeOfShipping = this.incomeData.typeOfShipping;

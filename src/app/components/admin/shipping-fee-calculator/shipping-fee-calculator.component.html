@@ -24,7 +24,8 @@
     <form [formGroup]="form" action="">
       <!-- shipment address  -->
       <section>
-        <h5 class="mt-3 mb-5">{{ "shipmentAddress" | translate }}</h5>
+        <h5 class="mt-3 mb-5" [class]="thisLang == 'ar' ? 'text-right'
+ : 'text-left' ">{{ "shipmentAddress" | translate }}</h5>
         <div class="d-flex">
           <div class="col-6 d-flex">
             <label for="pacelFrom" class="w-100">
@@ -87,12 +88,20 @@
             </label>
           </div>
           <div class="col-4 d-flex">
-            <label for="pacelFrom" class="w-100">
+            <label for="pacelFrom" class="w-100" >
               <h6>{{ "weight" | translate }}:</h6>
 
               <div class="d-flex position-relative" style="direction: ltr;">
-                <input type="text" name="" id="" class="form-control" formControlName="weight1" />
-                <h5 class=" text-success position-absolute cm-position"> {{ this.form.controls.type.value == 0? 'CBM':'KG' | translate}}</h5>
+                <input type="text" name="" id="" class="form-control" formControlName="weight1" [class]="
+                thisLang == 'ar'
+                ? 'text-right'
+                : 'text-left'
+              " />
+                <h5 class=" text-success position-absolute "  [class]="
+                thisLang == 'ar'
+                ? 'cm-position-rtl'
+                : 'cm-position'
+              "> {{ this.form.controls.type.value == 0? 'CBM':'KG' | translate}}</h5>
               </div>
             </label>
           </div>
@@ -112,9 +121,15 @@
                   <div
                     class="w-100 form-control input-file"
                     (click)="commercialInvoice.click()"
+                    
+                    
                   >
                     <img *ngIf="commercialInvoicelength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
-                    <i class="fas fa-file-pdf text-success"></i>
+                    <i class="fas fa-file-pdf text-success" [class]="
+                    thisLang == 'ar'
+                    ? 'pdf-rtl'
+                    : 'pdf-ltr'
+                  "></i>
                   </div>
                   <input
                     type="file"
@@ -122,6 +137,7 @@
                     style="display: none"
                     class="form-control"
                     (change)="commercialInvoiceChange($event)"
+                   
                   />
 
                   <p class="requiredFiles" *ngIf="showComercialInvoice">
@@ -163,7 +179,11 @@
                 >
                 <img *ngIf="packingListlength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
 
-                  <i class="fas fa-file-pdf text-success"></i>
+                  <i class="fas fa-file-pdf text-success" [class]="
+                  thisLang == 'ar'
+                  ? 'pdf-rtl'
+                  : 'pdf-ltr'
+                "></i>
                 </div>
                 <input
                 #packingList
@@ -217,8 +237,17 @@
                   class="form-control"
                   placeholder="{{ 'length' | translate }}"
                   formControlName="length"
+                  [class]="
+                thisLang == 'ar'
+                ? 'text-right'
+                : 'text-left'
+              "
                 />
-                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
+                <h5 class=" text-success position-absolute " [class]="
+                thisLang == 'ar'
+                ? 'cm-position-rtl'
+                : 'cm-position'
+              "> {{"cm" | translate}}</h5>
               </div>
             </label>
           </div>
@@ -233,8 +262,17 @@
                   class="form-control"
                   placeholder="{{ 'width' | translate }}"
                   formControlName="width"
+                  [class]="
+                thisLang == 'ar'
+                ? 'text-right'
+                : 'text-left'
+              "
                 />
-                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
+                <h5 class=" text-success position-absolute" [class]="
+                thisLang == 'ar'
+                ? 'cm-position-rtl'
+                : 'cm-position'
+              "> {{"cm" | translate}}</h5>
 
               </div>
             </label>
@@ -251,8 +289,17 @@
                   class="form-control"
                   placeholder="{{ 'height' | translate }}"
                   formControlName="height"
+                  [class]="
+                thisLang == 'ar'
+                ? 'text-right'
+                : 'text-left'
+              "
                 />
-                <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5>
+                <h5 class=" text-success position-absolute " [class]="
+                thisLang == 'ar'
+                ? 'cm-position-rtl'
+                : 'cm-position'
+              "> {{"cm" | translate}}</h5>
 
               </div>
             </label>
@@ -277,9 +324,18 @@
                   class="form-control"
                   placeholder="{{ 'coupon' | translate }}"
                   #code
+                  [class]="
+                thisLang == 'ar'
+                ? 'text-right'
+                : 'text-left'
+              "
            
                 />
-                <button  class=" text-success position-absolute check-position btn btn-link"  (click)="checkCode(code.value)">{{ "check" | translate }}</button>
+                <button  class=" text-success position-absolute  btn btn-link" [class]="
+                thisLang == 'ar'
+                ? 'check-position-rtl'
+                : 'check-position'
+              " (click)="checkCode(code.value)">{{ "check" | translate }}</button>
 
                 <!-- <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5> -->
               </div>

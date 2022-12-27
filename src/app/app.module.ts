@@ -45,6 +45,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JwtInterceptor } from './components/auth/jwt.interceptor';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { VerifyCodeComponent } from './components/auth/verify-code/verify-code.component';
+import { GuardsService } from './components/auth/guards.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,7 @@ import { VerifyCodeComponent } from './components/auth/verify-code/verify-code.c
     NgOtpInputModule
     
   ],
-  providers: [GlobalService ,{ provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true }
+  providers: [GlobalService ,{ provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true },GuardsService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -9,7 +9,8 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  
 })
 export class LoginComponent implements OnInit {
    id_code!:any;
@@ -29,13 +30,13 @@ export class LoginComponent implements OnInit {
 
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (event.lang == 'ar') {
-        this.thisLang = 'rtl';
-        console.log(this.thisLang, 'test1');
-      } else {
-        this.thisLang = 'ltr';
-        console.log(this.thisLang, 'test2');
-      }
+      // if (event.lang == 'ar') {
+      //   this.thisLang = 'rtl';
+      //   console.log(this.thisLang, 'test1');
+      // } else {
+      //   this.thisLang = 'ltr';
+      //   console.log(this.thisLang, 'test2');
+      // }
     });
 
   }

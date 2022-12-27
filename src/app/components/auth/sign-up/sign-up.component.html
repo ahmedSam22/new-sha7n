@@ -5,18 +5,18 @@
         <div class="col-md-12">
           <a (click)="back()">
             <i
-              [class]="
-                thisLang == 'rtl'
-                  ? 
-                 'fas fa-chevron-right' : 'fas fa-chevron-left'
-              "
-              style="
-                background: #f1f1f1;
-                padding: 9px;
-                border-radius: 50%;
-                margin-right: 10px;
-              "
-            ></i>
+            [class]="
+              thisLang == 'ar'
+                ? 
+               'fas fa-chevron-right' : 'fas fa-chevron-left'
+            "
+            style="
+              background: #f1f1f1;
+              padding: 9px;
+              border-radius: 50%;
+              margin-right: 10px;
+            "
+          ></i>
             {{ "backHome" | translate }}
           </a>
         </div>
@@ -38,6 +38,11 @@
               id="exampleInputName1"
               placeholder="{{ 'fullName' | translate }}"
               [formControlName]="'name'"
+              [class]="
+              thisLang == 'ar'
+              ? 'text-right'
+              : 'text-left'
+            "
             />
           </div>
           <div class="offset-md-2 col-md-8">
@@ -54,6 +59,11 @@
                     [formControlName]="'phone'"
                     #number
                     style="padding-left: 11%"
+                    [class]="
+                    thisLang == 'ar'
+                    ? 'text-right'
+                    : 'text-left'
+                  "
                   />
 
                   <div class="text-success position-absolute cm-position">
@@ -83,6 +93,11 @@
               placeholder="{{ 'email' | translate }}"
               [formControlName]="'email'"
               required="true"
+              [class]="
+              thisLang == 'ar'
+              ? 'text-right'
+              : 'text-left'
+            "
             />
           </div>
           <div class="form-group offset-md-2 col-md-8">
@@ -99,13 +114,21 @@
               [type]="showConfirm ? 'text' : 'password'"
               class="form-control form-control-lg "
               style="direction: ltr"
-              [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
               required="true"
               minlength="6"
               placeholder="{{ 'password' | translate }}"
               [formControlName]="'password'"
+              [class]="
+              thisLang == 'ar'
+              ? 'text-right'
+              : 'text-left'
+            "
             />
-              <div class="text-gray position-absolute password-position">
+              <div class="text-gray position-absolute" [class]="
+              thisLang == 'ar'
+              ? 'password-position-rtl'
+              : 'password-position'
+            "> 
                 <span
                 class="text-muted"
                 (click)="this.showConfirm = !this.showConfirm"
@@ -126,13 +149,23 @@
               [type]="showConfirm ? 'text' : 'password'"
               class="form-control form-control-lg "
               style="direction: ltr"
-              [ngClass]="thisLang === 'ltr' ? 'ltr' : 'rtl'"
               required="true"
               minlength="6"
               placeholder="{{ 'confirmnewpassword' | translate }}"
               [formControlName]="'confirm_password'"
+              [class]="
+              thisLang == 'ar'
+              ? 'text-right'
+              : 'text-left'
+            "
             />
-              <div class="text-gray position-absolute password-position">
+              <div class="text-gray position-absolute " 
+              [class]="
+              thisLang == 'ar'
+              ? 'password-position-rtl'
+              : 'password-position'
+            "
+              >
                 <span
                 class="text-muted"
                 (click)="this.showConfirm = !this.showConfirm"
@@ -150,6 +183,7 @@
                 class="form-check-input"
                 id="exampleCheck1"
                 (click)="switchaccept()"
+                
               />
               <label class="form-check-label w-100" for="exampleCheck1"
                 >{{ "agree" | translate }}

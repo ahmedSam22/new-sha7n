@@ -47,13 +47,13 @@ export class VerifyCodeComponent implements OnInit {
 
   ) {  
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (event.lang == 'ar') {
-        this.thisLang = 'rtl';
-        console.log(this.thisLang, 'test1');
-      } else {
-        this.thisLang = 'ltr';
-        console.log(this.thisLang, 'test2');
-      }
+      // if (event.lang == 'ar') {
+      //   this.thisLang = 'rtl';
+      //   console.log(this.thisLang, 'test1');
+      // } else {
+      //   this.thisLang = 'ltr';
+      //   console.log(this.thisLang, 'test2');
+      // }
     });
     this.fromPage = window.location.href.toString().split('/').slice(-1);
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;

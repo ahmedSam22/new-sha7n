@@ -28,6 +28,7 @@ import { VerifyCodeComponent } from './components/auth/verify-code/verify-code.c
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/auth/resetpassword/resetpassword.component';
+import { GuardsService } from './components/auth/guards.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -38,14 +39,14 @@ const routes: Routes = [
    children: [
     { path: '', loadChildren: ()=> AuthModule,},
 
-    { path: 'home', component: LandingHomeComponent},
-    { path: 'about', loadChildren: ()=> ModuleModule,},
+    { path: 'home', component: LandingHomeComponent,canActivate: [GuardsService],},
+    { path: 'about', loadChildren: ()=> ModuleModule,canActivate: [GuardsService],},
   ]
 },
 { path: 'landing', component: LandingComponent},
 { path: 'verify-code/:id', component: VerifyCodeComponent},
 { path: 'sign-up', component: SignUpComponent},
-{ path: 'login/:id', component: LoginComponent},
+{ path: 'login/:id', component: LoginComponent,},
 { path: 'forgetpassword', component: ForgetpasswordComponent},
 { path: 'reset', component: ResetpasswordComponent},
 
@@ -72,7 +73,8 @@ const routes: Routes = [
     // { path: 'notification', component: NotificationComponent},
     // { path: 'customerservice', component: CustomerServiceComponent},
     // { path: 'FAQ', component: FAQComponent},
-    { path: '', loadChildren: ()=> AdminModule,},
+    { path: '', loadChildren: ()=> AdminModule,canActivate: [GuardsService],},
+    
 
   ]},
   { path: 'paymentsuccess', component: SuccessComponent},
@@ -80,8 +82,10 @@ const routes: Routes = [
 
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

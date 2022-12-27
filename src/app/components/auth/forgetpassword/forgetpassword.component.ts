@@ -23,12 +23,12 @@ export class ForgetpasswordComponent implements OnInit {
     constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
       this.thisLang = localStorage.getItem('currentLang');
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-        if (event.lang == 'ar') {
-          this.thisLang = 'rtl';
-        } else if(event.lang == 'en') {
-          this.thisLang = 'ltr';
+        // if (event.lang == 'ar') {
+        //   this.thisLang = 'rtl';
+        // } else if(event.lang == 'en') {
+        //   this.thisLang = 'ltr';
   
-        }
+        // }
         
       });
     }

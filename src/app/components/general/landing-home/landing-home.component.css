@@ -61,6 +61,7 @@ img {
 }
 .headingTitle {
   display: flex;
+  align-items: center;
 }
 
 .headingTitle img {
@@ -100,7 +101,7 @@ img {
   
 }
 .gallery .custom .column:hover {
- font-size: 14px;
+ /* font-size: 14px; */
 
   
 }
@@ -276,7 +277,7 @@ background-size: contain;
   } */
 
   .custom {
-    font-size: 10px;
+    font-size: 24px;
 
     width: 100% !important;
   }

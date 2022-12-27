@@ -126,9 +126,15 @@ color:grey
 
 }
 
-.input-file i{
+.input-file .pdf-ltr{
     position: absolute;
     right: 10px;
+    top: 20px;
+
+}
+.input-file .pdf-rtl{
+    position: absolute;
+    left: 10px;
     top: 20px;
 
 }
@@ -157,6 +163,10 @@ input{
 
 .cm-position{
     right: 10px;
+    top:20px;
+}
+.cm-position-rtl{
+    left: 10px;
     top:20px;
 }
 
@@ -274,3 +284,17 @@ ul li{
     right: 10px;
     top:15px;
 }
+.check-position-rtl{
+    left: 10px;
+    top:15px;
+}
+
+/* 
+.cm-position{
+    right: 10px;
+    top: 12px;
+}
+.password-position-rtl{
+    left: 10px;
+    top: 12px;
+} */

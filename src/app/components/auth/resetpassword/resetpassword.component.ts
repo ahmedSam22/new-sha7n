@@ -37,13 +37,13 @@ export class ResetpasswordComponent implements OnInit {
 
     translate.use(this.thisLang || navigator.language);
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (event.lang == 'ar') {
-        this.thisLang = 'rtl';
-        console.log(this.thisLang, 'test1');
-      } else {
-        this.thisLang = 'ltr';
-        console.log(this.thisLang, 'test2');
-      }
+      // if (event.lang == 'ar') {
+      //   this.thisLang = 'rtl';
+      //   console.log(this.thisLang, 'test1');
+      // } else {
+      //   this.thisLang = 'ltr';
+      //   console.log(this.thisLang, 'test2');
+      // }
     });
   }
 

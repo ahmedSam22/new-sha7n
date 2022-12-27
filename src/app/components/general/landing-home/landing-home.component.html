@@ -25,9 +25,9 @@
       <div class="row gallery-body plane-custom px-5">
         <div class="col-md-6 align-self-center gallery--text">
           <div class="headingTitle">
-            <img [src]="this.imageSrc" alt="" srcset="" />
+            <img [src]="this.imageSrc" alt="" srcset="" class="mx-3" />
 
-            <h3 [innerHTML]="imageTitle"></h3>
+            <h3 [innerHTML]="imageTitle" class="mb-0"></h3>
           </div>
           <span class="imageText">
             <span>
@@ -43,7 +43,8 @@
                 (click)="getImageText('Shipping')"
                 alt=""
                 srcset=""
-                style="width: 100%"
+                style="width: 68%;height : 50%;margin: auto;"
+                class="my-5"
               />
               <span>
 
@@ -56,8 +57,8 @@
                 (click)="getImageText('Import')"
                 alt=""
                 srcset=""
-                style="width: 100%"
-              />
+                style="width: 68%;height : 50%;margin: auto;"
+                class="my-5"              />
               <span>
 
                 {{ "Import" | translate }}
@@ -72,8 +73,8 @@
                 (click)="getImageText('Warehouses')"
                 alt=""
                 srcset=""
-                style="width: 100%"
-              />
+                style="width: 68%;height : 50%;margin: auto;"
+                class="my-5"              />
               <span>
                 {{ "ware-house" | translate }}
 
@@ -85,8 +86,8 @@
                 (click)="getImageText('Why-Us')"
                 alt=""
                 srcset=""
-                style="width: 100%"
-              />
+                style="width: 68%;height : 50%;margin: auto;"
+                class="my-5"              />
               <span>
 
                 {{ "Why-Us" | translate }}
