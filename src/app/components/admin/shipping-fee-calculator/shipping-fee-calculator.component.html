@@ -30,8 +30,8 @@
         >
           {{ "shipmentAddress" | translate }}
         </h5>
-        <div class="d-flex">
-          <div class="col-6 d-flex">
+        <div class="d-flex flex-wrap">
+          <div class="col-md-6 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
               <select class="form-control" formControlName="china_harbor_id">
@@ -45,7 +45,7 @@
               </select>
             </label>
           </div>
-          <div class="col-6 d-flex">
+          <div class="col-md-6 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "to" | translate }}:</h6>
               <select class="form-control" formControlName="saudi_harbor_id">
@@ -62,8 +62,8 @@
       <!-- shipment information -->
       <section>
         <h5 class="mt-3 mb-5">{{ "shipmentinfo" | translate }}</h5>
-        <div class="d-flex">
-          <div class="col-4 d-flex">
+        <div class="d-flex flex-wrap">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeShipping" | translate }} :</h6>
               <select #shippingType class="form-control" formControlName="type">
@@ -78,7 +78,7 @@
               </select>
             </label>
           </div>
-          <div class="col-4 d-flex">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeshipment" | translate }}:</h6>
               <select class="form-control" formControlName="shipment_type">
@@ -96,7 +96,7 @@
               </select>
             </label>
           </div>
-          <div class="col-4 d-flex">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "weight" | translate }}:</h6>
 
@@ -129,8 +129,8 @@
       <!-- shipment attachment  -->
       <section>
         <h5 class="mt-3 mb-5">{{ "moreInfo" | translate }}</h5>
-        <div class="d-flex">
-          <div class="col-6 d-flex">
+        <div class="d-flex flex-wrap">
+          <div class="col-md-6 col-12 d-flex">
             <label for="" class="w-100">
               <h6>{{ "invoice" | translate }} :</h6>
               <div class="form-row">
@@ -186,7 +186,7 @@
               </div>
             </label>
           </div>
-          <div class="col-6 d-flex">
+          <div class="col-md-6 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "invoice2" | translate }}:</h6>
 
@@ -247,8 +247,8 @@
       <!-- shipment dimentions -->
       <section>
         <h5 class="mt-3 mb-5">{{ "dimention" | translate }}</h5>
-        <div action="" class="d-flex">
-          <div class="col-4 d-flex">
+        <div action="" class="d-flex flex-wrap">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "length" | translate }} :</h6>
               <div class="d-flex position-relative" style="direction: ltr">
@@ -270,7 +270,7 @@
               </div>
             </label>
           </div>
-          <div class="col-4 d-flex">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "width" | translate }}:</h6>
               <div class="d-flex position-relative" style="direction: ltr">
@@ -292,7 +292,7 @@
               </div>
             </label>
           </div>
-          <div class="col-4 d-flex">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "height" | translate }}:</h6>
 
@@ -324,7 +324,7 @@
       <section>
         <h5 class="mt-3 mb-5">{{ "coupon" | translate }}</h5>
         <div action="" class="d-flex">
-          <div class="col-4 d-flex">
+          <div class="col-md-4 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "coupon" | translate }} :</h6>
               <div class="d-flex position-relative" style="direction: ltr">
@@ -701,7 +701,7 @@
         </div>
         <div
           class="col-md-6"
-          [ngClass]="thisLang == 'ar' ? 'forBorder-rtl' : 'forBorder'"
+          [ngClass]="thisLang == 'ar' ? 'forBorder' : 'forBorder-rtl'"
         >
           <div class="forImg d-flex justify-content-start w-50">
             <span class="mx-3">
