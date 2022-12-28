@@ -26,6 +26,9 @@ export class SignUpComponent implements OnInit {
     public translate: TranslateService,
 
   ) {
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.router.navigate(['/home']);
+    }
     this.route.queryParams.subscribe((params) => {
       this.phoneNumber = params['phone'];
     });

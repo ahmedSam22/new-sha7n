@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router ,private _location: Location , public service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
     console.log(localStorage.getItem("qadiautkCurrentUser") , "hhh");
     
-    // if(localStorage.getItem("qadiautkCurrentUser") != undefined){
-    //   this.router.navigate(['/']);
-    // }
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.router.navigate(['/home']);
+    }
 
     this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');

@@ -159,9 +159,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         Validators.required,
       ],
       weight1: [this.incomeData.shipmentWeight || '', Validators.required],
-      length: [this.incomeData.length || 0],
-      width: [this.incomeData.width || 0],
-      height: [this.incomeData.height || 0],
+      length: [this.incomeData.length || ''],
+      width: [this.incomeData.width || ''],
+      height: [this.incomeData.height || ''],
       code: [this.promo.controls.code.value],
     });
     // this.form.get('weight')?.disable()
@@ -266,6 +266,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
           this.orderPayment(orderId, payed);
           this.clicked = false
 
+
         },
         (error: any) => {
           console.log(error);
@@ -273,6 +274,8 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       );
     } else {
       Swal.fire('Files Are Required');
+      this.clicked = false
+
     }
   }
 
@@ -316,6 +319,9 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         this.offerDetails = res;
         if (res.status === true) {
           this.showCard = true;
+        }else{
+          Swal.fire(res.errors[0]);
+
         }
         console.log(res);
       });

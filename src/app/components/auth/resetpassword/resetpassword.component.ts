@@ -27,6 +27,9 @@ export class ResetpasswordComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService
   ) {
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.router.navigate(['/home']);
+    }
 
     this.route.queryParams.subscribe(params => {
       this.phoneNumber = params['phone'];

@@ -46,6 +46,9 @@ export class VerifyCodeComponent implements OnInit {
     public translate: TranslateService,
 
   ) {  
+    if(localStorage.getItem("qadiautkCurrentUser")){
+      this.router.navigate(['/home']);
+    }
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // if (event.lang == 'ar') {
       //   this.thisLang = 'rtl';

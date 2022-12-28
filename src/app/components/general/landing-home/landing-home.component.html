@@ -37,10 +37,10 @@
         </div>
         <div class="col-md-6 custom">
           <div class="row d-custom">
-            <div class="column">
+            <div class="column" (click)="getImageText('Shipping')">
               <img
                 src="../../../assets/images/2.png"
-                (click)="getImageText('Shipping')"
+                
                 alt=""
                 srcset=""
                 style="width: 68%;height : 50%;margin: auto;"
@@ -51,10 +51,10 @@
                 {{ "Shipping" | translate }}
               </span>
             </div>
-            <div class="column">
+            <div class="column" (click)="getImageText('Import')">
               <img
                 src="../../../assets/images/para1.png"
-                (click)="getImageText('Import')"
+                
                 alt=""
                 srcset=""
                 style="width: 68%;height : 50%;margin: auto;"
@@ -67,10 +67,10 @@
           </div>
 
           <div class="row d-custom">
-            <div class="column">
+            <div class="column" (click)="getImageText('Warehouses')">
               <img
                 src="../../../assets/images/3.png"
-                (click)="getImageText('Warehouses')"
+                
                 alt=""
                 srcset=""
                 style="width: 68%;height : 50%;margin: auto;"
@@ -80,10 +80,11 @@
 
               </span>
             </div>
-            <div class="column">
+            <div class="column" 
+            (click)="getImageText('Why-Us')"
+            >
               <img
                 src="../../../assets/images/4.png"
-                (click)="getImageText('Why-Us')"
                 alt=""
                 srcset=""
                 style="width: 68%;height : 50%;margin: auto;"

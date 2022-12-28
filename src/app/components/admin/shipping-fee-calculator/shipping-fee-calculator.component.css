@@ -250,12 +250,14 @@ input{
     margin: 10px 0px;
 }
 
+
 .forBorder{
     border-left: 1px solid gray;
 }
 .forBorder-rtl{
     border-right: 1px solid gray;
 }
+
 
 ul li{
     margin-top: 10px;
@@ -298,3 +300,7 @@ ul li{
     left: 10px;
     top: 12px;
 } */
+
+
+
+

@@ -24,14 +24,22 @@
     <form [formGroup]="form" action="">
       <!-- shipment address  -->
       <section>
-        <h5 class="mt-3 mb-5" [class]="thisLang == 'ar' ? 'text-right'
- : 'text-left' ">{{ "shipmentAddress" | translate }}</h5>
+        <h5
+          class="mt-3 mb-5"
+          [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
+        >
+          {{ "shipmentAddress" | translate }}
+        </h5>
         <div class="d-flex">
           <div class="col-6 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
               <select class="form-control" formControlName="china_harbor_id">
-                <option [value]="this.incomeData.fromChinaHarbor || 1" selected  [disabled]="case == 1">
+                <option
+                  [value]="this.incomeData.fromChinaHarbor || 1"
+                  selected
+                  [disabled]="case == 1"
+                >
                   {{ "china" | translate }}
                 </option>
               </select>
@@ -58,50 +66,59 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeShipping" | translate }} :</h6>
-              <select #shippingType class="form-control" formControlName="type" >
-                <option 
-                *ngFor="let type of allShippingType; let i = index"
-                [value]="type.id"
-                [disabled]="case == 1"
-                [selected]="this.incomeData.typeOfShipping == type.id"
+              <select #shippingType class="form-control" formControlName="type">
+                <option
+                  *ngFor="let type of allShippingType; let i = index"
+                  [value]="type.id"
+                  [disabled]="case == 1"
+                  [selected]="this.incomeData.typeOfShipping == type.id"
                 >
                   {{ type.name | translate }}
                 </option>
-
               </select>
             </label>
           </div>
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "typeshipment" | translate }}:</h6>
-              <select class="form-control" formControlName="shipment_type" >
+              <select class="form-control" formControlName="shipment_type">
                 <option
-                *ngFor="let type of allShipmentType; let i = index"
-                [value]="type.id"
-                [disabled]="case == 1"
-                [selected]="this.incomeData.typeOfShipment == type.id"
-              >
-                <span > {{ this.thisLang == 'ltr' ? type.name_en : type.name_ar }} </span>
-                <!-- <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span> -->
-              </option>
+                  *ngFor="let type of allShipmentType; let i = index"
+                  [value]="type.id"
+                  [disabled]="case == 1"
+                  [selected]="this.incomeData.typeOfShipment == type.id"
+                >
+                  <span>
+                    {{ this.thisLang == "ltr" ? type.name_en : type.name_ar }}
+                  </span>
+                  <!-- <span *ngIf="this.thisLang == 'rtl'"> {{ type.name_ar }} </span> -->
+                </option>
               </select>
             </label>
           </div>
           <div class="col-4 d-flex">
-            <label for="pacelFrom" class="w-100" >
+            <label for="pacelFrom" class="w-100">
               <h6>{{ "weight" | translate }}:</h6>
 
-              <div class="d-flex position-relative" style="direction: ltr;">
-                <input type="text" name="" id="" class="form-control" formControlName="weight1" [class]="
-                thisLang == 'ar'
-                ? 'text-right'
-                : 'text-left'
-              " />
-                <h5 class=" text-success position-absolute "  [class]="
-                thisLang == 'ar'
-                ? 'cm-position-rtl'
-                : 'cm-position'
-              "> {{ this.form.controls.type.value == 0? 'CBM':'KG' | translate}}</h5>
+              <div class="d-flex position-relative" style="direction: ltr">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="weight1"
+                  [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
+                />
+                <h5
+                  class="text-success position-absolute"
+                  [class]="thisLang == 'ar' ? 'cm-position-rtl' : 'cm-position'"
+                >
+                  {{
+                    this.form.controls.type.value == 0
+                      ? "CBM"
+                      : ("KG" | translate)
+                  }}
+                </h5>
               </div>
             </label>
           </div>
@@ -121,15 +138,17 @@
                   <div
                     class="w-100 form-control input-file"
                     (click)="commercialInvoice.click()"
-                    
-                    
                   >
-                    <img *ngIf="commercialInvoicelength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
-                    <i class="fas fa-file-pdf text-success" [class]="
-                    thisLang == 'ar'
-                    ? 'pdf-rtl'
-                    : 'pdf-ltr'
-                  "></i>
+                    <img
+                      *ngIf="commercialInvoicelength.length > 0"
+                      src="../../../../assets/images/pdf.svg"
+                      alt=""
+                      class="mx-1"
+                    />
+                    <i
+                      class="fas fa-file-pdf text-success"
+                      [class]="thisLang == 'ar' ? 'pdf-rtl' : 'pdf-ltr'"
+                    ></i>
                   </div>
                   <input
                     type="file"
@@ -137,7 +156,6 @@
                     style="display: none"
                     class="form-control"
                     (change)="commercialInvoiceChange($event)"
-                   
                   />
 
                   <p class="requiredFiles" *ngIf="showComercialInvoice">
@@ -177,16 +195,20 @@
                   class="w-100 form-control input-file"
                   (click)="packingList.click()"
                 >
-                <img *ngIf="packingListlength.length > 0" src="../../../../assets/images/pdf.svg" alt="" class="mx-1">
+                  <img
+                    *ngIf="packingListlength.length > 0"
+                    src="../../../../assets/images/pdf.svg"
+                    alt=""
+                    class="mx-1"
+                  />
 
-                  <i class="fas fa-file-pdf text-success" [class]="
-                  thisLang == 'ar'
-                  ? 'pdf-rtl'
-                  : 'pdf-ltr'
-                "></i>
+                  <i
+                    class="fas fa-file-pdf text-success"
+                    [class]="thisLang == 'ar' ? 'pdf-rtl' : 'pdf-ltr'"
+                  ></i>
                 </div>
                 <input
-                #packingList
+                  #packingList
                   type="file"
                   style="display: none"
                   class="form-control"
@@ -213,7 +235,7 @@
                   <br />
                   <!-- {{ packingListlength.length }} -->
                   1
-                   {{ "filelength" | translate }}
+                  {{ "filelength" | translate }}
                 </p>
               </div>
             </label>
@@ -226,10 +248,10 @@
       <section>
         <h5 class="mt-3 mb-5">{{ "dimention" | translate }}</h5>
         <div action="" class="d-flex">
-          <div class="col-4 d-flex" >
+          <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "length" | translate }} :</h6>
-              <div class="d-flex position-relative" style="direction: ltr;">
+              <div class="d-flex position-relative" style="direction: ltr">
                 <input
                   type="text"
                   name=""
@@ -237,24 +259,21 @@
                   class="form-control"
                   placeholder="{{ 'length' | translate }}"
                   formControlName="length"
-                  [class]="
-                thisLang == 'ar'
-                ? 'text-right'
-                : 'text-left'
-              "
+                  [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
                 />
-                <h5 class=" text-success position-absolute " [class]="
-                thisLang == 'ar'
-                ? 'cm-position-rtl'
-                : 'cm-position'
-              "> {{"cm" | translate}}</h5>
+                <h5
+                  class="text-success position-absolute"
+                  [class]="thisLang == 'ar' ? 'cm-position-rtl' : 'cm-position'"
+                >
+                  {{ "cm" | translate }}
+                </h5>
               </div>
             </label>
           </div>
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "width" | translate }}:</h6>
-              <div class="d-flex position-relative" style="direction: ltr;">
+              <div class="d-flex position-relative" style="direction: ltr">
                 <input
                   type="text"
                   name=""
@@ -262,18 +281,14 @@
                   class="form-control"
                   placeholder="{{ 'width' | translate }}"
                   formControlName="width"
-                  [class]="
-                thisLang == 'ar'
-                ? 'text-right'
-                : 'text-left'
-              "
+                  [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
                 />
-                <h5 class=" text-success position-absolute" [class]="
-                thisLang == 'ar'
-                ? 'cm-position-rtl'
-                : 'cm-position'
-              "> {{"cm" | translate}}</h5>
-
+                <h5
+                  class="text-success position-absolute"
+                  [class]="thisLang == 'ar' ? 'cm-position-rtl' : 'cm-position'"
+                >
+                  {{ "cm" | translate }}
+                </h5>
               </div>
             </label>
           </div>
@@ -281,7 +296,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "height" | translate }}:</h6>
 
-              <div class="d-flex position-relative" style="direction: ltr;">
+              <div class="d-flex position-relative" style="direction: ltr">
                 <input
                   type="text"
                   name=""
@@ -289,18 +304,14 @@
                   class="form-control"
                   placeholder="{{ 'height' | translate }}"
                   formControlName="height"
-                  [class]="
-                thisLang == 'ar'
-                ? 'text-right'
-                : 'text-left'
-              "
+                  [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
                 />
-                <h5 class=" text-success position-absolute " [class]="
-                thisLang == 'ar'
-                ? 'cm-position-rtl'
-                : 'cm-position'
-              "> {{"cm" | translate}}</h5>
-
+                <h5
+                  class="text-success position-absolute"
+                  [class]="thisLang == 'ar' ? 'cm-position-rtl' : 'cm-position'"
+                >
+                  {{ "cm" | translate }}
+                </h5>
               </div>
             </label>
           </div>
@@ -316,7 +327,7 @@
           <div class="col-4 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "coupon" | translate }} :</h6>
-              <div class="d-flex position-relative" style="direction: ltr;">
+              <div class="d-flex position-relative" style="direction: ltr">
                 <input
                   type="text"
                   name=""
@@ -324,29 +335,25 @@
                   class="form-control"
                   placeholder="{{ 'coupon' | translate }}"
                   #code
-                  [class]="
-                thisLang == 'ar'
-                ? 'text-right'
-                : 'text-left'
-              "
-           
+                  [class]="thisLang == 'ar' ? 'text-right' : 'text-left'"
                 />
-                <button  class=" text-success position-absolute  btn btn-link" [class]="
-                thisLang == 'ar'
-                ? 'check-position-rtl'
-                : 'check-position'
-              " (click)="checkCode(code.value)">{{ "check" | translate }}</button>
+                <button
+                  class="text-success position-absolute btn btn-link"
+                  [class]="
+                    thisLang == 'ar' ? 'check-position-rtl' : 'check-position'
+                  "
+                  (click)="checkCode(code.value)"
+                >
+                  {{ "check" | translate }}
+                </button>
 
                 <!-- <h5 class=" text-success position-absolute cm-position"> {{"cm" | translate}}</h5> -->
               </div>
             </label>
           </div>
-
-      
         </div>
       </section>
       <!-- Promo code -->
-
 
       <!-- submit button -->
       <div class="w-100 mt-5">
@@ -649,14 +656,21 @@
       </form>
     </div> -->
   </section>
-  <section *ngIf="showCard">
+
+
+
+
+
+
+  <div  *ngIf="showCard">
     <div class="myCard p-3 bg-light">
       <div class="row">
         <div class="col-md-6">
           <div class="text">
             <ul class="company-rules">
-                <div class="text_top d-flex justify-content-between">
-                  <span> {{ "shippingType" | translate }} </span> 
+              <li>
+                <div class="text_top d-flex justify-content-start">
+                  <span> {{ "chargingtype" | translate }} </span> :
                   <span *ngIf="this.form.controls.type.value == 1">{{
                     "aerial" | translate
                   }}</span>
@@ -664,14 +678,8 @@
                     "nautical" | translate
                   }}</span>
                 </div>
-             
-                <div class="d-flex justify-content-between">
-                  <span>{{ "actialweight" | translate }}</span>
-                  <span>{{this.form.controls.weight1.value}}</span>
-                   
-                  
-
-                </div>
+              </li>
+              <li>{{ "actialweight" | translate }}</li>
               <li>{{ "customs" | translate }}</li>
 
               <li *ngIf="this.form.controls.type.value == 1">
@@ -693,10 +701,10 @@
         </div>
         <div
           class="col-md-6"
-          [ngClass]="thisLang === 'ltr' ? 'forBorder' : 'forBorder-rtl'"
+          [ngClass]="thisLang == 'ar' ? 'forBorder-rtl' : 'forBorder'"
         >
-          <div class="forImg d-flex justify-content-between">
-            <span>
+          <div class="forImg d-flex justify-content-start w-50">
+            <span class="mx-3">
               <img
                 [src]="offerDetails.data.imagePath"
                 class="img-fluid"
@@ -706,12 +714,15 @@
                 style="border-radius: 50%"
               />
             </span>
-            <span> International Parcel </span>
+            <span class="w-50"> International Parcel </span>
           </div>
           <div class="forText d-flex flex-column mt-3">
             <span>{{ "shippingcharges" | translate }}</span>
             <span class="my-3" style="color: #32b457">
-              <h3>{{ (offerDetails.price - (offerDetails.price*discount)) || offerDetails.price  }}$</h3>
+              <h1> {{
+                offerDetails.price - offerDetails.price * discount ||
+                  offerDetails.price
+              }}$</h1>
             </span>
           </div>
         </div>
@@ -730,5 +741,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+
 </div>

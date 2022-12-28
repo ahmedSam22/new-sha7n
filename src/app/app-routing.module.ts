@@ -49,6 +49,7 @@ const routes: Routes = [
 { path: 'login/:id', component: LoginComponent,},
 { path: 'forgetpassword', component: ForgetpasswordComponent},
 { path: 'reset', component: ResetpasswordComponent},
+{ path: '*', component: LandingComponent},
 
 
 

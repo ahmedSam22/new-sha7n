@@ -27,15 +27,15 @@
           <div class="text-center" style="position: absolute; left: 45%">
           </div>
 
-          <form (ngSubmit)="onSubmit()" class="p2 text-center">  
+          <form (ngSubmit)="onSubmit()" class="p2 text-center w-max-content m-auto">  
             <h4 class="mb-4">{{"verificationcode" | translate}} <br> </h4>
             <div class="mb-3"> <small> {{"enterverificationcode" | translate}}</small> <br> <small>{{phoneNumber}}</small> </div>
     
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 ">
                 <ng-otp-input (onInputChange)="OTP.code = $event" [config]="OTP" inputClass="forTest"></ng-otp-input>
               </div>
             <!-- routerLink="/admin" -->
-            <button type="submit" class="btn btn-primary" style="padding:5px 30px;">{{"Send" | translate}} </button>
+            <button type="submit" class="btn btn-primary w-100" style="padding:5px 30px;">{{"Send" | translate}} </button>
             <div class=" content justify-content-center align-items-center">
                 <span> {{"validationestimer" | translate}} <span  style="color:#32b457"> {{timeLeftMinutes}} </span>   </span> <br>
                 <span  class="text-decoration-none btn btn-link bg-light text-success" (click)="resendCode()"> &nbsp; {{"resendcode" | translate}}</span>

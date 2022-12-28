@@ -23,6 +23,9 @@ export class LandingComponent implements OnInit {
 
     constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService,    private location: Location,
       ) { 
+        if(localStorage.getItem("qadiautkCurrentUser")){
+          this.router.navigate(['/home']);
+        }
       this.thisLang = localStorage.getItem('currentLang') || navigator.language;
     console.log(this.thisLang, 'from ocnst');
 

@@ -21,6 +21,9 @@ export class ForgetpasswordComponent implements OnInit {
   landing!: FormGroup;
 
     constructor(private router:Router , private route:ActivatedRoute, private service: AuthService,private activatedRoute: ActivatedRoute,public translate: TranslateService) { 
+      if(localStorage.getItem("qadiautkCurrentUser")){
+        this.router.navigate(['/home']);
+      }
       this.thisLang = localStorage.getItem('currentLang');
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         // if (event.lang == 'ar') {
