@@ -55,7 +55,8 @@ export class LoginComponent implements OnInit {
   }
 
   back(){
-    this._location.back();
+    this.router.navigate(['/home']);
+
   }
 
   onSubmit() {

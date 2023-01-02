@@ -39,8 +39,8 @@ const routes: Routes = [
    children: [
     { path: '', loadChildren: ()=> AuthModule,},
 
-    { path: 'home', component: LandingHomeComponent,canActivate: [GuardsService],},
-    { path: 'about', loadChildren: ()=> ModuleModule,canActivate: [GuardsService],},
+    { path: 'home', component: LandingHomeComponent,},
+    { path: 'about', loadChildren: ()=> ModuleModule,},
   ]
 },
 { path: 'landing', component: LandingComponent},

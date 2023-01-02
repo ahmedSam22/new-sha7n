@@ -21,7 +21,7 @@
     /* text-decoration: underline;
     text-decoration-color:#32B457;
     text-decoration-skip-ink:none; */
-    position: relative;
+    /* position: relative; */
     top: 50%;
     bottom: 35%;
 }
@@ -176,3 +176,4 @@ input{
 .rtl{
     direction: rtl;
 }
+

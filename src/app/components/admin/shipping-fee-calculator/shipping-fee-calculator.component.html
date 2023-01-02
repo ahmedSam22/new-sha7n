@@ -38,7 +38,6 @@
                 <option
                   [value]="this.incomeData.fromChinaHarbor || 1"
                   selected
-                  [disabled]="case == 1"
                 >
                   {{ "china" | translate }}
                 </option>
@@ -49,7 +48,7 @@
             <label for="pacelFrom" class="w-100">
               <h6>{{ "to" | translate }}:</h6>
               <select class="form-control" formControlName="saudi_harbor_id">
-                <option value="2" [disabled]="case == 1">
+                <option value="2" >
                   {{ "ksa" | translate }}
                 </option>
               </select>
@@ -70,7 +69,6 @@
                 <option
                   *ngFor="let type of allShippingType; let i = index"
                   [value]="type.id"
-                  [disabled]="case == 1"
                   [selected]="this.incomeData.typeOfShipping == type.id"
                 >
                   {{ type.name | translate }}
@@ -85,7 +83,6 @@
                 <option
                   *ngFor="let type of allShipmentType; let i = index"
                   [value]="type.id"
-                  [disabled]="case == 1"
                   [selected]="this.incomeData.typeOfShipment == type.id"
                 >
                   <span>
