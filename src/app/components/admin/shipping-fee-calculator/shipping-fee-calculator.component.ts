@@ -61,7 +61,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   offerDetails: any;
   discount: any;
   showCard: boolean = false;
-
+checkCodeClicked:boolean = false;
   thisLang: any;
 
   constructor(
@@ -280,6 +280,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   }
 
   checkCode(code: any) {
+    this.checkCodeClicked= true
     if (code) {
       this.form.controls['code'].setValue(code);
     } else {
@@ -289,10 +290,12 @@ export class ShippingFeeCalculatorComponent implements OnInit {
       if (e.status == false) {
         Swal.fire('خطأ', 'الكود المستخدم غير صحيح', 'warning');
         this.form.controls['code'].setValue('');
+        this.checkCodeClicked = false
       } else {
         Swal.fire('نجاح', 'تم تفعيل كود الخصم بنجاح', 'success');
         this.discount = +e.data.discount_precentage/100;
         this.form.controls['code'].setValue(code);
+        this.checkCodeClicked = false
       }
     });
   }
@@ -315,10 +318,19 @@ export class ShippingFeeCalculatorComponent implements OnInit {
         this.form.controls.shipment_type.value,
         this.form.controls.weight1.value
       )
-      .subscribe((res: any) => {
+      .subscribe(async (res: any) => {
         this.offerDetails = res;
-        if (res.status === true) {
+        let toScroll = document.getElementById("showCardId");
+        if ( await res.status === true) {
           this.showCard = true;
+          setTimeout(() => {
+            document.getElementById("showCardId")?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "nearest"
+             })
+          }, 100);
+
         }else{
           Swal.fire(res.errors[0]);
 

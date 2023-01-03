@@ -108,3 +108,7 @@ p{
   background: gray;
   border-radius: 10px;
 }
+
+.h-fit-content{
+height: fit-content !important;
+}

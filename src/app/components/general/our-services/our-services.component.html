@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 p-0">
           <h2>{{ "ourServices" | translate }}</h2>
-          <p>{{ "ourServicesTitle" | translate }}</p>
+          <p >{{ "ourServicesTitle" | translate }}</p>
         </div>
       </div>
     </div>
@@ -19,18 +19,18 @@
       <div class="row">
         <div class="col-md-12 col-xs-12 left">
           <div class="middleLeft">
-            <div class="d-flex">
+            <div class="d-flex my-5">
                 <div>
 
                   <h2 *ngIf="this.thisLang === 'en'">{{ service.title_en }}</h2>
                   <h2 *ngIf="this.thisLang === 'ar'">{{ service.title_ar }}</h2>
-                  <p *ngIf="this.thisLang === 'en'">
+                  <p *ngIf="this.thisLang === 'en'" class="h-fit-content">
                     {{ service.description_en }}
                   </p>
-                  <p *ngIf="this.thisLang === 'ar'">
+                  <p *ngIf="this.thisLang === 'ar'" class="h-fit-content">
                     {{ service.description_ar }}
                   </p>
-            <button class="btn btn-success btn-lg mt-3">{{"calculateBtn" | translate}}</button>
+            <button class="btn btn-success btn-lg mt-3" [routerLink]="['/admin/shipping']" [queryParams]="{case: 0}">{{"calculateBtn" | translate}}</button>
 
                 </div>
          
@@ -48,7 +48,7 @@
 
 
 
-              <div class="d-flex">
+              <div class="d-flex my-5">
 
                 <div class="col-md-4 col-xs-6 right d-flex align-items-center">
                   <div class="middleRight">
@@ -62,22 +62,22 @@
                 <div>
                   <h2>{{ "import" | translate }}</h2>
 
-            <p>
+            <p class="h-fit-content">
               {{ "importtext" | translate }}
             </p>
-            <button class="btn btn-success btn-lg mt-3">{{"contactUs" | translate}}</button>
+            <button class="btn btn-success btn-lg mt-3" [routerLink]="['/about/contact-us']">{{"contactUs" | translate}}</button>
                 </div>
                 
               </div>
             
-              <div class="d-flex">
+              <div class="d-flex my-5">
                 <div>
                   <h2>{{ "shippingout" | translate }}</h2>
 
-                  <p>
+                  <p class="h-fit-content">
                     {{ "shippingoutdesc" | translate }}
                   </p>
-            <button class="btn btn-success btn-lg mt-3">{{"calculateBtn" | translate}}</button>
+            <button class="btn btn-success btn-lg mt-3" [routerLink]="['/admin/shipping']" [queryParams]="{case: 0}">{{"calculateBtn" | translate}}</button>
 
                 </div>
                 <div class="col-md-4 col-xs-6 right d-flex align-items-center">
