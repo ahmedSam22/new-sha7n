@@ -202,14 +202,14 @@ export class OrdersComponent implements OnInit {
   goadmindashboard() {
     if (localStorage.getItem('qadiautkCurrentUser')) {
       setTimeout(() => {
-        this.router.navigate(['admin/shipping'],{queryParams : {case: 1}});
+        this.router.navigate(['admin/shipping'],{queryParams : {case: 1,saudiHarbor : this.toharbor,chinaHarbor:this.fromharbor,shippingType : this.typeofShipping,shipmentType : this.typeOfShipment,weight : this.shippingWeight.nativeElement.value,length :this.shippingLength.nativeElement.value,width :this.shippingWidth.nativeElement.value , height :this.shippingHeight.nativeElement.value }});
       }, 1500);
     } else {
       // setTimeout(() =>{
       //   this.router.navigate(['login']);
       //    },1500);
       setTimeout(() => {
-        this.router.navigate(['/login', this.val]);
+        this.router.navigate(['/login', this.val],{queryParams : {case: 1,saudiHarbor : this.toharbor,chinaHarbor:this.fromharbor,shippingType : this.typeofShipping,shipmentType : this.typeOfShipment,weight : this.shippingWeight.nativeElement.value,length :this.shippingLength.nativeElement.value,width :this.shippingWidth.nativeElement.value , height :this.shippingHeight.nativeElement.value }});
       }, 1500);
     }
 

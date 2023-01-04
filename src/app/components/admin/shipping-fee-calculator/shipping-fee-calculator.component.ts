@@ -63,6 +63,15 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   showCard: boolean = false;
 checkCodeClicked:boolean = false;
   thisLang: any;
+  incomeKSAharbor:any;
+  incomeChinaHarbor:any;
+  incomeShippingType:any;
+  incomeShipmentType:any;
+  incomeWeight:any;
+  incomeLength:any;
+  incomeWidth:any;
+  incomeHeight:any;
+
 
   constructor(
     public service: GlobalService,
@@ -73,11 +82,21 @@ checkCodeClicked:boolean = false;
     public incomeData: GeneralService,
     private route: ActivatedRoute
   ) {
+    this.route.queryParams.subscribe((params) => {
+      this.case = params['case'];
+      this.incomeKSAharbor = params['saudiHarbor'];
+      this.incomeChinaHarbor = params['chinaHarbor'];
+      this.incomeShippingType = params['shippingType'];
+      this.incomeShipmentType = params['shipmentType'];
+      this.incomeWeight = params['weight'];
+      this.incomeLength = params['length'];
+      this.incomeWidth = params['width'];
+      this.incomeHeight = params['height'];
+
+    });
     
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.route.queryParams.subscribe((params) => {
-        this.case = params['case'];
-      });
+      
 
       // if (event.lang == 'ar') {
       //   this.thisLang = 'rtl';
@@ -107,6 +126,8 @@ checkCodeClicked:boolean = false;
   }
 
   ngOnInit(): void {
+    console.log(this.incomeKSAharbor,this.incomeChinaHarbor,this.incomeHeight,this.incomeShipmentType , "hhhhh");
+    
     this.getShipmentType();
     console.log(this.incomeData, 'testststs');
 
@@ -145,23 +166,23 @@ checkCodeClicked:boolean = false;
 
     this.form = this.formbuilder.group({
       china_harbor_id: [
-        this.incomeData.fromChinaHarbor || '',
+        this.incomeChinaHarbor || '',
         Validators.required,
       ],
       saudi_harbor_id: [
-        this.incomeData.toSaudiHarbor || '',
+        this.incomeKSAharbor|| '',
         Validators.required,
       ],
       // type: [this.typeOfShipping, Validators.required],
-      type: [this.incomeData.typeOfShipping || '', Validators.required],
+      type: [this.incomeShippingType || '', Validators.required],
       shipment_type: [
-        this.incomeData.typeOfShipment || '',
+        this.incomeShipmentType || '',
         Validators.required,
       ],
-      weight1: [this.incomeData.shipmentWeight || '', Validators.required],
-      length: [this.incomeData.length || ''],
-      width: [this.incomeData.width || ''],
-      height: [this.incomeData.height || ''],
+      weight1: [this.incomeWeight || '', Validators.required],
+      length: [this.incomeLength || ''],
+      width: [this.incomeWidth|| ''],
+      height: [this.incomeHeight|| ''],
       code: [this.promo.controls.code.value],
     });
     // this.form.get('weight')?.disable()
@@ -270,6 +291,8 @@ checkCodeClicked:boolean = false;
         },
         (error: any) => {
           console.log(error);
+      this.clicked = false
+
         }
       );
     } else {
