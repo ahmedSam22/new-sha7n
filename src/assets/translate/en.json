@@ -176,6 +176,8 @@
 
     "overview" : "OverView",
     "personalinfo" : "Personal Info",
+    "ordersNavbar" : "Orders",
+
     "orders" :"Your Orders",
     "shippingCalc" : "Shipping Fee Calculator",
     "commercialshippment" : "Commercial Shipment",
