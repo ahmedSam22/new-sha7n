@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, ElementRef } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -284,6 +284,34 @@ export class LandingHomeComponent implements OnInit, OnChanges {
       this.contactUsForm.controls[key].setValidators([Validators.required]);
     });
   }
+
+  setActiveDiv($event:any){
+    console.log($event.target , "jjjjhj");
+    
+    let allDivs = document.getElementsByClassName('column');
+    for(let i = 0 ; i <=allDivs.length ; i++){
+      
+      allDivs[i].classList.remove('activeDiv');
+
+      if($event.target.classList.contains('column')){
+        $event.target.classList.add('activeDiv');
+
+      }else if($event.target.classList.contains('custom')){
+        // $event.target.parentElement.classList.add('activeDiv');
+        return;
+      }else if($event.target.classList.contains('d-custom')){
+        // $event.target.parentElement.classList.add('activeDiv');
+        return;
+      }else{
+        $event.target.parentElement.classList.add('activeDiv');
+
+      }
+
+    }
+
+  }
+
+  
 }
 
 

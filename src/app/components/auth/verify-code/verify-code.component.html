@@ -1,8 +1,8 @@
 <section class="container-fluid">
     <!-- style="min-height: 670px" -->
     <div class="row x">
-      <div class="col-md-6 col-sm-12 col-12 align-self-center">
-        <div class="leftSide">
+      <div class="col-md-6 col-sm-12 col-12  min-h-100">
+        <div class="leftSide d-flex flex-column justify-content-around min-h-100">
             <div class="row">
                 <div class="col-md-12">
                     <a (click)="back()">
@@ -35,7 +35,7 @@
                 <ng-otp-input (onInputChange)="OTP.code = $event" [config]="OTP" inputClass="forTest"></ng-otp-input>
               </div>
             <!-- routerLink="/admin" -->
-            <button type="submit" class="btn btn-primary w-100" style="padding:5px 30px;">{{"Send" | translate}} </button>
+            <button type="submit" class="btn btn-primary w-100" style="padding:5px 30px;">{{"verify" | translate}} </button>
             <div class=" content justify-content-center align-items-center">
                 <span> {{"validationestimer" | translate}} <span  style="color:#32b457"> {{timeLeftMinutes}} </span>   </span> <br>
                 <span  class="text-decoration-none btn btn-link bg-light text-success" (click)="resendCode()"> &nbsp; {{"resendcode" | translate}}</span>

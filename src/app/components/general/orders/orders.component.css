@@ -185,7 +185,7 @@
     }
     .forBorder{
         border-left: none !important;
-        border-top: 1px solid gray;
+        /* border-top: 1px solid gray; */
     }
 }
 
@@ -219,7 +219,7 @@ margin: auto;}
 .imgg {
     height: 100%;
     background-repeat: no-repeat;
-    background-size: contain;
+    /* background-size: contain; */
     background-position: bottom;
     width: 116%;
     height: 100%;
@@ -231,7 +231,7 @@ margin: auto;}
  .imgg .fullImage {
    background-image: url('../../../../assets/images/illustration.png');  
    background-repeat: no-repeat;
-   background-size: contain;
+   /* background-size: contain; */
    background-position: bottom;
    width: 100%;
    height: 100%;
@@ -243,7 +243,7 @@ margin: auto;}
 .fullImage-rtl {
     background-image: url('../../../../assets/images/flip.png');  
     background-repeat: no-repeat;
-    background-size: contain;
+    /* background-size: contain; */
     background-position: bottom;
     width: 100%;
     height: 100%;
@@ -286,4 +286,16 @@ select{
 input::placeholder { /* Internet Explorer 10-11 */
     color: #bfbfbf;
     font-size: 12px;
+   }
+   @media only screen and (max-width:968px) {
+    .myCard .row{
+        flex-direction: column-reverse;
+    }
+    .myCard .row img{
+        margin: 0;
+    }
+    .forBorder,.forBorder-rtl{
+        border-bottom: 1px solid gray;
+        padding: 0 40px;
+    }
    }

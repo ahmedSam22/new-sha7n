@@ -85,6 +85,9 @@
     .container-fluid .leftSide h3 {
         margin-top: 10px;
     }
+    .right-col{
+        display: none;
+    }
 }
 
 body {
@@ -184,4 +187,8 @@ input{
 }
 .w-max-content{
     width: fit-content;
+}
+
+.min-h-100{
+    min-height: inherit;
 }

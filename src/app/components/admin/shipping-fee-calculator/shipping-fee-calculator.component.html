@@ -739,7 +739,11 @@
             (click)="onSubmit()"
             [disabled]="clicked"
           >
-            {{ "BookingBtn" | translate }}
+          <span *ngIf="!clicked"> .{{ "BookingBtn" | translate }} </span>
+            
+            <div *ngIf="clicked" class="spinner-border text-light" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </button>
         </div>
       </div>

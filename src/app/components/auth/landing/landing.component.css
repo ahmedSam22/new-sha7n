@@ -3,8 +3,7 @@
  
 }
  .x{
-    min-height: 670px;
-    margin-top: -50px;
+    min-height: 80vh
  }
 .container-fluid .leftSide {
     margin-top: 0px;
@@ -13,29 +12,22 @@
 .container-fluid .leftSide a {
     text-decoration: none;
     color: black;
-    cursor: pointer;
 }
 
 .container-fluid .leftSide h3 {
     margin-top:10px;
-    /* text-decoration: underline;
-    text-decoration-color:#32B457;
-    text-decoration-skip-ink:none; */
-    /* position: relative; */
+    /* border-bottom: 2px solid #32B457; */
+
+    position: relative;
     top: 50%;
     bottom: 35%;
-}
-.container-fluid .leftSide hr{
-    background: #32b457;
-    height: 3px;
-
 }
 
 .container-fluid .leftSide form {
     margin-top: 80px;
     position: relative;
     top: 10%;
-     
+    /* left: 20%; */
 }
 
 .container-fluid .leftSide form input {
@@ -56,10 +48,9 @@
 
 .container-fluid .leftSide button {
     background-color: #32B457;
-     padding: 10px 0px;  
-  
+    padding: 10px 0px;
+    /* margin: 20px 0px; */
     border: 1px solid #32B457;
-    color:white ;
 }
 
 .container-fluid .leftSide label span {
@@ -81,12 +72,11 @@
 }
 
 .container-fluid .rightSide .fullImage {
-    background-image: url('../../../../assets/images/login.jpg');  
+     background-image: url('../../../../assets/images/login.jpg');  
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 100%;
-    coration: none;
     resize: both;
     position: relative;
     right: 0px;
@@ -114,13 +104,25 @@
     .form-check-label{
         min-width: 100% !important;
     }
-    
+    /* .container-fluid .leftSide form{ 
+         margin-top: 50px;
+          } */
+
           .container-fluid{
               margin-top: 100px;
           }
 }
 
- 
+.showPassword{
+    padding: 11px;
+    border: 1px solid #d1cece;
+    border-left: none;
+    height: 48px;
+  }
+  #exampleInputPassword1{
+    border-bottom-right-radius: 0px;
+    border-top-right-radius:0px;
+  }
 
   .rtl{
       direction: rtl;
@@ -132,48 +134,31 @@
         min-height: 500px
      }
 }
-.back-section{
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-.back-bg{
-    background: #f1f1f1;
-    border-radius: 50%;
-    padding: 6px;
-}
 
+ 
 
-input{
-    font-size: 18px;
+.cm-position{
+    left: 10px;
+    top:10px;
 }
-
 
 .cm-position{
     left: 0px;
     top:0px;
     height: 100%;
-    width: 10%;
+    width: 20%;
     border-right: 1px solid gray;
 }
 .number-position{
     left: 10px;
     top: 12px;
 }
-
 .password-position{
     right: 10px;
     top: 12px;
 }
+.container-fluid .leftSide hr{
+    background: #32b457;
+    height: 3px;
 
-.password-position-rtl{
-    left: 10px;
-    top: 12px;
 }
-.ltr{
-    direction: ltr;
-}
-.rtl{
-    direction: rtl;
-}
-

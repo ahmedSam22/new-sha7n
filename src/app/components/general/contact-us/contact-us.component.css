@@ -39,7 +39,7 @@
     }
     .container .leftSide .part1 ul li { 
        list-style-type: none;
-       margin-left: -30px;
+       /* margin-left: -30px; */
        line-height: 40px ;
       } 
      
@@ -48,7 +48,7 @@
      }
     .container .leftSide .part2 ul li { 
       list-style-type: none;
-      margin-left: -30px;
+      /* margin-left: -30px; */
       line-height: 35px ;
       color: blue;
      } 
@@ -57,7 +57,7 @@
    }
      .container .leftSide .part3 ul li { 
        list-style-type: none;
-       margin-left: -30px;
+       /* margin-left: -30px; */
        line-height: 35px ;
       } 
    
@@ -102,7 +102,7 @@
 }
 
 .content {
-  margin-top: 400px;
+  margin-top: 430px;
 }
 .content-details{
   display: grid;

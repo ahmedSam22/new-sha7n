@@ -1,23 +1,28 @@
 @font-face {
-    font-family: 'try-vesterbro, sans-serif';
+  font-family: "try-vesterbro, sans-serif";
 
-    src: url(./font/TRYVesterbro-Medium.ttf);
+  src: local("assets/Try-Vesterro/TRYVesterbro-Light.otf"),
+    local("assets/Try-Vesterro/TRYVesterbro-Bold.otf"),
+    local("assets/Try-Vesterro/TRYVesterbro-Extrabold.otf"),
+    local("assets/Try-Vesterro/TRYVesterbro-Medium.otf"),
+    local("assets/Try-Vesterro/TRYVesterbro-Regular.otf"),
+    local("assets/Try-Vesterro/TRYVesterbro-Poster.otf"),
 }
 main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main .wrapping {
-    flex-grow: 1;
+  flex-grow: 1;
 }
-*{
-    font-family: 'try-vesterbro, sans-serif';
+* {
+  font-family: "try-vesterbro, sans-serif";
 }
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
 body {
-    min-height: 100%;
+  min-height: 100%;
 }

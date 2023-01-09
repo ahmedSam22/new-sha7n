@@ -39,7 +39,12 @@ i {
     .aboutCom {
         width: 33.3%;
     }
- 
+ .forLogo{
+    text-align: center;
+ }
+ .forIcons{
+    text-align: center;
+ }
 }
 
 .font-s{

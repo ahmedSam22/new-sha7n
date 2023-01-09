@@ -2,8 +2,8 @@
   <!-- style="min-height: 670px" -->
 
   <div class="row x">
-    <div class="col-md-6 col-sm-12 col-12 align-self-center">
-      <div class="leftSide">
+    <div class="col-md-6 col-sm-12 col-12 align-self-center  min-h-100 min-h-100">
+      <div class="leftSide d-flex flex-column justify-content-around min-h-100">
         <div class="col-md-12">
           <a (click)="back()">
             <i
@@ -57,7 +57,7 @@
                       class="form-control"
                       placeholder="5********"
                       [formControlName]="'phone'"
-                      style="padding-left: 11%"
+                      style="padding-left: 21%"
                       [class]="
                         thisLang == 'ar'
                         ? 'text-right'
@@ -67,7 +67,7 @@
                     />
 
                     <div class="text-success position-absolute cm-position">
-                      <h6 class="text-muted position-absolute number-position">
+                      <h6 class="text-muted position-absolute number-position w-100 text-center">
                         +966
                       </h6>
                     </div>
@@ -82,7 +82,7 @@
 
                 <button
                   type="submit"
-                  class="btn btn-default col-md-12 col-sm-12 d-block"
+                  class="btn btn-default col-md-12 col-sm-12 d-block text-white"
                   [disabled]="
                     !number.value.startsWith('5') || number.value.length <= 8
                   "
