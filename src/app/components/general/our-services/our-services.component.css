@@ -116,3 +116,10 @@ p{
 .h-fit-content{
 height: fit-content !important;
 }
+
+
+@media only screen and (max-width:968px) {
+  .right{
+    display: none !important;
+  }
+ }

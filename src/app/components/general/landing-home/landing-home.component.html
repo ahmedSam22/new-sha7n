@@ -8,7 +8,7 @@
         <!-- <div class="row h-100 x"  > -->
         <div class="col-lg-6 col-md-12 col-12 y">
           <div class="text-wrapper d-flex flex-column">
-            <h1>
+            <h1 class="px-2 fw-bolder">
               {{ "header" | translate }}
             </h1>
             <span>{{ "title" | translate }} </span>
@@ -27,7 +27,7 @@
           <div class="headingTitle">
             <img [src]="this.imageSrc" alt="" srcset="" class="mx-3" />
 
-            <h3 [innerHTML]="imageTitle" class="mb-0"></h3>
+            <h3 [innerHTML]="imageTitle" class="mb-0 titleFont"></h3>
           </div>
           <span class="imageText">
             <span>
@@ -152,7 +152,7 @@
 
     <!-- Testmonials -->
     <div class="banner mt-2 " >
-      <span>
+      <span class="px-3">
         {{ "calcText" | translate }}
       </span>
 

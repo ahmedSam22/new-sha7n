@@ -475,3 +475,11 @@ mat-label{
   background: #0f4f56;
   color: #C3C3C3;
 }
+
+.fw-bolder{
+  font-weight: bolder;
+}
+
+.titleFont{
+  font-size: 2.6rem;
+}

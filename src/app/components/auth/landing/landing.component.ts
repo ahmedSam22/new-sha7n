@@ -51,7 +51,7 @@ export class LandingComponent implements OnInit {
   }
   
   back() {
-        this.location.back();
+    this.router.navigate(['/home']);
 
   }
   

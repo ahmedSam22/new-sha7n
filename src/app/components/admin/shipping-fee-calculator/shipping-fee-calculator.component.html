@@ -34,10 +34,10 @@
           <div class="col-md-6 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "from" | translate }} :</h6>
-              <select class="form-control" formControlName="china_harbor_id">
+              <select class="form-control" formControlName="china_harbor_id" required="true">
+                <option value="" selected > {{ "from" | translate }} </option>
                 <option
                   [value]="this.incomeData.fromChinaHarbor || 1"
-                  selected
                 >
                   {{ "china" | translate }}
                 </option>
@@ -47,7 +47,9 @@
           <div class="col-md-6 col-12 d-flex">
             <label for="pacelFrom" class="w-100">
               <h6>{{ "to" | translate }}:</h6>
-              <select class="form-control" formControlName="saudi_harbor_id">
+              <select class="form-control" formControlName="saudi_harbor_id" required="true">
+                <option value="" selected > {{ "to" | translate }} </option>
+
                 <option value="2" >
                   {{ "ksa" | translate }}
                 </option>
@@ -704,9 +706,9 @@
         </div>
         <div
           class="col-md-6"
-          [ngClass]="thisLang == 'ar' ? 'forBorder' : 'forBorder-rtl'"
+          [ngClass]="thisLang == 'ar' ? 'forBorder-rtl' : 'forBorder'"
         >
-          <div class="forImg d-flex justify-content-start w-50">
+          <div class="forImg d-flex justify-content-start align-items-center mb-3">
             <span class="mx-3">
               <img
                 [src]="offerDetails.data.imagePath"
@@ -717,12 +719,12 @@
                 style="border-radius: 50%"
               />
             </span>
-            <span class="w-50"> International Parcel </span>
+            <span class=""> International Parcel </span>
           </div>
-          <div class="forText d-flex flex-column mt-3">
+          <div class="forText d-flex flex-column ">
             <span>{{ "shippingcharges" | translate }}</span>
             <span class="my-3" style="color: #32b457">
-              <h1> {{
+              <h1 class="fw-bolder"> {{
                 offerDetails.price - offerDetails.price * discount ||
                   offerDetails.price
               }}$</h1>
@@ -734,12 +736,12 @@
         <div class="col-md-12 d-flex justify-content-center">
           <button
             type="submit"
-            class="btn col-md-8 btnCalculating"
+            class="btn col-md-12 btnCalculating"
             id="btnCalculating"
             (click)="onSubmit()"
             [disabled]="clicked"
           >
-          <span *ngIf="!clicked"> .{{ "BookingBtn" | translate }} </span>
+          <span *ngIf="!clicked">{{ "BookingBtn" | translate }} </span>
             
             <div *ngIf="clicked" class="spinner-border text-light" role="status">
               <span class="sr-only">Loading...</span>

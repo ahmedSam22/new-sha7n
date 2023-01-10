@@ -39,7 +39,7 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   packingList: File[] = [];
   commercialInvoiceArr!: any[];
   packingListArr!: any[];
-  clicked:Boolean = false;
+  clicked: Boolean = false;
   // fromChinaHarbor!: any;
   // label: any;
   // toSaudiHarbor!: any;
@@ -61,17 +61,16 @@ export class ShippingFeeCalculatorComponent implements OnInit {
   offerDetails: any;
   discount: any;
   showCard: boolean = false;
-checkCodeClicked:boolean = false;
+  checkCodeClicked: boolean = false;
   thisLang: any;
-  incomeKSAharbor:any;
-  incomeChinaHarbor:any;
-  incomeShippingType:any;
-  incomeShipmentType:any;
-  incomeWeight:any;
-  incomeLength:any;
-  incomeWidth:any;
-  incomeHeight:any;
-
+  incomeKSAharbor: any;
+  incomeChinaHarbor: any;
+  incomeShippingType: any;
+  incomeShipmentType: any;
+  incomeWeight: any;
+  incomeLength: any;
+  incomeWidth: any;
+  incomeHeight: any;
 
   constructor(
     public service: GlobalService,
@@ -92,12 +91,9 @@ checkCodeClicked:boolean = false;
       this.incomeLength = params['length'];
       this.incomeWidth = params['width'];
       this.incomeHeight = params['height'];
-
     });
-    
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      
 
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // if (event.lang == 'ar') {
       //   this.thisLang = 'rtl';
       //   console.log(this.thisLang, 'test1');
@@ -126,8 +122,14 @@ checkCodeClicked:boolean = false;
   }
 
   ngOnInit(): void {
-    console.log(this.incomeKSAharbor,this.incomeChinaHarbor,this.incomeHeight,this.incomeShipmentType , "hhhhh");
-    
+    console.log(
+      this.incomeKSAharbor,
+      this.incomeChinaHarbor,
+      this.incomeHeight,
+      this.incomeShipmentType,
+      'hhhhh'
+    );
+
     this.getShipmentType();
     console.log(this.incomeData, 'testststs');
 
@@ -165,24 +167,15 @@ checkCodeClicked:boolean = false;
     // });
 
     this.form = this.formbuilder.group({
-      china_harbor_id: [
-        this.incomeChinaHarbor || '',
-        Validators.required,
-      ],
-      saudi_harbor_id: [
-        this.incomeKSAharbor|| '',
-        Validators.required,
-      ],
+      china_harbor_id: [this.incomeChinaHarbor || null, Validators.required],
+      saudi_harbor_id: [this.incomeKSAharbor || null, Validators.required],
       // type: [this.typeOfShipping, Validators.required],
       type: [this.incomeShippingType || '', Validators.required],
-      shipment_type: [
-        this.incomeShipmentType || '',
-        Validators.required,
-      ],
+      shipment_type: [this.incomeShipmentType || '', Validators.required],
       weight1: [this.incomeWeight || '', Validators.required],
       length: [this.incomeLength || ''],
-      width: [this.incomeWidth|| ''],
-      height: [this.incomeHeight|| ''],
+      width: [this.incomeWidth || ''],
+      height: [this.incomeHeight || ''],
       code: [this.promo.controls.code.value],
     });
     // this.form.get('weight')?.disable()
@@ -259,7 +252,7 @@ checkCodeClicked:boolean = false;
   // }
 
   onSubmit() {
-    this.clicked = true
+    this.clicked = true;
     if (this.packingList.length != 0 && this.commercialInvoice.length != 0) {
       let orderId: number;
       let payed: number;
@@ -273,52 +266,58 @@ checkCodeClicked:boolean = false;
         list: this.packingList[0],
         // code: ' ',
       };
+      this.service.bookingOrder(subForm).subscribe((res: any) => {
+        Swal.fire(res.message);
 
-      this.service.bookingOrder(subForm).subscribe(
-        async (res: any) => {
-          console.log('resssssssss', subForm);
+        orderId = res.data?.id;
+        payed = res.data?.payed;
+        console.log('res', orderId, payed);
+        // this.form.reset();
+        this.orderPayment(orderId, payed);
+        this.clicked = false;
+      });
+      // this.service.bookingOrder(subForm).subscribe(
+      //   async (res: any) => {
+      //     console.log('resssssssss', subForm);
 
-          Swal.fire(res.message);
+      //     Swal.fire(res.message);
 
-          orderId = res.data?.id;
-          payed = res.data?.payed;
-          console.log('res', orderId, payed);
-          // this.form.reset();
-          this.orderPayment(orderId, payed);
-          this.clicked = false
+      //     orderId = res.data?.id;
+      //     payed = res.data?.payed;
+      //     console.log('res', orderId, payed);
+      //     // this.form.reset();
+      //     this.orderPayment(orderId, payed);
+      //     this.clicked = false
 
+      //   },
+      //   (error: any) => {
+      //     console.log(error);
+      // this.clicked = false
 
-        },
-        (error: any) => {
-          console.log(error);
-      this.clicked = false
-
-        }
-      );
+      //   }
+      // );
     } else {
       Swal.fire('Files Are Required');
-      this.clicked = false
-
+      this.clicked = false;
     }
   }
 
   checkCode(code: any) {
-    this.checkCodeClicked= true
+    this.checkCodeClicked = true;
     if (code) {
       this.form.controls['code'].setValue(code);
     } else {
     }
     return this.globalService.checkPromo(code).subscribe((e: any) => {
-      
       if (e.status == false) {
         Swal.fire('خطأ', 'الكود المستخدم غير صحيح', 'warning');
         this.form.controls['code'].setValue('');
-        this.checkCodeClicked = false
+        this.checkCodeClicked = false;
       } else {
         Swal.fire('نجاح', 'تم تفعيل كود الخصم بنجاح', 'success');
-        this.discount = +e.data.discount_precentage/100;
+        this.discount = +e.data.discount_precentage / 100;
         this.form.controls['code'].setValue(code);
-        this.checkCodeClicked = false
+        this.checkCodeClicked = false;
       }
     });
   }
@@ -333,38 +332,49 @@ checkCodeClicked:boolean = false;
     });
   }
   calculate() {
-    this.service
-      .homeOrders(
-        this.form.controls.china_harbor_id.value,
-        this.form.controls.saudi_harbor_id.value,
-        this.form.controls.type.value,
-        this.form.controls.shipment_type.value,
-        this.form.controls.weight1.value
-      )
-      .subscribe(async (res: any) => {
-        this.offerDetails = res;
-        let toScroll = document.getElementById("showCardId");
-        if ( await res.status === true) {
-          this.showCard = true;
-          setTimeout(() => {
-            document.getElementById("showCardId")?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-              inline: "nearest"
-             })
-          }, 100);
+    if (
+      this.form.controls.china_harbor_id.value != null &&
+      this.form.controls.saudi_harbor_id.value != null
+    ) {
+      this.service
+        .homeOrders(
+          this.form.controls.china_harbor_id.value,
+          this.form.controls.saudi_harbor_id.value,
+          this.form.controls.type.value,
+          this.form.controls.shipment_type.value,
+          this.form.controls.weight1.value
+        )
+        .subscribe(async (res: any) => {
+          this.offerDetails = res;
+          let toScroll = document.getElementById('showCardId');
+          if ((await res.status) === true) {
+            this.showCard = true;
+            setTimeout(() => {
+              document.getElementById('showCardId')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest',
+              });
+            }, 100);
+          } else {
+            Swal.fire(res.errors[0]);
+          }
+          console.log(res);
+        });
+    } else {
+      if(this.thisLang === 'en'){
+        Swal.fire('Failed', 'All Fields Must Filled', 'warning');
 
-        }else{
-          Swal.fire(res.errors[0]);
-
-        }
-        console.log(res);
-      });
+      }else if(this.thisLang === 'ar'){
+        Swal.fire('خطأ', 'يجب ملء جميع الحقول', 'warning');
+      }
+    }
   }
 
   orderPayment(orderId: any, payed: number) {
     return this.service.orderPayment(orderId, payed).subscribe((e: any) => {
-      window.open(`${e.url}`, '_blank');
+      // window.open(`${e.url}`, '_blank', 'location=yes,height=900,width=900,scrollbars=yes,status=yes');
+      window.open(`${e.url}`, '_self');
       // console.log(e.url, '333333333333333');
     });
   }

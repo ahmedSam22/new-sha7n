@@ -134,7 +134,7 @@ ul  {
   }
   
   .sidebar a:hover:not(.active) {
-    background-color:#FFFFFF;
+    background-color:#e3eef9;
     color: #0F4F56;
   }
   
@@ -229,7 +229,7 @@ ul  {
  }
 
  .active-link {
-  background-color: #fff !important;
+  background-color: #e3eef9 !important;
   padding: 0.3em 1em;
   /* color: black; */
 }

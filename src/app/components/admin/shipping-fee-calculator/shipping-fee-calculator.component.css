@@ -268,7 +268,7 @@ ul li{
     box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
     -webkit-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
-    width: 65%;
+    width: 50%;
     margin: auto;
     margin-bottom: 10px;
 }
@@ -312,8 +312,18 @@ ul li{
     .myCard .row img{
         margin: 0;
     }
+    .forBorder{
+        border-left: none;
+    }
+    .forBorder-rtl{
+        border-right: none;
+    } 
     .forBorder,.forBorder-rtl{
         border-bottom: 1px solid gray;
         padding: 0 40px;
     }
+   }
+
+   .fw-bolder{
+    font-weight: bolder;
    }

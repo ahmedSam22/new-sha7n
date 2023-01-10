@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
         
          if(this.id_code==1){
           setTimeout(() =>{
-            this.router.navigate(['admin/adminHome']);
+            this.router.navigate(['admin/adminHome']).then(()=>window.location.reload());
              },2000);
              this.service.new_order=this.id_code;
              console.log("LOG IN New Order ID = " ,this.service.new_order)
@@ -109,7 +109,7 @@ export class LoginComponent implements OnInit {
          else{
           setTimeout(() =>{
             this.router.navigate(['admin/shipping'],{queryParams : {case: 1,saudiHarbor : this.incomeKSAharbor,chinaHarbor:this.incomeChinaHarbor,shippingType : this.incomeShippingType,shipmentType : this.incomeShipmentType,weight : this.incomeWeight,length :this.incomeLength,width :this.incomeWidth , height :this.incomeHeight }}).then(()=>window.location.reload());
-            location.reload()
+            // location.reload()
              },2000);
              this.service.old_order=this.id_code;
              console.log("LOG IN Old Order ID = " ,this.service.old_order)

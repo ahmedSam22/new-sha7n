@@ -294,8 +294,19 @@ input::placeholder { /* Internet Explorer 10-11 */
     .myCard .row img{
         margin: 0;
     }
+    .forBorder{
+        border-left: none;
+    }
+    .forBorder-rtl{
+        border-right: none;
+    }
     .forBorder,.forBorder-rtl{
         border-bottom: 1px solid gray;
         padding: 0 40px;
     }
+   
+   }
+
+   .fw-bolder{
+    font-weight: bolder;
    }

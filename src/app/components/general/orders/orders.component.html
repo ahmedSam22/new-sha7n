@@ -239,7 +239,7 @@
             class="col-md-6"
             [ngClass]="thisLang === 'ltr' ? 'forBorder' : 'forBorder-rtl'"
           >
-            <div class="forImg d-flex justify-content-start w-50">
+            <div class="forImg d-flex justify-content-start align-items-center mb-3">
               <span class="mx-md-3">
                 <img
                   [src]="logo"
@@ -250,12 +250,12 @@
                   style="border-radius: 50%"
                 />
               </span>
-              <span class="w-50"> International Parcel </span>
+              <span class=""> International Parcel </span>
             </div>
-            <div class="forText d-flex flex-column mt-3">
+            <div class="forText d-flex flex-column">
               <span>{{ "shippingcharges" | translate }}</span>
               <span class="my-3" style="color: #32b457">
-                <h1>{{ costs }}$</h1>
+                <h1 class="fw-bolder">{{ costs }}$</h1>
               </span>
             </div>
           </div>
@@ -264,7 +264,7 @@
           <div class="col-md-12 d-flex justify-content-center">
             <button
               type="submit"
-              class="btn col-md-8 btnCalculating"
+              class="btn col-md-12 btnCalculating"
               id="btnCalculating"
               (click)="goadmindashboard()"
               
