@@ -319,11 +319,23 @@ ul li{
         border-right: none;
     } 
     .forBorder,.forBorder-rtl{
-        border-bottom: 1px solid gray;
+        border-bottom: none;
         padding: 0 40px;
+    }
+    .myCard{
+        /* display: none; */
+        box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+        -webkit-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+        -moz-box-shadow: 4px 2px 18px -1px rgba(0, 0, 0, 0.39);
+        width: 100%;
+    
     }
    }
 
    .fw-bolder{
     font-weight: bolder;
+   }
+
+   .forImg{
+    gap: 10px;
    }

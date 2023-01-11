@@ -301,7 +301,8 @@ input::placeholder { /* Internet Explorer 10-11 */
         border-right: none;
     }
     .forBorder,.forBorder-rtl{
-        border-bottom: 1px solid gray;
+        border-bottom: none;
+
         padding: 0 40px;
     }
    
@@ -309,4 +310,8 @@ input::placeholder { /* Internet Explorer 10-11 */
 
    .fw-bolder{
     font-weight: bolder;
+   }
+
+   .forImg{
+    gap: 10px;
    }

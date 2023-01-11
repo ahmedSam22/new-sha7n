@@ -92,7 +92,7 @@
 }
 
 .container-fluid .leftSide {
-    margin-top: 10%;
+    /* margin-top: 10%; */
 }
 
 .container-fluid .leftSide a {
@@ -255,4 +255,9 @@ input{
 .password-position-rtl{
     left: 10px;
     top: 12px;
+}
+
+
+.min-h-95{
+    min-height: 85vh;
 }

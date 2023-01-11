@@ -31,7 +31,7 @@
 }
 
 .container-fluid .leftSide form {
-    margin-top: 80px;
+    margin-top: 20px;
     position: relative;
     top: 10%;
     /* left: 20%; */
@@ -168,4 +168,8 @@
     background: #32b457;
     height: 3px;
 
+}
+
+.min-h-95{
+    min-height: 85vh;
 }

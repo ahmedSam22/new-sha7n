@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
 
   ) {
     if(localStorage.getItem("qadiautkCurrentUser")){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then(()=>window.location.reload());
     }
     this.route.queryParams.subscribe((params) => {
       this.phoneNumber = params['phone'];
@@ -113,7 +113,7 @@ export class SignUpComponent implements OnInit {
               //   console.log(e , "send sms from here")
               // })
               Swal.fire('نجاح', 'تم التسجيل بنجاح', 'success');
-              this.router.navigate(['/']);
+              this.router.navigate(['/']).then(()=>window.location.reload())
           },
           error: (error) => {
 
